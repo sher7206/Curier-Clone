@@ -10,6 +10,11 @@
 		18DE66A82965A067003324A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DE66A72965A067003324A5 /* AppDelegate.swift */; };
 		18DE66B12965A069003324A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18DE66B02965A069003324A5 /* Assets.xcassets */; };
 		18DE66B42965A069003324A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18DE66B22965A069003324A5 /* LaunchScreen.storyboard */; };
+		18DE66BF2966C521003324A5 /* SideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DE66BD2966C521003324A5 /* SideMenuVC.swift */; };
+		18DE66C02966C521003324A5 /* SideMenuVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DE66BE2966C521003324A5 /* SideMenuVC.xib */; };
+		18DE66C32966C54D003324A5 /* PostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DE66C12966C54D003324A5 /* PostVC.swift */; };
+		18DE66C42966C54D003324A5 /* PostVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DE66C22966C54D003324A5 /* PostVC.xib */; };
+		18DE66C62966C940003324A5 /* Ex+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DE66C52966C940003324A5 /* Ex+UIView.swift */; };
 		27B808DC2965C0A300E1357C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27B808DB2965C0A300E1357C /* Colors.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -19,6 +24,11 @@
 		18DE66B02965A069003324A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18DE66B32965A069003324A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		18DE66B52965A069003324A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18DE66BD2966C521003324A5 /* SideMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuVC.swift; sourceTree = "<group>"; };
+		18DE66BE2966C521003324A5 /* SideMenuVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SideMenuVC.xib; sourceTree = "<group>"; };
+		18DE66C12966C54D003324A5 /* PostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostVC.swift; sourceTree = "<group>"; };
+		18DE66C22966C54D003324A5 /* PostVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostVC.xib; sourceTree = "<group>"; };
+		18DE66C52966C940003324A5 /* Ex+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+UIView.swift"; sourceTree = "<group>"; };
 		27B808DB2965C0A300E1357C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -53,6 +63,11 @@
 			isa = PBXGroup;
 			children = (
 				18DE66A72965A067003324A5 /* AppDelegate.swift */,
+				18DE66C52966C940003324A5 /* Ex+UIView.swift */,
+				18DE66BD2966C521003324A5 /* SideMenuVC.swift */,
+				18DE66BE2966C521003324A5 /* SideMenuVC.xib */,
+				18DE66C12966C54D003324A5 /* PostVC.swift */,
+				18DE66C22966C54D003324A5 /* PostVC.xib */,
 				18DE66B02965A069003324A5 /* Assets.xcassets */,
 				18DE66B22965A069003324A5 /* LaunchScreen.storyboard */,
 				18DE66B52965A069003324A5 /* Info.plist */,
@@ -121,7 +136,9 @@
 			files = (
 				27B808DC2965C0A300E1357C /* Colors.xcassets in Resources */,
 				18DE66B42965A069003324A5 /* LaunchScreen.storyboard in Resources */,
+				18DE66C02966C521003324A5 /* SideMenuVC.xib in Resources */,
 				18DE66B12965A069003324A5 /* Assets.xcassets in Resources */,
+				18DE66C42966C54D003324A5 /* PostVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,7 +149,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18DE66C32966C54D003324A5 /* PostVC.swift in Sources */,
+				18DE66BF2966C521003324A5 /* SideMenuVC.swift in Sources */,
 				18DE66A82965A067003324A5 /* AppDelegate.swift in Sources */,
+				18DE66C62966C940003324A5 /* Ex+UIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
