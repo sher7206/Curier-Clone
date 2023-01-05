@@ -1,0 +1,16 @@
+PODS:
+  - SCPageControl (0.4.0)
+
+DEPENDENCIES:
+  - SCPageControl
+
+SPEC REPOS:
+  trunk:
+    - SCPageControl
+
+SPEC CHECKSUMS:
+  SCPageControl: 8a8dfbba7d7d8c66487a317cb4c4578a7e4af27a
+
+PODFILE CHECKSUM: 204c5380e2fe04c7c280a18b0fe089e72e2679ae
+
+COCOAPODS: 1.11.3
