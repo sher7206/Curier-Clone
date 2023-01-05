@@ -15,7 +15,12 @@
 		18DE66C32966C54D003324A5 /* PostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DE66C12966C54D003324A5 /* PostVC.swift */; };
 		18DE66C42966C54D003324A5 /* PostVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DE66C22966C54D003324A5 /* PostVC.xib */; };
 		18DE66C62966C940003324A5 /* Ex+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DE66C52966C940003324A5 /* Ex+UIView.swift */; };
+		27B7E3562966FD1B00C3A69E /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B7E3542966FD1B00C3A69E /* OnboardingVC.swift */; };
+		27B7E3572966FD1B00C3A69E /* OnboardingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27B7E3552966FD1B00C3A69E /* OnboardingVC.xib */; };
+		27B7E35B2966FEF500C3A69E /* OnboardingCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B7E3592966FEF500C3A69E /* OnboardingCVC.swift */; };
+		27B7E35C2966FEF500C3A69E /* OnboardingCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27B7E35A2966FEF500C3A69E /* OnboardingCVC.xib */; };
 		27B808DC2965C0A300E1357C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27B808DB2965C0A300E1357C /* Colors.xcassets */; };
+		305AA461FD9762D2FB4069B3 /* Pods_Express_Courier.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7515E66C971F51E4D1D05754 /* Pods_Express_Courier.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +34,14 @@
 		18DE66C12966C54D003324A5 /* PostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostVC.swift; sourceTree = "<group>"; };
 		18DE66C22966C54D003324A5 /* PostVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostVC.xib; sourceTree = "<group>"; };
 		18DE66C52966C940003324A5 /* Ex+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+UIView.swift"; sourceTree = "<group>"; };
+		27B7E3542966FD1B00C3A69E /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
+		27B7E3552966FD1B00C3A69E /* OnboardingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingVC.xib; sourceTree = "<group>"; };
+		27B7E3592966FEF500C3A69E /* OnboardingCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCVC.swift; sourceTree = "<group>"; };
+		27B7E35A2966FEF500C3A69E /* OnboardingCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingCVC.xib; sourceTree = "<group>"; };
 		27B808DB2965C0A300E1357C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		7515E66C971F51E4D1D05754 /* Pods_Express_Courier.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Express_Courier.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AECA3B6FA7DD6CDF1FF69094 /* Pods-Express Courier.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Express Courier.release.xcconfig"; path = "Target Support Files/Pods-Express Courier/Pods-Express Courier.release.xcconfig"; sourceTree = "<group>"; };
+		AFA739C01BEB9A5F6B80A6C5 /* Pods-Express Courier.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Express Courier.debug.xcconfig"; path = "Target Support Files/Pods-Express Courier/Pods-Express Courier.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,17 +49,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				305AA461FD9762D2FB4069B3 /* Pods_Express_Courier.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0FE2E41056C2B8BB4CCEF02D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AFA739C01BEB9A5F6B80A6C5 /* Pods-Express Courier.debug.xcconfig */,
+				AECA3B6FA7DD6CDF1FF69094 /* Pods-Express Courier.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		18DE669B2965A067003324A5 = {
 			isa = PBXGroup;
 			children = (
 				18DE66A62965A067003324A5 /* Express Courier */,
 				18DE66A52965A067003324A5 /* Products */,
+				0FE2E41056C2B8BB4CCEF02D /* Pods */,
+				6B739F688FC3BEC377E3BA6A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +86,9 @@
 		18DE66A62965A067003324A5 /* Express Courier */ = {
 			isa = PBXGroup;
 			children = (
+				27B7E3522966FCD700C3A69E /* CVC */,
+				27B7E3512966FCD100C3A69E /* TVC */,
+				27B7E3502966FCC800C3A69E /* VC */,
 				18DE66A72965A067003324A5 /* AppDelegate.swift */,
 				18DE66C52966C940003324A5 /* Ex+UIView.swift */,
 				18DE66BD2966C521003324A5 /* SideMenuVC.swift */,
@@ -76,6 +103,55 @@
 			path = "Express Courier";
 			sourceTree = "<group>";
 		};
+		27B7E3502966FCC800C3A69E /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				27B7E3532966FCE700C3A69E /* Onboarding */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		27B7E3512966FCD100C3A69E /* TVC */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TVC;
+			sourceTree = "<group>";
+		};
+		27B7E3522966FCD700C3A69E /* CVC */ = {
+			isa = PBXGroup;
+			children = (
+				27B7E3582966FEDD00C3A69E /* Onboarding */,
+			);
+			path = CVC;
+			sourceTree = "<group>";
+		};
+		27B7E3532966FCE700C3A69E /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				27B7E3542966FD1B00C3A69E /* OnboardingVC.swift */,
+				27B7E3552966FD1B00C3A69E /* OnboardingVC.xib */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		27B7E3582966FEDD00C3A69E /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				27B7E3592966FEF500C3A69E /* OnboardingCVC.swift */,
+				27B7E35A2966FEF500C3A69E /* OnboardingCVC.xib */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		6B739F688FC3BEC377E3BA6A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7515E66C971F51E4D1D05754 /* Pods_Express_Courier.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -83,9 +159,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 18DE66B82965A069003324A5 /* Build configuration list for PBXNativeTarget "Express Courier" */;
 			buildPhases = (
+				E684A9B6C76F3B4D18D888D2 /* [CP] Check Pods Manifest.lock */,
 				18DE66A02965A067003324A5 /* Sources */,
 				18DE66A12965A067003324A5 /* Frameworks */,
 				18DE66A22965A067003324A5 /* Resources */,
+				FC9756C3989934F0F9AC82E7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -137,12 +215,56 @@
 				27B808DC2965C0A300E1357C /* Colors.xcassets in Resources */,
 				18DE66B42965A069003324A5 /* LaunchScreen.storyboard in Resources */,
 				18DE66C02966C521003324A5 /* SideMenuVC.xib in Resources */,
+				27B7E35C2966FEF500C3A69E /* OnboardingCVC.xib in Resources */,
 				18DE66B12965A069003324A5 /* Assets.xcassets in Resources */,
 				18DE66C42966C54D003324A5 /* PostVC.xib in Resources */,
+				27B7E3572966FD1B00C3A69E /* OnboardingVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E684A9B6C76F3B4D18D888D2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Express Courier-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FC9756C3989934F0F9AC82E7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Express Courier/Pods-Express Courier-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Express Courier/Pods-Express Courier-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Express Courier/Pods-Express Courier-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		18DE66A02965A067003324A5 /* Sources */ = {
@@ -150,7 +272,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				18DE66C32966C54D003324A5 /* PostVC.swift in Sources */,
+				27B7E35B2966FEF500C3A69E /* OnboardingCVC.swift in Sources */,
 				18DE66BF2966C521003324A5 /* SideMenuVC.swift in Sources */,
+				27B7E3562966FD1B00C3A69E /* OnboardingVC.swift in Sources */,
 				18DE66A82965A067003324A5 /* AppDelegate.swift in Sources */,
 				18DE66C62966C940003324A5 /* Ex+UIView.swift in Sources */,
 			);
@@ -288,6 +412,7 @@
 		};
 		18DE66B92965A069003324A5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AFA739C01BEB9A5F6B80A6C5 /* Pods-Express Courier.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -316,6 +441,7 @@
 		};
 		18DE66BA2965A069003324A5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AECA3B6FA7DD6CDF1FF69094 /* Pods-Express Courier.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
