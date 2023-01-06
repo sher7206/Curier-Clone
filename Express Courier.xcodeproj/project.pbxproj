@@ -22,6 +22,10 @@
 		18DE66C62966C940003324A5 /* Ex+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DE66C52966C940003324A5 /* Ex+UIView.swift */; };
 		27197AE629680B5300B53B25 /* KabinetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27197AE429680B5300B53B25 /* KabinetVC.swift */; };
 		27197AE729680B5300B53B25 /* KabinetVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27197AE529680B5300B53B25 /* KabinetVC.xib */; };
+		278645162968466E000FD251 /* MyKabinetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278645142968466E000FD251 /* MyKabinetVC.swift */; };
+		278645172968466E000FD251 /* MyKabinetVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 278645152968466E000FD251 /* MyKabinetVC.xib */; };
+		2786451B29684818000FD251 /* MyInfoTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2786451929684818000FD251 /* MyInfoTVC.swift */; };
+		2786451C29684818000FD251 /* MyInfoTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2786451A29684818000FD251 /* MyInfoTVC.xib */; };
 		279BAAB1296825490028B2EC /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279BAAAF296825490028B2EC /* RegisterVC.swift */; };
 		279BAAB2296825490028B2EC /* RegisterVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 279BAAB0296825490028B2EC /* RegisterVC.xib */; };
 		27B7E3562966FD1B00C3A69E /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B7E3542966FD1B00C3A69E /* OnboardingVC.swift */; };
@@ -52,6 +56,10 @@
 		18DE66C52966C940003324A5 /* Ex+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+UIView.swift"; sourceTree = "<group>"; };
 		27197AE429680B5300B53B25 /* KabinetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KabinetVC.swift; sourceTree = "<group>"; };
 		27197AE529680B5300B53B25 /* KabinetVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KabinetVC.xib; sourceTree = "<group>"; };
+		278645142968466E000FD251 /* MyKabinetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyKabinetVC.swift; sourceTree = "<group>"; };
+		278645152968466E000FD251 /* MyKabinetVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyKabinetVC.xib; sourceTree = "<group>"; };
+		2786451929684818000FD251 /* MyInfoTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoTVC.swift; sourceTree = "<group>"; };
+		2786451A29684818000FD251 /* MyInfoTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyInfoTVC.xib; sourceTree = "<group>"; };
 		279BAAAF296825490028B2EC /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		279BAAB0296825490028B2EC /* RegisterVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterVC.xib; sourceTree = "<group>"; };
 		27B7E3542966FD1B00C3A69E /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
@@ -135,6 +143,7 @@
 		18AF68DD296844D500B35B64 /* TVC */ = {
 			isa = PBXGroup;
 			children = (
+				27864518296847FA000FD251 /* MyKabinet */,
 				18AF68D2296833C000B35B64 /* PostTVC */,
 			);
 			path = TVC;
@@ -161,10 +170,10 @@
 		18DE66A62965A067003324A5 /* Express Courier */ = {
 			isa = PBXGroup;
 			children = (
-				18AF68DD296844D500B35B64 /* TVC */,
-				18AF68D52968347000B35B64 /* Extensions */,
 				279BAAAA29681F8B0028B2EC /* AppDelegate */,
+				18AF68D52968347000B35B64 /* Extensions */,
 				27B7E3522966FCD700C3A69E /* CVC */,
+				18AF68DD296844D500B35B64 /* TVC */,
 				27B7E3502966FCC800C3A69E /* VC */,
 				18DE66B02965A069003324A5 /* Assets.xcassets */,
 				18DE66B22965A069003324A5 /* LaunchScreen.storyboard */,
@@ -185,6 +194,24 @@
 			path = Authorization;
 			sourceTree = "<group>";
 		};
+		2786450F29684624000FD251 /* MyKabinet */ = {
+			isa = PBXGroup;
+			children = (
+				278645142968466E000FD251 /* MyKabinetVC.swift */,
+				278645152968466E000FD251 /* MyKabinetVC.xib */,
+			);
+			path = MyKabinet;
+			sourceTree = "<group>";
+		};
+		27864518296847FA000FD251 /* MyKabinet */ = {
+			isa = PBXGroup;
+			children = (
+				2786451929684818000FD251 /* MyInfoTVC.swift */,
+				2786451A29684818000FD251 /* MyInfoTVC.xib */,
+			);
+			path = MyKabinet;
+			sourceTree = "<group>";
+		};
 		279BAAAA29681F8B0028B2EC /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
@@ -196,6 +223,7 @@
 		27B7E3502966FCC800C3A69E /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				2786450F29684624000FD251 /* MyKabinet */,
 				18AF68D62968348500B35B64 /* SideMenu */,
 				18AF68D4296833E700B35B64 /* PostVC */,
 				27197AE329680B3D00B53B25 /* Authorization */,
@@ -304,10 +332,12 @@
 				18DE66C02966C521003324A5 /* SideMenuVC.xib in Resources */,
 				18AF68D9296836DE00B35B64 /* HeaderCVC.xib in Resources */,
 				279BAAB2296825490028B2EC /* RegisterVC.xib in Resources */,
+				2786451C29684818000FD251 /* MyInfoTVC.xib in Resources */,
 				27B7E35C2966FEF500C3A69E /* OnboardingCVC.xib in Resources */,
 				18DE66B12965A069003324A5 /* Assets.xcassets in Resources */,
 				27197AE729680B5300B53B25 /* KabinetVC.xib in Resources */,
 				18DE66C42966C54D003324A5 /* PostVC.xib in Resources */,
+				278645172968466E000FD251 /* MyKabinetVC.xib in Resources */,
 				27B7E3572966FD1B00C3A69E /* OnboardingVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,12 +392,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				18AF68CF29682A3B00B35B64 /* PostInsideCVC.swift in Sources */,
+				2786451B29684818000FD251 /* MyInfoTVC.swift in Sources */,
 				18AF68DC29683DD700B35B64 /* Ex+String.swift in Sources */,
 				18DE66C32966C54D003324A5 /* PostVC.swift in Sources */,
 				279BAAB1296825490028B2EC /* RegisterVC.swift in Sources */,
 				27B7E35B2966FEF500C3A69E /* OnboardingCVC.swift in Sources */,
 				18DE66BF2966C521003324A5 /* SideMenuVC.swift in Sources */,
 				27B7E3562966FD1B00C3A69E /* OnboardingVC.swift in Sources */,
+				278645162968466E000FD251 /* MyKabinetVC.swift in Sources */,
 				18DE66A82965A067003324A5 /* AppDelegate.swift in Sources */,
 				187537782968060000A1B91B /* PostTVC.swift in Sources */,
 				18DE66C62966C940003324A5 /* Ex+UIView.swift in Sources */,
