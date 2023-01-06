@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         
         window = UIWindow()
-        let vc = PostVC()
+        let vc = MyKabinetVC()
         let nav = UINavigationController(rootViewController: vc)
         window?.rootViewController = nav
         window?.makeKeyAndVisible()
