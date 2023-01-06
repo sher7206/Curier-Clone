@@ -9,15 +9,12 @@ import UIKit
 
 class PostVC: UIViewController {
 
-    
     @IBOutlet weak var fromRegionLbl: UILabel!
     @IBOutlet weak var toRegionLbl: UILabel!
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigation()
-        
         title = "Pochta"
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
@@ -31,7 +28,6 @@ class PostVC: UIViewController {
         navigationItem.leftBarButtonItem = menuBtn
         let filterBtn = UIBarButtonItem(image: UIImage(named: "filter-post"), style: .plain, target: self, action: #selector(filterBtnPressed))
         navigationItem.rightBarButtonItem = filterBtn
-
     }
     
     @objc func menuBtnPressed(){
@@ -41,9 +37,11 @@ class PostVC: UIViewController {
         present(nav, animated: false, completion: nil)
     }
     
+    
     @objc func filterBtnPressed(){
         
     }
+    
     
     @IBAction func fromButtonPressed(_ sender: Any) {
     }
@@ -56,6 +54,5 @@ class PostVC: UIViewController {
     @IBAction func exchangeBtnPressed(_ sender: Any) {
     }
 
-    
     
 }
