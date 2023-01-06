@@ -16,6 +16,10 @@ class PostTVC: UITableViewCell {
     @IBOutlet weak var idLbl: UILabel!
     @IBOutlet weak var arrivingDateLbl: UILabel!
     @IBOutlet weak var senderLbl: UILabel!
+
+    
+    static let identifier = "PostTVC"
+    static func nib()->UINib{return UINib(nibName: identifier, bundle: nil)}
     
     override func awakeFromNib() {
         super.awakeFromNib()

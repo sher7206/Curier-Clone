@@ -1,9 +1,6 @@
-//
 //  SideMenuVC.swift
 //  Express Courier
-//
 //  Created by apple on 05/01/23.
-//
 
 import UIKit
 
@@ -39,7 +36,6 @@ class SideMenuVC: UIViewController {
             blurView.alpha = 1
         }
     }
-
     
     @IBAction func itemBtnPressed(_ sender: UIButton) {
         for i in contViews{
@@ -56,7 +52,5 @@ class SideMenuVC: UIViewController {
             self.dismiss(animated: false, completion: nil)
         }
     }
-    
-    
     
 }
