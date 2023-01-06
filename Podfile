@@ -7,5 +7,8 @@ target 'Express Courier' do
 
   # Pods for Express Courier
  pod 'SCPageControl'
+ pod "SwiftPhoneNumberFormatter"
+ pod "IQKeyboardManagerSwift"
+
 
 end

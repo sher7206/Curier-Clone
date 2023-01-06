@@ -46,10 +46,10 @@ class OnboardingVC: UIViewController {
             }
         } else {
             self.nextLbl = "Tushundim"
-            print("✅ done!")
-//            let vc = KabinetVC()
-//            vc.modalPresentationStyle = .overCurrentContext
-//            self.present(vc, animated: true)
+            let vc = PostVC()
+            vc.modalPresentationStyle = .overFullScreen
+            self.present(vc, animated: true)
+            
         }
     }
     

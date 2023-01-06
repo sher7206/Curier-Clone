@@ -1,16 +1,24 @@
 PODS:
+  - IQKeyboardManagerSwift (6.5.10)
   - SCPageControl (0.4.0)
+  - SwiftPhoneNumberFormatter (1.5)
 
 DEPENDENCIES:
+  - IQKeyboardManagerSwift
   - SCPageControl
+  - SwiftPhoneNumberFormatter
 
 SPEC REPOS:
   trunk:
+    - IQKeyboardManagerSwift
     - SCPageControl
+    - SwiftPhoneNumberFormatter
 
 SPEC CHECKSUMS:
+  IQKeyboardManagerSwift: 52962c76ab33532f15ad9f3ff4e5715eda5335bb
   SCPageControl: 8a8dfbba7d7d8c66487a317cb4c4578a7e4af27a
+  SwiftPhoneNumberFormatter: 0cc91f4daa06dd606a9defb21048a75c36a771a2
 
-PODFILE CHECKSUM: 204c5380e2fe04c7c280a18b0fe089e72e2679ae
+PODFILE CHECKSUM: 02e0c45e82c01298fb976ce42e7aa594c0f13c77
 
 COCOAPODS: 1.11.3
