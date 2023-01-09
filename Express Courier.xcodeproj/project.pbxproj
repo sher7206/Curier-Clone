@@ -39,11 +39,10 @@
 		18DA32E2296BFCE10066FF9C /* PaymentTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DA32DA296BFCE10066FF9C /* PaymentTVC.swift */; };
 		18DA32E3296BFCE10066FF9C /* MyCategoryTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DA32DB296BFCE10066FF9C /* MyCategoryTVC.swift */; };
 		18DA32E4296BFCE10066FF9C /* NotificationTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DA32DC296BFCE10066FF9C /* NotificationTVC.xib */; };
+		18DA32E7296C0D430066FF9C /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DA32E6296C0D430066FF9C /* MainTabBarController.swift */; };
 		18DE66A82965A067003324A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DE66A72965A067003324A5 /* AppDelegate.swift */; };
 		18DE66B12965A069003324A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18DE66B02965A069003324A5 /* Assets.xcassets */; };
 		18DE66B42965A069003324A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18DE66B22965A069003324A5 /* LaunchScreen.storyboard */; };
-		18DE66BF2966C521003324A5 /* SideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DE66BD2966C521003324A5 /* SideMenuVC.swift */; };
-		18DE66C02966C521003324A5 /* SideMenuVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DE66BE2966C521003324A5 /* SideMenuVC.xib */; };
 		18DE66C32966C54D003324A5 /* PostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DE66C12966C54D003324A5 /* PostVC.swift */; };
 		18DE66C42966C54D003324A5 /* PostVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DE66C22966C54D003324A5 /* PostVC.xib */; };
 		18DE66C62966C940003324A5 /* Ex+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DE66C52966C940003324A5 /* Ex+UIView.swift */; };
@@ -94,13 +93,12 @@
 		18DA32DA296BFCE10066FF9C /* PaymentTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentTVC.swift; sourceTree = "<group>"; };
 		18DA32DB296BFCE10066FF9C /* MyCategoryTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCategoryTVC.swift; sourceTree = "<group>"; };
 		18DA32DC296BFCE10066FF9C /* NotificationTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationTVC.xib; sourceTree = "<group>"; };
+		18DA32E6296C0D430066FF9C /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		18DE66A42965A067003324A5 /* Express Courier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Express Courier.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18DE66A72965A067003324A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18DE66B02965A069003324A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18DE66B32965A069003324A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		18DE66B52965A069003324A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		18DE66BD2966C521003324A5 /* SideMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuVC.swift; sourceTree = "<group>"; };
-		18DE66BE2966C521003324A5 /* SideMenuVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SideMenuVC.xib; sourceTree = "<group>"; };
 		18DE66C12966C54D003324A5 /* PostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostVC.swift; sourceTree = "<group>"; };
 		18DE66C22966C54D003324A5 /* PostVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostVC.xib; sourceTree = "<group>"; };
 		18DE66C52966C940003324A5 /* Ex+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+UIView.swift"; sourceTree = "<group>"; };
@@ -164,6 +162,7 @@
 		18AF68D4296833E700B35B64 /* PostVC */ = {
 			isa = PBXGroup;
 			children = (
+				18DA32E6296C0D430066FF9C /* MainTabBarController.swift */,
 				18AF68EE29698E5400B35B64 /* PostAgreemantVC.swift */,
 				18AF68EF29698E5400B35B64 /* PostAgreemantVC.xib */,
 				18DE66C12966C54D003324A5 /* PostVC.swift */,
@@ -181,15 +180,6 @@
 				18AF68DB29683DD700B35B64 /* Ex+String.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		18AF68D62968348500B35B64 /* SideMenu */ = {
-			isa = PBXGroup;
-			children = (
-				18DE66BD2966C521003324A5 /* SideMenuVC.swift */,
-				18DE66BE2966C521003324A5 /* SideMenuVC.xib */,
-			);
-			path = SideMenu;
 			sourceTree = "<group>";
 		};
 		18AF68DD296844D500B35B64 /* TVC */ = {
@@ -295,7 +285,6 @@
 			isa = PBXGroup;
 			children = (
 				2786450F29684624000FD251 /* MyKabinet */,
-				18AF68D62968348500B35B64 /* SideMenu */,
 				18AF68D4296833E700B35B64 /* PostVC */,
 				27197AE329680B3D00B53B25 /* Authorization */,
 				27B7E3532966FCE700C3A69E /* Onboarding */,
@@ -403,7 +392,6 @@
 				18DA32CE296BFCC00066FF9C /* PayAccountVC.xib in Resources */,
 				18AF68E5296858F000B35B64 /* PostInsideTVC.xib in Resources */,
 				18DE66B42965A069003324A5 /* LaunchScreen.storyboard in Resources */,
-				18DE66C02966C521003324A5 /* SideMenuVC.xib in Resources */,
 				18AF68D9296836DE00B35B64 /* HeaderCVC.xib in Resources */,
 				18DA32E1296BFCE10066FF9C /* MyInfoTVC.xib in Resources */,
 				18DA32DF296BFCE10066FF9C /* PaymentTVC.xib in Resources */,
@@ -488,13 +476,13 @@
 				18DA32CD296BFCC00066FF9C /* PaymentHistoryVC.swift in Sources */,
 				18DA32D4296BFCC10066FF9C /* MyKabinetVC.swift in Sources */,
 				18DA32C8296BFCC00066FF9C /* PayAccountVC.swift in Sources */,
-				18DE66BF2966C521003324A5 /* SideMenuVC.swift in Sources */,
 				18AF68F029698E5500B35B64 /* PostAgreemantVC.swift in Sources */,
 				18DA32C9296BFCC00066FF9C /* PinkodVC.swift in Sources */,
 				18AF68E4296858F000B35B64 /* PostInsideTVC.swift in Sources */,
 				27B7E3562966FD1B00C3A69E /* OnboardingVC.swift in Sources */,
 				18AF68F42969B15A00B35B64 /* ArrivedPostVC.swift in Sources */,
 				18DE66A82965A067003324A5 /* AppDelegate.swift in Sources */,
+				18DA32E7296C0D430066FF9C /* MainTabBarController.swift in Sources */,
 				18DE66C62966C940003324A5 /* Ex+UIView.swift in Sources */,
 				18AF68DA296836DE00B35B64 /* HeaderCVC.swift in Sources */,
 				270273D0296C0B6900687A2A /* NotificationViewController.swift in Sources */,

@@ -3,9 +3,7 @@
 //  Express Courier
 //  Created by apple on 05/01/23.
 
-
 import UIKit
-
 class PostVC: UIViewController {
 
     @IBOutlet weak var fromRegionLbl: UILabel!
@@ -78,10 +76,6 @@ class PostVC: UIViewController {
     
     
     @objc func menuBtnPressed(){
-        let vc = SideMenuVC(nibName: "SideMenuVC", bundle: nil)
-        let nav = UINavigationController(rootViewController: vc)
-        nav.modalPresentationStyle = .overFullScreen
-        present(nav, animated: false, completion: nil)
     }
     
     @objc func filterBtnPressed(){
