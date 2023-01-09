@@ -1,14 +1,10 @@
-//
+
 //  NotificationVC.swift
 //  Express Courier
-//
 //  Created by Sherzod on 07/01/23.
-//
 
 import UIKit
-
 class NotificationVC: UIViewController {
-    
     
     @IBOutlet weak var tableView: UITableView!
     

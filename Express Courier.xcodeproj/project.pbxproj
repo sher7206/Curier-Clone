@@ -40,6 +40,8 @@
 		18DA32E3296BFCE10066FF9C /* MyCategoryTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DA32DB296BFCE10066FF9C /* MyCategoryTVC.swift */; };
 		18DA32E4296BFCE10066FF9C /* NotificationTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DA32DC296BFCE10066FF9C /* NotificationTVC.xib */; };
 		18DA32E7296C0D430066FF9C /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DA32E6296C0D430066FF9C /* MainTabBarController.swift */; };
+		18DA32EB296C1F060066FF9C /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DA32E9296C1F050066FF9C /* Alert.swift */; };
+		18DA32EC296C1F060066FF9C /* Vibration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DA32EA296C1F050066FF9C /* Vibration.swift */; };
 		18DE66A82965A067003324A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DE66A72965A067003324A5 /* AppDelegate.swift */; };
 		18DE66B12965A069003324A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18DE66B02965A069003324A5 /* Assets.xcassets */; };
 		18DE66B42965A069003324A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18DE66B22965A069003324A5 /* LaunchScreen.storyboard */; };
@@ -94,6 +96,8 @@
 		18DA32DB296BFCE10066FF9C /* MyCategoryTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCategoryTVC.swift; sourceTree = "<group>"; };
 		18DA32DC296BFCE10066FF9C /* NotificationTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationTVC.xib; sourceTree = "<group>"; };
 		18DA32E6296C0D430066FF9C /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		18DA32E9296C1F050066FF9C /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		18DA32EA296C1F050066FF9C /* Vibration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vibration.swift; sourceTree = "<group>"; };
 		18DE66A42965A067003324A5 /* Express Courier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Express Courier.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18DE66A72965A067003324A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18DE66B02965A069003324A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -191,6 +195,15 @@
 			path = TVC;
 			sourceTree = "<group>";
 		};
+		18DA32E8296C1EF20066FF9C /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				18DA32E9296C1F050066FF9C /* Alert.swift */,
+				18DA32EA296C1F050066FF9C /* Vibration.swift */,
+			);
+			path = Alert;
+			sourceTree = "<group>";
+		};
 		18DE669B2965A067003324A5 = {
 			isa = PBXGroup;
 			children = (
@@ -212,6 +225,7 @@
 		18DE66A62965A067003324A5 /* Express Courier */ = {
 			isa = PBXGroup;
 			children = (
+				18DA32E8296C1EF20066FF9C /* Alert */,
 				279BAAAA29681F8B0028B2EC /* AppDelegate */,
 				18AF68D52968347000B35B64 /* Extensions */,
 				27B7E3522966FCD700C3A69E /* CVC */,
@@ -463,6 +477,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18DA32EC296C1F060066FF9C /* Vibration.swift in Sources */,
 				18DA32E0296BFCE10066FF9C /* MyInfoTVC.swift in Sources */,
 				18DA32DD296BFCE10066FF9C /* NotificationTVC.swift in Sources */,
 				18DA32CA296BFCC00066FF9C /* SettingsVC.swift in Sources */,
@@ -472,6 +487,7 @@
 				18DA32E2296BFCE10066FF9C /* PaymentTVC.swift in Sources */,
 				279BAAB1296825490028B2EC /* RegisterVC.swift in Sources */,
 				18DA32D3296BFCC10066FF9C /* SetupPinKodVC.swift in Sources */,
+				18DA32EB296C1F060066FF9C /* Alert.swift in Sources */,
 				27B7E35B2966FEF500C3A69E /* OnboardingCVC.swift in Sources */,
 				18DA32CD296BFCC00066FF9C /* PaymentHistoryVC.swift in Sources */,
 				18DA32D4296BFCC10066FF9C /* MyKabinetVC.swift in Sources */,
