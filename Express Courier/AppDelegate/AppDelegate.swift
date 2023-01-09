@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         IQKeyboardManager.shared.enable = true
         window = UIWindow()
-        let vc = PostVC()
+        let vc = MyKabinetVC()
         let nav = UINavigationController(rootViewController: vc)
         window?.rootViewController = nav
         window?.makeKeyAndVisible()

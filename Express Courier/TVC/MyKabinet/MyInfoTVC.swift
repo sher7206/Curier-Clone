@@ -9,15 +9,22 @@ import UIKit
 
 class MyInfoTVC: UITableViewCell {
 
+    @IBOutlet weak var personImage: UIImageView!
+    @IBOutlet weak var personName: UILabel!
+    @IBOutlet weak var personPhoneNumber: UILabel!
+    @IBOutlet weak var personId: UILabel!
+    @IBOutlet weak var walletLbl: UILabel!
+    @IBOutlet weak var shotLbl: UILabel!
+    @IBOutlet weak var levelLbl: UILabel!
+    
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        
     }
     
+    func updateCell() {
+        
+    }
 }

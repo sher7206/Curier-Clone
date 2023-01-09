@@ -4,15 +4,14 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyKabinetVC" customModule="Express_Courier" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PaymentHistoryVC" customModule="Express_Courier" customModuleProvider="target">
             <connections>
-                <outlet property="tableView" destination="lvf-A1-7qr" id="fSH-xD-Nx9"/>
+                <outlet property="tableView" destination="WGb-fQ-lVg" id="QJg-in-Zq0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,26 +20,23 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="lvf-A1-7qr">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="WGb-fQ-lVg">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" name="primary900"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="lvf-A1-7qr" secondAttribute="bottom" id="PeS-0C-kKp"/>
-                <constraint firstItem="lvf-A1-7qr" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Q46-Xs-SLJ"/>
-                <constraint firstItem="lvf-A1-7qr" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="dFz-Xv-aEw"/>
-                <constraint firstAttribute="trailing" secondItem="lvf-A1-7qr" secondAttribute="trailing" id="fmn-CV-wQw"/>
+                <constraint firstAttribute="bottom" secondItem="WGb-fQ-lVg" secondAttribute="bottom" id="BAV-Rc-Ncs"/>
+                <constraint firstAttribute="trailing" secondItem="WGb-fQ-lVg" secondAttribute="trailing" id="YPc-Hl-eJG"/>
+                <constraint firstItem="WGb-fQ-lVg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="veu-AN-Fdc"/>
+                <constraint firstItem="WGb-fQ-lVg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="wcq-BA-bq3"/>
             </constraints>
-            <point key="canvasLocation" x="139.13043478260872" y="19.419642857142858"/>
+            <point key="canvasLocation" x="137.68115942028987" y="19.419642857142858"/>
         </view>
     </objects>
     <resources>
-        <namedColor name="primary900">
-            <color red="0.94099998474121094" green="0.70599997043609619" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
