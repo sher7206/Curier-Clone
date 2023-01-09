@@ -85,7 +85,7 @@ extension MyKabinetVC: UITableViewDelegate, UITableViewDataSource {
             let vc = PayAccountVC()
             navigationController?.pushViewController(vc, animated: true)
         } else if indexPath.row == 2 {
-            let vc = NotificationVC()
+            let vc = NotificationViewController()
             navigationController?.pushViewController(vc, animated: true)
         } else if indexPath.row == 4 {
             let vc = SettingsVC()

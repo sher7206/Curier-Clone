@@ -46,6 +46,8 @@
 		18DE66C32966C54D003324A5 /* PostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DE66C12966C54D003324A5 /* PostVC.swift */; };
 		18DE66C42966C54D003324A5 /* PostVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DE66C22966C54D003324A5 /* PostVC.xib */; };
 		18DE66C62966C940003324A5 /* Ex+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DE66C52966C940003324A5 /* Ex+UIView.swift */; };
+		270273D0296C0B6900687A2A /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270273CE296C0B6900687A2A /* NotificationViewController.swift */; };
+		270273D1296C0B6900687A2A /* NotificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 270273CF296C0B6900687A2A /* NotificationViewController.xib */; };
 		27197AE629680B5300B53B25 /* KabinetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27197AE429680B5300B53B25 /* KabinetVC.swift */; };
 		27197AE729680B5300B53B25 /* KabinetVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27197AE529680B5300B53B25 /* KabinetVC.xib */; };
 		279BAAB1296825490028B2EC /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279BAAAF296825490028B2EC /* RegisterVC.swift */; };
@@ -100,6 +102,8 @@
 		18DE66C12966C54D003324A5 /* PostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostVC.swift; sourceTree = "<group>"; };
 		18DE66C22966C54D003324A5 /* PostVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostVC.xib; sourceTree = "<group>"; };
 		18DE66C52966C940003324A5 /* Ex+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+UIView.swift"; sourceTree = "<group>"; };
+		270273CE296C0B6900687A2A /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		270273CF296C0B6900687A2A /* NotificationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationViewController.xib; sourceTree = "<group>"; };
 		27197AE429680B5300B53B25 /* KabinetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KabinetVC.swift; sourceTree = "<group>"; };
 		27197AE529680B5300B53B25 /* KabinetVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KabinetVC.xib; sourceTree = "<group>"; };
 		279BAAAF296825490028B2EC /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
@@ -187,13 +191,6 @@
 			path = TVC;
 			sourceTree = "<group>";
 		};
-		18DA32E5296BFD1F0066FF9C /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		18DE669B2965A067003324A5 = {
 			isa = PBXGroup;
 			children = (
@@ -215,7 +212,6 @@
 		18DE66A62965A067003324A5 /* Express Courier */ = {
 			isa = PBXGroup;
 			children = (
-				18DA32E5296BFD1F0066FF9C /* Model */,
 				279BAAAA29681F8B0028B2EC /* AppDelegate */,
 				18AF68D52968347000B35B64 /* Extensions */,
 				27B7E3522966FCD700C3A69E /* CVC */,
@@ -256,6 +252,8 @@
 				18DA32C3296BFCC00066FF9C /* SettingsVC.xib */,
 				18DA32C6296BFCC00066FF9C /* SetupPinKodVC.swift */,
 				18DA32C5296BFCC00066FF9C /* SetupPinKodVC.xib */,
+				270273CE296C0B6900687A2A /* NotificationViewController.swift */,
+				270273CF296C0B6900687A2A /* NotificationViewController.xib */,
 			);
 			path = MyKabinet;
 			sourceTree = "<group>";
@@ -408,6 +406,7 @@
 				18DA32D2296BFCC10066FF9C /* SetupPinKodVC.xib in Resources */,
 				18DE66C42966C54D003324A5 /* PostVC.xib in Resources */,
 				18DA32D1296BFCC00066FF9C /* PinkodVC.xib in Resources */,
+				270273D1296C0B6900687A2A /* NotificationViewController.xib in Resources */,
 				18DA32CF296BFCC00066FF9C /* PaymentHistoryVC.xib in Resources */,
 				18DA32D0296BFCC00066FF9C /* SettingsVC.xib in Resources */,
 				18AF68F52969B15A00B35B64 /* ArrivedPostVC.xib in Resources */,
@@ -486,6 +485,7 @@
 				18DA32E7296C0D430066FF9C /* MainTabBarController.swift in Sources */,
 				18DE66C62966C940003324A5 /* Ex+UIView.swift in Sources */,
 				18AF68DA296836DE00B35B64 /* HeaderCVC.swift in Sources */,
+				270273D0296C0B6900687A2A /* NotificationViewController.swift in Sources */,
 				18AF68E029684E2D00B35B64 /* PostCVC.swift in Sources */,
 				18DA32E3296BFCE10066FF9C /* MyCategoryTVC.swift in Sources */,
 				27197AE629680B5300B53B25 /* KabinetVC.swift in Sources */,
@@ -630,7 +630,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = YM5H6L638F;
+				DEVELOPMENT_TEAM = P4Q44BG5PV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Express Courier/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -659,7 +659,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = YM5H6L638F;
+				DEVELOPMENT_TEAM = P4Q44BG5PV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Express Courier/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
