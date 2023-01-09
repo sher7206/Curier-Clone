@@ -48,8 +48,8 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         return vc
     }()
 
-    private lazy var profile: PostVC = {
-        let vc = PostVC(nibName: "PostVC", bundle: nil)
+    private lazy var profile: MyKabinetVC = {
+        let vc = MyKabinetVC(nibName: "MyKabinetVC", bundle: nil)
         vc.tabBarItem = UITabBarItem(
             title: nil,
             image: UIImage(named: "support-menu"),
