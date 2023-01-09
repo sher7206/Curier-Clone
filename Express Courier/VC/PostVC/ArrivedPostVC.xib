@@ -6,6 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -131,16 +132,42 @@
                         </stackView>
                     </subviews>
                 </stackView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manzil" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7cq-hq-ZdT">
+                    <rect key="frame" x="16" y="176" width="382" height="21.5"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UeT-PD-ni3">
+                    <rect key="frame" x="16" y="213.5" width="382" height="150"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="150" id="VIN-yd-5fX"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Jo‘natuvchi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4rO-jA-2p2">
+                    <rect key="frame" x="98" y="590" width="74" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" name="black700"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="white300"/>
             <constraints>
                 <constraint firstItem="1gl-87-fap" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="0AS-2U-GnW"/>
+                <constraint firstItem="UeT-PD-ni3" firstAttribute="top" secondItem="7cq-hq-ZdT" secondAttribute="bottom" constant="16" id="4Xp-w1-7Bl"/>
                 <constraint firstItem="UXJ-s8-7lh" firstAttribute="top" secondItem="1gl-87-fap" secondAttribute="bottom" constant="16" id="8h0-51-12F"/>
+                <constraint firstItem="7cq-hq-ZdT" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="OeJ-YB-oHN"/>
                 <constraint firstItem="1gl-87-fap" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="OgH-yg-gqY"/>
+                <constraint firstItem="UeT-PD-ni3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="Wna-Vc-5cx"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="UXJ-s8-7lh" secondAttribute="trailing" constant="16" id="XZK-Cs-E70"/>
                 <constraint firstItem="1gl-87-fap" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="gUV-cV-xwc"/>
                 <constraint firstItem="UXJ-s8-7lh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="j9I-WE-4yo"/>
+                <constraint firstItem="7cq-hq-ZdT" firstAttribute="top" secondItem="UXJ-s8-7lh" secondAttribute="bottom" constant="16" id="lsY-DW-2vj"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="UeT-PD-ni3" secondAttribute="trailing" constant="16" id="twl-hE-PS5"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="7cq-hq-ZdT" secondAttribute="trailing" constant="16" id="xa7-fx-awV"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="109.82142857142857"/>
         </view>
@@ -161,5 +188,8 @@
         <namedColor name="white300">
             <color red="0.97600001096725464" green="0.97600001096725464" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
