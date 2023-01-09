@@ -12,6 +12,8 @@ class SetupPinKodVC: UIViewController {
     
     @IBOutlet var textImages: [UIImageView]!
     @IBOutlet var numberImages: [UIImageView]!
+    @IBOutlet weak var kodView: UIView!
+    
     
     var numberCount: Int = 0
     var firstNumber: String = ""
@@ -54,11 +56,20 @@ class SetupPinKodVC: UIViewController {
                 textImages[i].image = UIImage(named: "yesText")
             }
             self.firstNumber = firstNumber + "\(sender.tag)"
+            
         }
     }
     
     @IBAction func clearBtnTapped(_ sender: UIButton) {
+        self.numberCount -= 1
+        for i in textImages {
+            i.image = UIImage(named: "noText")
+        }
         
+        for i in 0..<numberCount {
+            textImages[i].image = UIImage(named: "yesText")
+        }
+        self.firstNumber = String(firstNumber.removeLast())
         
     }
 }
