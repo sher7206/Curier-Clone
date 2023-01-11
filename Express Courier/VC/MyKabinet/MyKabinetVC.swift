@@ -11,7 +11,6 @@ class MyKabinetVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    
     var categoryDates: [MyKabinetCategoryDM] = [
         
         MyKabinetCategoryDM(name: "To‘lo‘vlar tarixi", imgName: "money-time-my"),
@@ -25,7 +24,6 @@ class MyKabinetVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupNavigation()
     }
     
@@ -43,6 +41,7 @@ class MyKabinetVC: UIViewController {
         tableView.dataSource = self
         tableView.register(UINib(nibName: "MyInfoTVC", bundle: nil), forCellReuseIdentifier: "MyInfoTVC")
         tableView.register(UINib(nibName: "MyCategoryTVC", bundle: nil), forCellReuseIdentifier: "MyCategoryTVC")
+        
     }
     
     @objc func addTapped() {
@@ -86,6 +85,9 @@ extension MyKabinetVC: UITableViewDelegate, UITableViewDataSource {
             navigationController?.pushViewController(vc, animated: true)
         } else if indexPath.row == 2 {
             let vc = NotificationViewController()
+            navigationController?.pushViewController(vc, animated: true)
+        } else if indexPath.row == 3 {
+            let vc = KuryerVC()
             navigationController?.pushViewController(vc, animated: true)
         } else if indexPath.row == 4 {
             let vc = SettingsVC()

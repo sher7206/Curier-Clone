@@ -50,6 +50,8 @@
 		18DE66C62966C940003324A5 /* Ex+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DE66C52966C940003324A5 /* Ex+UIView.swift */; };
 		270273D0296C0B6900687A2A /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270273CE296C0B6900687A2A /* NotificationViewController.swift */; };
 		270273D1296C0B6900687A2A /* NotificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 270273CF296C0B6900687A2A /* NotificationViewController.xib */; };
+		270273D4296C2FAB00687A2A /* KuryerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270273D2296C2FAB00687A2A /* KuryerVC.swift */; };
+		270273D5296C2FAB00687A2A /* KuryerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 270273D3296C2FAB00687A2A /* KuryerVC.xib */; };
 		27197AE629680B5300B53B25 /* KabinetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27197AE429680B5300B53B25 /* KabinetVC.swift */; };
 		27197AE729680B5300B53B25 /* KabinetVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27197AE529680B5300B53B25 /* KabinetVC.xib */; };
 		279BAAB1296825490028B2EC /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279BAAAF296825490028B2EC /* RegisterVC.swift */; };
@@ -108,6 +110,8 @@
 		18DE66C52966C940003324A5 /* Ex+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+UIView.swift"; sourceTree = "<group>"; };
 		270273CE296C0B6900687A2A /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		270273CF296C0B6900687A2A /* NotificationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationViewController.xib; sourceTree = "<group>"; };
+		270273D2296C2FAB00687A2A /* KuryerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KuryerVC.swift; sourceTree = "<group>"; };
+		270273D3296C2FAB00687A2A /* KuryerVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KuryerVC.xib; sourceTree = "<group>"; };
 		27197AE429680B5300B53B25 /* KabinetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KabinetVC.swift; sourceTree = "<group>"; };
 		27197AE529680B5300B53B25 /* KabinetVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KabinetVC.xib; sourceTree = "<group>"; };
 		279BAAAF296825490028B2EC /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
@@ -268,6 +272,8 @@
 				18DA32C5296BFCC00066FF9C /* SetupPinKodVC.xib */,
 				270273CE296C0B6900687A2A /* NotificationViewController.swift */,
 				270273CF296C0B6900687A2A /* NotificationViewController.xib */,
+				270273D2296C2FAB00687A2A /* KuryerVC.swift */,
+				270273D3296C2FAB00687A2A /* KuryerVC.xib */,
 			);
 			path = MyKabinet;
 			sourceTree = "<group>";
@@ -414,6 +420,7 @@
 				18AF68E129684E2D00B35B64 /* PostCVC.xib in Resources */,
 				18DA32CC296BFCC00066FF9C /* MyKabinetVC.xib in Resources */,
 				18DE66B12965A069003324A5 /* Assets.xcassets in Resources */,
+				270273D5296C2FAB00687A2A /* KuryerVC.xib in Resources */,
 				18DA32DE296BFCE10066FF9C /* MyCategoryTVC.xib in Resources */,
 				27197AE729680B5300B53B25 /* KabinetVC.xib in Resources */,
 				18AF68F129698E5500B35B64 /* PostAgreemantVC.xib in Resources */,
@@ -492,6 +499,7 @@
 				18DA32CD296BFCC00066FF9C /* PaymentHistoryVC.swift in Sources */,
 				18DA32D4296BFCC10066FF9C /* MyKabinetVC.swift in Sources */,
 				18DA32C8296BFCC00066FF9C /* PayAccountVC.swift in Sources */,
+				270273D4296C2FAB00687A2A /* KuryerVC.swift in Sources */,
 				18AF68F029698E5500B35B64 /* PostAgreemantVC.swift in Sources */,
 				18DA32C9296BFCC00066FF9C /* PinkodVC.swift in Sources */,
 				18AF68E4296858F000B35B64 /* PostInsideTVC.swift in Sources */,

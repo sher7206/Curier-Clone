@@ -24,9 +24,7 @@ class SetupPinKodVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.code = ""
-        for i in numberImages {
-            i.image = UIImage(named: "unselectNumber")
-        }
+        self.numberImages.forEach({$0.image = UIImage(named: "unselectNumber")})
         setupNavigation()
     }
     
@@ -62,11 +60,13 @@ class SetupPinKodVC: UIViewController {
             
             if self.numberCount == 4 {
                 if second {
-                    
                     if confirmCode == code {
-                        
-                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+                            Alert.showAlert(forState: .success, message: "Success", vibrationType: .success)
+                            self.navigationController?.popViewController(animated: true)
+                        })
                     } else {
+                        Alert.showAlert(forState: .error, message: "Error", vibrationType: .error)
                         kodView.shake()
                         self.numberCount = 0
                         self.code = ""
@@ -107,14 +107,3 @@ class SetupPinKodVC: UIViewController {
 }
 
 
-extension UIView {
-    func shake() {
-        let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
-        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
-        animation.duration = 0.6
-        animation.values = [-40.0, 40.0, -30.0, 30.0, -20.0, 20.0, -10.0, 10.0, -5.0, 5.0, 0.0 ]
-        layer.add(animation, forKey: "shake")
-        let generator = UIImpactFeedbackGenerator(style: .medium)
-        generator.impactOccurred()
-    }
-}
