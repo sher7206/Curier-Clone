@@ -87,8 +87,9 @@ extension MyKabinetVC: UITableViewDelegate, UITableViewDataSource {
             let vc = NotificationViewController()
             navigationController?.pushViewController(vc, animated: true)
         } else if indexPath.row == 3 {
-            let vc = KuryerVC()
-            navigationController?.pushViewController(vc, animated: true)
+            let vc = KuryerModalVC()
+            vc.modalPresentationStyle = .overFullScreen
+            present(vc, animated: true)
         } else if indexPath.row == 4 {
             let vc = SettingsVC()
             navigationController?.pushViewController(vc, animated: true)

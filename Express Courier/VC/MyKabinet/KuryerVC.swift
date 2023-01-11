@@ -11,6 +11,7 @@ import SwiftPhoneNumberFormatter
 class KuryerVC: UIViewController {
     
     
+    
     @IBOutlet weak var nameTf: UITextField!
     @IBOutlet weak var lastNameTf: UITextField!
     @IBOutlet weak var phoneNumberTf: PhoneFormattedTextField!
@@ -21,17 +22,17 @@ class KuryerVC: UIViewController {
     @IBOutlet weak var pravaImage: UIImageView!
     @IBOutlet weak var passportText: UILabel!
     @IBOutlet weak var pravaText: UILabel!
+    @IBOutlet weak var editImagePassport: UIImageView!
+    @IBOutlet weak var editImagePrava: UIImageView!
+    
+    
+    
     var isPassport: Bool = true
-    
-    
-    
-    
-    
     var isCheck: Bool = false
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupNavigation()
     }
     
@@ -46,6 +47,23 @@ class KuryerVC: UIViewController {
         avtoNumberStack.isHidden = true
         pravaStack.isHidden = true
         phoneNumberTf.config.defaultConfiguration = PhoneFormat(defaultPhoneFormat: "+### ## ### ## ##")
+        self.editImagePassport.isHidden = true
+        self.editImagePrava.isHidden = true
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(addTapped))
+    }
+    
+    @objc func addTapped() {
+        var initialPresentingViewController = self.presentingViewController
+            while let previousPresentingViewController = initialPresentingViewController?.presentingViewController {
+                initialPresentingViewController = previousPresentingViewController
+            }
+
+
+            if let snapshot = view.snapshotView(afterScreenUpdates: true) {
+                initialPresentingViewController?.presentedViewController?.view.addSubview(snapshot)
+            }
+
+            initialPresentingViewController?.dismiss(animated: true)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -132,8 +150,12 @@ extension KuryerVC: UIImagePickerControllerDelegate, UINavigationControllerDeleg
         if let pickedImage = info[.originalImage] as? UIImage {
             if isPassport {
                 self.passportImage.image = pickedImage
+                self.editImagePassport.isHidden = false
+                self.passportText.text = "Rasm yulandi"
             } else {
+                self.editImagePrava.isHidden = false
                 self.pravaImage.image = pickedImage
+                self.pravaText.text = "Rasm yuklandi"
             }
         }
         picker.dismiss(animated: true, completion: nil)

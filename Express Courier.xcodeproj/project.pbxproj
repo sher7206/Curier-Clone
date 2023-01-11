@@ -54,6 +54,8 @@
 		270273D5296C2FAB00687A2A /* KuryerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 270273D3296C2FAB00687A2A /* KuryerVC.xib */; };
 		27197AE629680B5300B53B25 /* KabinetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27197AE429680B5300B53B25 /* KabinetVC.swift */; };
 		27197AE729680B5300B53B25 /* KabinetVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27197AE529680B5300B53B25 /* KabinetVC.xib */; };
+		2777854C296EBA7100FC0141 /* KuryerModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2777854A296EBA7100FC0141 /* KuryerModalVC.swift */; };
+		2777854D296EBA7100FC0141 /* KuryerModalVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2777854B296EBA7100FC0141 /* KuryerModalVC.xib */; };
 		279BAAB1296825490028B2EC /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279BAAAF296825490028B2EC /* RegisterVC.swift */; };
 		279BAAB2296825490028B2EC /* RegisterVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 279BAAB0296825490028B2EC /* RegisterVC.xib */; };
 		27B7E3562966FD1B00C3A69E /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B7E3542966FD1B00C3A69E /* OnboardingVC.swift */; };
@@ -114,6 +116,8 @@
 		270273D3296C2FAB00687A2A /* KuryerVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KuryerVC.xib; sourceTree = "<group>"; };
 		27197AE429680B5300B53B25 /* KabinetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KabinetVC.swift; sourceTree = "<group>"; };
 		27197AE529680B5300B53B25 /* KabinetVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KabinetVC.xib; sourceTree = "<group>"; };
+		2777854A296EBA7100FC0141 /* KuryerModalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KuryerModalVC.swift; sourceTree = "<group>"; };
+		2777854B296EBA7100FC0141 /* KuryerModalVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KuryerModalVC.xib; sourceTree = "<group>"; };
 		279BAAAF296825490028B2EC /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		279BAAB0296825490028B2EC /* RegisterVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterVC.xib; sourceTree = "<group>"; };
 		27B7E3542966FD1B00C3A69E /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
@@ -258,6 +262,8 @@
 			isa = PBXGroup;
 			children = (
 				18DA32C7296BFCC00066FF9C /* MyKabinetVC.swift */,
+				2777854A296EBA7100FC0141 /* KuryerModalVC.swift */,
+				2777854B296EBA7100FC0141 /* KuryerModalVC.xib */,
 				18DA32BF296BFCC00066FF9C /* MyKabinetVC.xib */,
 				18DA32BE296BFCC00066FF9C /* NotificationVC.swift */,
 				18DA32BB296BFCBF0066FF9C /* PayAccountVC.swift */,
@@ -427,6 +433,7 @@
 				18DA32D2296BFCC10066FF9C /* SetupPinKodVC.xib in Resources */,
 				18DE66C42966C54D003324A5 /* PostVC.xib in Resources */,
 				18DA32D1296BFCC00066FF9C /* PinkodVC.xib in Resources */,
+				2777854D296EBA7100FC0141 /* KuryerModalVC.xib in Resources */,
 				270273D1296C0B6900687A2A /* NotificationViewController.xib in Resources */,
 				18DA32CF296BFCC00066FF9C /* PaymentHistoryVC.xib in Resources */,
 				18DA32D0296BFCC00066FF9C /* SettingsVC.xib in Resources */,
@@ -512,6 +519,7 @@
 				270273D0296C0B6900687A2A /* NotificationViewController.swift in Sources */,
 				18AF68E029684E2D00B35B64 /* PostCVC.swift in Sources */,
 				18DA32E3296BFCE10066FF9C /* MyCategoryTVC.swift in Sources */,
+				2777854C296EBA7100FC0141 /* KuryerModalVC.swift in Sources */,
 				27197AE629680B5300B53B25 /* KabinetVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

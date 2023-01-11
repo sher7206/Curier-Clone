@@ -19,6 +19,8 @@
             <connections>
                 <outlet property="avtoNumberStack" destination="40f-ex-DpA" id="MiL-um-QBu"/>
                 <outlet property="checkImage" destination="uaw-yh-H1Y" id="non-SL-2gi"/>
+                <outlet property="editImagePassport" destination="7q6-Lp-IvD" id="Cep-hX-ZUd"/>
+                <outlet property="editImagePrava" destination="n2z-tq-bbz" id="oVI-Xs-s4d"/>
                 <outlet property="lastNameTf" destination="3NF-DT-ock" id="a6w-b3-nb5"/>
                 <outlet property="nameTf" destination="imC-ao-RoF" id="uxV-wy-Qrc"/>
                 <outlet property="passportImage" destination="GZ4-PR-sb8" id="HF0-Bf-PSA"/>
@@ -42,10 +44,10 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QAJ-GP-k0Q">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="908.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="910"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Gfq-R1-R7a">
-                                            <rect key="frame" x="16" y="20" width="382" height="858.5"/>
+                                            <rect key="frame" x="16" y="20" width="382" height="860"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shaxsiy ma’lumotingiz" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A1l-iD-0J9">
                                                     <rect key="frame" x="0.0" y="0.0" width="382" height="24"/>
@@ -54,19 +56,19 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="bOe-7i-TFM">
-                                                    <rect key="frame" x="0.0" y="44" width="382" height="348"/>
+                                                    <rect key="frame" x="0.0" y="44" width="382" height="349.5"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="L5h-vK-5De">
-                                                            <rect key="frame" x="0.0" y="0.0" width="382" height="106"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="382" height="106.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ismingizni kiriting*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1e-5m-CdN">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="382" height="45"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="382" height="45.5"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                                     <color key="textColor" name="black1000"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZR9-Wk-nlg">
-                                                                    <rect key="frame" x="0.0" y="51" width="382" height="55"/>
+                                                                    <rect key="frame" x="0.0" y="51.5" width="382" height="55"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2pg-Gj-YDQ">
                                                                             <rect key="frame" x="15" y="0.0" width="352" height="55"/>
@@ -101,7 +103,7 @@
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="CBn-QT-vnc">
-                                                            <rect key="frame" x="0.0" y="121" width="382" height="106"/>
+                                                            <rect key="frame" x="0.0" y="121.5" width="382" height="106.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Familiyangiz kiriting*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uGy-bn-9db">
                                                                     <rect key="frame" x="0.0" y="0.0" width="382" height="19.5"/>
@@ -110,10 +112,10 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T70-ii-ZIs">
-                                                                    <rect key="frame" x="0.0" y="25.5" width="382" height="80.5"/>
+                                                                    <rect key="frame" x="0.0" y="25.5" width="382" height="81"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="21z-3J-uOF">
-                                                                            <rect key="frame" x="15" y="0.0" width="352" height="80.5"/>
+                                                                            <rect key="frame" x="15" y="0.0" width="352" height="81"/>
                                                                             <subviews>
                                                                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Familiya" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3NF-DT-ock">
                                                                                     <rect key="frame" x="0.0" y="31" width="352" height="19"/>
@@ -145,7 +147,7 @@
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="GkR-WW-7cD">
-                                                            <rect key="frame" x="0.0" y="242" width="382" height="106"/>
+                                                            <rect key="frame" x="0.0" y="243" width="382" height="106.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Telefon raqamni kiriting*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wK8-KF-TMs">
                                                                     <rect key="frame" x="0.0" y="0.0" width="382" height="19.5"/>
@@ -154,10 +156,10 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ytg-hx-7PW">
-                                                                    <rect key="frame" x="0.0" y="25.5" width="382" height="80.5"/>
+                                                                    <rect key="frame" x="0.0" y="25.5" width="382" height="81"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="co7-m4-zTP">
-                                                                            <rect key="frame" x="15" y="0.0" width="352" height="80.5"/>
+                                                                            <rect key="frame" x="15" y="0.0" width="352" height="81"/>
                                                                             <subviews>
                                                                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ko‘cha / Uy manzilini kiriting*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yUO-62-d0m" customClass="PhoneFormattedTextField" customModule="SwiftPhoneNumberFormatter">
                                                                                     <rect key="frame" x="0.0" y="31" width="352" height="19"/>
@@ -191,7 +193,7 @@
                                                     </subviews>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="SHG-Ks-p82">
-                                                    <rect key="frame" x="0.0" y="412" width="382" height="105.5"/>
+                                                    <rect key="frame" x="0.0" y="413.5" width="382" height="105.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID / Passport rasm *" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Il-4O-TOx">
                                                             <rect key="frame" x="0.0" y="0.0" width="382" height="19.5"/>
@@ -225,11 +227,18 @@
                                                                             </constraints>
                                                                         </view>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rasmni orqa tomini bir xil bo‘lgan joydan rasmga oling" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WQj-fS-fop">
-                                                                            <rect key="frame" x="61" y="21" width="281" height="38.5"/>
-                                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                                            <rect key="frame" x="61" y="22" width="251" height="36"/>
+                                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                                             <color key="textColor" name="black700"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="edit-2-my" translatesAutoresizingMaskIntoConstraints="NO" id="7q6-Lp-IvD">
+                                                                            <rect key="frame" x="322" y="30" width="20" height="20"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="20" id="kt4-AD-pcd"/>
+                                                                                <constraint firstAttribute="width" constant="20" id="rax-uN-DgN"/>
+                                                                            </constraints>
+                                                                        </imageView>
                                                                     </subviews>
                                                                     <constraints>
                                                                         <constraint firstItem="jQj-Ho-tuj" firstAttribute="top" secondItem="FRc-b2-1NQ" secondAttribute="top" id="NWy-Sg-cOy"/>
@@ -270,7 +279,7 @@
                                                     </subviews>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kf0-9l-oft">
-                                                    <rect key="frame" x="0.0" y="537.5" width="382" height="20"/>
+                                                    <rect key="frame" x="0.0" y="539" width="382" height="20"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ILg-kl-Pmc">
                                                             <rect key="frame" x="0.0" y="0.0" width="382" height="20"/>
@@ -317,7 +326,7 @@
                                                     </subviews>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="40f-ex-DpA">
-                                                    <rect key="frame" x="0.0" y="577.5" width="382" height="80.5"/>
+                                                    <rect key="frame" x="0.0" y="579" width="382" height="80.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Avtomabil raqami*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iTv-OF-OYq">
                                                             <rect key="frame" x="0.0" y="0.0" width="382" height="19.5"/>
@@ -361,7 +370,7 @@
                                                     </subviews>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="NNb-I1-PNB">
-                                                    <rect key="frame" x="0.0" y="678" width="382" height="105.5"/>
+                                                    <rect key="frame" x="0.0" y="679.5" width="382" height="105.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Haydovchilik guvohnomasi*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pd3-XM-fde">
                                                             <rect key="frame" x="0.0" y="0.0" width="382" height="19.5"/>
@@ -395,11 +404,18 @@
                                                                             </constraints>
                                                                         </view>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rasmni orqa tomini bir xil bo‘lgan joydan rasmga oling" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hD9-l3-8cb">
-                                                                            <rect key="frame" x="61" y="21" width="281" height="38.5"/>
-                                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                                            <rect key="frame" x="61" y="22" width="251" height="36"/>
+                                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                                             <color key="textColor" name="black700"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="edit-2-my" translatesAutoresizingMaskIntoConstraints="NO" id="n2z-tq-bbz">
+                                                                            <rect key="frame" x="322" y="30" width="20" height="20"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="20" id="6MW-39-aAY"/>
+                                                                                <constraint firstAttribute="width" constant="20" id="Mu3-Ti-bCp"/>
+                                                                            </constraints>
+                                                                        </imageView>
                                                                     </subviews>
                                                                     <constraints>
                                                                         <constraint firstItem="fgY-hY-R5q" firstAttribute="top" secondItem="jSh-ZK-zV6" secondAttribute="top" id="Dzn-lL-cee"/>
@@ -440,10 +456,10 @@
                                                     </subviews>
                                                 </stackView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6YF-YY-ACe">
-                                                    <rect key="frame" x="0.0" y="803.5" width="382" height="55"/>
+                                                    <rect key="frame" x="0.0" y="805" width="382" height="55"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="oMQ-Kr-Ylh">
-                                                            <rect key="frame" x="145.5" y="17.5" width="91.5" height="20"/>
+                                                            <rect key="frame" x="144" y="17.5" width="94" height="20"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="upload-my" translatesAutoresizingMaskIntoConstraints="NO" id="wYh-3p-Mgu">
                                                                     <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -453,8 +469,8 @@
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yuborish" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BEI-Uw-wNR">
-                                                                    <rect key="frame" x="28" y="0.0" width="63.5" height="20"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                                    <rect key="frame" x="28" y="0.0" width="66" height="20"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -529,6 +545,7 @@
         </view>
     </objects>
     <resources>
+        <image name="edit-2-my" width="20" height="20"/>
         <image name="unchecked-post" width="20" height="20"/>
         <image name="upload-my" width="20" height="20"/>
         <image name="visa" width="512" height="512"/>
