@@ -12,16 +12,19 @@ class SetupPinKodVC: UIViewController {
     
     @IBOutlet var textImages: [UIImageView]!
     @IBOutlet var numberImages: [UIImageView]!
+    @IBOutlet weak var kodView: UIView!
+    var confirmCode: String = ""
+    var second: Bool = false
+    
     
     var numberCount: Int = 0
-    var firstNumber: String = ""
+    var code: String = ""
     var secondNumber: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        for i in numberImages {
-            i.image = UIImage(named: "unselectNumber")
-        }
+        self.code = ""
+        self.numberImages.forEach({$0.image = UIImage(named: "unselectNumber")})
         setupNavigation()
     }
     
@@ -53,12 +56,54 @@ class SetupPinKodVC: UIViewController {
             for i in 0..<numberCount {
                 textImages[i].image = UIImage(named: "yesText")
             }
-            self.firstNumber = firstNumber + "\(sender.tag)"
+            self.code = code + "\(sender.tag)"
+            
+            if self.numberCount == 4 {
+                if second {
+                    if confirmCode == code {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+                            Alert.showAlert(forState: .success, message: "Success", vibrationType: .success)
+                            self.navigationController?.popViewController(animated: true)
+                        })
+                    } else {
+                        Alert.showAlert(forState: .error, message: "Error", vibrationType: .error)
+                        kodView.shake()
+                        self.numberCount = 0
+                        self.code = ""
+                        self.confirmCode = ""
+                        second = false
+                    }
+                    
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.3, execute: {
+                        self.numberImages.forEach({$0.image = UIImage(named: "unselectNumber")})
+                        self.textImages.forEach({$0.image = UIImage(named: "noText")})
+                    })
+                } else {
+                    
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.3, execute: {
+                        self.numberImages.forEach({$0.image = UIImage(named: "unselectNumber")})
+                        self.textImages.forEach({$0.image = UIImage(named: "noText")})
+                    })
+                    self.numberCount = 0
+                    self.confirmCode = code
+                    self.code = ""
+                    second = true
+                }
+            }
+            
         }
     }
     
     @IBAction func clearBtnTapped(_ sender: UIButton) {
-        
-        
+        self.numberCount -= 1
+        if numberCount >= 0 {
+            self.textImages.forEach({$0.image = UIImage(named: "noText")})
+            for i in 0..<numberCount {
+                textImages[i].image = UIImage(named: "yesText")
+            }
+            self.code = String(code.dropLast())
+        }
     }
 }
+
+
