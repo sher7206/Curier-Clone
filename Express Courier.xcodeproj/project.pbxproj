@@ -56,6 +56,14 @@
 		27197AE729680B5300B53B25 /* KabinetVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27197AE529680B5300B53B25 /* KabinetVC.xib */; };
 		2777854C296EBA7100FC0141 /* KuryerModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2777854A296EBA7100FC0141 /* KuryerModalVC.swift */; };
 		2777854D296EBA7100FC0141 /* KuryerModalVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2777854B296EBA7100FC0141 /* KuryerModalVC.xib */; };
+		27778551296EC56000FC0141 /* TaxiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2777854F296EC56000FC0141 /* TaxiVC.swift */; };
+		27778552296EC56000FC0141 /* TaxiVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27778550296EC56000FC0141 /* TaxiVC.xib */; };
+		27778556296ECBC200FC0141 /* TaxiFilterTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27778554296ECBC200FC0141 /* TaxiFilterTVC.swift */; };
+		27778557296ECBC200FC0141 /* TaxiFilterTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27778555296ECBC200FC0141 /* TaxiFilterTVC.xib */; };
+		2777855B296ED85000FC0141 /* TaxiHeaderCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27778559296ED85000FC0141 /* TaxiHeaderCVC.swift */; };
+		2777855C296ED85000FC0141 /* TaxiHeaderCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2777855A296ED85000FC0141 /* TaxiHeaderCVC.xib */; };
+		27778563296EEF3C00FC0141 /* TaxiTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27778561296EEF3C00FC0141 /* TaxiTVC.swift */; };
+		27778564296EEF3C00FC0141 /* TaxiTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27778562296EEF3C00FC0141 /* TaxiTVC.xib */; };
 		279BAAB1296825490028B2EC /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279BAAAF296825490028B2EC /* RegisterVC.swift */; };
 		279BAAB2296825490028B2EC /* RegisterVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 279BAAB0296825490028B2EC /* RegisterVC.xib */; };
 		27B7E3562966FD1B00C3A69E /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B7E3542966FD1B00C3A69E /* OnboardingVC.swift */; };
@@ -118,6 +126,14 @@
 		27197AE529680B5300B53B25 /* KabinetVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KabinetVC.xib; sourceTree = "<group>"; };
 		2777854A296EBA7100FC0141 /* KuryerModalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KuryerModalVC.swift; sourceTree = "<group>"; };
 		2777854B296EBA7100FC0141 /* KuryerModalVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KuryerModalVC.xib; sourceTree = "<group>"; };
+		2777854F296EC56000FC0141 /* TaxiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiVC.swift; sourceTree = "<group>"; };
+		27778550296EC56000FC0141 /* TaxiVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaxiVC.xib; sourceTree = "<group>"; };
+		27778554296ECBC200FC0141 /* TaxiFilterTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiFilterTVC.swift; sourceTree = "<group>"; };
+		27778555296ECBC200FC0141 /* TaxiFilterTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaxiFilterTVC.xib; sourceTree = "<group>"; };
+		27778559296ED85000FC0141 /* TaxiHeaderCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiHeaderCVC.swift; sourceTree = "<group>"; };
+		2777855A296ED85000FC0141 /* TaxiHeaderCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaxiHeaderCVC.xib; sourceTree = "<group>"; };
+		27778561296EEF3C00FC0141 /* TaxiTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiTVC.swift; sourceTree = "<group>"; };
+		27778562296EEF3C00FC0141 /* TaxiTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaxiTVC.xib; sourceTree = "<group>"; };
 		279BAAAF296825490028B2EC /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		279BAAB0296825490028B2EC /* RegisterVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterVC.xib; sourceTree = "<group>"; };
 		27B7E3542966FD1B00C3A69E /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
@@ -197,6 +213,7 @@
 		18AF68DD296844D500B35B64 /* TVC */ = {
 			isa = PBXGroup;
 			children = (
+				27778553296ECB9800FC0141 /* Taxi */,
 				27864518296847FA000FD251 /* MyKabinet */,
 				18AF68D2296833C000B35B64 /* PostTVC */,
 			);
@@ -258,6 +275,35 @@
 			path = Authorization;
 			sourceTree = "<group>";
 		};
+		2777854E296EC52900FC0141 /* Taxi */ = {
+			isa = PBXGroup;
+			children = (
+				2777854F296EC56000FC0141 /* TaxiVC.swift */,
+				27778550296EC56000FC0141 /* TaxiVC.xib */,
+			);
+			path = Taxi;
+			sourceTree = "<group>";
+		};
+		27778553296ECB9800FC0141 /* Taxi */ = {
+			isa = PBXGroup;
+			children = (
+				27778554296ECBC200FC0141 /* TaxiFilterTVC.swift */,
+				27778555296ECBC200FC0141 /* TaxiFilterTVC.xib */,
+				27778561296EEF3C00FC0141 /* TaxiTVC.swift */,
+				27778562296EEF3C00FC0141 /* TaxiTVC.xib */,
+			);
+			path = Taxi;
+			sourceTree = "<group>";
+		};
+		27778558296ED82700FC0141 /* Taxi */ = {
+			isa = PBXGroup;
+			children = (
+				27778559296ED85000FC0141 /* TaxiHeaderCVC.swift */,
+				2777855A296ED85000FC0141 /* TaxiHeaderCVC.xib */,
+			);
+			path = Taxi;
+			sourceTree = "<group>";
+		};
 		2786450F29684624000FD251 /* MyKabinet */ = {
 			isa = PBXGroup;
 			children = (
@@ -310,6 +356,7 @@
 		27B7E3502966FCC800C3A69E /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				2777854E296EC52900FC0141 /* Taxi */,
 				2786450F29684624000FD251 /* MyKabinet */,
 				18AF68D4296833E700B35B64 /* PostVC */,
 				27197AE329680B3D00B53B25 /* Authorization */,
@@ -321,6 +368,7 @@
 		27B7E3522966FCD700C3A69E /* CVC */ = {
 			isa = PBXGroup;
 			children = (
+				27778558296ED82700FC0141 /* Taxi */,
 				18AF68D3296833D400B35B64 /* PostCVC */,
 				27B7E3582966FEDD00C3A69E /* Onboarding */,
 			);
@@ -416,6 +464,7 @@
 				18DA32E4296BFCE10066FF9C /* NotificationTVC.xib in Resources */,
 				27B808DC2965C0A300E1357C /* Colors.xcassets in Resources */,
 				18DA32CE296BFCC00066FF9C /* PayAccountVC.xib in Resources */,
+				2777855C296ED85000FC0141 /* TaxiHeaderCVC.xib in Resources */,
 				18AF68E5296858F000B35B64 /* PostInsideTVC.xib in Resources */,
 				18DE66B42965A069003324A5 /* LaunchScreen.storyboard in Resources */,
 				18AF68D9296836DE00B35B64 /* HeaderCVC.xib in Resources */,
@@ -431,13 +480,16 @@
 				27197AE729680B5300B53B25 /* KabinetVC.xib in Resources */,
 				18AF68F129698E5500B35B64 /* PostAgreemantVC.xib in Resources */,
 				18DA32D2296BFCC10066FF9C /* SetupPinKodVC.xib in Resources */,
+				27778564296EEF3C00FC0141 /* TaxiTVC.xib in Resources */,
 				18DE66C42966C54D003324A5 /* PostVC.xib in Resources */,
+				27778557296ECBC200FC0141 /* TaxiFilterTVC.xib in Resources */,
 				18DA32D1296BFCC00066FF9C /* PinkodVC.xib in Resources */,
 				2777854D296EBA7100FC0141 /* KuryerModalVC.xib in Resources */,
 				270273D1296C0B6900687A2A /* NotificationViewController.xib in Resources */,
 				18DA32CF296BFCC00066FF9C /* PaymentHistoryVC.xib in Resources */,
 				18DA32D0296BFCC00066FF9C /* SettingsVC.xib in Resources */,
 				18AF68F52969B15A00B35B64 /* ArrivedPostVC.xib in Resources */,
+				27778552296EC56000FC0141 /* TaxiVC.xib in Resources */,
 				27B7E3572966FD1B00C3A69E /* OnboardingVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -491,6 +543,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2777855B296ED85000FC0141 /* TaxiHeaderCVC.swift in Sources */,
 				18DA32EC296C1F060066FF9C /* Vibration.swift in Sources */,
 				18DA32E0296BFCE10066FF9C /* MyInfoTVC.swift in Sources */,
 				18DA32DD296BFCE10066FF9C /* NotificationTVC.swift in Sources */,
@@ -512,11 +565,14 @@
 				18AF68E4296858F000B35B64 /* PostInsideTVC.swift in Sources */,
 				27B7E3562966FD1B00C3A69E /* OnboardingVC.swift in Sources */,
 				18AF68F42969B15A00B35B64 /* ArrivedPostVC.swift in Sources */,
+				27778551296EC56000FC0141 /* TaxiVC.swift in Sources */,
 				18DE66A82965A067003324A5 /* AppDelegate.swift in Sources */,
+				27778556296ECBC200FC0141 /* TaxiFilterTVC.swift in Sources */,
 				18DA32E7296C0D430066FF9C /* MainTabBarController.swift in Sources */,
 				18DE66C62966C940003324A5 /* Ex+UIView.swift in Sources */,
 				18AF68DA296836DE00B35B64 /* HeaderCVC.swift in Sources */,
 				270273D0296C0B6900687A2A /* NotificationViewController.swift in Sources */,
+				27778563296EEF3C00FC0141 /* TaxiTVC.swift in Sources */,
 				18AF68E029684E2D00B35B64 /* PostCVC.swift in Sources */,
 				18DA32E3296BFCE10066FF9C /* MyCategoryTVC.swift in Sources */,
 				2777854C296EBA7100FC0141 /* KuryerModalVC.swift in Sources */,

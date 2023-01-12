@@ -18,8 +18,8 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     }()
     
     
-    private lazy var branch: PostVC = {
-        let vc = PostVC(nibName: "PostVC", bundle: nil)
+    private lazy var branch: TaxiVC = {
+        let vc = TaxiVC(nibName: "TaxiVC", bundle: nil)
         vc.tabBarItem = UITabBarItem(
             title: nil,
             image: UIImage(named: "building-menu"),
