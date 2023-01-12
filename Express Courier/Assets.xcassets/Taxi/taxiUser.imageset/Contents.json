@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "eye-taxi.pdf",
+      "filename" : "User image.pdf",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "User image@2x.pdf",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "User image@3x.pdf",
       "idiom" : "universal",
       "scale" : "3x"
     }

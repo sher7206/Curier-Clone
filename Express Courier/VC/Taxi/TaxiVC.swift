@@ -13,10 +13,24 @@ class TaxiVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var selectIndexCVC: Int = 0
     var headerTexts = ["Yangilar", "Ko'rilganlar"]
+    var refreshControl = UIRefreshControl()
+    var isNew: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigation()
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        tableView.addSubview(refreshControl)
+        DispatchQueue.main.async {
+            self.tableView.scrollToRow(at: IndexPath(row: 0, section: 1), at: .top, animated: false)
+        }
+    }
+    
+    @objc func refresh(send: UIRefreshControl) {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+            self.refreshControl.endRefreshing()
+        }
     }
     
     func setupNavigation() {
@@ -36,6 +50,8 @@ class TaxiVC: UIViewController {
     }
 }
 
+
+//MARK: - Table View Delegate
 extension TaxiVC: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -43,7 +59,11 @@ extension TaxiVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        if section == 0 {
+            return 1
+        } else {
+            return 5
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -66,7 +86,8 @@ extension TaxiVC: UITableViewDelegate, UITableViewDataSource {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: self.view.frame.width / 2, height: 45)
         layout.scrollDirection = .horizontal
-       
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         self.view.addSubview(collectionView)
         collectionView.delegate   = self
@@ -92,10 +113,20 @@ extension TaxiVC: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
- 
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if isNew {
+            let vc = TaxiNewsModalVC()
+            vc.modalPresentationStyle = .overFullScreen
+            self.present(vc, animated: true)
+        } else {
+            let vc = TaxiOldUserModalVC()
+            vc.modalPresentationStyle = .overFullScreen
+            self.present(vc, animated: true)
+        }
+    }
 }
 
+//MARK: - Collection View Delegate
 extension TaxiVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -107,12 +138,15 @@ extension TaxiVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         
         cell.bottomView.backgroundColor = .clear
         cell.titleLbl.textColor = UIColor(named: "black600")
+        cell.titleLbl.font = .systemFont(ofSize: 14, weight: .regular)
         if selectIndexCVC == indexPath.row {
             cell.bottomView.backgroundColor = .black
             cell.titleLbl.textColor = .black
+            cell.titleLbl.font = .systemFont(ofSize: 15, weight: .medium)
         } else {
             cell.bottomView.backgroundColor = .clear
             cell.titleLbl.textColor = UIColor(named: "black600")
+            cell.titleLbl.font = .systemFont(ofSize: 15, weight: .regular)
         }
         cell.updateCell(title: headerTexts[indexPath.row])
         
@@ -121,6 +155,11 @@ extension TaxiVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.selectIndexCVC = indexPath.row
+        if indexPath.row == 0 {
+            self.isNew = true
+        } else {
+            self.isNew = false
+        }
         collectionView.reloadData()
     }
     
