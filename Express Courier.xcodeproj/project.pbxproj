@@ -60,6 +60,8 @@
 		27347F17297038E400D871EC /* TaxiOldUserModalVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27347F15297038E400D871EC /* TaxiOldUserModalVC.xib */; };
 		27347F1F2970525B00D871EC /* TeamVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27347F1D2970525B00D871EC /* TeamVC.swift */; };
 		27347F202970525B00D871EC /* TeamVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27347F1E2970525B00D871EC /* TeamVC.xib */; };
+		2776B0FD2971748A00544B1E /* ListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2776B0FB2971748A00544B1E /* ListVC.swift */; };
+		2776B0FE2971748A00544B1E /* ListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2776B0FC2971748A00544B1E /* ListVC.xib */; };
 		2777854C296EBA7100FC0141 /* KuryerModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2777854A296EBA7100FC0141 /* KuryerModalVC.swift */; };
 		2777854D296EBA7100FC0141 /* KuryerModalVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2777854B296EBA7100FC0141 /* KuryerModalVC.xib */; };
 		27778551296EC56000FC0141 /* TaxiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2777854F296EC56000FC0141 /* TaxiVC.swift */; };
@@ -142,6 +144,8 @@
 		27347F15297038E400D871EC /* TaxiOldUserModalVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaxiOldUserModalVC.xib; sourceTree = "<group>"; };
 		27347F1D2970525B00D871EC /* TeamVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamVC.swift; sourceTree = "<group>"; };
 		27347F1E2970525B00D871EC /* TeamVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamVC.xib; sourceTree = "<group>"; };
+		2776B0FB2971748A00544B1E /* ListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVC.swift; sourceTree = "<group>"; };
+		2776B0FC2971748A00544B1E /* ListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListVC.xib; sourceTree = "<group>"; };
 		2777854A296EBA7100FC0141 /* KuryerModalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KuryerModalVC.swift; sourceTree = "<group>"; };
 		2777854B296EBA7100FC0141 /* KuryerModalVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KuryerModalVC.xib; sourceTree = "<group>"; };
 		2777854F296EC56000FC0141 /* TaxiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiVC.swift; sourceTree = "<group>"; };
@@ -312,6 +316,15 @@
 			path = Team;
 			sourceTree = "<group>";
 		};
+		2776B0FA2971742C00544B1E /* List */ = {
+			isa = PBXGroup;
+			children = (
+				2776B0FB2971748A00544B1E /* ListVC.swift */,
+				2776B0FC2971748A00544B1E /* ListVC.xib */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
 		2777854E296EC52900FC0141 /* Taxi */ = {
 			isa = PBXGroup;
 			children = (
@@ -397,6 +410,7 @@
 		27B7E3502966FCC800C3A69E /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				2776B0FA2971742C00544B1E /* List */,
 				27347F1C2970523500D871EC /* Team */,
 				2777854E296EC52900FC0141 /* Taxi */,
 				2786450F29684624000FD251 /* MyKabinet */,
@@ -532,6 +546,7 @@
 				270273D5296C2FAB00687A2A /* KuryerVC.xib in Resources */,
 				18DA32DE296BFCE10066FF9C /* MyCategoryTVC.xib in Resources */,
 				27197AE729680B5300B53B25 /* KabinetVC.xib in Resources */,
+				2776B0FE2971748A00544B1E /* ListVC.xib in Resources */,
 				18AF68F129698E5500B35B64 /* PostAgreemantVC.xib in Resources */,
 				27A267142971571B00294BE7 /* DeleteTeamVC.xib in Resources */,
 				27A26710297148D700294BE7 /* AddTeamVC.xib in Resources */,
@@ -610,6 +625,7 @@
 				18AF68DC29683DD700B35B64 /* Ex+String.swift in Sources */,
 				18DE66C32966C54D003324A5 /* PostVC.swift in Sources */,
 				18DA32E2296BFCE10066FF9C /* PaymentTVC.swift in Sources */,
+				2776B0FD2971748A00544B1E /* ListVC.swift in Sources */,
 				279BAAB1296825490028B2EC /* RegisterVC.swift in Sources */,
 				18DA32D3296BFCC10066FF9C /* SetupPinKodVC.swift in Sources */,
 				27DE0ADC297057BC00900AAD /* TeamCVC.swift in Sources */,
