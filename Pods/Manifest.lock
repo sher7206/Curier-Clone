@@ -1,24 +1,38 @@
 PODS:
+  - Alamofire (5.6.4)
   - IQKeyboardManagerSwift (6.5.10)
   - SCPageControl (0.4.0)
+  - SDWebImage (5.14.2):
+    - SDWebImage/Core (= 5.14.2)
+  - SDWebImage/Core (5.14.2)
   - SwiftPhoneNumberFormatter (1.5)
+  - SwiftyJSON (5.0.1)
 
 DEPENDENCIES:
+  - Alamofire
   - IQKeyboardManagerSwift
   - SCPageControl
+  - SDWebImage
   - SwiftPhoneNumberFormatter
+  - SwiftyJSON
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - IQKeyboardManagerSwift
     - SCPageControl
+    - SDWebImage
     - SwiftPhoneNumberFormatter
+    - SwiftyJSON
 
 SPEC CHECKSUMS:
+  Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
   IQKeyboardManagerSwift: 52962c76ab33532f15ad9f3ff4e5715eda5335bb
   SCPageControl: 8a8dfbba7d7d8c66487a317cb4c4578a7e4af27a
+  SDWebImage: b9a731e1d6307f44ca703b3976d18c24ca561e84
   SwiftPhoneNumberFormatter: 0cc91f4daa06dd606a9defb21048a75c36a771a2
+  SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: afce647ebc646dd27937e103edc16b31424b6895
+PODFILE CHECKSUM: a049b853dcd7a206c5ddc83ce8f456a11816c27f
 
 COCOAPODS: 1.11.3

@@ -4,11 +4,14 @@
 target 'Express Courier' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-
+  
   # Pods for Express Courier
- pod 'SCPageControl'
- pod "SwiftPhoneNumberFormatter"
- pod "IQKeyboardManagerSwift"
-
-
+  pod 'SCPageControl'
+  pod "SwiftPhoneNumberFormatter"
+  pod "IQKeyboardManagerSwift"
+  pod "SwiftyJSON"
+  pod 'Alamofire'
+  pod 'SDWebImage'
+  
+  
 end

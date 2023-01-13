@@ -10,7 +10,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     private lazy var main: PostVC = {
         let vc = PostVC(nibName: "PostVC", bundle: nil)
         vc.tabBarItem = UITabBarItem(
-            title: nil,
+            title: "Pochta",
             image: UIImage(named: "box-menu"),
             selectedImage: UIImage(named: "box-menu")
         )
@@ -38,10 +38,10 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         return vc
     }()
     
-    private lazy var taxi: PostVC = {
-        let vc = PostVC(nibName: "PostVC", bundle: nil)
+    private lazy var taxi: TaxiVC = {
+        let vc = TaxiVC(nibName: "TaxiVC", bundle: nil)
         vc.tabBarItem = UITabBarItem(
-            title: nil,
+            title: "Taksi",
             image: UIImage(named: "car-menu"),
             selectedImage: UIImage(named: "car-menu")
         )
@@ -51,19 +51,17 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     private lazy var profile: MyKabinetVC = {
         let vc = MyKabinetVC(nibName: "MyKabinetVC", bundle: nil)
         vc.tabBarItem = UITabBarItem(
-            title: nil,
+            title: "Kabinet",
             image: UIImage(named: "support-menu"),
             selectedImage: UIImage(named: "support-menu")
         )
         return vc
     }()
 
-    
     //On tabbar viewDidload
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
-        
         viewControllers = [
             UINavigationController(rootViewController: main),
             UINavigationController(rootViewController: branch),
