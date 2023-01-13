@@ -58,6 +58,8 @@
 		27347F13297028A000D871EC /* TaxiNewsModalVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27347F11297028A000D871EC /* TaxiNewsModalVC.xib */; };
 		27347F16297038E400D871EC /* TaxiOldUserModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27347F14297038E400D871EC /* TaxiOldUserModalVC.swift */; };
 		27347F17297038E400D871EC /* TaxiOldUserModalVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27347F15297038E400D871EC /* TaxiOldUserModalVC.xib */; };
+		27347F1F2970525B00D871EC /* TeamVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27347F1D2970525B00D871EC /* TeamVC.swift */; };
+		27347F202970525B00D871EC /* TeamVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27347F1E2970525B00D871EC /* TeamVC.xib */; };
 		2777854C296EBA7100FC0141 /* KuryerModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2777854A296EBA7100FC0141 /* KuryerModalVC.swift */; };
 		2777854D296EBA7100FC0141 /* KuryerModalVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2777854B296EBA7100FC0141 /* KuryerModalVC.xib */; };
 		27778551296EC56000FC0141 /* TaxiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2777854F296EC56000FC0141 /* TaxiVC.swift */; };
@@ -70,11 +72,15 @@
 		27778564296EEF3C00FC0141 /* TaxiTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27778562296EEF3C00FC0141 /* TaxiTVC.xib */; };
 		279BAAB1296825490028B2EC /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279BAAAF296825490028B2EC /* RegisterVC.swift */; };
 		279BAAB2296825490028B2EC /* RegisterVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 279BAAB0296825490028B2EC /* RegisterVC.xib */; };
+		27A2670F297148D700294BE7 /* AddTeamVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A2670D297148D700294BE7 /* AddTeamVC.swift */; };
+		27A26710297148D700294BE7 /* AddTeamVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27A2670E297148D700294BE7 /* AddTeamVC.xib */; };
 		27B7E3562966FD1B00C3A69E /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B7E3542966FD1B00C3A69E /* OnboardingVC.swift */; };
 		27B7E3572966FD1B00C3A69E /* OnboardingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27B7E3552966FD1B00C3A69E /* OnboardingVC.xib */; };
 		27B7E35B2966FEF500C3A69E /* OnboardingCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B7E3592966FEF500C3A69E /* OnboardingCVC.swift */; };
 		27B7E35C2966FEF500C3A69E /* OnboardingCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27B7E35A2966FEF500C3A69E /* OnboardingCVC.xib */; };
 		27B808DC2965C0A300E1357C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27B808DB2965C0A300E1357C /* Colors.xcassets */; };
+		27DE0ADC297057BC00900AAD /* TeamCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DE0ADA297057BC00900AAD /* TeamCVC.swift */; };
+		27DE0ADD297057BC00900AAD /* TeamCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27DE0ADB297057BC00900AAD /* TeamCVC.xib */; };
 		305AA461FD9762D2FB4069B3 /* Pods_Express_Courier.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7515E66C971F51E4D1D05754 /* Pods_Express_Courier.framework */; };
 /* End PBXBuildFile section */
 
@@ -132,6 +138,8 @@
 		27347F11297028A000D871EC /* TaxiNewsModalVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaxiNewsModalVC.xib; sourceTree = "<group>"; };
 		27347F14297038E400D871EC /* TaxiOldUserModalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiOldUserModalVC.swift; sourceTree = "<group>"; };
 		27347F15297038E400D871EC /* TaxiOldUserModalVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaxiOldUserModalVC.xib; sourceTree = "<group>"; };
+		27347F1D2970525B00D871EC /* TeamVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamVC.swift; sourceTree = "<group>"; };
+		27347F1E2970525B00D871EC /* TeamVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamVC.xib; sourceTree = "<group>"; };
 		2777854A296EBA7100FC0141 /* KuryerModalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KuryerModalVC.swift; sourceTree = "<group>"; };
 		2777854B296EBA7100FC0141 /* KuryerModalVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KuryerModalVC.xib; sourceTree = "<group>"; };
 		2777854F296EC56000FC0141 /* TaxiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiVC.swift; sourceTree = "<group>"; };
@@ -144,11 +152,15 @@
 		27778562296EEF3C00FC0141 /* TaxiTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaxiTVC.xib; sourceTree = "<group>"; };
 		279BAAAF296825490028B2EC /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		279BAAB0296825490028B2EC /* RegisterVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterVC.xib; sourceTree = "<group>"; };
+		27A2670D297148D700294BE7 /* AddTeamVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTeamVC.swift; sourceTree = "<group>"; };
+		27A2670E297148D700294BE7 /* AddTeamVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTeamVC.xib; sourceTree = "<group>"; };
 		27B7E3542966FD1B00C3A69E /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
 		27B7E3552966FD1B00C3A69E /* OnboardingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingVC.xib; sourceTree = "<group>"; };
 		27B7E3592966FEF500C3A69E /* OnboardingCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCVC.swift; sourceTree = "<group>"; };
 		27B7E35A2966FEF500C3A69E /* OnboardingCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingCVC.xib; sourceTree = "<group>"; };
 		27B808DB2965C0A300E1357C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		27DE0ADA297057BC00900AAD /* TeamCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCVC.swift; sourceTree = "<group>"; };
+		27DE0ADB297057BC00900AAD /* TeamCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamCVC.xib; sourceTree = "<group>"; };
 		7515E66C971F51E4D1D05754 /* Pods_Express_Courier.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Express_Courier.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AECA3B6FA7DD6CDF1FF69094 /* Pods-Express Courier.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Express Courier.release.xcconfig"; path = "Target Support Files/Pods-Express Courier/Pods-Express Courier.release.xcconfig"; sourceTree = "<group>"; };
 		AFA739C01BEB9A5F6B80A6C5 /* Pods-Express Courier.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Express Courier.debug.xcconfig"; path = "Target Support Files/Pods-Express Courier/Pods-Express Courier.debug.xcconfig"; sourceTree = "<group>"; };
@@ -283,6 +295,17 @@
 			path = Authorization;
 			sourceTree = "<group>";
 		};
+		27347F1C2970523500D871EC /* Team */ = {
+			isa = PBXGroup;
+			children = (
+				27347F1D2970525B00D871EC /* TeamVC.swift */,
+				27347F1E2970525B00D871EC /* TeamVC.xib */,
+				27A2670D297148D700294BE7 /* AddTeamVC.swift */,
+				27A2670E297148D700294BE7 /* AddTeamVC.xib */,
+			);
+			path = Team;
+			sourceTree = "<group>";
+		};
 		2777854E296EC52900FC0141 /* Taxi */ = {
 			isa = PBXGroup;
 			children = (
@@ -368,6 +391,7 @@
 		27B7E3502966FCC800C3A69E /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				27347F1C2970523500D871EC /* Team */,
 				2777854E296EC52900FC0141 /* Taxi */,
 				2786450F29684624000FD251 /* MyKabinet */,
 				18AF68D4296833E700B35B64 /* PostVC */,
@@ -380,6 +404,7 @@
 		27B7E3522966FCD700C3A69E /* CVC */ = {
 			isa = PBXGroup;
 			children = (
+				27DE0AD9297057A200900AAD /* Team */,
 				27778558296ED82700FC0141 /* Taxi */,
 				18AF68D3296833D400B35B64 /* PostCVC */,
 				27B7E3582966FEDD00C3A69E /* Onboarding */,
@@ -403,6 +428,15 @@
 				27B7E35A2966FEF500C3A69E /* OnboardingCVC.xib */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		27DE0AD9297057A200900AAD /* Team */ = {
+			isa = PBXGroup;
+			children = (
+				27DE0ADA297057BC00900AAD /* TeamCVC.swift */,
+				27DE0ADB297057BC00900AAD /* TeamCVC.xib */,
+			);
+			path = Team;
 			sourceTree = "<group>";
 		};
 		6B739F688FC3BEC377E3BA6A /* Frameworks */ = {
@@ -488,12 +522,15 @@
 				18AF68E129684E2D00B35B64 /* PostCVC.xib in Resources */,
 				18DA32CC296BFCC00066FF9C /* MyKabinetVC.xib in Resources */,
 				18DE66B12965A069003324A5 /* Assets.xcassets in Resources */,
+				27DE0ADD297057BC00900AAD /* TeamCVC.xib in Resources */,
 				270273D5296C2FAB00687A2A /* KuryerVC.xib in Resources */,
 				18DA32DE296BFCE10066FF9C /* MyCategoryTVC.xib in Resources */,
 				27197AE729680B5300B53B25 /* KabinetVC.xib in Resources */,
 				18AF68F129698E5500B35B64 /* PostAgreemantVC.xib in Resources */,
+				27A26710297148D700294BE7 /* AddTeamVC.xib in Resources */,
 				27347F13297028A000D871EC /* TaxiNewsModalVC.xib in Resources */,
 				18DA32D2296BFCC10066FF9C /* SetupPinKodVC.xib in Resources */,
+				27347F202970525B00D871EC /* TeamVC.xib in Resources */,
 				27778564296EEF3C00FC0141 /* TaxiTVC.xib in Resources */,
 				18DE66C42966C54D003324A5 /* PostVC.xib in Resources */,
 				27778557296ECBC200FC0141 /* TaxiFilterTVC.xib in Resources */,
@@ -568,8 +605,10 @@
 				18DA32E2296BFCE10066FF9C /* PaymentTVC.swift in Sources */,
 				279BAAB1296825490028B2EC /* RegisterVC.swift in Sources */,
 				18DA32D3296BFCC10066FF9C /* SetupPinKodVC.swift in Sources */,
+				27DE0ADC297057BC00900AAD /* TeamCVC.swift in Sources */,
 				18DA32EB296C1F060066FF9C /* Alert.swift in Sources */,
 				27B7E35B2966FEF500C3A69E /* OnboardingCVC.swift in Sources */,
+				27347F1F2970525B00D871EC /* TeamVC.swift in Sources */,
 				27347F16297038E400D871EC /* TaxiOldUserModalVC.swift in Sources */,
 				18DA32CD296BFCC00066FF9C /* PaymentHistoryVC.swift in Sources */,
 				18DA32D4296BFCC10066FF9C /* MyKabinetVC.swift in Sources */,
@@ -593,6 +632,7 @@
 				18DA32E3296BFCE10066FF9C /* MyCategoryTVC.swift in Sources */,
 				2777854C296EBA7100FC0141 /* KuryerModalVC.swift in Sources */,
 				27197AE629680B5300B53B25 /* KabinetVC.swift in Sources */,
+				27A2670F297148D700294BE7 /* AddTeamVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

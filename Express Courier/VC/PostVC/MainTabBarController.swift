@@ -28,8 +28,8 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         return vc
     }()
     
-    private lazy var team: PostVC = {
-        let vc = PostVC(nibName: "PostVC", bundle: nil)
+    private lazy var team: TeamVC = {
+        let vc = TeamVC(nibName: "TeamVC", bundle: nil)
         vc.tabBarItem = UITabBarItem(
             title: nil,
             image: UIImage(named: "people-menu"),

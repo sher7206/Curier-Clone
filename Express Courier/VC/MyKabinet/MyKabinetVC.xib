@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -21,18 +20,26 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jny-jI-pCK">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="403"/>
+                    <color key="backgroundColor" name="primary900"/>
+                </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="lvf-A1-7qr">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" name="primary900"/>
+            <color key="backgroundColor" name="white300"/>
             <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Jny-jI-pCK" secondAttribute="trailing" id="1gi-f3-8UX"/>
+                <constraint firstItem="Jny-jI-pCK" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.45" id="9Hv-Aj-TWB"/>
                 <constraint firstAttribute="bottom" secondItem="lvf-A1-7qr" secondAttribute="bottom" id="PeS-0C-kKp"/>
                 <constraint firstItem="lvf-A1-7qr" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Q46-Xs-SLJ"/>
+                <constraint firstItem="Jny-jI-pCK" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="XEc-Jg-x8E"/>
                 <constraint firstItem="lvf-A1-7qr" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="dFz-Xv-aEw"/>
                 <constraint firstAttribute="trailing" secondItem="lvf-A1-7qr" secondAttribute="trailing" id="fmn-CV-wQw"/>
+                <constraint firstItem="Jny-jI-pCK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="x6A-h8-PTA"/>
             </constraints>
             <point key="canvasLocation" x="139.13043478260872" y="19.419642857142858"/>
         </view>
@@ -41,8 +48,8 @@
         <namedColor name="primary900">
             <color red="0.94099998474121094" green="0.70599997043609619" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="white300">
+            <color red="0.97600001096725464" green="0.97600001096725464" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
