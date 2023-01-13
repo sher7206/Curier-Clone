@@ -26,6 +26,7 @@ class MyInfoTVC: UITableViewCell {
     }
     
     func updateCell(data: UserDM?) {
+        print("✅ image =", data?.avatar)
         personImage.sd_setImage(with: URL(string: data?.avatar ?? ""))
         personName.text = (data?.name ?? "") + " " + (data?.surname ?? "")
         personPhoneNumber.text = data?.phone ?? ""

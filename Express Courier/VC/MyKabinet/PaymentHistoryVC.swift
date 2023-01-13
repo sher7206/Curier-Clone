@@ -11,10 +11,13 @@ class PaymentHistoryVC: UIViewController {
     
     
     @IBOutlet weak var tableView: UITableView!
+    var dates: [GetTransactionsData] = []
     
+    var currentPage: Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigation()
+        uploadData(page: currentPage)
     }
     
     func setupNavigation() {
@@ -29,12 +32,26 @@ class PaymentHistoryVC: UIViewController {
         tableView.dataSource = self
         tableView.register(UINib(nibName: "PaymentTVC", bundle: nil), forCellReuseIdentifier: "PaymentTVC")
     }
+    
+    func uploadData(page: Int) {
+        let getTransactions = UserService()
+        getTransactions.getTransactions(model: GetTransactionsRequest(page: page)) { result in
+            switch result {
+            case.success(let content):
+                guard let data = content.data else {return}
+                self.dates.append(contentsOf: data)
+                self.tableView.reloadData()
+            case.failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
 }
 
 extension PaymentHistoryVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return dates.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

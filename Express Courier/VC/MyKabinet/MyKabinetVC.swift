@@ -52,7 +52,8 @@ class MyKabinetVC: UIViewController {
             switch result {
             case.success(let content):
                 guard let data = content.data else {return}
-                Cache.saveUser(user: UserDM(id: data.id, name: data.name, surname: data.surname, email: data.email, phone: data.phone, balance: data.balance, rating: data.rating, region_id: data.region_id, region_name: data.region_name, district_id: data.district_id, district_name: data.district_name, detail_address: data.detail_address, roles: data.roles, created_at: data.created_at, created_at_label: data.created_at_label))
+                
+                Cache.saveUser(user: UserDM(id: data.id, name: data.name, surname: data.surname, email: data.email, phone: data.phone, balance: data.balance, rating: data.rating, region_id: data.region_id, region_name: data.region_name, district_id: data.district_id, district_name: data.district_name, detail_address: data.detail_address, roles: data.roles, avatar: data.avatar, created_at: data.created_at, created_at_label: data.created_at_label))
             case.failure(let error):
                 Alert.showAlert(forState: .error, message: error.localizedDescription, vibrationType: .error)
             }
@@ -101,12 +102,15 @@ extension MyKabinetVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
             let vc = PaymentHistoryVC()
+            vc.hidesBottomBarWhenPushed = true
             navigationController?.pushViewController(vc, animated: true)
         } else if indexPath.row == 1 {
             let vc = PayAccountVC()
+            vc.hidesBottomBarWhenPushed = true
             navigationController?.pushViewController(vc, animated: true)
         } else if indexPath.row == 2 {
             let vc = NotificationViewController()
+            vc.hidesBottomBarWhenPushed = true
             navigationController?.pushViewController(vc, animated: true)
         } else if indexPath.row == 3 {
             let vc = KuryerModalVC()
@@ -114,9 +118,11 @@ extension MyKabinetVC: UITableViewDelegate, UITableViewDataSource {
             present(vc, animated: true)
         } else if indexPath.row == 4 {
             let vc = SettingsVC()
+            vc.hidesBottomBarWhenPushed = true
             navigationController?.pushViewController(vc, animated: true)
         } else if indexPath.row == 5 {
             let vc = PinkodVC()
+            vc.hidesBottomBarWhenPushed = true
             navigationController?.pushViewController(vc, animated: true)
         }
     }

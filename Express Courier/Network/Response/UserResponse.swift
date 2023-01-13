@@ -44,13 +44,13 @@ struct GetMeData: Codable {
 //MARK: - GetTransactionsResponse
 struct GetTransactionsResponse: Codable {
     
-    var data: [String]?
+    var data: [GetTransactionsData]?
     var links: Link?
     var meta: Meta?
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-//        data = try? container.decode(GetMeData.self, forKey: .data)
+        data = try? container.decode([GetTransactionsData].self, forKey: .data)
         links = try? container.decode(Link.self, forKey: .links)
         meta = try? container.decode(Meta.self, forKey: .meta)
     }
@@ -58,6 +58,16 @@ struct GetTransactionsResponse: Codable {
     enum CodingKeys: String, CodingKey {
         case data, links, meta
     }
+}
+
+struct GetTransactionsData: Codable {
+    var id: Int?
+    var read_at: String?
+    var title: String?
+    var description: String?
+    var image: String?
+    var created_at: String?
+    var created_at_label: String?
 }
 
 struct Link: Codable {
@@ -69,9 +79,13 @@ struct Link: Codable {
 
 struct Meta: Codable {
     var current_page: Int?
-    var from: String?
+    var from: Int?
     var last_page: Int?
-    var links: [Links]
+    var links: [Links]?
+    var path: String?
+    var per_page: Int?
+    var to: Int?
+    var total: Int?
 }
 
 struct Links: Codable {

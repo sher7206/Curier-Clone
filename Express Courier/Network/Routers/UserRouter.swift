@@ -10,11 +10,14 @@ import Alamofire
 enum UserRouter: BaseURLRequestConvertible {
     
     case getMe
+    case GetTransactions(model: GetTransactionsRequest)
     
     var path: String {
         switch self {
         case .getMe:
             return "/api/profile"
+        case .GetTransactions(let model):
+            return "/api/profile/transactions?page=\(model.page)"
         }
     }
     
@@ -22,12 +25,16 @@ enum UserRouter: BaseURLRequestConvertible {
         switch self {
         case .getMe:
             return .get
+        case .GetTransactions:
+            return .get
         }
     }
     
     var parameters: Alamofire.Parameters? {
         switch self {
         case .getMe:
+            return nil
+        case .GetTransactions:
             return nil
         }
     }

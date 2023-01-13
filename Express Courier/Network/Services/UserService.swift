@@ -14,4 +14,8 @@ struct UserService: BaseService {
     func getMe(completion: @escaping Completion<GetMeResponse>) {
         request(.getMe, completion: completion)
     }
+    
+    func getTransactions(model: GetTransactionsRequest, completion: @escaping Completion<GetTransactionsResponse>) {
+        request(.GetTransactions(model: model), completion: completion)
+    }
 }

@@ -18,4 +18,8 @@ class PaymentTVC: UITableViewCell {
         super.awakeFromNib()
         
     }
+    
+    func updateCell(data: GetTransactionsData) {
+        
+    }
 }
