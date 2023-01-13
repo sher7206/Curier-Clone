@@ -64,7 +64,6 @@
 		2718BF87297183D100DC0A8A /* PostInsideTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2718BF81297183D100DC0A8A /* PostInsideTVC.xib */; };
 		2718BF8B297185C900DC0A8A /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2718BF89297185C900DC0A8A /* Cache.swift */; };
 		2718BF8C297185C900DC0A8A /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2718BF8A297185C900DC0A8A /* Keys.swift */; };
-		2718BFBE297186C700DC0A8A /* UserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2718BF93297186C700DC0A8A /* UserRouter.swift */; };
 		2718BFC5297186C700DC0A8A /* AnalysisResponseMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2718BF9B297186C700DC0A8A /* AnalysisResponseMonitor.swift */; };
 		2718BFCC297186C700DC0A8A /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2718BFA3297186C700DC0A8A /* AuthResponse.swift */; };
 		2718BFCD297186C700DC0A8A /* NetworkDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2718BFA5297186C700DC0A8A /* NetworkDecoder.swift */; };
@@ -175,7 +174,6 @@
 		2718BF81297183D100DC0A8A /* PostInsideTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostInsideTVC.xib; sourceTree = "<group>"; };
 		2718BF89297185C900DC0A8A /* Cache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		2718BF8A297185C900DC0A8A /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
-		2718BF93297186C700DC0A8A /* UserRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRouter.swift; sourceTree = "<group>"; };
 		2718BF9B297186C700DC0A8A /* AnalysisResponseMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalysisResponseMonitor.swift; sourceTree = "<group>"; };
 		2718BFA3297186C700DC0A8A /* AuthResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
 		2718BFA5297186C700DC0A8A /* NetworkDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkDecoder.swift; sourceTree = "<group>"; };
@@ -384,7 +382,6 @@
 		2718BF92297186C700DC0A8A /* Routers */ = {
 			isa = PBXGroup;
 			children = (
-				2718BF93297186C700DC0A8A /* UserRouter.swift */,
 				27CD00522971896B0088449B /* AuthRouter.swift */,
 			);
 			path = Routers;
@@ -779,7 +776,6 @@
 				2718BFCC297186C700DC0A8A /* AuthResponse.swift in Sources */,
 				18DA32EC296C1F060066FF9C /* Vibration.swift in Sources */,
 				18DA32E0296BFCE10066FF9C /* MyInfoTVC.swift in Sources */,
-				2718BFBE297186C700DC0A8A /* UserRouter.swift in Sources */,
 				18DA32DD296BFCE10066FF9C /* NotificationTVC.swift in Sources */,
 				27CD00532971896B0088449B /* AuthRouter.swift in Sources */,
 				18DA32CA296BFCC00066FF9C /* SettingsVC.swift in Sources */,

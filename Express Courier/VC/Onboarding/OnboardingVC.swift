@@ -10,7 +10,7 @@ import SCPageControl
 
 class OnboardingVC: UIViewController {
     
-
+    
     @IBOutlet weak var sc: SCPageControlView!
     var nextLbl: String = ""
     @IBOutlet weak var collectionView: UICollectionView!
@@ -46,13 +46,12 @@ class OnboardingVC: UIViewController {
             }
         } else {
             self.nextLbl = "Tushundim"
-            let vc = PostVC()
+            let vc = KabinetVC()
             vc.modalPresentationStyle = .overFullScreen
             self.present(vc, animated: true)
             
         }
     }
-    
 }
 
 

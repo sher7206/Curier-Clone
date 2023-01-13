@@ -12,7 +12,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         IQKeyboardManager.shared.enable = true
         window = UIWindow()
-        let vc = MainTabBarController()
+        let vc = OnboardingVC()
         window?.rootViewController = vc
         window?.makeKeyAndVisible()
         UINavigationBar.appearance().tintColor = .black

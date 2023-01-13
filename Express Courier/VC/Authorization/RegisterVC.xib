@@ -237,9 +237,6 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NFa-wg-RGz">
                             <rect key="frame" x="16" y="579" width="382" height="50"/>
                             <color key="backgroundColor" red="0.98431372549999996" green="0.85490196080000003" blue="0.38823529410000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="50" id="AMp-z3-9vE"/>
-                            </constraints>
                             <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="14"/>
                             <color key="tintColor" red="0.76078431369999999" green="0.59215686270000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -304,6 +301,7 @@
                 <constraint firstItem="DEJ-FN-63V" firstAttribute="top" secondItem="WEn-gl-PJf" secondAttribute="top" id="PV1-ah-H4j"/>
                 <constraint firstItem="DEJ-FN-63V" firstAttribute="leading" secondItem="Vya-UL-Rcj" secondAttribute="leading" id="pRU-Hl-zEo"/>
                 <constraint firstItem="DEJ-FN-63V" firstAttribute="trailing" secondItem="Vya-UL-Rcj" secondAttribute="trailing" id="pxo-oz-l7G"/>
+                <constraint firstItem="NFa-wg-RGz" firstAttribute="height" secondItem="WEn-gl-PJf" secondAttribute="height" multiplier="50/896" id="xVI-G0-jsb"/>
             </constraints>
             <point key="canvasLocation" x="34.782608695652179" y="19.419642857142858"/>
         </view>

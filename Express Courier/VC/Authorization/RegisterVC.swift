@@ -9,12 +9,8 @@ import UIKit
 import SwiftPhoneNumberFormatter
 
 class RegisterVC: UIViewController {
-
-    
-    
     
     @IBOutlet weak var confirmBtn: UIButton!
-    
     @IBOutlet weak var usernameTf: UITextField!
     @IBOutlet weak var passwordTf: UITextField!
     @IBOutlet weak var gmailTf: PhoneFormattedTextField!
@@ -52,25 +48,31 @@ class RegisterVC: UIViewController {
         isShowPassword = !isShowPassword
     }
     
- 
+    
     
     @IBAction func confirmBtnTapped(_ sender: UIButton) {
-//        guard let number = gmailTf.text?.replacingOccurrences(of: " ", with: "") else {return}
-//        let register = AuthService()
-//        register.register(model: RegisterRequest(name: usernameTf.text!, phone: number, password: passwordTf.text!)) { [self] result in
-//            switch result {
-//            case.success(let content):
-//                guard let token = content.data else {return}
-//                UserDefaults.standard.set("Bearer "+token, forKey: Keys.userToken)
-//                Alert.showAlert(forState: .success, message: content.message ?? "", vibrationType: .success)
-//                let vc = MainTabbar()
-//                sendFcmToken()
-//                vc.modalPresentationStyle = .overFullScreen
-//                self.present(vc, animated: true)
-//            case.failure(let error):
-//                Alert.showAlert(forState: .error, message: error.localizedDescription, vibrationType: .error)
-//            }
-//        }
+        guard let number = gmailTf.text?.replacingOccurrences(of: " ", with: "") else {return}
+        let register = AuthService()
+        
+        print(number, usernameTf.text!, passwordTf.text!)
+        register.register(model: RegisterRequest(
+            name: usernameTf.text!,
+            phone: number,
+            password: passwordTf.text!)) { result in
+                switch result {
+                case.success(let content):
+                    guard let token = content.data else {return}
+                    UserDefaults.standard.set("Bearer " + token, forKey: Keys.userToken)
+                    let vc = MainTabBarController()
+                    vc.modalPresentationStyle = .overFullScreen
+                    self.present(vc, animated: true)
+                case.failure(let error):
+                    Alert.showAlert(forState: .error, message: error.localizedDescription, vibrationType: .error)
+                    let vc = MainTabBarController()
+                    vc.modalPresentationStyle = .overFullScreen
+                    self.present(vc, animated: true)
+                }
+            }
     }
     
     
@@ -80,20 +82,20 @@ class RegisterVC: UIViewController {
     }
     
     
-//    func sendFcmToken(){
-//        let send = AuthService()
-//
-//        if let fcmToken = UserDefaults.standard.string(forKey: Keys.fcmToken){
-//            send.sendFcmToken(model: FcmTokenRequest(fcm_token: fcmToken, platform: "ios", app_id: "uz.100k.express.client")) { result in
-//                switch result{
-//                case.success(let content):
-//                    print(content.message,"🟢")
-//                case.failure(let error):
-//                    print(error.localizedDescription,"🔴")
-//                }
-//            }
-//        }
-//    }
+    //    func sendFcmToken(){
+    //        let send = AuthService()
+    //
+    //        if let fcmToken = UserDefaults.standard.string(forKey: Keys.fcmToken){
+    //            send.sendFcmToken(model: FcmTokenRequest(fcm_token: fcmToken, platform: "ios", app_id: "uz.100k.express.client")) { result in
+    //                switch result{
+    //                case.success(let content):
+    //                    print(content.message,"🟢")
+    //                case.failure(let error):
+    //                    print(error.localizedDescription,"🔴")
+    //                }
+    //            }
+    //        }
+    //    }
 }
 
 extension RegisterVC: UITextFieldDelegate {
