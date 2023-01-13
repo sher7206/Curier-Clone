@@ -10,17 +10,22 @@ import Alamofire
 enum AuthRouter: BaseURLRequestConvertible {
     
     case register(model: RegisterRequest)
+    case login(model: LoginRequest)
     
     var path: String {
         switch self {
         case.register:
             return "/api/auth/sanctum/register"
+        case .login:
+            return "/api/auth/sanctum/login"
         }
     }
     
     var method: Alamofire.HTTPMethod {
         switch self {
         case.register:
+            return .post
+        case .login:
             return .post
         }
     }
@@ -32,6 +37,12 @@ enum AuthRouter: BaseURLRequestConvertible {
                 "phone": model.phone,
                 "password": model.password,
                 "name": model.name
+            ]
+            return params
+        case .login(model: let model):
+            let params: [String: Any] = [
+                "username": model.username,
+                "password": model.password
             ]
             return params
         }

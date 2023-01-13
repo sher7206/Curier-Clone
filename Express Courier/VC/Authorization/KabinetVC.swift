@@ -9,16 +9,12 @@ import UIKit
 
 class KabinetVC: UIViewController {
     
-    
-    
-    
     @IBOutlet weak var confirmBtn: UIButton!
     @IBOutlet weak var usernameTf: UITextField!
     @IBOutlet weak var passwordTf: UITextField!
     @IBOutlet var tfViews: [UIView]!
     @IBOutlet weak var eyeImg: UIImageView!
     var isShowPassword: Bool = false
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +48,31 @@ class KabinetVC: UIViewController {
     }
     
     
+    
+    
+    
+    @IBAction func confirmBtnTapped(_ sender: UIButton) {
+        let login = AuthService()
+        login.login(model: LoginRequest(
+            username: usernameTf.text!,
+            password: passwordTf.text!)) { result in
+                switch result {
+                case.success(let content):
+                    print(content)
+                    
+                    window.rootViewController = navVc
+                    window.makeKeyAndVisible()
+                    let options: UIView.AnimationOptions = .transitionCrossDissolve
+                    let duration: TimeInterval = 0.3
+                    UIView.transition(with: window, duration: duration, options: options, animations: {
+                    }, completion:{completed in})
+                    
+                case.failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+    }
+    
     @IBAction func registerTapped(_ sender: UIButton) {
         let vc = RegisterVC()
         vc.modalPresentationStyle = .overFullScreen
@@ -59,7 +80,6 @@ class KabinetVC: UIViewController {
         present(vc, animated: true)
     }
     
-   
     
 }
 

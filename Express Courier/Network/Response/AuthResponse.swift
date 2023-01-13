@@ -19,8 +19,10 @@ struct LoginResponse: Codable {
     enum CodingKeys: String, CodingKey {
         case message, data
     }
-    
 }
+
+
+
 
 struct RegisterResponse: Codable {
     var message: String?
@@ -36,6 +38,9 @@ struct RegisterResponse: Codable {
         case message, data
     }
 }
+
+
+
 
 struct FcmTokenResponse: Codable{
     var message: String?
