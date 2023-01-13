@@ -1,56 +1,39 @@
 //
-//  AddTeamVC.swift
+//  DeleteTeamVC.swift
 //  Express Courier
 //
 //  Created by Sherzod on 13/01/23.
 //
 
 import UIKit
-import SwiftPhoneNumberFormatter
 
-protocol AddTeamVCDelegate {
-    func addTeam()
-}
 
-class AddTeamVC: UIViewController {
-    
-    
+
+class DeleteTeamVC: UIViewController {
+
     @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var fullNameTf: UITextField!
-    @IBOutlet weak var locationTf: UITextField!
-    @IBOutlet weak var phoneTF: PhoneFormattedTextField!
-    
-    var delegate: AddTeamVCDelegate?
+    var index: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         containerView.layer.cornerRadius = 25
         containerView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         openAnimetion()
-        phoneTF.config.defaultConfiguration = PhoneFormat(defaultPhoneFormat: "+### ## ### ## ##")
-        
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
-        self.view.endEditing(false)
     }
     
     @IBAction func dismissBtnTapped(_ sender: UIButton) {
         dismissFunc()
     }
     
-    @IBAction func submitBtnTapped(_ sender: UIButton) {
-        self.delegate?.addTeam()
+    @IBAction func deleteItemTapped(_ sender: UIButton) {
         dismissFunc()
+        print("index =", index)
     }
+    
 }
 
-
 //MARK: - Funcs
-extension AddTeamVC {
-    
+extension DeleteTeamVC {
     func openAnimetion() {
         Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false) { _ in
             UIView.animate(withDuration: 0.3) {

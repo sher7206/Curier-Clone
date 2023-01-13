@@ -74,6 +74,8 @@
 		279BAAB2296825490028B2EC /* RegisterVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 279BAAB0296825490028B2EC /* RegisterVC.xib */; };
 		27A2670F297148D700294BE7 /* AddTeamVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A2670D297148D700294BE7 /* AddTeamVC.swift */; };
 		27A26710297148D700294BE7 /* AddTeamVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27A2670E297148D700294BE7 /* AddTeamVC.xib */; };
+		27A267132971571B00294BE7 /* DeleteTeamVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A267112971571B00294BE7 /* DeleteTeamVC.swift */; };
+		27A267142971571B00294BE7 /* DeleteTeamVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27A267122971571B00294BE7 /* DeleteTeamVC.xib */; };
 		27B7E3562966FD1B00C3A69E /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B7E3542966FD1B00C3A69E /* OnboardingVC.swift */; };
 		27B7E3572966FD1B00C3A69E /* OnboardingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27B7E3552966FD1B00C3A69E /* OnboardingVC.xib */; };
 		27B7E35B2966FEF500C3A69E /* OnboardingCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B7E3592966FEF500C3A69E /* OnboardingCVC.swift */; };
@@ -154,6 +156,8 @@
 		279BAAB0296825490028B2EC /* RegisterVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterVC.xib; sourceTree = "<group>"; };
 		27A2670D297148D700294BE7 /* AddTeamVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTeamVC.swift; sourceTree = "<group>"; };
 		27A2670E297148D700294BE7 /* AddTeamVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTeamVC.xib; sourceTree = "<group>"; };
+		27A267112971571B00294BE7 /* DeleteTeamVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteTeamVC.swift; sourceTree = "<group>"; };
+		27A267122971571B00294BE7 /* DeleteTeamVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeleteTeamVC.xib; sourceTree = "<group>"; };
 		27B7E3542966FD1B00C3A69E /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
 		27B7E3552966FD1B00C3A69E /* OnboardingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingVC.xib; sourceTree = "<group>"; };
 		27B7E3592966FEF500C3A69E /* OnboardingCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCVC.swift; sourceTree = "<group>"; };
@@ -302,6 +306,8 @@
 				27347F1E2970525B00D871EC /* TeamVC.xib */,
 				27A2670D297148D700294BE7 /* AddTeamVC.swift */,
 				27A2670E297148D700294BE7 /* AddTeamVC.xib */,
+				27A267112971571B00294BE7 /* DeleteTeamVC.swift */,
+				27A267122971571B00294BE7 /* DeleteTeamVC.xib */,
 			);
 			path = Team;
 			sourceTree = "<group>";
@@ -527,6 +533,7 @@
 				18DA32DE296BFCE10066FF9C /* MyCategoryTVC.xib in Resources */,
 				27197AE729680B5300B53B25 /* KabinetVC.xib in Resources */,
 				18AF68F129698E5500B35B64 /* PostAgreemantVC.xib in Resources */,
+				27A267142971571B00294BE7 /* DeleteTeamVC.xib in Resources */,
 				27A26710297148D700294BE7 /* AddTeamVC.xib in Resources */,
 				27347F13297028A000D871EC /* TaxiNewsModalVC.xib in Resources */,
 				18DA32D2296BFCC10066FF9C /* SetupPinKodVC.xib in Resources */,
@@ -610,6 +617,7 @@
 				27B7E35B2966FEF500C3A69E /* OnboardingCVC.swift in Sources */,
 				27347F1F2970525B00D871EC /* TeamVC.swift in Sources */,
 				27347F16297038E400D871EC /* TaxiOldUserModalVC.swift in Sources */,
+				27A267132971571B00294BE7 /* DeleteTeamVC.swift in Sources */,
 				18DA32CD296BFCC00066FF9C /* PaymentHistoryVC.swift in Sources */,
 				18DA32D4296BFCC10066FF9C /* MyKabinetVC.swift in Sources */,
 				27347F12297028A000D871EC /* TaxiNewsModalVC.swift in Sources */,
