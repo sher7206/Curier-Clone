@@ -56,6 +56,9 @@ extension TeamVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
 //MARK: - Funs
 extension TeamVC {
     func setupNavigation() {
+        
+        
+        
         title = "Jamoa"
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
