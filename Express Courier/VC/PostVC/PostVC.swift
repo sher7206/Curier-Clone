@@ -126,9 +126,7 @@ extension PostVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == self.collectionView{
-            
         }
-        
         headercollectionView.reloadData()
         selectedIndex = indexPath.row
         self.headercollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
@@ -160,9 +158,21 @@ extension PostVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
 extension PostVC: PostCVCDelegate{
     
     func didSelected(index: Int) {
-        let vc = PostAgreemantVC()
+//        let vc = PostAgreemantVC()
+//        vc.modalPresentationStyle = .overFullScreen
+//        present(vc, animated: true, completion: nil)
+//        
+//        let vc = EnterTimerVC()
+//        vc.modalPresentationStyle = .overFullScreen
+//        present(vc, animated: true, completion: nil)
+//
+        
+        let vc = FinishOrderVC()
         vc.modalPresentationStyle = .overFullScreen
         present(vc, animated: true, completion: nil)
+
+
+        
     }
     
     
