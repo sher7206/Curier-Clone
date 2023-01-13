@@ -32,7 +32,6 @@ class MyKabinetVC: UIViewController {
     
     func setupNavigation() {
         title = "Mening kabinetim"
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "menu-list"), style: .plain, target: self, action: #selector(addTapped))
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = UIColor(named: "primary900")
@@ -44,13 +43,21 @@ class MyKabinetVC: UIViewController {
         tableView.dataSource = self
         tableView.register(UINib(nibName: "MyInfoTVC", bundle: nil), forCellReuseIdentifier: "MyInfoTVC")
         tableView.register(UINib(nibName: "MyCategoryTVC", bundle: nil), forCellReuseIdentifier: "MyCategoryTVC")
-        
+        uploadData()
     }
     
-    @objc func addTapped() {
-        print("Left")
+    func uploadData() {
+        let getMe = UserService()
+        getMe.getMe { result in
+            switch result {
+            case.success(let content):
+                guard let data = content.data else {return}
+                Cache.saveUser(user: UserDM(id: data.id, name: data.name, surname: data.surname, email: data.email, phone: data.phone, balance: data.balance, rating: data.rating, region_id: data.region_id, region_name: data.region_name, district_id: data.district_id, district_name: data.district_name, detail_address: data.detail_address, roles: data.roles, created_at: data.created_at, created_at_label: data.created_at_label))
+            case.failure(let error):
+                Alert.showAlert(forState: .error, message: error.localizedDescription, vibrationType: .error)
+            }
+        }
     }
-    
 }
 
 extension MyKabinetVC: UITableViewDelegate, UITableViewDataSource {
@@ -70,12 +77,24 @@ extension MyKabinetVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyInfoTVC", for: indexPath) as? MyInfoTVC else {return UITableViewCell()}
-            cell.cornerRadius = 100
+            cell.updateCell(data: Cache.getUser())
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyCategoryTVC", for: indexPath) as? MyCategoryTVC else {return UITableViewCell()}
             cell.updateCell(dates: categoryDates, index: indexPath.row)
             return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 1 {
+            if indexPath.row == 3 {
+                return 0
+            } else {
+                return UITableView.automaticDimension
+            }
+        } else {
+            return UITableView.automaticDimension
         }
     }
     

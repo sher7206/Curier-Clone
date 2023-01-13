@@ -47,10 +47,6 @@ class KabinetVC: UIViewController {
         isShowPassword = !isShowPassword
     }
     
-    
-    
-    
-    
     @IBAction func confirmBtnTapped(_ sender: UIButton) {
         let login = AuthService()
         login.login(model: LoginRequest(
@@ -58,15 +54,16 @@ class KabinetVC: UIViewController {
             password: passwordTf.text!)) { result in
                 switch result {
                 case.success(let content):
-                    print(content)
-                    
-                    window.rootViewController = navVc
+                    guard let token = content.data else { return }
+                    UserDefaults.standard.set("Bearer " + token, forKey: Keys.userToken)
+                    let vc = MainTabBarController()
+                    guard let window = UIApplication.shared.windows.filter({$0.isKeyWindow}).first else { return }
+                    window.rootViewController = vc
                     window.makeKeyAndVisible()
                     let options: UIView.AnimationOptions = .transitionCrossDissolve
                     let duration: TimeInterval = 0.3
                     UIView.transition(with: window, duration: duration, options: options, animations: {
                     }, completion:{completed in})
-                    
                 case.failure(let error):
                     print(error.localizedDescription)
                 }

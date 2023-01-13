@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import SDWebImage
 
 class MyInfoTVC: UITableViewCell {
-
+    
     @IBOutlet weak var personImage: UIImageView!
     @IBOutlet weak var personName: UILabel!
     @IBOutlet weak var personPhoneNumber: UILabel!
@@ -24,7 +25,13 @@ class MyInfoTVC: UITableViewCell {
         
     }
     
-    func updateCell() {
-        
+    func updateCell(data: UserDM?) {
+        personImage.sd_setImage(with: URL(string: data?.avatar ?? ""))
+        personName.text = (data?.name ?? "") + " " + (data?.surname ?? "")
+        personPhoneNumber.text = data?.phone ?? ""
+        personId.text = "#" + "\(data?.id ?? 0)"
+        levelLbl.text = "\(data?.rating ?? 0)"
+        walletLbl.text = "\(data?.balance ?? 0)"
+        shotLbl.text = "\(data?.balance ?? 0)"
     }
 }

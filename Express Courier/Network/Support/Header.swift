@@ -65,7 +65,7 @@ extension Header {
             case .SmsToken:
                 return ""
             case .token:
-                return "Bearer " + "101|LcXexMEolw0EVzX6XYHj5ZHRXXTh2zpGq2NCuRtc"
+                return Cache.share.getUserToken() ?? ""
             }
         }
     }

@@ -109,6 +109,10 @@
 		27B7E35C2966FEF500C3A69E /* OnboardingCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27B7E35A2966FEF500C3A69E /* OnboardingCVC.xib */; };
 		27B808DC2965C0A300E1357C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27B808DB2965C0A300E1357C /* Colors.xcassets */; };
 		27CD00532971896B0088449B /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CD00522971896B0088449B /* AuthRouter.swift */; };
+		27CD00552971A2A20088449B /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CD00542971A2A20088449B /* UserResponse.swift */; };
+		27CD00572971A3C40088449B /* UserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CD00562971A3C40088449B /* UserRouter.swift */; };
+		27CD00592971A4E50088449B /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CD00582971A4E50088449B /* UserService.swift */; };
+		27CD005B2971ADBC0088449B /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CD005A2971ADBC0088449B /* UserRequest.swift */; };
 		27DE0ADC297057BC00900AAD /* TeamCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DE0ADA297057BC00900AAD /* TeamCVC.swift */; };
 		27DE0ADD297057BC00900AAD /* TeamCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27DE0ADB297057BC00900AAD /* TeamCVC.xib */; };
 		305AA461FD9762D2FB4069B3 /* Pods_Express_Courier.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7515E66C971F51E4D1D05754 /* Pods_Express_Courier.framework */; };
@@ -219,6 +223,10 @@
 		27B7E35A2966FEF500C3A69E /* OnboardingCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingCVC.xib; sourceTree = "<group>"; };
 		27B808DB2965C0A300E1357C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		27CD00522971896B0088449B /* AuthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
+		27CD00542971A2A20088449B /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
+		27CD00562971A3C40088449B /* UserRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRouter.swift; sourceTree = "<group>"; };
+		27CD00582971A4E50088449B /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		27CD005A2971ADBC0088449B /* UserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
 		27DE0ADA297057BC00900AAD /* TeamCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCVC.swift; sourceTree = "<group>"; };
 		27DE0ADB297057BC00900AAD /* TeamCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamCVC.xib; sourceTree = "<group>"; };
 		7515E66C971F51E4D1D05754 /* Pods_Express_Courier.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Express_Courier.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -383,6 +391,7 @@
 			isa = PBXGroup;
 			children = (
 				27CD00522971896B0088449B /* AuthRouter.swift */,
+				27CD00562971A3C40088449B /* UserRouter.swift */,
 			);
 			path = Routers;
 			sourceTree = "<group>";
@@ -399,6 +408,7 @@
 			isa = PBXGroup;
 			children = (
 				2718BFA3297186C700DC0A8A /* AuthResponse.swift */,
+				27CD00542971A2A20088449B /* UserResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -419,6 +429,7 @@
 			isa = PBXGroup;
 			children = (
 				2718BFAB297186C700DC0A8A /* AuthRequest.swift */,
+				27CD005A2971ADBC0088449B /* UserRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -438,6 +449,7 @@
 			isa = PBXGroup;
 			children = (
 				2718BFBB297186C700DC0A8A /* AuthService.swift */,
+				27CD00582971A4E50088449B /* UserService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -512,9 +524,9 @@
 			isa = PBXGroup;
 			children = (
 				18DA32C7296BFCC00066FF9C /* MyKabinetVC.swift */,
+				18DA32BF296BFCC00066FF9C /* MyKabinetVC.xib */,
 				2777854A296EBA7100FC0141 /* KuryerModalVC.swift */,
 				2777854B296EBA7100FC0141 /* KuryerModalVC.xib */,
-				18DA32BF296BFCC00066FF9C /* MyKabinetVC.xib */,
 				18DA32BE296BFCC00066FF9C /* NotificationVC.swift */,
 				18DA32BB296BFCBF0066FF9C /* PayAccountVC.swift */,
 				18DA32C1296BFCC00066FF9C /* PayAccountVC.xib */,
@@ -773,15 +785,18 @@
 			files = (
 				2777855B296ED85000FC0141 /* TaxiHeaderCVC.swift in Sources */,
 				2718BF8C297185C900DC0A8A /* Keys.swift in Sources */,
+				27CD005B2971ADBC0088449B /* UserRequest.swift in Sources */,
 				2718BFCC297186C700DC0A8A /* AuthResponse.swift in Sources */,
 				18DA32EC296C1F060066FF9C /* Vibration.swift in Sources */,
 				18DA32E0296BFCE10066FF9C /* MyInfoTVC.swift in Sources */,
 				18DA32DD296BFCE10066FF9C /* NotificationTVC.swift in Sources */,
+				27CD00592971A4E50088449B /* UserService.swift in Sources */,
 				27CD00532971896B0088449B /* AuthRouter.swift in Sources */,
 				18DA32CA296BFCC00066FF9C /* SettingsVC.swift in Sources */,
 				2718BFDB297186C700DC0A8A /* Domain.swift in Sources */,
 				18DA32CB296BFCC00066FF9C /* NotificationVC.swift in Sources */,
 				2718BFCF297186C700DC0A8A /* NetworkExtensions.swift in Sources */,
+				27CD00572971A3C40088449B /* UserRouter.swift in Sources */,
 				18AF68DC29683DD700B35B64 /* Ex+String.swift in Sources */,
 				2718BF77297183B700DC0A8A /* PostAgreemantVC.swift in Sources */,
 				18DA32E2296BFCE10066FF9C /* PaymentTVC.swift in Sources */,
@@ -824,6 +839,7 @@
 				18DA32E7296C0D430066FF9C /* MainTabBarController.swift in Sources */,
 				18DE66C62966C940003324A5 /* Ex+UIView.swift in Sources */,
 				18AF68DA296836DE00B35B64 /* HeaderCVC.swift in Sources */,
+				27CD00552971A2A20088449B /* UserResponse.swift in Sources */,
 				270273D0296C0B6900687A2A /* NotificationViewController.swift in Sources */,
 				2718BF85297183D100DC0A8A /* ArrivedItemTVC.swift in Sources */,
 				27778563296EEF3C00FC0141 /* TaxiTVC.swift in Sources */,

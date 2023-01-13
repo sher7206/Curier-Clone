@@ -19,6 +19,7 @@ struct UserDM: Codable {
     var district_id: Int?
     var district_name: String?
     var detail_address: String?
+    var roles: [String]?
     var avatar: String?
     var created_at: String?
     var created_at_label: String?
