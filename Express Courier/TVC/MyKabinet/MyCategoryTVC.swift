@@ -30,10 +30,10 @@ class MyCategoryTVC: UITableViewCell {
         self.nameImage.image = UIImage(named: dates[index].imgName)
         self.nameLbl.text = dates[index].name
         
-        if index == 5 || index == 6 {
+        if index == 5 || index == 6 || index == 7 || index == 8 || index == 9 {
             chevronImage.image = nil
         }
-        if index == 6 {
+        if index == 9 {
             self.bottomView.isHidden = true
         } else {
             self.bottomView.isHidden = false

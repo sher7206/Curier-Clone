@@ -19,6 +19,9 @@ class MyKabinetVC: UIViewController {
         MyKabinetCategoryDM(name: "Kuryer bo‘lish", imgName: "courier-my"),
         MyKabinetCategoryDM(name: "Sozlamalar", imgName: "user-edit-my"),
         MyKabinetCategoryDM(name: "Pin kod qo‘yish", imgName: "lock-my"),
+        MyKabinetCategoryDM(name: "Yangiliklar", imgName: "newsKabinet"),
+        MyKabinetCategoryDM(name: "Dastur xaqida", imgName: "infoKabinet"),
+        MyKabinetCategoryDM(name: "Murojat qilish", imgName: "24-support"),
         MyKabinetCategoryDM(name: "Akkauntdan chiqish", imgName: "logout-my")
     ]
     
@@ -60,14 +63,14 @@ extension MyKabinetVC: UITableViewDelegate, UITableViewDataSource {
         if section == 0 {
             return 1
         } else {
-            return 7
+            return categoryDates.count
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyInfoTVC", for: indexPath) as? MyInfoTVC else {return UITableViewCell()}
-            
+            cell.cornerRadius = 100
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyCategoryTVC", for: indexPath) as? MyCategoryTVC else {return UITableViewCell()}
