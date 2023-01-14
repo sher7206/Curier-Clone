@@ -37,13 +37,10 @@ class PostVC: UIViewController {
         super.viewDidLoad()
         setupNavigation()
         title = "Pochta"
+        NotificationCenter.default.addObserver(self, selector: #selector(onNotificationCatched(notification:)), name: NSNotification.Name(rawValue: "scrollNav"), object: nil)
      //   Loader.start()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        NotificationCenter.default.addObserver(self, selector: #selector(onNotificationCatched(notification:)), name: NSNotification.Name(rawValue: "scrollNav"), object: nil)
-    }
     
     func setupNavigation(){
         let appearance = UINavigationBarAppearance()
@@ -61,6 +58,8 @@ class PostVC: UIViewController {
     
     
     @objc func onNotificationCatched(notification:NSNotification) {
+        collectionView.reloadData()
+
         let userInfo:Dictionary<String, Double > = notification.userInfo as! Dictionary<String, Double>
         let value = userInfo["height"]!
         if value <= 0{
@@ -68,7 +67,6 @@ class PostVC: UIViewController {
         }else{
             regionView.isHidden = true
         }
-        collectionView.reloadData()
     }
     
     
@@ -145,10 +143,10 @@ extension PostVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView == self.collectionView{
-            headercollectionView.reloadData()
             let pageIndex = Int(round(scrollView.contentOffset.x / view.frame.width))
             self.selectedIndex = pageIndex
             self.headercollectionView.scrollToItem(at: IndexPath(row: selectedIndex, section: 0), at: .centeredHorizontally, animated: true)
+            headercollectionView.reloadData()
         }
     }
     
@@ -166,13 +164,9 @@ extension PostVC: PostCVCDelegate{
 //        vc.modalPresentationStyle = .overFullScreen
 //        present(vc, animated: true, completion: nil)
 //
-        
         let vc = FinishOrderVC()
         vc.modalPresentationStyle = .overFullScreen
         present(vc, animated: true, completion: nil)
-
-
-        
     }
     
     
