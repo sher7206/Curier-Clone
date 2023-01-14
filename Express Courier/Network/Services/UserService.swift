@@ -16,6 +16,10 @@ struct UserService: BaseService {
     }
     
     func getTransactions(model: GetTransactionsRequest, completion: @escaping Completion<GetTransactionsResponse>) {
-        request(.GetTransactions(model: model), completion: completion)
+        request(.getTransactions(model: model), completion: completion)
+    }
+    
+    func getNotifications(model: GetNotificationsRequest, completion: @escaping Completion<GetNotificationsResponse>) {
+        request(.getNotifications(model: model), completion: completion)
     }
 }
