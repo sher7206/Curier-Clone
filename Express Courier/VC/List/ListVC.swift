@@ -12,6 +12,7 @@ class ListVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //MEN Umarov
         setupNavigation()
     }
     
