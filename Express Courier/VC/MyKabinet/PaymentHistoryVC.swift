@@ -9,11 +9,11 @@ import UIKit
 
 class PaymentHistoryVC: UIViewController {
     
-    
     @IBOutlet weak var tableView: UITableView!
     var dates: [GetTransactionsData] = []
+    var totalItems: Int = 0
+    var currentPage: Int = 1
     
-    var currentPage: Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigation()
@@ -34,15 +34,19 @@ class PaymentHistoryVC: UIViewController {
     }
     
     func uploadData(page: Int) {
+        Loader.start()
         let getTransactions = UserService()
         getTransactions.getTransactions(model: GetTransactionsRequest(page: page)) { result in
             switch result {
             case.success(let content):
+                Loader.stop()
                 guard let data = content.data else {return}
                 self.dates.append(contentsOf: data)
+                self.totalItems = content.meta?.total ?? 0
                 self.tableView.reloadData()
             case.failure(let error):
-                print(error.localizedDescription)
+                Loader.stop()
+                Alert.showAlert(forState: .error, message: error.localizedDescription, vibrationType: .error)
             }
         }
     }
@@ -56,8 +60,18 @@ extension PaymentHistoryVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "PaymentTVC", for: indexPath) as? PaymentTVC else {return UITableViewCell()}
-        
+        cell.updateCell(data: self.dates[indexPath.row])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == dates.count - 1 {
+            if self.totalItems > dates.count {
+                self.currentPage += 1
+                self.uploadData(page: currentPage)
+                self.tableView.reloadData()
+            }
+        }
     }
 }
 

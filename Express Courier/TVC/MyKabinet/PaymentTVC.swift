@@ -20,6 +20,16 @@ class PaymentTVC: UITableViewCell {
     }
     
     func updateCell(data: GetTransactionsData) {
+        self.nameLbl.text = data.comment ?? ""
+        self.dateLbl.text = data.created_at_label ?? ""
         
+        if data.type == "plus" {
+            self.priceLbl.textColor = UIColor(named: "success400")
+            self.priceLbl.text = "\((data.amount ?? 0)) so'm"
+        } else {
+            self.priceLbl.textColor = UIColor(named: "danger300")
+            self.priceLbl.text = "-\(data.amount ?? 0) so'm"
+        }
+      
     }
 }
