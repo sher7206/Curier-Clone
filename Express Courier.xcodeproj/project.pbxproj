@@ -15,6 +15,10 @@
 		188F45DF2972BCB50029FCEC /* Ex+Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188F45DE2972BCB50029FCEC /* Ex+Int.swift */; };
 		188F45E22972C8770029FCEC /* ListBranchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188F45E02972C8770029FCEC /* ListBranchVC.swift */; };
 		188F45E32972C8770029FCEC /* ListBranchVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188F45E12972C8770029FCEC /* ListBranchVC.xib */; };
+		188F45EB2972D1550029FCEC /* RegionsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188F45E92972D1550029FCEC /* RegionsVC.xib */; };
+		188F45EC2972D1550029FCEC /* RegionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188F45EA2972D1550029FCEC /* RegionsVC.swift */; };
+		188F45F02972D1C50029FCEC /* RegionTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188F45EE2972D1C50029FCEC /* RegionTVC.xib */; };
+		188F45F12972D1C50029FCEC /* RegionTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188F45EF2972D1C50029FCEC /* RegionTVC.swift */; };
 		18AF68D9296836DE00B35B64 /* HeaderCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18AF68D7296836DE00B35B64 /* HeaderCVC.xib */; };
 		18AF68DA296836DE00B35B64 /* HeaderCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AF68D8296836DE00B35B64 /* HeaderCVC.swift */; };
 		18AF68DC29683DD700B35B64 /* Ex+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AF68DB29683DD700B35B64 /* Ex+String.swift */; };
@@ -135,6 +139,10 @@
 		188F45DE2972BCB50029FCEC /* Ex+Int.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+Int.swift"; sourceTree = "<group>"; };
 		188F45E02972C8770029FCEC /* ListBranchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBranchVC.swift; sourceTree = "<group>"; };
 		188F45E12972C8770029FCEC /* ListBranchVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListBranchVC.xib; sourceTree = "<group>"; };
+		188F45E92972D1550029FCEC /* RegionsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegionsVC.xib; sourceTree = "<group>"; };
+		188F45EA2972D1550029FCEC /* RegionsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionsVC.swift; sourceTree = "<group>"; };
+		188F45EE2972D1C50029FCEC /* RegionTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegionTVC.xib; sourceTree = "<group>"; };
+		188F45EF2972D1C50029FCEC /* RegionTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionTVC.swift; sourceTree = "<group>"; };
 		18AF68D7296836DE00B35B64 /* HeaderCVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderCVC.xib; sourceTree = "<group>"; };
 		18AF68D8296836DE00B35B64 /* HeaderCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderCVC.swift; sourceTree = "<group>"; };
 		18AF68DB29683DD700B35B64 /* Ex+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+String.swift"; sourceTree = "<group>"; };
@@ -289,6 +297,24 @@
 			path = List;
 			sourceTree = "<group>";
 		};
+		188F45E82972D1490029FCEC /* Regions */ = {
+			isa = PBXGroup;
+			children = (
+				188F45EA2972D1550029FCEC /* RegionsVC.swift */,
+				188F45E92972D1550029FCEC /* RegionsVC.xib */,
+			);
+			path = Regions;
+			sourceTree = "<group>";
+		};
+		188F45ED2972D1B20029FCEC /* Regions */ = {
+			isa = PBXGroup;
+			children = (
+				188F45EF2972D1C50029FCEC /* RegionTVC.swift */,
+				188F45EE2972D1C50029FCEC /* RegionTVC.xib */,
+			);
+			path = Regions;
+			sourceTree = "<group>";
+		};
 		18AF68D2296833C000B35B64 /* PostTVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -346,6 +372,7 @@
 		18AF68DD296844D500B35B64 /* TVC */ = {
 			isa = PBXGroup;
 			children = (
+				188F45ED2972D1B20029FCEC /* Regions */,
 				188F45D92972B8B90029FCEC /* List */,
 				27778553296ECB9800FC0141 /* Taxi */,
 				27864518296847FA000FD251 /* MyKabinet */,
@@ -612,6 +639,7 @@
 		27B7E3502966FCC800C3A69E /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				188F45E82972D1490029FCEC /* Regions */,
 				2776B0FA2971742C00544B1E /* List */,
 				27347F1C2970523500D871EC /* Team */,
 				2777854E296EC52900FC0141 /* Taxi */,
@@ -747,6 +775,7 @@
 				2718BF78297183B700DC0A8A /* PostAgreemantVC.xib in Resources */,
 				279BAAB2296825490028B2EC /* RegisterVC.xib in Resources */,
 				27B7E35C2966FEF500C3A69E /* OnboardingCVC.xib in Resources */,
+				188F45EB2972D1550029FCEC /* RegionsVC.xib in Resources */,
 				18AF68E129684E2D00B35B64 /* PostCVC.xib in Resources */,
 				188F45D62972B19C0029FCEC /* loading.json in Resources */,
 				18DA32CC296BFCC00066FF9C /* MyKabinetVC.xib in Resources */,
@@ -759,6 +788,7 @@
 				2776B0FE2971748A00544B1E /* ListVC.xib in Resources */,
 				2718BF72297183B700DC0A8A /* FinishOrderVC.xib in Resources */,
 				27A267142971571B00294BE7 /* DeleteTeamVC.xib in Resources */,
+				188F45F02972D1C50029FCEC /* RegionTVC.xib in Resources */,
 				27A26710297148D700294BE7 /* AddTeamVC.xib in Resources */,
 				27347F13297028A000D871EC /* TaxiNewsModalVC.xib in Resources */,
 				18DA32D2296BFCC10066FF9C /* SetupPinKodVC.xib in Resources */,
@@ -838,6 +868,7 @@
 				27CD00532971896B0088449B /* AuthRouter.swift in Sources */,
 				18DA32CA296BFCC00066FF9C /* SettingsVC.swift in Sources */,
 				2718BFDB297186C700DC0A8A /* Domain.swift in Sources */,
+				188F45F12972D1C50029FCEC /* RegionTVC.swift in Sources */,
 				18DA32CB296BFCC00066FF9C /* NotificationVC.swift in Sources */,
 				2718BFCF297186C700DC0A8A /* NetworkExtensions.swift in Sources */,
 				27CD00572971A3C40088449B /* UserRouter.swift in Sources */,
@@ -888,6 +919,7 @@
 				18DE66C62966C940003324A5 /* Ex+UIView.swift in Sources */,
 				18AF68DA296836DE00B35B64 /* HeaderCVC.swift in Sources */,
 				27CD00552971A2A20088449B /* UserResponse.swift in Sources */,
+				188F45EC2972D1550029FCEC /* RegionsVC.swift in Sources */,
 				270273D0296C0B6900687A2A /* NotificationViewController.swift in Sources */,
 				2718BF85297183D100DC0A8A /* ArrivedItemTVC.swift in Sources */,
 				27778563296EEF3C00FC0141 /* TaxiTVC.swift in Sources */,

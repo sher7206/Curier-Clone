@@ -45,7 +45,6 @@ class PostVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(onNotificationCatched(notification:)), name: NSNotification.Name(rawValue: "scrollNav"), object: nil)
     }
     
-    
     func setupNavigation(){
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
@@ -61,13 +60,9 @@ class PostVC: UIViewController {
     }
     
     
-    
     @objc func onNotificationCatched(notification:NSNotification) {
-        
         let userInfo:Dictionary<String, Double > = notification.userInfo as! Dictionary<String, Double>
-        
-        let value = userInfo["height"]! as! Double
-            
+        let value = userInfo["height"]!
         if value <= 0{
             regionView.isHidden = false
         }else{
