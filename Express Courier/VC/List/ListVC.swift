@@ -14,6 +14,10 @@ class ListVC: UIViewController {
         
         //MEN Umarov
         setupNavigation()
+        
+        
+        
+        
     }
     
     func setupNavigation() {
