@@ -20,9 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let vc = MainTabBarController()
             window?.rootViewController = vc
         }
-        
-        window?.makeKeyAndVisible()
+                
         UINavigationBar.appearance().tintColor = .black
+
+        window?.makeKeyAndVisible()
         return true
     }
 }

@@ -57,6 +57,7 @@ class PostVC: UIViewController {
         navigationItem.leftBarButtonItem = menuBtn
         let filterBtn = UIBarButtonItem(image: UIImage(named: "filter-post"), style: .plain, target: self, action: #selector(filterBtnPressed))
         navigationItem.rightBarButtonItem = filterBtn
+        navigationItem.backButtonTitle = ""
     }
     
     
@@ -95,6 +96,9 @@ class PostVC: UIViewController {
     @IBAction func scanBtnPressed(_ sender: Any) {
     }
     @IBAction func listBtnPressed(_ sender: Any) {
+        let vc = ListBranchVC()
+        vc.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 }

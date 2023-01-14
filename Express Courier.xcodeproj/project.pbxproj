@@ -13,6 +13,8 @@
 		188F45DC2972B96D0029FCEC /* BranchListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188F45DA2972B96D0029FCEC /* BranchListTVC.swift */; };
 		188F45DD2972B96D0029FCEC /* BranchListTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188F45DB2972B96D0029FCEC /* BranchListTVC.xib */; };
 		188F45DF2972BCB50029FCEC /* Ex+Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188F45DE2972BCB50029FCEC /* Ex+Int.swift */; };
+		188F45E22972C8770029FCEC /* ListBranchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188F45E02972C8770029FCEC /* ListBranchVC.swift */; };
+		188F45E32972C8770029FCEC /* ListBranchVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188F45E12972C8770029FCEC /* ListBranchVC.xib */; };
 		18AF68D9296836DE00B35B64 /* HeaderCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18AF68D7296836DE00B35B64 /* HeaderCVC.xib */; };
 		18AF68DA296836DE00B35B64 /* HeaderCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AF68D8296836DE00B35B64 /* HeaderCVC.swift */; };
 		18AF68DC29683DD700B35B64 /* Ex+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AF68DB29683DD700B35B64 /* Ex+String.swift */; };
@@ -131,6 +133,8 @@
 		188F45DA2972B96D0029FCEC /* BranchListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchListTVC.swift; sourceTree = "<group>"; };
 		188F45DB2972B96D0029FCEC /* BranchListTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BranchListTVC.xib; sourceTree = "<group>"; };
 		188F45DE2972BCB50029FCEC /* Ex+Int.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+Int.swift"; sourceTree = "<group>"; };
+		188F45E02972C8770029FCEC /* ListBranchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBranchVC.swift; sourceTree = "<group>"; };
+		188F45E12972C8770029FCEC /* ListBranchVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListBranchVC.xib; sourceTree = "<group>"; };
 		18AF68D7296836DE00B35B64 /* HeaderCVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderCVC.xib; sourceTree = "<group>"; };
 		18AF68D8296836DE00B35B64 /* HeaderCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderCVC.swift; sourceTree = "<group>"; };
 		18AF68DB29683DD700B35B64 /* Ex+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+String.swift"; sourceTree = "<group>"; };
@@ -312,6 +316,8 @@
 		18AF68D4296833E700B35B64 /* PostVC */ = {
 			isa = PBXGroup;
 			children = (
+				2718BF6F297183B700DC0A8A /* PostVC.swift */,
+				2718BF68297183B700DC0A8A /* PostVC.xib */,
 				2718BF69297183B700DC0A8A /* ArrivedPostVC.swift */,
 				2718BF6D297183B700DC0A8A /* ArrivedPostVC.xib */,
 				2718BF64297183B700DC0A8A /* ChatVC.swift */,
@@ -322,8 +328,6 @@
 				2718BF66297183B700DC0A8A /* FinishOrderVC.xib */,
 				2718BF6B297183B700DC0A8A /* PostAgreemantVC.swift */,
 				2718BF6C297183B700DC0A8A /* PostAgreemantVC.xib */,
-				2718BF6F297183B700DC0A8A /* PostVC.swift */,
-				2718BF68297183B700DC0A8A /* PostVC.xib */,
 				18DA32E6296C0D430066FF9C /* MainTabBarController.swift */,
 			);
 			path = PostVC;
@@ -515,6 +519,8 @@
 		2776B0FA2971742C00544B1E /* List */ = {
 			isa = PBXGroup;
 			children = (
+				188F45E02972C8770029FCEC /* ListBranchVC.swift */,
+				188F45E12972C8770029FCEC /* ListBranchVC.xib */,
 				2776B0FB2971748A00544B1E /* ListVC.swift */,
 				2776B0FC2971748A00544B1E /* ListVC.xib */,
 			);
@@ -727,6 +733,7 @@
 				2718BF87297183D100DC0A8A /* PostInsideTVC.xib in Resources */,
 				188F45D82972B3E10029FCEC /* loader.json in Resources */,
 				27347F17297038E400D871EC /* TaxiOldUserModalVC.xib in Resources */,
+				188F45E32972C8770029FCEC /* ListBranchVC.xib in Resources */,
 				27B808DC2965C0A300E1357C /* Colors.xcassets in Resources */,
 				18DA32CE296BFCC00066FF9C /* PayAccountVC.xib in Resources */,
 				2718BF83297183D100DC0A8A /* ArrivedItemTVC.xib in Resources */,
@@ -860,6 +867,7 @@
 				2718BF76297183B700DC0A8A /* FinishOrderVC.swift in Sources */,
 				18DA32D4296BFCC10066FF9C /* MyKabinetVC.swift in Sources */,
 				27347F12297028A000D871EC /* TaxiNewsModalVC.swift in Sources */,
+				188F45E22972C8770029FCEC /* ListBranchVC.swift in Sources */,
 				18DA32C8296BFCC00066FF9C /* PayAccountVC.swift in Sources */,
 				188F45DC2972B96D0029FCEC /* BranchListTVC.swift in Sources */,
 				188F45DF2972BCB50029FCEC /* Ex+Int.swift in Sources */,
