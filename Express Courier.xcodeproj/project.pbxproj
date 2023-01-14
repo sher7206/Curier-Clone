@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		188F45D32972B1730029FCEC /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188F45D22972B1730029FCEC /* Loader.swift */; };
+		188F45D62972B19C0029FCEC /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 188F45D52972B19C0029FCEC /* loading.json */; };
+		188F45D82972B3E10029FCEC /* loader.json in Resources */ = {isa = PBXBuildFile; fileRef = 188F45D72972B3E00029FCEC /* loader.json */; };
 		18AF68D9296836DE00B35B64 /* HeaderCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18AF68D7296836DE00B35B64 /* HeaderCVC.xib */; };
 		18AF68DA296836DE00B35B64 /* HeaderCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AF68D8296836DE00B35B64 /* HeaderCVC.swift */; };
 		18AF68DC29683DD700B35B64 /* Ex+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AF68DB29683DD700B35B64 /* Ex+String.swift */; };
@@ -119,6 +122,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		188F45D22972B1730029FCEC /* Loader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
+		188F45D52972B19C0029FCEC /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
+		188F45D72972B3E00029FCEC /* loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loader.json; sourceTree = "<group>"; };
 		18AF68D7296836DE00B35B64 /* HeaderCVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderCVC.xib; sourceTree = "<group>"; };
 		18AF68D8296836DE00B35B64 /* HeaderCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderCVC.swift; sourceTree = "<group>"; };
 		18AF68DB29683DD700B35B64 /* Ex+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+String.swift"; sourceTree = "<group>"; };
@@ -255,6 +261,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		188F45D42972B18C0029FCEC /* Lotties */ = {
+			isa = PBXGroup;
+			children = (
+				188F45D72972B3E00029FCEC /* loader.json */,
+				188F45D52972B19C0029FCEC /* loading.json */,
+			);
+			path = Lotties;
+			sourceTree = "<group>";
+		};
 		18AF68D2296833C000B35B64 /* PostTVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -321,6 +336,8 @@
 		18DA32E8296C1EF20066FF9C /* Alert */ = {
 			isa = PBXGroup;
 			children = (
+				188F45D42972B18C0029FCEC /* Lotties */,
+				188F45D22972B1730029FCEC /* Loader.swift */,
 				18DA32E9296C1F050066FF9C /* Alert.swift */,
 				18DA32EA296C1F050066FF9C /* Vibration.swift */,
 			);
@@ -691,6 +708,7 @@
 			files = (
 				18DA32E4296BFCE10066FF9C /* NotificationTVC.xib in Resources */,
 				2718BF87297183D100DC0A8A /* PostInsideTVC.xib in Resources */,
+				188F45D82972B3E10029FCEC /* loader.json in Resources */,
 				27347F17297038E400D871EC /* TaxiOldUserModalVC.xib in Resources */,
 				27B808DC2965C0A300E1357C /* Colors.xcassets in Resources */,
 				18DA32CE296BFCC00066FF9C /* PayAccountVC.xib in Resources */,
@@ -705,6 +723,7 @@
 				279BAAB2296825490028B2EC /* RegisterVC.xib in Resources */,
 				27B7E35C2966FEF500C3A69E /* OnboardingCVC.xib in Resources */,
 				18AF68E129684E2D00B35B64 /* PostCVC.xib in Resources */,
+				188F45D62972B19C0029FCEC /* loading.json in Resources */,
 				18DA32CC296BFCC00066FF9C /* MyKabinetVC.xib in Resources */,
 				18DE66B12965A069003324A5 /* Assets.xcassets in Resources */,
 				27DE0ADD297057BC00900AAD /* TeamCVC.xib in Resources */,
@@ -812,6 +831,7 @@
 				27B7E35B2966FEF500C3A69E /* OnboardingCVC.swift in Sources */,
 				2718BFD8297186C700DC0A8A /* NetworkFlowDelegate.swift in Sources */,
 				27347F1F2970525B00D871EC /* TeamVC.swift in Sources */,
+				188F45D32972B1730029FCEC /* Loader.swift in Sources */,
 				2718BFDA297186C700DC0A8A /* BaseService.swift in Sources */,
 				27347F16297038E400D871EC /* TaxiOldUserModalVC.swift in Sources */,
 				2718BFD9297186C700DC0A8A /* BaseURLRequestConvertible.swift in Sources */,

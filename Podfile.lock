@@ -1,6 +1,7 @@
 PODS:
   - Alamofire (5.6.2)
   - IQKeyboardManagerSwift (6.5.10)
+  - lottie-ios (3.5.0)
   - SCPageControl (0.4.0)
   - SDWebImage (5.13.4):
     - SDWebImage/Core (= 5.13.4)
@@ -11,6 +12,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - IQKeyboardManagerSwift
+  - lottie-ios (~> 3.0)
   - SCPageControl
   - SDWebImage
   - SwiftPhoneNumberFormatter
@@ -20,6 +22,7 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - IQKeyboardManagerSwift
+    - lottie-ios
     - SCPageControl
     - SDWebImage
     - SwiftPhoneNumberFormatter
@@ -28,11 +31,12 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: d368e1ff8a298e6dde360e35a3e68e6c610e7204
   IQKeyboardManagerSwift: 52962c76ab33532f15ad9f3ff4e5715eda5335bb
+  lottie-ios: c55158d67d0629a260625cc2ded2052b829e3c3e
   SCPageControl: 8a8dfbba7d7d8c66487a317cb4c4578a7e4af27a
   SDWebImage: e5cc87bf736e60f49592f307bdf9e157189298a3
   SwiftPhoneNumberFormatter: 0cc91f4daa06dd606a9defb21048a75c36a771a2
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: 26242cfa0489ebdcda77330a3209342e889acc1a
+PODFILE CHECKSUM: 117fb846b228d82585dd296b78bbbfba4fed0ff7
 
 COCOAPODS: 1.11.3

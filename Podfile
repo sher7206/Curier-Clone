@@ -12,6 +12,7 @@ target 'Express Courier' do
   pod "SwiftyJSON"
   pod 'Alamofire'
   pod 'SDWebImage'
-  
+  pod 'lottie-ios', '~> 3.0'
+
   
 end
