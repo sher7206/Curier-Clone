@@ -13,6 +13,7 @@ enum UserRouter: BaseURLRequestConvertible {
     case getTransactions(model: GetTransactionsRequest)
     case getNotifications(model: GetNotificationsRequest)
     case getRegion
+//    case updateUser
     
     var path: String {
         switch self {
