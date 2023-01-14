@@ -1,18 +1,21 @@
-
-//  ListVC.swift
+//
+//  ListBranchVC.swift
 //  Express Courier
-//  Created by Sherzod on 13/01/23.
+//
+//  Created by apple on 14/01/23.
+//
 
 import UIKit
 
-class ListVC: UIViewController {
+class ListBranchVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!{
         didSet{
             tableView.delegate = self
-            tableView.delegate = self
+            tableView.dataSource = self
             tableView.register(BranchListTVC.nib(), forCellReuseIdentifier: BranchListTVC.identifier)
             tableView.separatorStyle = .none
+            tableView.contentInset = UIEdgeInsets(top: 11, left: 0, bottom: 11, right: 0)
         }
     }
 
@@ -31,10 +34,11 @@ class ListVC: UIViewController {
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         navigationItem.backButtonTitle = ""
     }
+    
 }
 
 //MARK: TABLE VIEW
-extension ListVC: UITableViewDelegate, UITableViewDataSource{
+extension ListBranchVC: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
     }
