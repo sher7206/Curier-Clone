@@ -8,3 +8,7 @@
 struct GetTransactionsRequest {
     var page: Int
 }
+
+struct GetNotificationsRequest {
+    var page: Int
+}
