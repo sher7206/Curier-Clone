@@ -1,9 +1,7 @@
-//
+
 //  ListVC.swift
 //  Express Courier
-//
 //  Created by Sherzod on 13/01/23.
-//
 
 import UIKit
 
@@ -11,13 +9,8 @@ class ListVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         //MEN Umarov
         setupNavigation()
-        
-        
-        
-        
     }
     
     func setupNavigation() {
