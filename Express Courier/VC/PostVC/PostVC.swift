@@ -10,6 +10,7 @@ class PostVC: UIViewController {
     @IBOutlet weak var toRegionLbl: UILabel!
     
     @IBOutlet weak var regionView: UIView!
+    
     @IBOutlet weak var headercollectionView: UICollectionView!{
         didSet{
             headercollectionView.delegate = self
@@ -28,16 +29,16 @@ class PostVC: UIViewController {
         }
     }
     
-    let headerTexts = ["Buyurtmalar", "Yangi", "Qabul qilingan", "Yo'lda", "Yetkazilgan", "Bekor qilingan"]
+    let headerTexts = ["Yo'lda", "Yetkazilgan", "Bekor qilingan"]
     var selectedIndex: Int = 0
-
     var scrollHegight = 0.0
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigation()
         title = "Pochta"
-     //   Loader.start()
+ 
     }
     
     override func viewWillAppear(_ animated: Bool) {
