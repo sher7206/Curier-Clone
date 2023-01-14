@@ -37,7 +37,7 @@ class PostVC: UIViewController {
         super.viewDidLoad()
         setupNavigation()
         title = "Pochta"
-        Loader.start()
+     //   Loader.start()
     }
     
     override func viewWillAppear(_ animated: Bool) {
