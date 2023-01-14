@@ -10,6 +10,9 @@
 		188F45D32972B1730029FCEC /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188F45D22972B1730029FCEC /* Loader.swift */; };
 		188F45D62972B19C0029FCEC /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 188F45D52972B19C0029FCEC /* loading.json */; };
 		188F45D82972B3E10029FCEC /* loader.json in Resources */ = {isa = PBXBuildFile; fileRef = 188F45D72972B3E00029FCEC /* loader.json */; };
+		188F45DC2972B96D0029FCEC /* BranchListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188F45DA2972B96D0029FCEC /* BranchListTVC.swift */; };
+		188F45DD2972B96D0029FCEC /* BranchListTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188F45DB2972B96D0029FCEC /* BranchListTVC.xib */; };
+		188F45DF2972BCB50029FCEC /* Ex+Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188F45DE2972BCB50029FCEC /* Ex+Int.swift */; };
 		18AF68D9296836DE00B35B64 /* HeaderCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18AF68D7296836DE00B35B64 /* HeaderCVC.xib */; };
 		18AF68DA296836DE00B35B64 /* HeaderCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AF68D8296836DE00B35B64 /* HeaderCVC.swift */; };
 		18AF68DC29683DD700B35B64 /* Ex+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AF68DB29683DD700B35B64 /* Ex+String.swift */; };
@@ -125,6 +128,9 @@
 		188F45D22972B1730029FCEC /* Loader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		188F45D52972B19C0029FCEC /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		188F45D72972B3E00029FCEC /* loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loader.json; sourceTree = "<group>"; };
+		188F45DA2972B96D0029FCEC /* BranchListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchListTVC.swift; sourceTree = "<group>"; };
+		188F45DB2972B96D0029FCEC /* BranchListTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BranchListTVC.xib; sourceTree = "<group>"; };
+		188F45DE2972BCB50029FCEC /* Ex+Int.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+Int.swift"; sourceTree = "<group>"; };
 		18AF68D7296836DE00B35B64 /* HeaderCVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderCVC.xib; sourceTree = "<group>"; };
 		18AF68D8296836DE00B35B64 /* HeaderCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderCVC.swift; sourceTree = "<group>"; };
 		18AF68DB29683DD700B35B64 /* Ex+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+String.swift"; sourceTree = "<group>"; };
@@ -270,6 +276,15 @@
 			path = Lotties;
 			sourceTree = "<group>";
 		};
+		188F45D92972B8B90029FCEC /* List */ = {
+			isa = PBXGroup;
+			children = (
+				188F45DA2972B96D0029FCEC /* BranchListTVC.swift */,
+				188F45DB2972B96D0029FCEC /* BranchListTVC.xib */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
 		18AF68D2296833C000B35B64 /* PostTVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -317,6 +332,7 @@
 		18AF68D52968347000B35B64 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				188F45DE2972BCB50029FCEC /* Ex+Int.swift */,
 				18DE66C52966C940003324A5 /* Ex+UIView.swift */,
 				18AF68DB29683DD700B35B64 /* Ex+String.swift */,
 			);
@@ -326,6 +342,7 @@
 		18AF68DD296844D500B35B64 /* TVC */ = {
 			isa = PBXGroup;
 			children = (
+				188F45D92972B8B90029FCEC /* List */,
 				27778553296ECB9800FC0141 /* Taxi */,
 				27864518296847FA000FD251 /* MyKabinet */,
 				18AF68D2296833C000B35B64 /* PostTVC */,
@@ -715,6 +732,7 @@
 				2718BF83297183D100DC0A8A /* ArrivedItemTVC.xib in Resources */,
 				2777855C296ED85000FC0141 /* TaxiHeaderCVC.xib in Resources */,
 				2718BF73297183B700DC0A8A /* EnterTimerVC.xib in Resources */,
+				188F45DD2972B96D0029FCEC /* BranchListTVC.xib in Resources */,
 				18DE66B42965A069003324A5 /* LaunchScreen.storyboard in Resources */,
 				18AF68D9296836DE00B35B64 /* HeaderCVC.xib in Resources */,
 				18DA32E1296BFCE10066FF9C /* MyInfoTVC.xib in Resources */,
@@ -843,6 +861,8 @@
 				18DA32D4296BFCC10066FF9C /* MyKabinetVC.swift in Sources */,
 				27347F12297028A000D871EC /* TaxiNewsModalVC.swift in Sources */,
 				18DA32C8296BFCC00066FF9C /* PayAccountVC.swift in Sources */,
+				188F45DC2972B96D0029FCEC /* BranchListTVC.swift in Sources */,
+				188F45DF2972BCB50029FCEC /* Ex+Int.swift in Sources */,
 				2718BF71297183B700DC0A8A /* EnterTimerVC.swift in Sources */,
 				2718BFCE297186C700DC0A8A /* Header.swift in Sources */,
 				2718BF75297183B700DC0A8A /* ArrivedPostVC.swift in Sources */,
