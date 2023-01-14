@@ -10,7 +10,6 @@ class PostVC: UIViewController {
     @IBOutlet weak var toRegionLbl: UILabel!
     
     @IBOutlet weak var regionView: UIView!
-    
     @IBOutlet weak var headercollectionView: UICollectionView!{
         didSet{
             headercollectionView.delegate = self
@@ -29,16 +28,16 @@ class PostVC: UIViewController {
         }
     }
     
-    let headerTexts = ["Yo'lda", "Yetkazilgan", "Bekor qilingan"]
+    let headerTexts = ["Buyurtmalar", "Yangi", "Qabul qilingan", "Yo'lda", "Yetkazilgan", "Bekor qilingan"]
     var selectedIndex: Int = 0
+
     var scrollHegight = 0.0
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigation()
         title = "Pochta"
- 
+     //   Loader.start()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -136,7 +135,7 @@ extension PostVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == headercollectionView {
-            return CGSize(width: self.headerTexts[indexPath.row].widthOfStringg(usingFont: .systemFont(ofSize: 15)) + 20, height: 50)
+            return CGSize(width: self.headerTexts[indexPath.row].widthOfStringg(usingFont: .systemFont(ofSize: 15)) + 20, height: 40)
         } else {
             let w = self.collectionView.frame.width
             let h = self.collectionView.frame.height
