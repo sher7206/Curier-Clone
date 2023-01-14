@@ -62,10 +62,9 @@ struct GetTransactionsResponse: Codable {
 
 struct GetTransactionsData: Codable {
     var id: Int?
-    var read_at: String?
-    var title: String?
-    var description: String?
-    var image: String?
+    var type: String?
+    var amount: Int?
+    var comment: String?
     var created_at: String?
     var created_at_label: String?
 }

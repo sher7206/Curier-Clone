@@ -31,7 +31,7 @@ class MyKabinetVC: UIViewController {
     }
     
     func setupNavigation() {
-        title = "Mening kabinetim"
+        navigationItem.title = "Mening kabinetim"
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = UIColor(named: "primary900")
@@ -47,14 +47,17 @@ class MyKabinetVC: UIViewController {
     }
     
     func uploadData() {
+        Loader.start()
         let getMe = UserService()
         getMe.getMe { result in
             switch result {
             case.success(let content):
                 guard let data = content.data else {return}
-                
+                Loader.stop()
                 Cache.saveUser(user: UserDM(id: data.id, name: data.name, surname: data.surname, email: data.email, phone: data.phone, balance: data.balance, rating: data.rating, region_id: data.region_id, region_name: data.region_name, district_id: data.district_id, district_name: data.district_name, detail_address: data.detail_address, roles: data.roles, avatar: data.avatar, created_at: data.created_at, created_at_label: data.created_at_label))
+                self.tableView.reloadData()
             case.failure(let error):
+                Loader.stop()
                 Alert.showAlert(forState: .error, message: error.localizedDescription, vibrationType: .error)
             }
         }
