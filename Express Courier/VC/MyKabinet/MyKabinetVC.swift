@@ -43,7 +43,7 @@ class MyKabinetVC: UIViewController {
         tableView.dataSource = self
         tableView.register(UINib(nibName: "MyInfoTVC", bundle: nil), forCellReuseIdentifier: "MyInfoTVC")
         tableView.register(UINib(nibName: "MyCategoryTVC", bundle: nil), forCellReuseIdentifier: "MyCategoryTVC")
-//        uploadData()
+        uploadData()
     }
     
     func uploadData() {

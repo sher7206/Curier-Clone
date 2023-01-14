@@ -106,6 +106,7 @@ struct DataNotification: Codable {
     var description: String?
 }
 
+
 //MARK: - Get Regions
 struct GetRegionResponse: Codable {
     
@@ -134,6 +135,20 @@ struct DistrictsDM: Codable {
     var region_id: Int?
 }
 
+//MARK: - UpdateUserResponse
+struct UpdateUserResponse: Codable {
+    var data: [GetMeData]?
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        data = try? container.decode([GetMeData].self, forKey: .data)
+        
+    }
+    enum CodingKeys: String, CodingKey {
+        case data
+    }
+    
+}
 
 
 
