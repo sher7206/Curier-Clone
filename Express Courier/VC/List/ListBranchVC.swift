@@ -1,9 +1,7 @@
-//
+
 //  ListBranchVC.swift
 //  Express Courier
-//
 //  Created by apple on 14/01/23.
-//
 
 import UIKit
 
@@ -44,6 +42,12 @@ extension ListBranchVC: UITableViewDelegate, UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: BranchListTVC.identifier, for: indexPath) as! BranchListTVC
+        cell.selectionStyle = .none
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = ListVC()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
