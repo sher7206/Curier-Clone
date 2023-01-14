@@ -106,7 +106,33 @@ struct DataNotification: Codable {
     var description: String?
 }
 
+//MARK: - Get Regions
+struct GetRegionResponse: Codable {
+    
+    var data: [GetRegionDM]?
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        data = try? container.decode([GetRegionDM].self, forKey: .data)
+        
+    }
+    enum CodingKeys: String, CodingKey {
+        case data
+    }
+    
+}
 
+struct GetRegionDM: Codable {
+    var id: Int?
+    var name: String?
+    var districts: [DistrictsDM]?
+}
+
+struct DistrictsDM: Codable {
+    var id: Int?
+    var name: String?
+    var region_id: Int?
+}
 
 
 

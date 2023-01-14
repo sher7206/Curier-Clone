@@ -22,4 +22,8 @@ struct UserService: BaseService {
     func getNotifications(model: GetNotificationsRequest, completion: @escaping Completion<GetNotificationsResponse>) {
         request(.getNotifications(model: model), completion: completion)
     }
+    
+    func getRegion(completion: @escaping Completion<GetRegionResponse>) {
+        request(.getRegion, completion: completion)
+    }
 }

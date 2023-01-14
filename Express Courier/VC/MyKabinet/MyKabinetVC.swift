@@ -43,7 +43,7 @@ class MyKabinetVC: UIViewController {
         tableView.dataSource = self
         tableView.register(UINib(nibName: "MyInfoTVC", bundle: nil), forCellReuseIdentifier: "MyInfoTVC")
         tableView.register(UINib(nibName: "MyCategoryTVC", bundle: nil), forCellReuseIdentifier: "MyCategoryTVC")
-        uploadData()
+//        uploadData()
     }
     
     func uploadData() {
@@ -103,30 +103,32 @@ extension MyKabinetVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 0 {
-            let vc = PaymentHistoryVC()
-            vc.hidesBottomBarWhenPushed = true
-            navigationController?.pushViewController(vc, animated: true)
-        } else if indexPath.row == 1 {
-            let vc = PayAccountVC()
-            vc.hidesBottomBarWhenPushed = true
-            navigationController?.pushViewController(vc, animated: true)
-        } else if indexPath.row == 2 {
-            let vc = NotificationViewController()
-            vc.hidesBottomBarWhenPushed = true
-            navigationController?.pushViewController(vc, animated: true)
-        } else if indexPath.row == 3 {
-            let vc = KuryerModalVC()
-            vc.modalPresentationStyle = .overFullScreen
-            present(vc, animated: true)
-        } else if indexPath.row == 4 {
-            let vc = SettingsVC()
-            vc.hidesBottomBarWhenPushed = true
-            navigationController?.pushViewController(vc, animated: true)
-        } else if indexPath.row == 5 {
-            let vc = PinkodVC()
-            vc.hidesBottomBarWhenPushed = true
-            navigationController?.pushViewController(vc, animated: true)
+        if indexPath.section == 1 {
+            if indexPath.row == 0 {
+                let vc = PaymentHistoryVC()
+                vc.hidesBottomBarWhenPushed = true
+                navigationController?.pushViewController(vc, animated: true)
+            } else if indexPath.row == 1 {
+                let vc = PayAccountVC()
+                vc.hidesBottomBarWhenPushed = true
+                navigationController?.pushViewController(vc, animated: true)
+            } else if indexPath.row == 2 {
+                let vc = NotificationViewController()
+                vc.hidesBottomBarWhenPushed = true
+                navigationController?.pushViewController(vc, animated: true)
+            } else if indexPath.row == 3 {
+                let vc = KuryerModalVC()
+                vc.modalPresentationStyle = .overFullScreen
+                present(vc, animated: true)
+            } else if indexPath.row == 4 {
+                let vc = SettingsVC()
+                vc.hidesBottomBarWhenPushed = true
+                navigationController?.pushViewController(vc, animated: true)
+            } else if indexPath.row == 5 {
+                let vc = PinkodVC()
+                vc.hidesBottomBarWhenPushed = true
+                navigationController?.pushViewController(vc, animated: true)
+            }
         }
     }
 }

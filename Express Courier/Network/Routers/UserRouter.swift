@@ -12,6 +12,7 @@ enum UserRouter: BaseURLRequestConvertible {
     case getMe
     case getTransactions(model: GetTransactionsRequest)
     case getNotifications(model: GetNotificationsRequest)
+    case getRegion
     
     var path: String {
         switch self {
@@ -21,6 +22,8 @@ enum UserRouter: BaseURLRequestConvertible {
             return "/api/profile/transactions?page=\(model.page)"
         case .getNotifications(let model):
             return "/api/profile/notifications?page=\(model.page)"
+        case .getRegion:
+            return "/api/locations"
         }
     }
     
@@ -32,6 +35,8 @@ enum UserRouter: BaseURLRequestConvertible {
             return .get
         case .getNotifications:
             return .get
+        case .getRegion:
+            return .get
         }
     }
     
@@ -42,6 +47,8 @@ enum UserRouter: BaseURLRequestConvertible {
         case .getTransactions:
             return nil
         case .getNotifications:
+            return nil
+        case .getRegion:
             return nil
         }
     }

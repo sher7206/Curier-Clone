@@ -26,8 +26,13 @@ class MyInfoTVC: UITableViewCell {
     }
     
     func updateCell(data: UserDM?) {
-        print("✅ image =", data?.avatar)
-        personImage.sd_setImage(with: URL(string: data?.avatar ?? ""))
+        self.personImage.sd_setImage(with: URL(string: data?.avatar ?? "")) { img, _, _, _ in
+            if let _ = img {
+                print("Yuklandi!")
+            } else {
+                self.personImage.image = UIImage(systemName: "person")?.withTintColor(.black, renderingMode: .alwaysOriginal)
+            }
+        }
         personName.text = (data?.name ?? "") + " " + (data?.surname ?? "")
         personPhoneNumber.text = data?.phone ?? ""
         personId.text = "#" + "\(data?.id ?? 0)"
@@ -35,4 +40,6 @@ class MyInfoTVC: UITableViewCell {
         walletLbl.text = "\(data?.balance ?? 0)"
         shotLbl.text = "\(data?.balance ?? 0)"
     }
+    
+    
 }

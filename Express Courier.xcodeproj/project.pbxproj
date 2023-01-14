@@ -616,10 +616,10 @@
 		27864518296847FA000FD251 /* MyKabinet */ = {
 			isa = PBXGroup;
 			children = (
-				18DA32DB296BFCE10066FF9C /* MyCategoryTVC.swift */,
-				18DA32D6296BFCE10066FF9C /* MyCategoryTVC.xib */,
 				18DA32D8296BFCE10066FF9C /* MyInfoTVC.swift */,
 				18DA32D9296BFCE10066FF9C /* MyInfoTVC.xib */,
+				18DA32DB296BFCE10066FF9C /* MyCategoryTVC.swift */,
+				18DA32D6296BFCE10066FF9C /* MyCategoryTVC.xib */,
 				18DA32D5296BFCE00066FF9C /* NotificationTVC.swift */,
 				18DA32DC296BFCE10066FF9C /* NotificationTVC.xib */,
 				18DA32DA296BFCE10066FF9C /* PaymentTVC.swift */,
