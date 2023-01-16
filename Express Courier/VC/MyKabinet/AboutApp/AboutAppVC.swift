@@ -15,8 +15,8 @@ class AboutAppVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let url = URL (string: "https://yuzka.uz/")
-                let requestObj = URLRequest(url: url!)
-                webView.loadRequest(requestObj)
+        guard let url = URL (string: "https://yuzka.uz/") else {return}
+        let requestObj = URLRequest(url: url)
+        webView.loadRequest(requestObj)
     }
 }

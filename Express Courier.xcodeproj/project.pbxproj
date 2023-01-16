@@ -690,13 +690,13 @@
 		2786450F29684624000FD251 /* MyKabinet */ = {
 			isa = PBXGroup;
 			children = (
+				2769293429756E21009BF0A5 /* MyKabinet */,
+				2760344A29756F2800E3F28C /* Payment */,
 				2760344D29756F8000E3F28C /* AboutApp */,
 				2760344C29756F7400E3F28C /* Settings */,
 				2760344B29756F5000E3F28C /* PinKod */,
-				2760344A29756F2800E3F28C /* Payment */,
 				2760344529756ECC00E3F28C /* Notifications */,
 				2769293529756E38009BF0A5 /* Kuryer */,
-				2769293429756E21009BF0A5 /* MyKabinet */,
 				2769293329756DFE009BF0A5 /* News */,
 			);
 			path = MyKabinet;
