@@ -93,7 +93,7 @@ extension MyKabinetVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 1 {
             if indexPath.row == 3 {
-                return 0
+                return UITableView.automaticDimension
             } else {
                 return UITableView.automaticDimension
             }
@@ -126,6 +126,14 @@ extension MyKabinetVC: UITableViewDelegate, UITableViewDataSource {
                 navigationController?.pushViewController(vc, animated: true)
             } else if indexPath.row == 5 {
                 let vc = PinkodVC()
+                vc.hidesBottomBarWhenPushed = true
+                navigationController?.pushViewController(vc, animated: true)
+            } else if indexPath.row == 6 {
+                let vc = NewsVC()
+                vc.hidesBottomBarWhenPushed = true
+                navigationController?.pushViewController(vc, animated: true)
+            } else if indexPath.row == 7 {
+                let vc = AboutAppVC()
                 vc.hidesBottomBarWhenPushed = true
                 navigationController?.pushViewController(vc, animated: true)
             }

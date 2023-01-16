@@ -13,3 +13,6 @@ struct GetNotificationsRequest {
     var page: Int
 }
 
+struct GetNewsRequest {
+    var page: Int
+}

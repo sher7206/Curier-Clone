@@ -13,6 +13,8 @@ target 'Express Courier' do
   pod 'Alamofire'
   pod 'SDWebImage'
   pod 'lottie-ios', '~> 3.0'
+pod "TabPageViewController"
+pod 'LZViewPager', '~> 1.2.5'
 
   
 end

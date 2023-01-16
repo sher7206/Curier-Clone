@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class SettingsVC: UIViewController {
     
@@ -17,10 +18,10 @@ class SettingsVC: UIViewController {
     @IBOutlet weak var lastNameTf: UITextField!
     @IBOutlet weak var regionTf: UITextField!
     @IBOutlet weak var districtTf: UITextField!
-    
     var regionId: Int = 0
     var districtId: Int = 0
     
+    let user = Cache.getUser()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,7 @@ class SettingsVC: UIViewController {
     }
     
     func setupNavigation() {
+        
         title = "Ma’lumotlarni o‘zgaritirish"
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
@@ -36,9 +38,18 @@ class SettingsVC: UIViewController {
         appearance.shadowColor = .clear
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        
         langImage[0].image = UIImage(named: "radiobutton-checked-my")
-        
+        uploadUpdate()
+    }
+    
+    func uploadUpdate() {
+        persinImgV.sd_setImage(with: URL(string: user?.avatar ?? ""))
+        nameTf.text! = user?.name ?? ""
+        lastNameTf.text! = user?.surname ?? ""
+        regionTf.text! = (user?.region_name ?? "") + ", " + (user?.district_name ?? "")
+        districtTf.text! = user?.detail_address ?? ""
+        regionId = user?.region_id ?? 0
+        districtId = user?.district_id ?? 0
     }
     
     
@@ -63,7 +74,20 @@ class SettingsVC: UIViewController {
     }
     
     @IBAction func saveBtnTapped(_ sender: UIButton) {
- 
+        Loader.start()
+        let updateUser = UserService()
+        guard let imgData = persinImgV.image?.pngData() else {return}
+        updateUser.updateUser(imgData: imgData, avatar: "avatar", name: nameTf.text!, surname: lastNameTf.text!, region_id: regionId, district_id: districtId, detail_address: districtTf.text!) { result in
+            switch result {
+            case.success(let content):
+                Loader.stop()
+                print("✅ content =", content)
+            case.failure(let error):
+                print(error.localizedDescription)
+                Loader.stop()
+                Alert.showAlert(forState: .error, message: error.localizedDescription, vibrationType: .error)
+            }
+        }
     }
     
 }
@@ -78,7 +102,6 @@ extension SettingsVC: RegionSelectedVCDelegate {
 
 
 extension SettingsVC {
-    
     func openCamera() {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
             let imagePicker = UIImagePickerController()

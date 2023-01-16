@@ -14,6 +14,7 @@ enum UserRouter: BaseURLRequestConvertible {
     case getNotifications(model: GetNotificationsRequest)
     case getRegion
     case updateUser
+    case getNews(model: GetNewsRequest)
     
     var path: String {
         switch self {
@@ -27,6 +28,8 @@ enum UserRouter: BaseURLRequestConvertible {
             return "/api/locations"
         case .updateUser:
             return "/api/profile/update"
+        case .getNews(let model):
+            return "/api/news?page=\(model.page)"
         }
     }
     
@@ -42,22 +45,13 @@ enum UserRouter: BaseURLRequestConvertible {
             return .get
         case .updateUser:
             return .post
+        case .getNews:
+            return .get
         }
     }
     
     var parameters: Alamofire.Parameters? {
-        switch self {
-        case .getMe:
-            return nil
-        case .getTransactions:
-            return nil
-        case .getNotifications:
-            return nil
-        case .getRegion:
-            return nil
-        case .updateUser:
-            return nil
-        }
+        return nil
     }
     
     func asURLRequest() throws -> URLRequest {
