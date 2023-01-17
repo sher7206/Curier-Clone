@@ -20,13 +20,6 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d0j-PV-Anj">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="400"/>
-                    <color key="backgroundColor" name="primary900"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="400" id="mBa-jx-5I1"/>
-                    </constraints>
-                </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="wds-Fb-dhC">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -73,13 +66,10 @@
             <color key="backgroundColor" name="white300"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="nBC-VV-Izy" secondAttribute="trailing" constant="16" id="5lT-23-Yrh"/>
-                <constraint firstItem="d0j-PV-Anj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="7Ub-dj-30T"/>
                 <constraint firstAttribute="bottom" secondItem="wds-Fb-dhC" secondAttribute="bottom" id="BtW-Ro-hGr"/>
                 <constraint firstAttribute="trailing" secondItem="wds-Fb-dhC" secondAttribute="trailing" id="INw-c3-xlu"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="nBC-VV-Izy" secondAttribute="bottom" constant="50" id="OTe-3A-0SB"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="d0j-PV-Anj" secondAttribute="trailing" id="Qae-3y-uO8"/>
                 <constraint firstItem="wds-Fb-dhC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="VPE-lK-aXg"/>
-                <constraint firstItem="d0j-PV-Anj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="X3i-GL-hlw"/>
                 <constraint firstItem="wds-Fb-dhC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="bEs-q7-yS0"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="109.82142857142857"/>

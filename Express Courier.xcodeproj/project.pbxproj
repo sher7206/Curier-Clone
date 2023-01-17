@@ -400,8 +400,8 @@
 			isa = PBXGroup;
 			children = (
 				2718BF6F297183B700DC0A8A /* PostVC.swift */,
-				1858EFDD2976926D005A3492 /* SkretchableHeaderView.swift */,
 				2718BF68297183B700DC0A8A /* PostVC.xib */,
+				1858EFDD2976926D005A3492 /* SkretchableHeaderView.swift */,
 				2718BF69297183B700DC0A8A /* ArrivedPostVC.swift */,
 				2718BF6D297183B700DC0A8A /* ArrivedPostVC.xib */,
 				2718BF64297183B700DC0A8A /* ChatVC.swift */,
@@ -1230,9 +1230,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = P4Q44BG5PV;
+				DEVELOPMENT_TEAM = YM5H6L638F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Express Courier/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We needed camer or photo library image";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -1259,9 +1260,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = P4Q44BG5PV;
+				DEVELOPMENT_TEAM = YM5H6L638F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Express Courier/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We needed camer or photo library image";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
