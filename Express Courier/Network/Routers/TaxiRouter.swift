@@ -18,11 +18,49 @@ enum TaxiRouter: BaseURLRequestConvertible {
         case.getNewTaxi(let model):
             
             if let fromRegionId = model.fromRegionId, let fromDistrictId = model.fromDistrictId, let toRegionId = model.toRegionId, let toDistrictId = model.toDistrictId {
-                
-                return "/api/driver/caborders?page=1&fromRegionId=1&fromDistrictId=1&toRegionId=1&toDistrictId=1"
+                return "/api/driver/caborders?page=\(model.page)&fromRegionId=\(fromRegionId)&fromDistrictId=\(fromDistrictId)&toRegionId=\(toRegionId)&toDistrictId=\(toDistrictId)"
             }
+            
+            if let fromRegionId = model.fromRegionId, let fromDistrict = model.fromDistrictId {
+                return "/api/driver/caborders?page=\(model.page)&fromRegionId=\(fromRegionId)&fromDistrictId=\(fromDistrict)"
+            }
+            
+            if let toRegionId = model.toRegionId, let toDistrict = model.toDistrictId {
+                return "/api/driver/caborders?page=\(model.page)&toRegionId=\(toRegionId)&toDistrictId=\(toDistrict)"
+            }
+            
+            if let fromRegionId = model.fromRegionId {
+                return "/api/driver/caborders?page=\(model.page)&fromRegionId=\(fromRegionId)"
+            }
+            
+            if let toRegionId = model.toRegionId {
+                return "/api/driver/caborders?page=\(model.page)&toRegionId=\(toRegionId)"
+            }
+            
             return "/api/driver/caborders?page=\(model.page)"
         case .getHistoryTaxi(let model):
+            
+            if let fromRegionId = model.fromRegionId, let fromDistrictId = model.fromDistrictId, let toRegionId = model.toRegionId, let toDistrictId = model.toDistrictId {
+                return "/api/driver/caborders/history?page=\(model.page)&fromRegionId=\(fromRegionId)&fromDistrictId=\(fromDistrictId)&toRegionId=\(toRegionId)&toDistrictId=\(toDistrictId)"
+            }
+            
+            if let fromRegionId = model.fromRegionId, let fromDistrict = model.fromDistrictId {
+                return "/api/driver/caborders/history?page=\(model.page)&fromRegionId=\(fromRegionId)&fromDistrictId=\(fromDistrict)"
+            }
+            
+            if let toRegionId = model.toRegionId, let toDistrict = model.toDistrictId {
+                return "/api/driver/caborders/history?page=\(model.page)&toRegionId=\(toRegionId)&toDistrictId=\(toDistrict)"
+            }
+            
+            if let fromRegionId = model.fromRegionId {
+                return "/api/driver/caborders/history?page=\(model.page)&fromRegionId=\(fromRegionId)"
+            }
+            
+            if let toRegionId = model.toRegionId {
+                return "/api/driver/caborders/history?page=\(model.page)&toRegionId=\(toRegionId)"
+            }
+            
+            
             return "/api/driver/caborders/history?page=\(model.page)"
         case .posTaxi(let model):
             return "/api/driver/caborders/\(model.id)/accept"
