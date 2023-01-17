@@ -88,16 +88,14 @@
 		2718BFE0297186C700DC0A8A /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2718BFBB297186C700DC0A8A /* AuthService.swift */; };
 		27197AE629680B5300B53B25 /* KabinetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27197AE429680B5300B53B25 /* KabinetVC.swift */; };
 		27197AE729680B5300B53B25 /* KabinetVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27197AE529680B5300B53B25 /* KabinetVC.xib */; };
-		27315FE72975550F006B3807 /* TabViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27315FE52975550F006B3807 /* TabViewViewController.swift */; };
-		27315FE82975550F006B3807 /* TabViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27315FE62975550F006B3807 /* TabViewViewController.xib */; };
 		27347F12297028A000D871EC /* TaxiNewsModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27347F10297028A000D871EC /* TaxiNewsModalVC.swift */; };
 		27347F13297028A000D871EC /* TaxiNewsModalVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27347F11297028A000D871EC /* TaxiNewsModalVC.xib */; };
 		27347F16297038E400D871EC /* TaxiOldUserModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27347F14297038E400D871EC /* TaxiOldUserModalVC.swift */; };
 		27347F17297038E400D871EC /* TaxiOldUserModalVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27347F15297038E400D871EC /* TaxiOldUserModalVC.xib */; };
 		27347F1F2970525B00D871EC /* TeamVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27347F1D2970525B00D871EC /* TeamVC.swift */; };
 		27347F202970525B00D871EC /* TeamVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27347F1E2970525B00D871EC /* TeamVC.xib */; };
-		2760344729756EF400E3F28C /* KuryerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2760344629756EF400E3F28C /* KuryerVC.swift */; };
-		2760344929756EF900E3F28C /* KuryerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2760344829756EF900E3F28C /* KuryerVC.xib */; };
+		2755F9E4297692100021BCB2 /* KuryerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2755F9E3297692100021BCB2 /* KuryerVC.swift */; };
+		2755F9E6297692150021BCB2 /* KuryerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2755F9E5297692150021BCB2 /* KuryerVC.xib */; };
 		27692924297568AF009BF0A5 /* NewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27692923297568AF009BF0A5 /* NewsVC.swift */; };
 		27692926297568B8009BF0A5 /* NewsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27692925297568B8009BF0A5 /* NewsVC.xib */; };
 		27692928297568DA009BF0A5 /* NewTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27692927297568DA009BF0A5 /* NewTVC.swift */; };
@@ -134,6 +132,10 @@
 		27CD00572971A3C40088449B /* UserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CD00562971A3C40088449B /* UserRouter.swift */; };
 		27CD00592971A4E50088449B /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CD00582971A4E50088449B /* UserService.swift */; };
 		27CD005B2971ADBC0088449B /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CD005A2971ADBC0088449B /* UserRequest.swift */; };
+		27D9E0A9297577C7002F57A2 /* TaxiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D9E0A8297577C7002F57A2 /* TaxiResponse.swift */; };
+		27D9E0AB29757F43002F57A2 /* TaxiRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D9E0AA29757F43002F57A2 /* TaxiRouter.swift */; };
+		27D9E0AD29757FC0002F57A2 /* TaxiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D9E0AC29757FC0002F57A2 /* TaxiRequest.swift */; };
+		27D9E0AF29758030002F57A2 /* TaxiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D9E0AE29758030002F57A2 /* TaxiService.swift */; };
 		27DE0ADC297057BC00900AAD /* TeamCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DE0ADA297057BC00900AAD /* TeamCVC.swift */; };
 		27DE0ADD297057BC00900AAD /* TeamCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27DE0ADB297057BC00900AAD /* TeamCVC.xib */; };
 		305AA461FD9762D2FB4069B3 /* Pods_Express_Courier.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7515E66C971F51E4D1D05754 /* Pods_Express_Courier.framework */; };
@@ -223,16 +225,14 @@
 		2718BFBB297186C700DC0A8A /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		27197AE429680B5300B53B25 /* KabinetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KabinetVC.swift; sourceTree = "<group>"; };
 		27197AE529680B5300B53B25 /* KabinetVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KabinetVC.xib; sourceTree = "<group>"; };
-		27315FE52975550F006B3807 /* TabViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewViewController.swift; sourceTree = "<group>"; };
-		27315FE62975550F006B3807 /* TabViewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabViewViewController.xib; sourceTree = "<group>"; };
 		27347F10297028A000D871EC /* TaxiNewsModalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiNewsModalVC.swift; sourceTree = "<group>"; };
 		27347F11297028A000D871EC /* TaxiNewsModalVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaxiNewsModalVC.xib; sourceTree = "<group>"; };
 		27347F14297038E400D871EC /* TaxiOldUserModalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiOldUserModalVC.swift; sourceTree = "<group>"; };
 		27347F15297038E400D871EC /* TaxiOldUserModalVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaxiOldUserModalVC.xib; sourceTree = "<group>"; };
 		27347F1D2970525B00D871EC /* TeamVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamVC.swift; sourceTree = "<group>"; };
 		27347F1E2970525B00D871EC /* TeamVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamVC.xib; sourceTree = "<group>"; };
-		2760344629756EF400E3F28C /* KuryerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KuryerVC.swift; sourceTree = "<group>"; };
-		2760344829756EF900E3F28C /* KuryerVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = KuryerVC.xib; path = ../../../../../../../../var/folders/66/xz15ybyx69g3wjyxhxkp6jww0000gn/T/ru.keepcoder.Telegram/KuryerVC.xib; sourceTree = "<group>"; };
+		2755F9E3297692100021BCB2 /* KuryerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KuryerVC.swift; sourceTree = "<group>"; };
+		2755F9E5297692150021BCB2 /* KuryerVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = KuryerVC.xib; path = ../../../../../../../../var/folders/66/xz15ybyx69g3wjyxhxkp6jww0000gn/T/ru.keepcoder.Telegram/KuryerVC.xib; sourceTree = "<group>"; };
 		27692923297568AF009BF0A5 /* NewsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsVC.swift; sourceTree = "<group>"; };
 		27692925297568B8009BF0A5 /* NewsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsVC.xib; sourceTree = "<group>"; };
 		27692927297568DA009BF0A5 /* NewTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTVC.swift; sourceTree = "<group>"; };
@@ -269,6 +269,10 @@
 		27CD00562971A3C40088449B /* UserRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRouter.swift; sourceTree = "<group>"; };
 		27CD00582971A4E50088449B /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		27CD005A2971ADBC0088449B /* UserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
+		27D9E0A8297577C7002F57A2 /* TaxiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiResponse.swift; sourceTree = "<group>"; };
+		27D9E0AA29757F43002F57A2 /* TaxiRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiRouter.swift; sourceTree = "<group>"; };
+		27D9E0AC29757FC0002F57A2 /* TaxiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiRequest.swift; sourceTree = "<group>"; };
+		27D9E0AE29758030002F57A2 /* TaxiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiService.swift; sourceTree = "<group>"; };
 		27DE0ADA297057BC00900AAD /* TeamCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCVC.swift; sourceTree = "<group>"; };
 		27DE0ADB297057BC00900AAD /* TeamCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamCVC.xib; sourceTree = "<group>"; };
 		7515E66C971F51E4D1D05754 /* Pods_Express_Courier.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Express_Courier.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -475,6 +479,7 @@
 			children = (
 				27CD00522971896B0088449B /* AuthRouter.swift */,
 				27CD00562971A3C40088449B /* UserRouter.swift */,
+				27D9E0AA29757F43002F57A2 /* TaxiRouter.swift */,
 			);
 			path = Routers;
 			sourceTree = "<group>";
@@ -492,6 +497,7 @@
 			children = (
 				2718BFA3297186C700DC0A8A /* AuthResponse.swift */,
 				27CD00542971A2A20088449B /* UserResponse.swift */,
+				27D9E0A8297577C7002F57A2 /* TaxiResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -513,6 +519,7 @@
 			children = (
 				2718BFAB297186C700DC0A8A /* AuthRequest.swift */,
 				27CD005A2971ADBC0088449B /* UserRequest.swift */,
+				27D9E0AC29757FC0002F57A2 /* TaxiRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -533,6 +540,7 @@
 			children = (
 				2718BFBB297186C700DC0A8A /* AuthService.swift */,
 				27CD00582971A4E50088449B /* UserService.swift */,
+				27D9E0AE29758030002F57A2 /* TaxiService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -633,8 +641,8 @@
 		2769293529756E38009BF0A5 /* Kuryer */ = {
 			isa = PBXGroup;
 			children = (
-				2760344629756EF400E3F28C /* KuryerVC.swift */,
-				2760344829756EF900E3F28C /* KuryerVC.xib */,
+				2755F9E3297692100021BCB2 /* KuryerVC.swift */,
+				2755F9E5297692150021BCB2 /* KuryerVC.xib */,
 				2777854A296EBA7100FC0141 /* KuryerModalVC.swift */,
 				2777854B296EBA7100FC0141 /* KuryerModalVC.xib */,
 			);
@@ -661,8 +669,6 @@
 				27347F11297028A000D871EC /* TaxiNewsModalVC.xib */,
 				27347F14297038E400D871EC /* TaxiOldUserModalVC.swift */,
 				27347F15297038E400D871EC /* TaxiOldUserModalVC.xib */,
-				27315FE52975550F006B3807 /* TabViewViewController.swift */,
-				27315FE62975550F006B3807 /* TabViewViewController.xib */,
 			);
 			path = Taxi;
 			sourceTree = "<group>";
@@ -868,13 +874,12 @@
 				279BAAB2296825490028B2EC /* RegisterVC.xib in Resources */,
 				27B7E35C2966FEF500C3A69E /* OnboardingCVC.xib in Resources */,
 				188F45EB2972D1550029FCEC /* RegionsVC.xib in Resources */,
-				2760344929756EF900E3F28C /* KuryerVC.xib in Resources */,
+				2755F9E6297692150021BCB2 /* KuryerVC.xib in Resources */,
 				18AF68E129684E2D00B35B64 /* PostCVC.xib in Resources */,
 				188F45D62972B19C0029FCEC /* loading.json in Resources */,
 				18DA32CC296BFCC00066FF9C /* MyKabinetVC.xib in Resources */,
 				18DE66B12965A069003324A5 /* Assets.xcassets in Resources */,
 				27DE0ADD297057BC00900AAD /* TeamCVC.xib in Resources */,
-				27315FE82975550F006B3807 /* TabViewViewController.xib in Resources */,
 				18DA32DE296BFCE10066FF9C /* MyCategoryTVC.xib in Resources */,
 				27197AE729680B5300B53B25 /* KabinetVC.xib in Resources */,
 				2718BF84297183D100DC0A8A /* ChatTVC.xib in Resources */,
@@ -956,7 +961,6 @@
 				2777855B296ED85000FC0141 /* TaxiHeaderCVC.swift in Sources */,
 				2718BF8C297185C900DC0A8A /* Keys.swift in Sources */,
 				27CD005B2971ADBC0088449B /* UserRequest.swift in Sources */,
-				27315FE72975550F006B3807 /* TabViewViewController.swift in Sources */,
 				2718BFCC297186C700DC0A8A /* AuthResponse.swift in Sources */,
 				18DA32EC296C1F060066FF9C /* Vibration.swift in Sources */,
 				18DA32E0296BFCE10066FF9C /* MyInfoTVC.swift in Sources */,
@@ -973,6 +977,7 @@
 				2718BF77297183B700DC0A8A /* PostAgreemantVC.swift in Sources */,
 				18DA32E2296BFCE10066FF9C /* PaymentTVC.swift in Sources */,
 				2718BFCD297186C700DC0A8A /* NetworkDecoder.swift in Sources */,
+				27D9E0AB29757F43002F57A2 /* TaxiRouter.swift in Sources */,
 				2718BFD1297186C700DC0A8A /* NetworkError.swift in Sources */,
 				2776B0FD2971748A00544B1E /* ListVC.swift in Sources */,
 				2718BF7B297183B700DC0A8A /* PostVC.swift in Sources */,
@@ -985,7 +990,8 @@
 				2718BFD8297186C700DC0A8A /* NetworkFlowDelegate.swift in Sources */,
 				27347F1F2970525B00D871EC /* TeamVC.swift in Sources */,
 				188F45D32972B1730029FCEC /* Loader.swift in Sources */,
-				2760344729756EF400E3F28C /* KuryerVC.swift in Sources */,
+				27D9E0AD29757FC0002F57A2 /* TaxiRequest.swift in Sources */,
+				27D9E0AF29758030002F57A2 /* TaxiService.swift in Sources */,
 				2718BFDA297186C700DC0A8A /* BaseService.swift in Sources */,
 				27347F16297038E400D871EC /* TaxiOldUserModalVC.swift in Sources */,
 				2718BFD9297186C700DC0A8A /* BaseURLRequestConvertible.swift in Sources */,
@@ -1003,6 +1009,7 @@
 				188F45DF2972BCB50029FCEC /* Ex+Int.swift in Sources */,
 				2718BF71297183B700DC0A8A /* EnterTimerVC.swift in Sources */,
 				2718BFCE297186C700DC0A8A /* Header.swift in Sources */,
+				2755F9E4297692100021BCB2 /* KuryerVC.swift in Sources */,
 				2718BF75297183B700DC0A8A /* ArrivedPostVC.swift in Sources */,
 				2718BFD0297186C700DC0A8A /* NetworkLogger.swift in Sources */,
 				2718BFC5297186C700DC0A8A /* AnalysisResponseMonitor.swift in Sources */,
@@ -1023,6 +1030,7 @@
 				27778563296EEF3C00FC0141 /* TaxiTVC.swift in Sources */,
 				18AF68E029684E2D00B35B64 /* PostCVC.swift in Sources */,
 				18DA32E3296BFCE10066FF9C /* MyCategoryTVC.swift in Sources */,
+				27D9E0A9297577C7002F57A2 /* TaxiResponse.swift in Sources */,
 				2769293129756C52009BF0A5 /* AboutAppVC.swift in Sources */,
 				2777854C296EBA7100FC0141 /* KuryerModalVC.swift in Sources */,
 				2718BFD2297186C700DC0A8A /* AuthRequest.swift in Sources */,

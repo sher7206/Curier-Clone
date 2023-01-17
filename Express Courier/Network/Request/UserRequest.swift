@@ -16,3 +16,4 @@ struct GetNotificationsRequest {
 struct GetNewsRequest {
     var page: Int
 }
+

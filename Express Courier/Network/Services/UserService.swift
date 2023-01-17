@@ -64,4 +64,9 @@ struct UserService: BaseService {
     func getNews(model: GetNewsRequest, completion: @escaping Completion<GetNewsResponse>) {
         request(.getNews(model: model), completion: completion)
     }
+    
+    //MARK: - Log Out
+    func logOut(completion: @escaping Completion<LogOutResponse>) {
+        request(.logOut, completion: completion)
+    }
 }

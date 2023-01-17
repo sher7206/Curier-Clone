@@ -10,7 +10,7 @@ import UIKit
 class MyKabinetVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    
+    var refreshControl = UIRefreshControl()
     var categoryDates: [MyKabinetCategoryDM] = [
         
         MyKabinetCategoryDM(name: "To‘lo‘vlar tarixi", imgName: "money-time-my"),
@@ -28,6 +28,20 @@ class MyKabinetVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigation()
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        tableView.addSubview(refreshControl)
+    }
+    
+    @objc func refresh(send: UIRefreshControl) {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+            self.refreshControl.endRefreshing()
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableView.reloadData()
     }
     
     func setupNavigation() {
@@ -136,8 +150,39 @@ extension MyKabinetVC: UITableViewDelegate, UITableViewDataSource {
                 let vc = AboutAppVC()
                 vc.hidesBottomBarWhenPushed = true
                 navigationController?.pushViewController(vc, animated: true)
+            } else if indexPath.row == 9 {
+                showAlert(withTitle: "Chiqish", withMessage: "Profildan chiqishni hohlaysizmi?")
             }
         }
     }
 }
 
+extension MyKabinetVC {
+    
+    func showAlert(withTitle title: String, withMessage message:String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "Ha, chiqish", style: .default, handler: { action in
+            Loader.start()
+            let logOut = UserService()
+            logOut.logOut { resut in
+                switch resut {
+                case.success(let content):
+                    Loader.stop()
+                    print(content)
+                    Cache.saveUser(user: nil)
+                    UserDefaults.standard.set(nil, forKey: Keys.userToken)
+                    self.tableView.reloadData()
+                case.failure(let error):
+                    Loader.stop()
+                    Alert.showAlert(forState: .error, message: error.localizedDescription, vibrationType: .error)
+                }
+            }
+        })
+        let cancel = UIAlertAction(title: "Yo'q, ortga", style: .destructive, handler: nil)
+        alert.addAction(ok)
+        alert.addAction(cancel)
+        DispatchQueue.main.async(execute: {
+            self.present(alert, animated: true)
+        })
+    }
+}

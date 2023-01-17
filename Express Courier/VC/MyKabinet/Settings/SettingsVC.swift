@@ -76,12 +76,33 @@ class SettingsVC: UIViewController {
     @IBAction func saveBtnTapped(_ sender: UIButton) {
         Loader.start()
         let updateUser = UserService()
-        guard let imgData = persinImgV.image?.pngData() else {return}
-        updateUser.updateUser(imgData: imgData, avatar: "avatar", name: nameTf.text!, surname: lastNameTf.text!, region_id: regionId, district_id: districtId, detail_address: districtTf.text!) { result in
+        
+        guard let dataImg = self.persinImgV.image?.sd_resizedImage(with: CGSize(width: 400, height: 400), scaleMode: .aspectFill)?.pngData() else { return  }
+        
+        updateUser.updateUser(imgData: dataImg, avatar: "avatar", name: nameTf.text!, surname: lastNameTf.text!, region_id: regionId, district_id: districtId, detail_address: districtTf.text!) { result in
             switch result {
             case.success(let content):
+                guard let data = content.data else {return}
+                var user = UserDM()
+                user.id = data.id
+                user.name = data.name
+                user.surname = data.surname
+                user.email = data.email
+                user.balance = data.balance
+                user.rating = data.rating
+                user.region_id = data.region_id
+                user.region_name = data.region_name
+                user.district_id = data.district_id
+                user.district_name = data.district_name
+                user.detail_address = data.detail_address
+                user.avatar = data.avatar
+                user.roles = data.roles
+                user.created_at = data.created_at
+                user.created_at_label = data.created_at_label
+                user.phone = data.phone
+                Cache.saveUser(user: user)
                 Loader.stop()
-                print("✅ content =", content)
+                self.navigationController?.popViewController(animated: true)
             case.failure(let error):
                 print(error.localizedDescription)
                 Loader.stop()

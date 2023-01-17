@@ -81,7 +81,7 @@
                                                                 <constraint firstAttribute="height" constant="46" id="HfF-m3-lRj"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="15"/>
-                                                            <textInputTraits key="textInputTraits"/>
+                                                            <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                                         </textField>
                                                     </subviews>
                                                 </stackView>

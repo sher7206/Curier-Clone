@@ -15,14 +15,36 @@ class TaxiVC: UIViewController {
     var headerTexts = ["Yangilar", "Ko'rilganlar"]
     var refreshControl = UIRefreshControl()
     var isNew: Bool = true
+    var newsTaxi: [GetNewsTaxiData]? = []
+    var newsCurrentPage: Int = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigation()
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         tableView.addSubview(refreshControl)
-        DispatchQueue.main.async {
-            self.tableView.scrollToRow(at: IndexPath(row: 0, section: 1), at: .top, animated: false)
+        uploadNewsTaxi(page: newsCurrentPage)
+    }
+    
+    func uploadNewsTaxi(page: Int) {
+        Loader.start()
+        let getNewTaxi = TaxiService()
+        getNewTaxi.getNewsTaxi(model: TaxiRequest(page: page)) { result in
+            switch result {
+            case.success(let content):
+                Loader.stop()
+                guard let data = content.data else {return}
+                self.newsTaxi?.append(contentsOf: data)
+                self.tableView.reloadData()
+                if self.newsTaxi?.count ?? 0 > 0 {
+                    DispatchQueue.main.async {
+                        self.tableView.scrollToRow(at: IndexPath(row: 0, section: 1), at: .top, animated: false)
+                    }
+                }
+            case.failure(let error):
+                Loader.stop()
+                Alert.showAlert(forState: .error, message: error.localizedDescription, vibrationType: .error)
+            }
         }
     }
     
@@ -62,7 +84,7 @@ extension TaxiVC: UITableViewDelegate, UITableViewDataSource {
         if section == 0 {
             return 1
         } else {
-            return 5
+            return 0
         }
     }
     

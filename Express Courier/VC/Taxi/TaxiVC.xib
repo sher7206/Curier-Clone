@@ -21,8 +21,8 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ld5-vD-h9l">
-                    <rect key="frame" x="0.0" y="48" width="414" height="403"/>
-                    <color key="backgroundColor" name="primary900"/>
+                    <rect key="frame" x="0.0" y="48" width="414" height="224"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="9P0-qC-8Dk">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -35,7 +35,7 @@
                 <constraint firstItem="9P0-qC-8Dk" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="CMo-CM-9HO"/>
                 <constraint firstAttribute="bottom" secondItem="9P0-qC-8Dk" secondAttribute="bottom" id="Dmn-5e-J1J"/>
                 <constraint firstItem="9P0-qC-8Dk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="NAP-6R-0Qy"/>
-                <constraint firstItem="Ld5-vD-h9l" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.45" id="f6o-Pg-4Al"/>
+                <constraint firstItem="Ld5-vD-h9l" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.25" id="f6o-Pg-4Al"/>
                 <constraint firstItem="Ld5-vD-h9l" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="itT-it-Mjg"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Ld5-vD-h9l" secondAttribute="trailing" id="tSG-oH-baJ"/>
                 <constraint firstItem="9P0-qC-8Dk" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="u16-bS-X45"/>
@@ -45,9 +45,6 @@
         </view>
     </objects>
     <resources>
-        <namedColor name="primary900">
-            <color red="0.94099998474121094" green="0.70599997043609619" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="white300">
             <color red="0.97600001096725464" green="0.97600001096725464" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
