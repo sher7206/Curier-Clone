@@ -36,10 +36,10 @@ class TaxiTVC: UITableViewCell {
     func setupViews() {
         containerView.layer.cornerRadius = 8
         containerView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        
         bottomView.layer.cornerRadius = 8
         bottomView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
     }
+    
     
     func updateCell(data: GetNewsTaxiData?, index: Int) {
         guard let date = data?.created_at else {return}
