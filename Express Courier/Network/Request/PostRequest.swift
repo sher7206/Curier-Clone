@@ -14,7 +14,10 @@ struct PostRequest: Codable {
     var fromDistrictId: Int?
     var toRegionId: Int?
     var toDistrictId: Int?
+    var status: String
+    var available: String
 }
+
 
 struct PostIdRequest: Codable {
     var id: Int

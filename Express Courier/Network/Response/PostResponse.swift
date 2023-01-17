@@ -24,6 +24,7 @@ struct GetPostResponse: Codable {
     enum CondingKeys : String, CodingKey {
         case data, links, meta
     }
+    
 }
 
 struct GetPostRespnseData: Codable {
