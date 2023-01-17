@@ -24,8 +24,8 @@ class TaxiTVC: UITableViewCell {
     @IBOutlet weak var numberLbl: UILabel!
     @IBOutlet weak var peopleCountLbl: UILabel!
     @IBOutlet weak var seatLbl: UILabel!
-    @IBOutlet weak var viewsCountLbl: UILabel!
-    
+//    @IBOutlet weak var viewsCountLbl: UILabel!
+    @IBOutlet weak var book_front_seat: UIStackView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -41,7 +41,24 @@ class TaxiTVC: UITableViewCell {
         bottomView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
     }
     
-    func updateCell() {
-        
+    func updateCell(data: GetNewsTaxiData?, index: Int) {
+        guard let date = data?.created_at else {return}
+        dateLbl.text = String(date.prefix(10))
+        priceLbl.text = "\(data?.cost?.priceFormetter() ?? "")"
+        userImage.sd_setImage(with: URL(string: data?.creator_avatar ?? ""))
+        fromRegionLbl.text = (data?.from_region_name ?? "") + ", " + (data?.to_district_name ?? "")
+        fromDistrictLbl.text = data?.from_address ?? ""
+        toRegionLbl.text = (data?.to_region_name ?? "") + ", " + (data?.to_district_name ?? "")
+        toDistrictlbl.text = data?.to_address ?? ""
+        descLbl.text = data?.note ?? ""
+        numberLbl.text = "\(data?.id ?? 0)"
+        peopleCountLbl.text = String(data?.seat_count ?? 0)
+        userName.text = data?.creator_name ?? ""
+        guard let book_front = data?.book_front_seat else {return}
+        if book_front {
+            self.book_front_seat.isHidden = false
+        } else {
+            self.book_front_seat.isHidden = true
+        }
     }
 }

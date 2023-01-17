@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AboutNewVC" customModule="_00kExpress" customModuleProvider="target">
+            <connections>
+                <outlet property="descLbl" destination="JC0-li-z7S" id="4dB-mW-bqS"/>
+                <outlet property="imgV" destination="IUx-aG-Lop" id="s49-R1-J7f"/>
+                <outlet property="titleLbl" destination="B3T-WH-jFN" id="95E-zV-Q7j"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LQR-LV-iu7">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="G7L-3q-ABq">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="584.5"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="openImg" translatesAutoresizingMaskIntoConstraints="NO" id="IUx-aG-Lop">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="250" id="aFX-Ic-rRG"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Biz ishga tushdik" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B3T-WH-jFN">
+                                    <rect key="frame" x="16" y="266" width="382" height="18"/>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JC0-li-z7S">
+                                    <rect key="frame" x="16" y="300" width="382" height="284.5"/>
+                                    <string key="text">Samolarda uchaman  goho,
+Bulutlarchi menla so'zlashar.
+Meni bilgan o'sha mitti kapalak
+Bamisoli qalbimda yashar
+Qalb ovozim ko’kka talpinar
+Ichim to’lib daryolar bo’lib
+Bir kun kelib osmonni zabt etar
+Men izlagan yulduzlar bo’lib
+Sabr qilib kutaman tongni
+Hayot yo’lin boshlashim uchun
+Qani bugun olay deb bolni
+Nozik gulni hidlashim uchun
+Hasta emas qalbim hech aslo
+Umr ozdir yashashim kerak
+Har bir kunim bo’lsin deb a’lo
+Hayot yo’lin bezashim kerak
+</string>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <color key="textColor" name="black1000"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="JC0-li-z7S" firstAttribute="leading" secondItem="G7L-3q-ABq" secondAttribute="leading" constant="16" id="eMQ-f4-FY2"/>
+                                <constraint firstAttribute="trailing" secondItem="IUx-aG-Lop" secondAttribute="trailing" id="egD-2V-1pO"/>
+                                <constraint firstAttribute="trailing" secondItem="B3T-WH-jFN" secondAttribute="trailing" constant="16" id="geD-Ud-Ryx"/>
+                                <constraint firstItem="B3T-WH-jFN" firstAttribute="leading" secondItem="G7L-3q-ABq" secondAttribute="leading" constant="16" id="k72-Qw-3hb"/>
+                                <constraint firstAttribute="trailing" secondItem="JC0-li-z7S" secondAttribute="trailing" constant="16" id="mtw-te-N9T"/>
+                                <constraint firstItem="IUx-aG-Lop" firstAttribute="leading" secondItem="G7L-3q-ABq" secondAttribute="leading" id="t9b-L2-6Mn"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="G7L-3q-ABq" secondAttribute="bottom" id="9cT-Ch-vIw"/>
+                        <constraint firstItem="G7L-3q-ABq" firstAttribute="width" secondItem="LQR-LV-iu7" secondAttribute="width" id="Hy7-cC-Id5"/>
+                        <constraint firstItem="G7L-3q-ABq" firstAttribute="leading" secondItem="LQR-LV-iu7" secondAttribute="leading" id="ZbM-jm-QVV"/>
+                        <constraint firstItem="G7L-3q-ABq" firstAttribute="top" secondItem="LQR-LV-iu7" secondAttribute="top" id="bnf-R6-1Ar"/>
+                        <constraint firstAttribute="trailing" secondItem="G7L-3q-ABq" secondAttribute="trailing" id="gRM-NS-7Dd"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="LQR-LV-iu7" secondAttribute="bottom" id="21w-gq-gfb"/>
+                <constraint firstItem="LQR-LV-iu7" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="XWn-Lh-QuN"/>
+                <constraint firstItem="LQR-LV-iu7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Yrb-qv-Tgr"/>
+                <constraint firstItem="LQR-LV-iu7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="fjf-F4-8mz"/>
+                <constraint firstAttribute="trailing" secondItem="LQR-LV-iu7" secondAttribute="trailing" id="kZE-G4-Z6K"/>
+            </constraints>
+            <point key="canvasLocation" x="133" y="110"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="openImg" width="328" height="160"/>
+        <namedColor name="black1000">
+            <color red="0.2199999988079071" green="0.24300000071525574" blue="0.32899999618530273" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

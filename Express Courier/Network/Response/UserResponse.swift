@@ -150,6 +150,48 @@ struct UpdateUserResponse: Codable {
     
 }
 
+//MARK: - GetNewsResponse
+struct GetNewsResponse: Codable {
+    var data: [GetNewsData]?
+    var links: Link?
+    var meta: Meta?
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        data = try? container.decode([GetNewsData].self, forKey: .data)
+        links = try? container.decode(Link.self, forKey: .links)
+        meta = try? container.decode(Meta.self, forKey: .meta)
+        
+    }
+    enum CodingKeys: String, CodingKey {
+        case data, links, meta
+    }
+}
+
+struct GetNewsData: Codable {
+    var id: Int?
+    var title: String?
+    var description: String?
+    var created_at: String?
+    var is_active: Bool?
+    var image: String?
+    var created_at_label: String?
+}
+
+//MARK: - Log Out
+struct LogOutResponse: Codable {
+    var message: String?
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.message = try container.decodeIfPresent(String.self, forKey: .message)
+    }
+    enum CodingKeys: String, CodingKey {
+        case message
+    }
+}
+
+
 
 
 

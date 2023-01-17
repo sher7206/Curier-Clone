@@ -38,7 +38,6 @@ struct UserService: BaseService {
         let router = UserRouter.updateUser
         // Create upload request.
         let request = AF.upload(multipartFormData: {
-            
             $0.append(imgData, withName: avatar, fileName: avatar, mimeType: "image/jpeg")
             var params: [String: Any] = [:]
             params["name"] = name
@@ -59,5 +58,15 @@ struct UserService: BaseService {
             //            print("Data")
             AnalysisResponseMonitor<UpdateUserResponse>(response: response).monitor(completion: completion)
         }
+    }
+    
+    //MARK: - Get News
+    func getNews(model: GetNewsRequest, completion: @escaping Completion<GetNewsResponse>) {
+        request(.getNews(model: model), completion: completion)
+    }
+    
+    //MARK: - Log Out
+    func logOut(completion: @escaping Completion<LogOutResponse>) {
+        request(.logOut, completion: completion)
     }
 }
