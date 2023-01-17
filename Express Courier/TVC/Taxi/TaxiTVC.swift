@@ -9,6 +9,8 @@ import UIKit
 
 class TaxiTVC: UITableViewCell {
     
+    
+    
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var dateLbl: UILabel!
@@ -27,9 +29,10 @@ class TaxiTVC: UITableViewCell {
 //    @IBOutlet weak var viewsCountLbl: UILabel!
     @IBOutlet weak var book_front_seat: UIStackView!
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+//        topStack.constant = 0
         setupViews()
     }
     
@@ -43,7 +46,7 @@ class TaxiTVC: UITableViewCell {
     
     func updateCell(data: GetNewsTaxiData?, index: Int) {
         guard let date = data?.created_at else {return}
-        dateLbl.text = String(date.prefix(10))
+
         priceLbl.text = "\(data?.cost?.priceFormetter() ?? "")"
         userImage.sd_setImage(with: URL(string: data?.creator_avatar ?? ""))
         fromRegionLbl.text = (data?.from_region_name ?? "") + ", " + (data?.to_district_name ?? "")
@@ -54,6 +57,8 @@ class TaxiTVC: UITableViewCell {
         numberLbl.text = "\(data?.id ?? 0)"
         peopleCountLbl.text = String(data?.seat_count ?? 0)
         userName.text = data?.creator_name ?? ""
+        dateLbl.text = String(date.prefix(10))
+        
         guard let book_front = data?.book_front_seat else {return}
         if book_front {
             self.book_front_seat.isHidden = false

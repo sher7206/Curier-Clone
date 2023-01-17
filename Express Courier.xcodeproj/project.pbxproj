@@ -22,7 +22,6 @@
 		1858EFE22976AD63005A3492 /* DistributionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1858EFE02976AD62005A3492 /* DistributionVC.xib */; };
 		1858EFE52976ADC5005A3492 /* DisttributionTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1858EFE32976ADC5005A3492 /* DisttributionTVC.swift */; };
 		1858EFE62976ADC5005A3492 /* DisttributionTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1858EFE42976ADC5005A3492 /* DisttributionTVC.xib */; };
-		1858EFE82976B980005A3492 /* KuryerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1858EFE72976B980005A3492 /* KuryerVC.xib */; };
 		1858EFEA2976BF6C005A3492 /* PostRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1858EFE92976BF6C005A3492 /* PostRequest.swift */; };
 		1858EFEC2976C009005A3492 /* PostResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1858EFEB2976C009005A3492 /* PostResponse.swift */; };
 		1858EFEE2976C1ED005A3492 /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1858EFED2976C1ED005A3492 /* PostService.swift */; };
@@ -146,6 +145,7 @@
 		27B7E35B2966FEF500C3A69E /* OnboardingCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B7E3592966FEF500C3A69E /* OnboardingCVC.swift */; };
 		27B7E35C2966FEF500C3A69E /* OnboardingCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27B7E35A2966FEF500C3A69E /* OnboardingCVC.xib */; };
 		27B808DC2965C0A300E1357C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27B808DB2965C0A300E1357C /* Colors.xcassets */; };
+		27CBCADE2976D7CD0097745A /* KuryerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27CBCADD2976D7CC0097745A /* KuryerVC.xib */; };
 		27CD00532971896B0088449B /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CD00522971896B0088449B /* AuthRouter.swift */; };
 		27CD00552971A2A20088449B /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CD00542971A2A20088449B /* UserResponse.swift */; };
 		27CD00572971A3C40088449B /* UserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CD00562971A3C40088449B /* UserRouter.swift */; };
@@ -176,7 +176,6 @@
 		1858EFE02976AD62005A3492 /* DistributionVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DistributionVC.xib; sourceTree = "<group>"; };
 		1858EFE32976ADC5005A3492 /* DisttributionTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisttributionTVC.swift; sourceTree = "<group>"; };
 		1858EFE42976ADC5005A3492 /* DisttributionTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DisttributionTVC.xib; sourceTree = "<group>"; };
-		1858EFE72976B980005A3492 /* KuryerVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = KuryerVC.xib; path = ../../../../../../../../var/folders/c4/_j5c3lmd1tq_48mbdkd6gcpm0000gn/T/ru.keepcoder.Telegram/KuryerVC.xib; sourceTree = "<group>"; };
 		1858EFE92976BF6C005A3492 /* PostRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRequest.swift; sourceTree = "<group>"; };
 		1858EFEB2976C009005A3492 /* PostResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostResponse.swift; sourceTree = "<group>"; };
 		1858EFED2976C1ED005A3492 /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
@@ -302,6 +301,7 @@
 		27B7E3592966FEF500C3A69E /* OnboardingCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCVC.swift; sourceTree = "<group>"; };
 		27B7E35A2966FEF500C3A69E /* OnboardingCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingCVC.xib; sourceTree = "<group>"; };
 		27B808DB2965C0A300E1357C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		27CBCADD2976D7CC0097745A /* KuryerVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = KuryerVC.xib; path = ../../../../../../Downloads/KuryerVC.xib; sourceTree = "<group>"; };
 		27CD00522971896B0088449B /* AuthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
 		27CD00542971A2A20088449B /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
 		27CD00562971A3C40088449B /* UserRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRouter.swift; sourceTree = "<group>"; };
@@ -700,7 +700,7 @@
 			isa = PBXGroup;
 			children = (
 				2755F9E3297692100021BCB2 /* KuryerVC.swift */,
-				1858EFE72976B980005A3492 /* KuryerVC.xib */,
+				27CBCADD2976D7CC0097745A /* KuryerVC.xib */,
 				2777854A296EBA7100FC0141 /* KuryerModalVC.swift */,
 				2777854B296EBA7100FC0141 /* KuryerModalVC.xib */,
 			);
@@ -932,7 +932,7 @@
 				2777855C296ED85000FC0141 /* TaxiHeaderCVC.xib in Resources */,
 				2718BF73297183B700DC0A8A /* EnterTimerVC.xib in Resources */,
 				188F45DD2972B96D0029FCEC /* BranchListTVC.xib in Resources */,
-				1858EFE82976B980005A3492 /* KuryerVC.xib in Resources */,
+				27CBCADE2976D7CD0097745A /* KuryerVC.xib in Resources */,
 				1858EFC929757FED005A3492 /* ReportVC.xib in Resources */,
 				1858EFE22976AD63005A3492 /* DistributionVC.xib in Resources */,
 				18DE66B42965A069003324A5 /* LaunchScreen.storyboard in Resources */,
