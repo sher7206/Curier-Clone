@@ -16,6 +16,6 @@ struct TaxiService: BaseService {
     }
     
     func getHistoryTaxi(model: TaxiRequest, completion: @escaping Completion<GetHistoryTaxiResponse>) {
-        request(.getNewTaxi(model: model), completion: completion)
+        request(.getHistoryTaxi(model: model), completion: completion)
     }
 }
