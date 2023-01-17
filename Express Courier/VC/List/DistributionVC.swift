@@ -1,24 +1,12 @@
-//
-//  SortVC.swift
+
+//  DistributionVC.swift
 //  Express Courier
-//
-//  Created by apple on 16/01/23.
-//
+//  Created by apple on 17/01/23.
 
 import UIKit
 
-class SortVC: UIViewController {
+class DistributionVC: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!{
-        didSet{
-            tableView.delegate = self
-            tableView.dataSource = self
-            tableView.register(SortTVC.nib(), forCellReuseIdentifier: SortTVC.identifier)
-            tableView.separatorStyle = .none
-            tableView.contentInset = UIEdgeInsets(top: 11, left: 0, bottom: 11, right: 0)
-        }
-    }
-    
     @IBOutlet weak var collectionView: UICollectionView!{
         didSet{
             collectionView.delegate = self
@@ -28,32 +16,40 @@ class SortVC: UIViewController {
         }
     }
     
+    @IBOutlet weak var tableView: UITableView!{
+        didSet{
+            tableView.delegate = self
+            tableView.dataSource = self
+            tableView.register(DisttributionTVC.nib(), forCellReuseIdentifier: DisttributionTVC.identifier)
+            tableView.separatorStyle = .none
+        }
+    }
     var selectIndexCVC: Int = 0
-    var headerTexts = ["Barchasi", "Yo‘lda", "Yetkazilgan", "Bekor qilingan"]
+
+    var texts = ["Chirchiq", "Olmaliq", "Yunusobod","Quva", "Oltiariq","Davom"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Saralash"
+        title = "Taqsimlash"
+       // self.view.backgroundColor = UIColor(named: "white300")
     }
     
-
 }
-
 //MARK: TABLE VIEW
-extension SortVC: UITableViewDelegate, UITableViewDataSource{
+extension DistributionVC: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         5
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: SortTVC.identifier, for: indexPath) as! SortTVC
+        let cell = tableView.dequeueReusableCell(withIdentifier: DisttributionTVC.identifier, for: indexPath) as! DisttributionTVC
         return cell
     }
-    
 }
 
 //MARK: COLLECTION VIEW
-extension SortVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+extension DistributionVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-       return headerTexts.count
+        return texts.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ItemCVC.identifier, for: indexPath) as! ItemCVC
@@ -66,18 +62,21 @@ extension SortVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             cell.itemLbl.font = .systemFont(ofSize: 15, weight: .regular)
             cell.itemLbl.backgroundColor = UIColor(named: "white100")
         }
-        cell.itemLbl.text = headerTexts[indexPath.row]
+        cell.itemLbl.text = texts[indexPath.row]
         cell.itemLbl.cornerRadius = 12
         cell.itemLbl.clipsToBounds = true
         return cell
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.headerTexts[indexPath.row].widthOfStringg(usingFont: .systemFont(ofSize: 15)) + 30, height: 40)
+        return CGSize(width: self.texts[indexPath.row].widthOfStringg(usingFont: .systemFont(ofSize: 15)) + 30, height: 40)
     }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
             self.selectIndexCVC = indexPath.row
-            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-            collectionView.reloadData()
+        self.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        self.collectionView.reloadData()
     }
+    
+    
 }
-

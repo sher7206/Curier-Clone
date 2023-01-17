@@ -24,6 +24,8 @@ class ListVC: UIViewController {
     var menuItems: [UIAction] {
         return [
             UIAction(title: "Statistika", image: UIImage(named: "diagram-list"), handler: { (_) in
+                let vc = DistributionVC()
+                self.navigationController?.pushViewController(vc, animated: true)
             }),
             UIAction(title: "Hisoblash", image: UIImage(named: "math-list"), handler: { (_) in
                 let vc = ReportVC()
@@ -55,7 +57,7 @@ class ListVC: UIViewController {
     }
     
     func setUpScretchView(){
-        let header = SkretchableHeaderView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 5))
+        let header = SkretchableHeaderView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 1))
         header.v.backgroundColor = UIColor(named: "primary900")
         tableView.tableHeaderView = header
         self.view.backgroundColor = UIColor(named: "white300")
