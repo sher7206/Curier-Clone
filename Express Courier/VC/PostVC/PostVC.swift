@@ -4,6 +4,19 @@
 //  Created by apple on 05/01/23.
 
 import UIKit
+
+enum MailStatus{
+    case nothing
+    case new
+    case accepted
+    case active
+    case completed
+    case canceled
+    case available
+    case draft
+}
+
+
 class PostVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!{
@@ -22,17 +35,16 @@ class PostVC: UIViewController {
     
     let headerTexts = ["Buyurtmalar", "Yangi", "Qabul qilingan", "Yo'lda", "Yetkazilgan", "Bekor qilingan"]
     var selectIndexCVC: Int = 0
-    
     var isNew: Bool = true
-
     var orderPage = 1
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigation()
         title = "Pochta"
         setUpScretchView()
-        getApiResponse(page: 1)
+        getApiResponse(page: 1, fromRegionId: nil, fromDistrictId: nil, toRegionId: nil, toDistrictId: nil, status: "", available: "available")
     }
     
     func setupNavigation(){
@@ -56,10 +68,11 @@ class PostVC: UIViewController {
         self.view.backgroundColor = UIColor(named: "white300")
     }
     
-    func getApiResponse(page: Int){
+    func getApiResponse(page: Int, fromRegionId: Int?, fromDistrictId: Int?, toRegionId: Int?,toDistrictId: Int?,status: String, available: String){
         let service = PostService()
         Loader.start()
-        service.getPostResponse(model: PostRequest(page: page)) { [self] result in
+        
+        service.getPostResponse(model: PostRequest(page: page, fromRegionId: fromRegionId, fromDistrictId: fromDistrictId, toRegionId: toRegionId, toDistrictId: toDistrictId, status: status, available: available)) { [self] result in
             switch result{
             case .success(let content):
                 Loader.stop()
@@ -71,6 +84,7 @@ class PostVC: UIViewController {
             case .failure(let error):
                 Alert.showAlert(forState: .error, message: error.message ?? "Error", vibrationType: .error)
             }
+
         }
     }
     
@@ -80,14 +94,16 @@ class PostVC: UIViewController {
     @objc func filterBtnPressed(){
     }
 
-
     @IBAction func scanBtnPressed(_ sender: Any) {
     }
+    
+    
     @IBAction func listBtnPressed(_ sender: Any) {
         let vc = ListBranchVC()
         vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc, animated: true)
     }
+    
     
 }
 
@@ -113,7 +129,6 @@ extension PostVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelega
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: PostInsideTVC.identifier, for: indexPath) as? PostInsideTVC else {return UITableViewCell()}
             cell.updateCell(data: getAllDates[indexPath.row])
-            
             
             if indexPath.row == 0{
                 cell.headerDateLbl.isHidden = false
@@ -170,6 +185,23 @@ extension PostVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelega
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
      
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == getAllDates.count-1{
+            if self.orderPage > getAllDates.count{
+                orderPage += 1
+                Loader.start()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [self] in
+                    Loader.stop()
+
+                //    asdjnasdnadlnaldkdas
+                    
+                    tableView.reloadData()
+                }
+            }
+        }
+    }
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard let header = tableView.tableHeaderView as? SkretchableHeaderView else{
             return
