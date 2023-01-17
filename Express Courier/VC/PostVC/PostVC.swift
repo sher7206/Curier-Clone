@@ -6,41 +6,30 @@
 import UIKit
 class PostVC: UIViewController {
 
-    @IBOutlet weak var fromRegionLbl: UILabel!
-    @IBOutlet weak var toRegionLbl: UILabel!
-    
-    @IBOutlet weak var regionView: UIView!
-    @IBOutlet weak var headercollectionView: UICollectionView!{
+    @IBOutlet weak var tableView: UITableView!{
         didSet{
-            headercollectionView.delegate = self
-            headercollectionView.dataSource = self
-            headercollectionView.register(UINib(nibName: "HeaderCVC", bundle: nil), forCellWithReuseIdentifier: "HeaderCVC")
-            headercollectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 16)
-        }
-    }
-    
-    @IBOutlet weak var collectionView: UICollectionView!{
-        didSet{
-            collectionView.delegate = self
-            collectionView.dataSource = self
-
-            collectionView.register(PostCVC.nib(), forCellWithReuseIdentifier: PostCVC.identifier)
+            tableView.delegate = self
+            tableView.dataSource = self
+            tableView.register(TaxiFilterTVC.nib(), forCellReuseIdentifier: TaxiFilterTVC.identifier)
+            tableView.register(PostInsideTVC.nib(), forCellReuseIdentifier: PostInsideTVC.identifier)
+            tableView.separatorStyle = .none
+            
+            if #available(iOS 15.0, *) { tableView.sectionHeaderTopPadding = 0 } else {}
         }
     }
     
     let headerTexts = ["Buyurtmalar", "Yangi", "Qabul qilingan", "Yo'lda", "Yetkazilgan", "Bekor qilingan"]
-    var selectedIndex: Int = 0
-
-    var scrollHegight = 0.0
+    var selectIndexCVC: Int = 0
     
+    var isNew: Bool = true
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigation()
         title = "Pochta"
-        NotificationCenter.default.addObserver(self, selector: #selector(onNotificationCatched(notification:)), name: NSNotification.Name(rawValue: "scrollNav"), object: nil)
      //   Loader.start()
     }
-    
     
     func setupNavigation(){
         let appearance = UINavigationBarAppearance()
@@ -56,36 +45,12 @@ class PostVC: UIViewController {
         navigationItem.backButtonTitle = ""
     }
     
-    
-    @objc func onNotificationCatched(notification:NSNotification) {
-        collectionView.reloadData()
-
-        let userInfo:Dictionary<String, Double > = notification.userInfo as! Dictionary<String, Double>
-        let value = userInfo["height"]!
-        if value <= 0{
-            regionView.isHidden = false
-        }else{
-            regionView.isHidden = true
-        }
-    }
-    
-    
     @objc func menuBtnPressed(){
     }
-    
     @objc func filterBtnPressed(){
-        
     }
-    @IBAction func fromButtonPressed(_ sender: Any) {
-    }
-    @IBAction func toButtonPressed(_ sender: Any) {
-    }
-    @IBAction func fromDismissBtnPressed(_ sender: Any) {
-    }
-    @IBAction func toDismissBtnPressed(_ sender: Any) {
-    }
-    @IBAction func exchangeBtnPressed(_ sender: Any) {
-    }
+
+
     @IBAction func scanBtnPressed(_ sender: Any) {
     }
     @IBAction func listBtnPressed(_ sender: Any) {
@@ -96,78 +61,113 @@ class PostVC: UIViewController {
     
 }
 
-//MARK: Collection View
-extension PostVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+//MARK: - Table View Delegate
+extension PostVC: UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0 {
+            return 1
+        } else {
+            return 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.section == 0 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "TaxiFilterTVC", for: indexPath) as? TaxiFilterTVC else {return UITableViewCell()}
+            return cell
+        } else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: PostInsideTVC.identifier, for: indexPath) as? PostInsideTVC else {return UITableViewCell()}
+            return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let v = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.frame.width, height: 40))
+        
+        v.backgroundColor = UIColor(named: "primary900")
+        let layout = UICollectionViewFlowLayout()
+        
+        
+        layout.scrollDirection = .horizontal
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+        self.view.addSubview(collectionView)
+        collectionView.delegate   = self
+        collectionView.dataSource = self
+        collectionView.register(UINib(nibName: "TaxiHeaderCVC", bundle: nil), forCellWithReuseIdentifier: "TaxiHeaderCVC")
+        v.addSubview(collectionView)
+        
+        collectionView.backgroundColor = UIColor(named: "primary900")
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.topAnchor.constraint(equalTo: v.topAnchor, constant: 0).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: v.bottomAnchor, constant: 0).isActive = true
+        collectionView.leadingAnchor.constraint(equalTo: v.leadingAnchor, constant: 0).isActive = true
+        collectionView.trailingAnchor.constraint(equalTo: v.trailingAnchor, constant: 0).isActive = true
+        layout.collectionView?.showsHorizontalScrollIndicator = false
+        return v
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section != 0 {
+            return 40
+        } else {
+            return 0
+        }
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+     
+    }
+    
+}
+
+
+//MARK: - Collection View Delegate
+extension PostVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return headerTexts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == self.headercollectionView{
-            guard let cell = headercollectionView.dequeueReusableCell(withReuseIdentifier: "HeaderCVC", for: indexPath) as? HeaderCVC else {return UICollectionViewCell()}
-            cell.lbl.text = self.headerTexts[indexPath.row]
-            if selectedIndex == indexPath.row {
-                cell.lbl.textColor = .black
-                cell.bottomView.backgroundColor = .black
-            } else {
-                cell.lbl.textColor = UIColor(named: "black600")
-                cell.bottomView.backgroundColor = UIColor.clear
-            }
-            return cell
-        }else{
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PostCVC.identifier, for: indexPath) as! PostCVC
-            cell.delegate = self
-            return cell
+        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TaxiHeaderCVC", for: indexPath) as? TaxiHeaderCVC else {return UICollectionViewCell()}
+        
+        cell.bottomView.backgroundColor = .clear
+        cell.titleLbl.textColor = UIColor(named: "black600")
+        cell.titleLbl.font = .systemFont(ofSize: 14, weight: .regular)
+        if selectIndexCVC == indexPath.row {
+            cell.bottomView.backgroundColor = .black
+            cell.titleLbl.textColor = .black
+            cell.titleLbl.font = .systemFont(ofSize: 15, weight: .medium)
+        } else {
+            cell.bottomView.backgroundColor = .clear
+            cell.titleLbl.textColor = UIColor(named: "black600")
+            cell.titleLbl.font = .systemFont(ofSize: 15, weight: .regular)
         }
+        
+        cell.updateCell(title: headerTexts[indexPath.row])
+        
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView == self.collectionView{
-        }
-        headercollectionView.reloadData()
-        selectedIndex = indexPath.row
-        self.headercollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        self.selectIndexCVC = indexPath.row
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        collectionView.reloadData()
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if collectionView == headercollectionView {
-            return CGSize(width: self.headerTexts[indexPath.row].widthOfStringg(usingFont: .systemFont(ofSize: 15)) + 20, height: 40)
-        } else {
-            let w = self.collectionView.frame.width
-            let h = self.collectionView.frame.height
-            return CGSize(width: w, height: h)
-        }
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView == self.collectionView{
-            let pageIndex = Int(round(scrollView.contentOffset.x / view.frame.width))
-            self.selectedIndex = pageIndex
-            self.headercollectionView.scrollToItem(at: IndexPath(row: selectedIndex, section: 0), at: .centeredHorizontally, animated: true)
-            headercollectionView.reloadData()
-        }
+        return CGSize(width: self.headerTexts[indexPath.row].widthOfStringg(usingFont: .systemFont(ofSize: 15)) + 25, height: 40)
     }
     
 }
 
-//MARK: Delegate
-extension PostVC: PostCVCDelegate{
-    
-    func didSelected(index: Int) {
-//        let vc = PostAgreemantVC()
-//        vc.modalPresentationStyle = .overFullScreen
-//        present(vc, animated: true, completion: nil)
-//        
-//        let vc = EnterTimerVC()
-//        vc.modalPresentationStyle = .overFullScreen
-//        present(vc, animated: true, completion: nil)
-//
-        let vc = FinishOrderVC()
-        vc.modalPresentationStyle = .overFullScreen
-        present(vc, animated: true, completion: nil)
-    }
-    
-    
-}

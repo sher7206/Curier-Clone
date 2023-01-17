@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="127" id="KGk-i7-Jjw" customClass="ReportTVC" customModule="Express_Courier" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="389" height="127"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="389" height="127"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bLY-hA-JuK">
+                        <rect key="frame" x="16" y="5" width="357" height="40"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="sV6-gQ-uen">
+                                <rect key="frame" x="10" y="10" width="337" height="20"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="miniTransIcon-post" translatesAutoresizingMaskIntoConstraints="NO" id="AJA-5I-W2h">
+                                        <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="Aa6-67-mEk"/>
+                                            <constraint firstAttribute="width" secondItem="AJA-5I-W2h" secondAttribute="height" id="ZTC-AF-JGN"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kuryer komissiyasi:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="byT-JM-I5Q">
+                                        <rect key="frame" x="30" y="1.5" width="207" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" name="black800"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="40.000 uzs" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2FC-UA-QvC">
+                                        <rect key="frame" x="247" y="0.5" width="90" height="19.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="90" id="Ehx-tz-XUz"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="AJA-5I-W2h" secondAttribute="bottom" id="Ic8-b8-5OP"/>
+                                    <constraint firstItem="AJA-5I-W2h" firstAttribute="top" secondItem="sV6-gQ-uen" secondAttribute="top" id="tYg-fa-8AL"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" name="white100"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="sV6-gQ-uen" secondAttribute="trailing" constant="10" id="FCb-sr-yNr"/>
+                            <constraint firstItem="sV6-gQ-uen" firstAttribute="top" secondItem="bLY-hA-JuK" secondAttribute="top" constant="10" id="ba4-vu-3pi"/>
+                            <constraint firstAttribute="bottom" secondItem="sV6-gQ-uen" secondAttribute="bottom" constant="10" id="g6G-tE-Gvn"/>
+                            <constraint firstItem="sV6-gQ-uen" firstAttribute="leading" secondItem="bLY-hA-JuK" secondAttribute="leading" constant="10" id="tnG-rY-RHO"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" name="black100"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="bLY-hA-JuK" secondAttribute="trailing" constant="16" id="Euz-hO-2l7"/>
+                    <constraint firstItem="bLY-hA-JuK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Jbg-wa-dXl"/>
+                    <constraint firstAttribute="bottom" secondItem="bLY-hA-JuK" secondAttribute="bottom" constant="5" id="eB4-f5-VaW"/>
+                    <constraint firstItem="bLY-hA-JuK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="k3w-te-4Mh"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="priceLbl" destination="2FC-UA-QvC" id="fq6-LW-vaw"/>
+                <outlet property="textLbl" destination="byT-JM-I5Q" id="kAC-SX-NdP"/>
+            </connections>
+            <point key="canvasLocation" x="268.84057971014494" y="125.55803571428571"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="miniTransIcon-post" width="40" height="40"/>
+        <namedColor name="black100">
+            <color red="0.92900002002716064" green="0.92900002002716064" blue="0.92900002002716064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="black800">
+            <color red="0.21600000560283661" green="0.21600000560283661" blue="0.21600000560283661" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="white100">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

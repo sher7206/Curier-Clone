@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SortVC" customModule="Express_Courier" customModuleProvider="target">
+            <connections>
+                <outlet property="collectionView" destination="5s7-AX-wp3" id="keI-i6-pq8"/>
+                <outlet property="tableView" destination="TcS-fO-pxh" id="Ddc-jG-tjs"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="uUR-ns-b0p">
+                    <rect key="frame" x="16" y="54" width="382" height="31"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="KQL-gr-Cnk"/>
+                    </constraints>
+                    <segments>
+                        <segment title="Jo'natma bo'yicha"/>
+                        <segment title="Tuman bo'yicha"/>
+                    </segments>
+                </segmentedControl>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="5s7-AX-wp3">
+                    <rect key="frame" x="0.0" y="89" width="414" height="40"/>
+                    <color key="backgroundColor" name="white300"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="Qff-ad-Xd7"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="G38-lT-Uc0">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Natija" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ux-K0-n20">
+                    <rect key="frame" x="16" y="145" width="382" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="0pm-js-J5h"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="TcS-fO-pxh">
+                    <rect key="frame" x="0.0" y="161" width="414" height="701"/>
+                    <color key="backgroundColor" name="white300"/>
+                </tableView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" name="white300"/>
+            <constraints>
+                <constraint firstItem="TcS-fO-pxh" firstAttribute="top" secondItem="9ux-K0-n20" secondAttribute="bottom" id="4Fg-rn-ppe"/>
+                <constraint firstItem="5s7-AX-wp3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Gns-IB-6Be"/>
+                <constraint firstItem="uUR-ns-b0p" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="IQR-DP-76n"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="9ux-K0-n20" secondAttribute="trailing" constant="16" id="NKS-9O-bO6"/>
+                <constraint firstItem="TcS-fO-pxh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="SAZ-jP-FHi"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="TcS-fO-pxh" secondAttribute="trailing" id="W9D-Fj-mfx"/>
+                <constraint firstItem="5s7-AX-wp3" firstAttribute="top" secondItem="uUR-ns-b0p" secondAttribute="bottom" constant="5" id="dSt-AM-1GA"/>
+                <constraint firstItem="9ux-K0-n20" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="gOa-mo-nmI"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="TcS-fO-pxh" secondAttribute="bottom" id="gte-Iw-L8r"/>
+                <constraint firstItem="9ux-K0-n20" firstAttribute="top" secondItem="5s7-AX-wp3" secondAttribute="bottom" constant="16" id="p6n-70-HvX"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="uUR-ns-b0p" secondAttribute="trailing" constant="16" id="qwP-cv-P9m"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="5s7-AX-wp3" secondAttribute="trailing" id="xVv-WF-ojj"/>
+                <constraint firstItem="uUR-ns-b0p" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="y4T-ts-Bzz"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="88"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="white300">
+            <color red="0.97600001096725464" green="0.97600001096725464" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

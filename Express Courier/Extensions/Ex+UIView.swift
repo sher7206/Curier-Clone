@@ -86,17 +86,13 @@ extension UIView {
 extension UIView {
     
    func roundCorners(corners: UIRectCorner, radius: CGFloat) {
-       
         let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
-       
         let mask = CAShapeLayer()
          mask.path = path.cgPath
         layer.mask = mask
-    
     }
     
     func pulsate() {
-        
         let pulse = CASpringAnimation(keyPath: "transform.scale")
         pulse.duration = 0.2
         pulse.fromValue = 0.90
@@ -114,6 +110,21 @@ extension UIView {
 }
 
 extension UIView {
+    
+    func applyGradient1(colours: [UIColor]) -> CAGradientLayer {
+          return self.applyGradient(colours: colours, locations: nil)
+      }
+
+      func applyGradient1(colours: [UIColor], locations: [NSNumber]?) -> CAGradientLayer {
+          let gradient: CAGradientLayer = CAGradientLayer()
+          gradient.frame = self.bounds
+        
+          gradient.colors = colours.map { $0.cgColor }
+          gradient.locations = locations
+          self.layer.insertSublayer(gradient, at: 0)
+          return gradient
+      }
+    
     
     func applyGradient(colours: [UIColor]) -> CAGradientLayer {
         return self.applyGradient(colours: colours, locations: nil)

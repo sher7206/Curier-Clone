@@ -9,9 +9,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ListVC" customModule="Express_Courier" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ReportVC" customModule="Express_Courier" customModuleProvider="target">
             <connections>
-                <outlet property="tableView" destination="DGU-4d-kvr" id="LGB-0o-1i0"/>
+                <outlet property="tableView" destination="qbW-pO-0UF" id="hCa-xz-Uqb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,25 +20,25 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="DGU-4d-kvr">
-                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="qbW-pO-0UF">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" name="primary900"/>
+            <color key="backgroundColor" name="white300"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="DGU-4d-kvr" secondAttribute="bottom" id="81k-F0-NHx"/>
-                <constraint firstItem="DGU-4d-kvr" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="IEy-rc-myz"/>
-                <constraint firstItem="DGU-4d-kvr" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="LQC-r7-G6p"/>
-                <constraint firstItem="DGU-4d-kvr" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="V3i-G5-Bqq"/>
+                <constraint firstItem="qbW-pO-0UF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="0Lu-tV-D2m"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="qbW-pO-0UF" secondAttribute="trailing" id="2rj-3y-etb"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="qbW-pO-0UF" secondAttribute="bottom" id="WFQ-VU-NtO"/>
+                <constraint firstItem="qbW-pO-0UF" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="xNU-jN-Kg7"/>
             </constraints>
-            <point key="canvasLocation" x="137.68115942028987" y="19.419642857142858"/>
+            <point key="canvasLocation" x="139" y="88"/>
         </view>
     </objects>
     <resources>
-        <namedColor name="primary900">
-            <color red="0.94099998474121094" green="0.70599997043609619" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="white300">
+            <color red="0.97600001096725464" green="0.97600001096725464" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

@@ -9,12 +9,13 @@ import UIKit
 
 class TaxiVC: UIViewController {
     
-    
     @IBOutlet weak var tableView: UITableView!
     var selectIndexCVC: Int = 0
+    var isNew: Bool = true
+
     var headerTexts = ["Yangilar", "Ko'rilganlar"]
     var refreshControl = UIRefreshControl()
-    var isNew: Bool = true
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +43,7 @@ class TaxiVC: UIViewController {
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         navigationItem.backButtonTitle = ""
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "TaxiFilterTVC", bundle: nil), forCellReuseIdentifier: "TaxiFilterTVC")
@@ -105,7 +107,6 @@ extension TaxiVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        
         if section != 0 {
             return 45
         } else {
