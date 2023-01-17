@@ -18,6 +18,10 @@
 		1858EFD929759124005A3492 /* ItemCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1858EFD729759124005A3492 /* ItemCVC.swift */; };
 		1858EFDA29759124005A3492 /* ItemCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1858EFD829759124005A3492 /* ItemCVC.xib */; };
 		1858EFDE2976926D005A3492 /* SkretchableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1858EFDD2976926D005A3492 /* SkretchableHeaderView.swift */; };
+		1858EFE12976AD63005A3492 /* DistributionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1858EFDF2976AD62005A3492 /* DistributionVC.swift */; };
+		1858EFE22976AD63005A3492 /* DistributionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1858EFE02976AD62005A3492 /* DistributionVC.xib */; };
+		1858EFE52976ADC5005A3492 /* DisttributionTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1858EFE32976ADC5005A3492 /* DisttributionTVC.swift */; };
+		1858EFE62976ADC5005A3492 /* DisttributionTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1858EFE42976ADC5005A3492 /* DisttributionTVC.xib */; };
 		188F45D32972B1730029FCEC /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188F45D22972B1730029FCEC /* Loader.swift */; };
 		188F45D62972B19C0029FCEC /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 188F45D52972B19C0029FCEC /* loading.json */; };
 		188F45D82972B3E10029FCEC /* loader.json in Resources */ = {isa = PBXBuildFile; fileRef = 188F45D72972B3E00029FCEC /* loader.json */; };
@@ -164,6 +168,10 @@
 		1858EFD729759124005A3492 /* ItemCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCVC.swift; sourceTree = "<group>"; };
 		1858EFD829759124005A3492 /* ItemCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemCVC.xib; sourceTree = "<group>"; };
 		1858EFDD2976926D005A3492 /* SkretchableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkretchableHeaderView.swift; sourceTree = "<group>"; };
+		1858EFDF2976AD62005A3492 /* DistributionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistributionVC.swift; sourceTree = "<group>"; };
+		1858EFE02976AD62005A3492 /* DistributionVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DistributionVC.xib; sourceTree = "<group>"; };
+		1858EFE32976ADC5005A3492 /* DisttributionTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisttributionTVC.swift; sourceTree = "<group>"; };
+		1858EFE42976ADC5005A3492 /* DisttributionTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DisttributionTVC.xib; sourceTree = "<group>"; };
 		188F45D22972B1730029FCEC /* Loader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		188F45D52972B19C0029FCEC /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		188F45D72972B3E00029FCEC /* loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loader.json; sourceTree = "<group>"; };
@@ -350,6 +358,8 @@
 				1858EFCB29758059005A3492 /* ReportTVC.xib */,
 				1858EFD229758C9B005A3492 /* SortTVC.swift */,
 				1858EFD329758C9B005A3492 /* SortTVC.xib */,
+				1858EFE32976ADC5005A3492 /* DisttributionTVC.swift */,
+				1858EFE42976ADC5005A3492 /* DisttributionTVC.xib */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -696,6 +706,8 @@
 				1858EFC729757FED005A3492 /* ReportVC.xib */,
 				1858EFCE29758B34005A3492 /* SortVC.swift */,
 				1858EFCF29758B34005A3492 /* SortVC.xib */,
+				1858EFDF2976AD62005A3492 /* DistributionVC.swift */,
+				1858EFE02976AD62005A3492 /* DistributionVC.xib */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -909,6 +921,7 @@
 				2718BF73297183B700DC0A8A /* EnterTimerVC.xib in Resources */,
 				188F45DD2972B96D0029FCEC /* BranchListTVC.xib in Resources */,
 				1858EFC929757FED005A3492 /* ReportVC.xib in Resources */,
+				1858EFE22976AD63005A3492 /* DistributionVC.xib in Resources */,
 				18DE66B42965A069003324A5 /* LaunchScreen.storyboard in Resources */,
 				18AF68D9296836DE00B35B64 /* HeaderCVC.xib in Resources */,
 				18DA32E1296BFCE10066FF9C /* MyInfoTVC.xib in Resources */,
@@ -939,6 +952,7 @@
 				2769292E297568FE009BF0A5 /* AboutNewVC.xib in Resources */,
 				27347F202970525B00D871EC /* TeamVC.xib in Resources */,
 				2718BF7A297183B700DC0A8A /* ChatVC.xib in Resources */,
+				1858EFE62976ADC5005A3492 /* DisttributionTVC.xib in Resources */,
 				27778564296EEF3C00FC0141 /* TaxiTVC.xib in Resources */,
 				27778557296ECBC200FC0141 /* TaxiFilterTVC.xib in Resources */,
 				18DA32D1296BFCC00066FF9C /* PinkodVC.xib in Resources */,
@@ -1004,6 +1018,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1858EFE52976ADC5005A3492 /* DisttributionTVC.swift in Sources */,
 				2777855B296ED85000FC0141 /* TaxiHeaderCVC.swift in Sources */,
 				1858EFC829757FED005A3492 /* ReportVC.swift in Sources */,
 				2718BF8C297185C900DC0A8A /* Keys.swift in Sources */,
@@ -1076,6 +1091,7 @@
 				18DE66C62966C940003324A5 /* Ex+UIView.swift in Sources */,
 				18AF68DA296836DE00B35B64 /* HeaderCVC.swift in Sources */,
 				27CD00552971A2A20088449B /* UserResponse.swift in Sources */,
+				1858EFE12976AD63005A3492 /* DistributionVC.swift in Sources */,
 				188F45EC2972D1550029FCEC /* RegionsVC.swift in Sources */,
 				270273D0296C0B6900687A2A /* NotificationViewController.swift in Sources */,
 				2718BF85297183D100DC0A8A /* ArrivedItemTVC.swift in Sources */,
@@ -1230,7 +1246,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = YM5H6L638F;
+				DEVELOPMENT_TEAM = L27Y355PSC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Express Courier/Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "We needed camer or photo library image";
@@ -1260,7 +1276,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = YM5H6L638F;
+				DEVELOPMENT_TEAM = L27Y355PSC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Express Courier/Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "We needed camer or photo library image";
