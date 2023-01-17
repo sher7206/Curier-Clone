@@ -12,11 +12,13 @@ class TaxiVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var selectIndexCVC: Int = 0
     var isNew: Bool = true
-
+    
     var headerTexts = ["Yangilar", "Ko'rilganlar"]
     var refreshControl = UIRefreshControl()
-    var newsTaxi: [GetNewsTaxiData]? = []
+    var newsTaxiDates: [GetNewsTaxiData]? = []
+    var historyTaxiDates: [GetNewsTaxiData]? = []
     var newsCurrentPage: Int = 1
+    var historyCurrentPage: Int = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +26,7 @@ class TaxiVC: UIViewController {
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         tableView.addSubview(refreshControl)
         uploadNewsTaxi(page: newsCurrentPage)
+        uploadHistoryTaxi(page: historyCurrentPage)
     }
     
     func uploadNewsTaxi(page: Int) {
@@ -33,16 +36,31 @@ class TaxiVC: UIViewController {
             switch result {
             case.success(let content):
                 Loader.stop()
+                self.newsTaxiDates?.removeAll()
                 guard let data = content.data else {return}
-                self.newsTaxi?.append(contentsOf: data)
+                self.newsTaxiDates?.append(contentsOf: data)
                 self.tableView.reloadData()
-                if self.newsTaxi?.count ?? 0 > 0 {
-                    DispatchQueue.main.async {
-                        self.tableView.scrollToRow(at: IndexPath(row: 0, section: 1), at: .top, animated: false)
-                    }
-                }
             case.failure(let error):
                 Loader.stop()
+                Alert.showAlert(forState: .error, message: error.localizedDescription, vibrationType: .error)
+            }
+        }
+    }
+    
+    func uploadHistoryTaxi(page: Int) {
+        Loader.start()
+        let getHistoryTaxi = TaxiService()
+        getHistoryTaxi.getHistoryTaxi(model: TaxiRequest(page: page)) { result in
+            switch result {
+            case.success(let content):
+                Loader.stop()
+                self.historyTaxiDates?.removeAll()
+                guard let data = content.data else {return}
+                self.historyTaxiDates?.append(contentsOf: data)
+                self.tableView.reloadData()
+            case.failure(let error):
+                Loader.stop()
+                print(error.localizedDescription)
                 Alert.showAlert(forState: .error, message: error.localizedDescription, vibrationType: .error)
             }
         }
@@ -86,9 +104,9 @@ extension TaxiVC: UITableViewDelegate, UITableViewDataSource {
             return 1
         } else {
             if isNew {
-                return newsTaxi?.count ?? 0
+                return newsTaxiDates?.count ?? 0
             } else {
-                return 1
+                return historyTaxiDates?.count ?? 0
             }
         }
     }
@@ -101,7 +119,11 @@ extension TaxiVC: UITableViewDelegate, UITableViewDataSource {
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "TaxiTVC", for: indexPath) as? TaxiTVC else {return UITableViewCell()}
-            
+            if isNew {
+                cell.updateCell(data: self.newsTaxiDates?[indexPath.row], index: indexPath.row)
+            } else {
+                cell.updateCell(data: self.historyTaxiDates?[indexPath.row], index: indexPath.row)
+            }
             return cell
         }
         
@@ -182,11 +204,14 @@ extension TaxiVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.selectIndexCVC = indexPath.row
         if indexPath.row == 0 {
+            self.historyTaxiDates?.removeAll()
             self.isNew = true
+            uploadNewsTaxi(page: newsCurrentPage)
         } else {
+            self.newsTaxiDates?.removeAll()
             self.isNew = false
+            uploadHistoryTaxi(page: historyCurrentPage)
         }
         collectionView.reloadData()
     }
-    
 }
