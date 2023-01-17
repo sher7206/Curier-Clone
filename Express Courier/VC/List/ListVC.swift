@@ -47,13 +47,20 @@ class ListVC: UIViewController {
         super.viewDidLoad()
         navigationItem.searchController = search
         setupNavigation()
+        setUpScretchView()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        self.view.applyGradient1(colours: [backColor,backColor,backColor,backWhiteColor,backWhiteColor], locations: [0,0.25,0.5,0.75,1])
     }
     
+    func setUpScretchView(){
+        let header = SkretchableHeaderView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 5))
+        header.v.backgroundColor = UIColor(named: "primary900")
+        tableView.tableHeaderView = header
+        self.view.backgroundColor = UIColor(named: "white300")
+    }
+
     func setupNavigation() {
         title = "Bon-Ton store"
         let appearance = UINavigationBarAppearance()
@@ -63,19 +70,17 @@ class ListVC: UIViewController {
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         navigationItem.backButtonTitle = ""
-        
         if #available(iOS 14.0, *) {
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: "", image: UIImage(named: "more-list"), primaryAction: nil, menu: demoMenu)
         } else {
             // Fallback on earlier versions
         }
-
     }
 
 }
 
 //MARK: - Table View Delegate
-extension ListVC: UITableViewDelegate, UITableViewDataSource {
+extension ListVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             return 1
@@ -122,6 +127,12 @@ extension ListVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
+    }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard let header = tableView.tableHeaderView as? SkretchableHeaderView else{
+            return
+        }
+        header.crollViewDidScroll(scrollView: tableView)
     }
     
 }

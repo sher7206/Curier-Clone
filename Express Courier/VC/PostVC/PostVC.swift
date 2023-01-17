@@ -29,6 +29,7 @@ class PostVC: UIViewController {
         setupNavigation()
         title = "Pochta"
      //   Loader.start()
+        setUpScretchView()
     }
     
     func setupNavigation(){
@@ -43,6 +44,13 @@ class PostVC: UIViewController {
         let filterBtn = UIBarButtonItem(image: UIImage(named: "filter-post"), style: .plain, target: self, action: #selector(filterBtnPressed))
         navigationItem.rightBarButtonItem = filterBtn
         navigationItem.backButtonTitle = ""
+    }
+    
+    func setUpScretchView(){
+        let header = SkretchableHeaderView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 5))
+        header.v.backgroundColor = UIColor(named: "primary900")
+        tableView.tableHeaderView = header
+        self.view.backgroundColor = UIColor(named: "white300")
     }
     
     @objc func menuBtnPressed(){
@@ -62,7 +70,7 @@ class PostVC: UIViewController {
 }
 
 //MARK: - Table View Delegate
-extension PostVC: UITableViewDelegate, UITableViewDataSource {
+extension PostVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -72,7 +80,7 @@ extension PostVC: UITableViewDelegate, UITableViewDataSource {
         if section == 0 {
             return 1
         } else {
-            return 0
+            return 10
         }
     }
     
@@ -122,9 +130,14 @@ extension PostVC: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
      
+    }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard let header = tableView.tableHeaderView as? SkretchableHeaderView else{
+            return
+        }
+        header.crollViewDidScroll(scrollView: tableView)
     }
     
 }
