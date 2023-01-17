@@ -10,8 +10,6 @@ import SwiftPhoneNumberFormatter
 
 class KuryerVC: UIViewController {
     
-    
-    
     @IBOutlet weak var nameTf: UITextField!
     @IBOutlet weak var lastNameTf: UITextField!
     @IBOutlet weak var phoneNumberTf: PhoneFormattedTextField!
@@ -24,8 +22,6 @@ class KuryerVC: UIViewController {
     @IBOutlet weak var pravaText: UILabel!
     @IBOutlet weak var editImagePassport: UIImageView!
     @IBOutlet weak var editImagePrava: UIImageView!
-    
-    
     
     var isPassport: Bool = true
     var isCheck: Bool = false

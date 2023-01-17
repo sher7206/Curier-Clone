@@ -18,18 +18,21 @@ class PostVC: UIViewController {
         }
     }
     
+    var getAllDates: [GetPostRespnseData] = []
+    
     let headerTexts = ["Buyurtmalar", "Yangi", "Qabul qilingan", "Yo'lda", "Yetkazilgan", "Bekor qilingan"]
     var selectIndexCVC: Int = 0
     
     var isNew: Bool = true
 
-
+    var orderPage = 1
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigation()
         title = "Pochta"
-     //   Loader.start()
         setUpScretchView()
+        getApiResponse(page: 1)
     }
     
     func setupNavigation(){
@@ -53,8 +56,27 @@ class PostVC: UIViewController {
         self.view.backgroundColor = UIColor(named: "white300")
     }
     
+    func getApiResponse(page: Int){
+        let service = PostService()
+        Loader.start()
+        service.getPostResponse(model: PostRequest(page: page)) { [self] result in
+            switch result{
+            case .success(let content):
+                Loader.stop()
+                guard let dates = content.data else{return}
+                guard let meta = content.meta?.total else{return}
+                self.orderPage = meta
+                getAllDates.append(contentsOf: dates)
+                self.tableView.reloadData()
+            case .failure(let error):
+                Alert.showAlert(forState: .error, message: error.message ?? "Error", vibrationType: .error)
+            }
+        }
+    }
+    
     @objc func menuBtnPressed(){
     }
+    
     @objc func filterBtnPressed(){
     }
 
@@ -80,7 +102,7 @@ extension PostVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelega
         if section == 0 {
             return 1
         } else {
-            return 10
+            return getAllDates.count
         }
     }
     
@@ -90,6 +112,21 @@ extension PostVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelega
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: PostInsideTVC.identifier, for: indexPath) as? PostInsideTVC else {return UITableViewCell()}
+            cell.updateCell(data: getAllDates[indexPath.row])
+            
+            
+            if indexPath.row == 0{
+                cell.headerDateLbl.isHidden = false
+            }else{
+                let first = getAllDates[indexPath.row-1].created_at
+                let second = getAllDates[indexPath.row].created_at
+                if first?.prefix(10) == second?.prefix(10){
+                    cell.headerDateLbl.isHidden = true
+                }else{
+                    cell.headerDateLbl.isHidden = false
+                }
+            }
+
             return cell
         }
     }

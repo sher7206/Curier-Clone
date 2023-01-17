@@ -12,6 +12,7 @@ class PostInsideTVC: UITableViewCell {
     static let identifier = "PostInsideTVC"
     static func nib()->UINib{return UINib(nibName: identifier, bundle: nil)}
     
+    @IBOutlet weak var headerDateLbl: UILabel!
     @IBOutlet weak var contView: UIView!{
         didSet{
             contView.layer.shadowColor = #colorLiteral(red: 0.3568627451, green: 0.3568627451, blue: 0.3568627451, alpha: 1).cgColor
@@ -36,5 +37,20 @@ class PostInsideTVC: UITableViewCell {
         // Initialization code
     }
 
+    func updateCell(data: GetPostRespnseData){
+        matterLbl.text = data.matter ?? ""
+        priceLbl.text = "\(data.delivery_fee_amount?.priceFormetter() ?? "")"
+        fromRegionLbl.text = "\(data.from_region_name ?? ""), \(data.from_district_name ?? "")"
+        fromAdressLbl.text = data.from_address ?? ""
+        toRegionLbl.text = "\(data.to_region_name ?? ""), \(data.to_district_name ?? "")"
+        toAdressLbl.text = data.to_address ?? ""
+        idLbl.text = "\(data.id ?? 0)"
+        guard let date = data.expired_at else {return}
+        arrivingDateLbl.text = String(date.prefix(10))
+        senderLbl.text = data.creator_name ?? ""
+        guard let create = data.created_at else {return}
+        headerDateLbl.text = String(create.prefix(10))
+    }
+    
     
 }
