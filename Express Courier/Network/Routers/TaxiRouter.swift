@@ -16,6 +16,11 @@ enum TaxiRouter: BaseURLRequestConvertible {
     var path: String {
         switch self {
         case.getNewTaxi(let model):
+            
+            if let fromRegionId = model.fromRegionId, let fromDistrictId = model.fromDistrictId, let toRegionId = model.toRegionId, let toDistrictId = model.toDistrictId {
+                
+                return "/api/driver/caborders?page=1&fromRegionId=1&fromDistrictId=1&toRegionId=1&toDistrictId=1"
+            }
             return "/api/driver/caborders?page=\(model.page)"
         case .getHistoryTaxi(let model):
             return "/api/driver/caborders/history?page=\(model.page)"

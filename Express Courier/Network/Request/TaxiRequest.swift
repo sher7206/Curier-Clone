@@ -7,6 +7,10 @@
 
 struct TaxiRequest: Codable {
     var page: Int
+    var fromRegionId: Int?
+    var fromDistrictId: Int?
+    var toRegionId: Int?
+    var toDistrictId: Int?
 }
 
 struct TaxiPostRequest: Codable {

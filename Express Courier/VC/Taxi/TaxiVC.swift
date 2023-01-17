@@ -18,9 +18,17 @@ class TaxiVC: UIViewController {
     var historyTaxiDates: [GetNewsTaxiData]? = []
     var newsCurrentPage: Int = 1
     var historyCurrentPage: Int = 1
+    
     var fromRegionText: String = "Viloyat, tuman"
     var toRegionText: String = "Viloyat, tuman"
+    
+    var fromRegionId: Int?
+    var fromDistrictId: Int?
+    var toRegionId: Int?
+    var toDistrictId: Int?
+    
     var isLeftRegion: Bool = true
+    var selectIndexTVC: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +37,7 @@ class TaxiVC: UIViewController {
         tableView.addSubview(refreshControl)
         uploadNewsTaxi(page: newsCurrentPage)
         uploadHistoryTaxi(page: historyCurrentPage)
+        setUpScretchView()
     }
     
     func uploadNewsTaxi(page: Int) {
@@ -74,6 +83,13 @@ class TaxiVC: UIViewController {
         }
     }
     
+    func setUpScretchView(){
+        let header = SkretchableHeaderView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 5))
+        header.v.backgroundColor = UIColor(named: "primary900")
+        tableView.tableHeaderView = header
+        self.view.backgroundColor = UIColor(named: "white300")
+    }
+    
     @objc func refresh(send: UIRefreshControl) {
         DispatchQueue.main.async {
             self.tableView.reloadData()
@@ -101,7 +117,7 @@ class TaxiVC: UIViewController {
 
 
 //MARK: - Table View Delegate
-extension TaxiVC: UITableViewDelegate, UITableViewDataSource {
+extension TaxiVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -172,17 +188,9 @@ extension TaxiVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if isNew {
-            let posTaxi = TaxiService()
-            posTaxi.taxiPost(model: TaxiPostRequest(id: self.newsTaxiDates?[indexPath.row].id ?? 0)) { result in
-                switch result {
-                case.success(let content):
-                    print(content)
-                case.failure(let error):
-                    print(error.localizedDescription)
-                }
-            }
-            
+            self.selectIndexTVC = indexPath.row
             let vc = TaxiNewsModalVC()
+            vc.delegate = self
             vc.modalPresentationStyle = .overFullScreen
             self.present(vc, animated: true)
         } else {
@@ -190,6 +198,13 @@ extension TaxiVC: UITableViewDelegate, UITableViewDataSource {
             vc.modalPresentationStyle = .overFullScreen
             self.present(vc, animated: true)
         }
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard let header = tableView.tableHeaderView as? SkretchableHeaderView else{
+            return
+        }
+        header.crollViewDidScroll(scrollView: tableView)
     }
 }
 
@@ -222,17 +237,19 @@ extension TaxiVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.selectIndexCVC = indexPath.row
+//        self.fromRegionText = "Viloyat, tuman"
+//        self.toRegionText = "Viloyat, tumam"
+        
         if indexPath.row == 0 {
             self.isNew = true
             self.historyTaxiDates?.removeAll()
-            self.tableView.reloadData()
             uploadNewsTaxi(page: newsCurrentPage)
         } else {
             self.isNew = false
             self.newsTaxiDates?.removeAll()
-            self.tableView.reloadData()
             uploadHistoryTaxi(page: historyCurrentPage)
         }
+        self.tableView.reloadData()
         collectionView.reloadData()
     }
 }
@@ -271,10 +288,29 @@ extension TaxiVC: RegionSelectedVCDelegate {
     func setLocatoin(region id: Int, regoin name: String, state: States, isToRegion: Bool) {
         if isLeftRegion {
             self.fromRegionText = name + ", " + state.name
+            self.fromRegionId = id
+            self.fromDistrictId = state.id
             self.tableView.reloadData()
         } else {
             self.toRegionText = name + ", " + state.name
+            self.toRegionId = id
+            self.toDistrictId = state.id
             self.tableView.reloadData()
+        }
+    }
+}
+
+//MARK: - Call Tapped
+extension TaxiVC: TaxiNewsModalVCDelegate {
+    func callTapped() {
+        let posTaxi = TaxiService()
+        posTaxi.taxiPost(model: TaxiPostRequest(id: self.newsTaxiDates?[selectIndexTVC].id ?? 0)) { result in
+            switch result {
+            case.success(let content):
+                print(content)
+            case.failure(let error):
+                print(error.localizedDescription)
+            }
         }
     }
 }

@@ -7,9 +7,15 @@
 
 import UIKit
 
+protocol TaxiNewsModalVCDelegate {
+    func callTapped()
+}
+
 class TaxiNewsModalVC: UIViewController {
     
     @IBOutlet weak var containerView: UIView!
+    
+    var delegate: TaxiNewsModalVCDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +48,9 @@ class TaxiNewsModalVC: UIViewController {
     }
     
     @IBAction func callBtnTapped(_ sender: UIButton) {
+        self.delegate?.callTapped()
+        
+        
         let number = "+998999757206"
         guard let number = URL(string: "tel://" + number) else { return }
         UIApplication.shared.open(number)
