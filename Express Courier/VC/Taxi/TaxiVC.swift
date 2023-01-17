@@ -15,7 +15,6 @@ class TaxiVC: UIViewController {
 
     var headerTexts = ["Yangilar", "Ko'rilganlar"]
     var refreshControl = UIRefreshControl()
-    var isNew: Bool = true
     var newsTaxi: [GetNewsTaxiData]? = []
     var newsCurrentPage: Int = 1
     
@@ -86,7 +85,11 @@ extension TaxiVC: UITableViewDelegate, UITableViewDataSource {
         if section == 0 {
             return 1
         } else {
-            return 0
+            if isNew {
+                return newsTaxi?.count ?? 0
+            } else {
+                return 1
+            }
         }
     }
     
