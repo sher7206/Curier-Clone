@@ -18,4 +18,8 @@ struct TaxiService: BaseService {
     func getHistoryTaxi(model: TaxiRequest, completion: @escaping Completion<GetHistoryTaxiResponse>) {
         request(.getHistoryTaxi(model: model), completion: completion)
     }
+    
+    func taxiPost(model: TaxiPostRequest, completion: @escaping Completion<TaxiPostResponse>) {
+        request(.posTaxi(model: model), completion: completion)
+    }
 }

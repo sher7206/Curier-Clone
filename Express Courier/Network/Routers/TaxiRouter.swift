@@ -11,6 +11,7 @@ enum TaxiRouter: BaseURLRequestConvertible {
     
     case getNewTaxi(model: TaxiRequest)
     case getHistoryTaxi(model : TaxiRequest)
+    case posTaxi(model: TaxiPostRequest)
     
     var path: String {
         switch self {
@@ -18,6 +19,8 @@ enum TaxiRouter: BaseURLRequestConvertible {
             return "/api/driver/caborders?page=\(model.page)"
         case .getHistoryTaxi(let model):
             return "/api/driver/caborders/history?page=\(model.page)"
+        case .posTaxi(let model):
+            return "/api/driver/caborders/\(model.id)/accept"
         }
     }
     
@@ -27,16 +30,13 @@ enum TaxiRouter: BaseURLRequestConvertible {
             return .get
         case .getHistoryTaxi:
             return .get
+        case .posTaxi:
+            return .post
         }
     }
     
     var parameters: Alamofire.Parameters? {
-        switch self {
-        case.getNewTaxi:
-            return nil
-        case .getHistoryTaxi:
-            return nil
-        }
+        return nil
     }
     
     func asURLRequest() throws -> URLRequest {

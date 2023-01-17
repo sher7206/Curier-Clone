@@ -45,6 +45,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pzb-d2-XEu">
                                         <rect key="frame" x="0.0" y="0.0" width="163" height="46"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <connections>
+                                            <action selector="fromRegionBtnTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="4Y1-Bp-a7o"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H84-08-oqE">
                                         <rect key="frame" x="138" y="13" width="20" height="20"/>
@@ -54,6 +57,9 @@
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="close-circle-taxi"/>
+                                        <connections>
+                                            <action selector="fromCloseBtnTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="jJj-aG-khB"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -83,6 +89,9 @@
                                 <color key="tintColor" name="black1000"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="arrow.left.arrow.right" catalog="system"/>
+                                <connections>
+                                    <action selector="replaceBtnTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Z8d-Xs-j2D"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kp9-3i-tGP">
                                 <rect key="frame" x="234" y="17" width="163" height="46"/>
@@ -108,6 +117,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1jI-5a-9QM">
                                         <rect key="frame" x="0.0" y="0.0" width="163" height="46"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <connections>
+                                            <action selector="toRegionBtnTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="q7U-LX-Dpf"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0MK-Aw-uFD">
                                         <rect key="frame" x="138" y="13" width="20" height="20"/>
@@ -117,6 +129,9 @@
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="close-circle-taxi"/>
+                                        <connections>
+                                            <action selector="toCloseBtnTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="FSw-ij-u7C"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -156,6 +171,10 @@
             <constraints>
                 <constraint firstItem="ymF-Aw-Cid" firstAttribute="width" secondItem="KGk-i7-Jjw" secondAttribute="width" multiplier="0.38" id="F0h-kt-GHc"/>
             </constraints>
+            <connections>
+                <outlet property="fromRegionLbl" destination="5Bf-Of-F9B" id="Ubh-5N-7AS"/>
+                <outlet property="toRegionLbl" destination="r08-sr-JXd" id="Ohl-Wm-Ohx"/>
+            </connections>
             <point key="canvasLocation" x="142.74809160305344" y="38.732394366197184"/>
         </tableViewCell>
     </objects>

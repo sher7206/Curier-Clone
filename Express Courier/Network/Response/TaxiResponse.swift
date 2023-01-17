@@ -66,6 +66,21 @@ struct GetHistoryTaxiResponse: Codable {
     }
 }
 
+//MARK: - Taxi Post
+struct TaxiPostResponse: Codable {
+    
+    var message: String?
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        message = try? container.decode(String.self, forKey: .message)
+    }
+    
+    enum CondingKeys : String, CodingKey {
+        case message
+    }
+}
+
 
 
 

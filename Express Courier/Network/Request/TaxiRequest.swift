@@ -8,3 +8,7 @@
 struct TaxiRequest: Codable {
     var page: Int
 }
+
+struct TaxiPostRequest: Codable {
+    var id: Int
+}

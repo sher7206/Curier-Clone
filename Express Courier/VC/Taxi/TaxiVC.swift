@@ -12,13 +12,15 @@ class TaxiVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var selectIndexCVC: Int = 0
     var isNew: Bool = true
-    
     var headerTexts = ["Yangilar", "Ko'rilganlar"]
     var refreshControl = UIRefreshControl()
     var newsTaxiDates: [GetNewsTaxiData]? = []
     var historyTaxiDates: [GetNewsTaxiData]? = []
     var newsCurrentPage: Int = 1
     var historyCurrentPage: Int = 1
+    var fromRegionText: String = "Viloyat, tuman"
+    var toRegionText: String = "Viloyat, tuman"
+    var isLeftRegion: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +42,9 @@ class TaxiVC: UIViewController {
                 guard let data = content.data else {return}
                 self.newsTaxiDates?.append(contentsOf: data)
                 self.tableView.reloadData()
+                //                DispatchQueue.main.async {
+                //                    self.tableView.scrollToRow(at: IndexPath(row: 0, section: 1), at: .top, animated: false)
+                //                }
             case.failure(let error):
                 Loader.stop()
                 Alert.showAlert(forState: .error, message: error.localizedDescription, vibrationType: .error)
@@ -58,6 +63,9 @@ class TaxiVC: UIViewController {
                 guard let data = content.data else {return}
                 self.historyTaxiDates?.append(contentsOf: data)
                 self.tableView.reloadData()
+                //                DispatchQueue.main.async {
+                //                    self.tableView.scrollToRow(at: IndexPath(row: 0, section: 1), at: .top, animated: false)
+                //                }
             case.failure(let error):
                 Loader.stop()
                 print(error.localizedDescription)
@@ -115,7 +123,8 @@ extension TaxiVC: UITableViewDelegate, UITableViewDataSource {
         
         if indexPath.section == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "TaxiFilterTVC", for: indexPath) as? TaxiFilterTVC else {return UITableViewCell()}
-            
+            cell.delegate = self
+            cell.updateCell(from: fromRegionText, to: toRegionText)
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "TaxiTVC", for: indexPath) as? TaxiTVC else {return UITableViewCell()}
@@ -163,6 +172,16 @@ extension TaxiVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if isNew {
+            let posTaxi = TaxiService()
+            posTaxi.taxiPost(model: TaxiPostRequest(id: self.newsTaxiDates?[indexPath.row].id ?? 0)) { result in
+                switch result {
+                case.success(let content):
+                    print(content)
+                case.failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+            
             let vc = TaxiNewsModalVC()
             vc.modalPresentationStyle = .overFullScreen
             self.present(vc, animated: true)
@@ -204,14 +223,58 @@ extension TaxiVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.selectIndexCVC = indexPath.row
         if indexPath.row == 0 {
-            self.historyTaxiDates?.removeAll()
             self.isNew = true
+            self.historyTaxiDates?.removeAll()
+            self.tableView.reloadData()
             uploadNewsTaxi(page: newsCurrentPage)
         } else {
-            self.newsTaxiDates?.removeAll()
             self.isNew = false
+            self.newsTaxiDates?.removeAll()
+            self.tableView.reloadData()
             uploadHistoryTaxi(page: historyCurrentPage)
         }
         collectionView.reloadData()
+    }
+}
+
+//MARK: - TaxiFilterTVCDelegate
+extension TaxiVC: TaxiFilterTVCDelegate {
+    func fromRegionTapped() {
+        self.isLeftRegion = true
+        let vc = RegionsVC()
+        vc.vc = self
+        present(vc, animated: true)
+    }
+    
+    func toRegionTapped() {
+        self.isLeftRegion = false
+        let vc = RegionsVC()
+        vc.vc = self
+        present(vc, animated: true)
+    }
+    
+    func fromCloseTapped() {
+        print("fromCloseTapped")
+    }
+    
+    func toCloseTapped() {
+        print("toCloseTapped")
+    }
+    
+    func replaceTapped() {
+        print("replaceTapped")
+    }
+}
+
+//MARK: - Region Selected Delegate
+extension TaxiVC: RegionSelectedVCDelegate {
+    func setLocatoin(region id: Int, regoin name: String, state: States, isToRegion: Bool) {
+        if isLeftRegion {
+            self.fromRegionText = name + ", " + state.name
+            self.tableView.reloadData()
+        } else {
+            self.toRegionText = name + ", " + state.name
+            self.tableView.reloadData()
+        }
     }
 }
