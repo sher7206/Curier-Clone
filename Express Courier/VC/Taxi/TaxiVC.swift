@@ -85,7 +85,11 @@ extension TaxiVC: UITableViewDelegate, UITableViewDataSource {
         if section == 0 {
             return 1
         } else {
-            return 0
+            if isNew {
+                return newsTaxi?.count ?? 0
+            } else {
+                return 1
+            }
         }
     }
     
