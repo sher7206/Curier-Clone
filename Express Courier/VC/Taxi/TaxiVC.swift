@@ -29,31 +29,28 @@ class TaxiVC: UIViewController {
     
     var isLeftRegion: Bool = true
     var selectIndexTVC: Int = 0
+    var isReplacement: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigation()
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         tableView.addSubview(refreshControl)
-        uploadNewsTaxi(page: newsCurrentPage)
-        uploadHistoryTaxi(page: historyCurrentPage)
+        self.newsAllDates()
+        self.historyAllDates()
         setUpScretchView()
     }
     
-    func uploadNewsTaxi(page: Int) {
+    func uploadNewsTaxi(page: Int, fromReg: Int?, fromDis: Int?, toReg: Int?, toDis: Int?) {
         Loader.start()
         let getNewTaxi = TaxiService()
-        getNewTaxi.getNewsTaxi(model: TaxiRequest(page: page)) { result in
+        getNewTaxi.getNewsTaxi(model: TaxiRequest(page: page, fromRegionId: fromReg, fromDistrictId: fromDis, toRegionId: toReg, toDistrictId: toDis)) { result in
             switch result {
             case.success(let content):
                 Loader.stop()
-                self.newsTaxiDates?.removeAll()
                 guard let data = content.data else {return}
                 self.newsTaxiDates?.append(contentsOf: data)
                 self.tableView.reloadData()
-                //                DispatchQueue.main.async {
-                //                    self.tableView.scrollToRow(at: IndexPath(row: 0, section: 1), at: .top, animated: false)
-                //                }
             case.failure(let error):
                 Loader.stop()
                 Alert.showAlert(forState: .error, message: error.localizedDescription, vibrationType: .error)
@@ -61,20 +58,16 @@ class TaxiVC: UIViewController {
         }
     }
     
-    func uploadHistoryTaxi(page: Int) {
+    func uploadHistoryTaxi(page: Int, fromReg: Int?, fromDis: Int?, toReg: Int?, toDis: Int?) {
         Loader.start()
         let getHistoryTaxi = TaxiService()
-        getHistoryTaxi.getHistoryTaxi(model: TaxiRequest(page: page)) { result in
+        getHistoryTaxi.getHistoryTaxi(model: TaxiRequest(page: page, fromRegionId: fromReg, fromDistrictId: fromDis, toRegionId: toReg, toDistrictId: toDis)) { result in
             switch result {
             case.success(let content):
                 Loader.stop()
-                self.historyTaxiDates?.removeAll()
                 guard let data = content.data else {return}
                 self.historyTaxiDates?.append(contentsOf: data)
                 self.tableView.reloadData()
-                //                DispatchQueue.main.async {
-                //                    self.tableView.scrollToRow(at: IndexPath(row: 0, section: 1), at: .top, animated: false)
-                //                }
             case.failure(let error):
                 Loader.stop()
                 print(error.localizedDescription)
@@ -237,17 +230,12 @@ extension TaxiVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.selectIndexCVC = indexPath.row
-//        self.fromRegionText = "Viloyat, tuman"
-//        self.toRegionText = "Viloyat, tumam"
-        
         if indexPath.row == 0 {
             self.isNew = true
-            self.historyTaxiDates?.removeAll()
-            uploadNewsTaxi(page: newsCurrentPage)
+            self.newsAllDates()
         } else {
             self.isNew = false
-            self.newsTaxiDates?.removeAll()
-            uploadHistoryTaxi(page: historyCurrentPage)
+            self.historyAllDates()
         }
         self.tableView.reloadData()
         collectionView.reloadData()
@@ -271,31 +259,83 @@ extension TaxiVC: TaxiFilterTVCDelegate {
     }
     
     func fromCloseTapped() {
-        print("fromCloseTapped")
+        self.fromRegionId = nil
+        self.toDistrictId = nil
+        self.fromRegionText = "Viloyat, tuman"
+        if isNew {
+            self.newsAllDates()
+        } else {
+            self.historyAllDates()
+        }
     }
     
     func toCloseTapped() {
-        print("toCloseTapped")
+        self.toRegionId = nil
+        self.toDistrictId = nil
+        self.toRegionText = "Viloyat, tuman"
+        if isNew {
+            self.newsAllDates()
+        } else {
+            self.historyAllDates()
+        }
     }
     
     func replaceTapped() {
-        print("replaceTapped")
+        
+        let a = fromRegionText
+        let b = toRegionText
+        self.fromRegionText = b
+        self.toRegionText = a
+        
+        print("fromRegionText =", fromRegionText, "toRegionText =", toRegionText)
+        
+        if isNew {
+            self.newsCurrentPage = 1
+            if !isReplacement {
+                self.uploadNewsTaxi(page: newsCurrentPage, fromReg: toRegionId, fromDis: toDistrictId, toReg: fromRegionId, toDis: fromDistrictId)
+            } else {
+                self.uploadNewsTaxi(page: newsCurrentPage, fromReg: fromRegionId, fromDis: fromDistrictId, toReg: toRegionId, toDis: toDistrictId)
+            }
+        } else {
+            self.historyCurrentPage = 1
+            if !isReplacement {
+                self.uploadHistoryTaxi(page: self.historyCurrentPage, fromReg: toRegionId, fromDis: toDistrictId, toReg: fromRegionId, toDis: fromDistrictId)
+            } else {
+                self.uploadHistoryTaxi(page: self.historyCurrentPage, fromReg: fromRegionId, fromDis: fromDistrictId, toReg: toRegionId, toDis: toDistrictId)
+            }
+        }
+        self.isReplacement = !self.isReplacement
     }
 }
 
 //MARK: - Region Selected Delegate
 extension TaxiVC: RegionSelectedVCDelegate {
     func setLocatoin(region id: Int, regoin name: String, state: States, isToRegion: Bool) {
-        if isLeftRegion {
-            self.fromRegionText = name + ", " + state.name
-            self.fromRegionId = id
-            self.fromDistrictId = state.id
-            self.tableView.reloadData()
+        
+        if isNew {
+            if isLeftRegion {
+                self.fromRegionText = name + ", " + state.name
+                self.fromRegionId = id
+                self.fromDistrictId = state.id
+                self.newsAllDates()
+            } else {
+                self.toRegionText = name + ", " + state.name
+                self.toRegionId = id
+                self.toDistrictId = state.id
+                self.newsAllDates()
+            }
         } else {
-            self.toRegionText = name + ", " + state.name
-            self.toRegionId = id
-            self.toDistrictId = state.id
-            self.tableView.reloadData()
+            if isLeftRegion {
+                self.fromRegionText = name + ", " + state.name
+                self.fromRegionId = id
+                self.fromDistrictId = state.id
+                self.historyAllDates()
+            } else {
+                self.toRegionText = name + ", " + state.name
+                self.toRegionId = id
+                self.toDistrictId = state.id
+                self.historyAllDates()
+            }
         }
     }
 }
@@ -312,5 +352,21 @@ extension TaxiVC: TaxiNewsModalVCDelegate {
                 print(error.localizedDescription)
             }
         }
+    }
+}
+
+extension TaxiVC {
+    func newsAllDates() {
+        self.newsCurrentPage = 1
+        self.historyTaxiDates?.removeAll()
+        self.newsTaxiDates?.removeAll()
+        self.uploadNewsTaxi(page: newsCurrentPage, fromReg: fromRegionId, fromDis: fromDistrictId, toReg: toRegionId, toDis: toDistrictId)
+    }
+    
+    func historyAllDates() {
+        self.historyCurrentPage = 1
+        self.newsTaxiDates?.removeAll()
+        self.historyTaxiDates?.removeAll()
+        self.uploadHistoryTaxi(page: historyCurrentPage, fromReg: fromRegionId, fromDis: fromDistrictId, toReg: toRegionId, toDis: toDistrictId)
     }
 }
