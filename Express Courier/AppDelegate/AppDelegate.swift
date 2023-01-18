@@ -14,10 +14,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow()
         print("Get user token =", Cache.share.getUserToken())
         if Cache.share.getUserToken() == nil {
-            let vc = ResetPasswordVC()
+            let vc = MainTabBarController()
             window?.rootViewController = vc
         } else {
-            let vc = ResetPasswordVC()
+            let vc = OnboardingVC()
             window?.rootViewController = vc
         }
         UINavigationBar.appearance().tintColor = .black
