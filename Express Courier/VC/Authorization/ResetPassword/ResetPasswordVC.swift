@@ -43,9 +43,16 @@ class ResetPasswordVC: UIViewController {
         let confirmPassword = AuthService()
         confirmPassword.confirmPassword(model: ConfirmPasswordRequest(password: passwordTF.text!, password_confirmation: confirmPasswordTF.text!)) { result in
             switch result {
-            case.success(let content):
+            case.success:
                 Loader.stop()
-                print(content)
+                let vc = MainTabBarController()
+                guard let window = UIApplication.shared.windows.filter({$0.isKeyWindow}).first else { return }
+                window.rootViewController = vc
+                window.makeKeyAndVisible()
+                let options: UIView.AnimationOptions = .transitionCrossDissolve
+                let duration: TimeInterval = 0.3
+                UIView.transition(with: window, duration: duration, options: options, animations: {
+                }, completion:{completed in})
             case.failure(let error):
                 Loader.stop()
                 Alert.showAlert(forState: .error, message: error.localizedDescription, vibrationType: .error)

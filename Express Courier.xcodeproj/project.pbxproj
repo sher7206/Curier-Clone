@@ -26,7 +26,6 @@
 		1858EFEC2976C009005A3492 /* PostResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1858EFEB2976C009005A3492 /* PostResponse.swift */; };
 		1858EFEE2976C1ED005A3492 /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1858EFED2976C1ED005A3492 /* PostService.swift */; };
 		1858EFF02976C207005A3492 /* PostRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1858EFEF2976C207005A3492 /* PostRouter.swift */; };
-		1858EFF22977D7BA005A3492 /* KuryerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1858EFF12977D7BA005A3492 /* KuryerVC.xib */; };
 		188F45D32972B1730029FCEC /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188F45D22972B1730029FCEC /* Loader.swift */; };
 		188F45D62972B19C0029FCEC /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 188F45D52972B19C0029FCEC /* loading.json */; };
 		188F45D82972B3E10029FCEC /* loader.json in Resources */ = {isa = PBXBuildFile; fileRef = 188F45D72972B3E00029FCEC /* loader.json */; };
@@ -135,6 +134,7 @@
 		277388E82978109100054CC4 /* OTPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277388E62978109100054CC4 /* OTPTextField.swift */; };
 		277388EB29782A3E00054CC4 /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277388E929782A3E00054CC4 /* ResetPasswordVC.swift */; };
 		277388EC29782A3E00054CC4 /* ResetPasswordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 277388EA29782A3E00054CC4 /* ResetPasswordVC.xib */; };
+		277388EE297834D100054CC4 /* KuryerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 277388ED297834D100054CC4 /* KuryerVC.xib */; };
 		2776B0FD2971748A00544B1E /* ListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2776B0FB2971748A00544B1E /* ListVC.swift */; };
 		2776B0FE2971748A00544B1E /* ListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2776B0FC2971748A00544B1E /* ListVC.xib */; };
 		2777854C296EBA7100FC0141 /* KuryerModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2777854A296EBA7100FC0141 /* KuryerModalVC.swift */; };
@@ -192,7 +192,6 @@
 		1858EFEB2976C009005A3492 /* PostResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostResponse.swift; sourceTree = "<group>"; };
 		1858EFED2976C1ED005A3492 /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
 		1858EFEF2976C207005A3492 /* PostRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRouter.swift; sourceTree = "<group>"; };
-		1858EFF12977D7BA005A3492 /* KuryerVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = KuryerVC.xib; path = ../../../../../../../../var/folders/c4/_j5c3lmd1tq_48mbdkd6gcpm0000gn/T/ru.keepcoder.Telegram/KuryerVC.xib; sourceTree = "<group>"; };
 		188F45D22972B1730029FCEC /* Loader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		188F45D52972B19C0029FCEC /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		188F45D72972B3E00029FCEC /* loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loader.json; sourceTree = "<group>"; };
@@ -303,6 +302,7 @@
 		277388E62978109100054CC4 /* OTPTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTPTextField.swift; sourceTree = "<group>"; };
 		277388E929782A3E00054CC4 /* ResetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
 		277388EA29782A3E00054CC4 /* ResetPasswordVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResetPasswordVC.xib; sourceTree = "<group>"; };
+		277388ED297834D100054CC4 /* KuryerVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = KuryerVC.xib; path = ../../../../../../Downloads/KuryerVC.xib; sourceTree = "<group>"; };
 		2776B0FB2971748A00544B1E /* ListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVC.swift; sourceTree = "<group>"; };
 		2776B0FC2971748A00544B1E /* ListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListVC.xib; sourceTree = "<group>"; };
 		2777854A296EBA7100FC0141 /* KuryerModalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KuryerModalVC.swift; sourceTree = "<group>"; };
@@ -727,7 +727,7 @@
 			isa = PBXGroup;
 			children = (
 				2755F9E3297692100021BCB2 /* KuryerVC.swift */,
-				1858EFF12977D7BA005A3492 /* KuryerVC.xib */,
+				277388ED297834D100054CC4 /* KuryerVC.xib */,
 				2777854A296EBA7100FC0141 /* KuryerModalVC.swift */,
 				2777854B296EBA7100FC0141 /* KuryerModalVC.xib */,
 			);
@@ -992,7 +992,6 @@
 				2777855C296ED85000FC0141 /* TaxiHeaderCVC.xib in Resources */,
 				2718BF73297183B700DC0A8A /* EnterTimerVC.xib in Resources */,
 				188F45DD2972B96D0029FCEC /* BranchListTVC.xib in Resources */,
-				1858EFF22977D7BA005A3492 /* KuryerVC.xib in Resources */,
 				1858EFC929757FED005A3492 /* ReportVC.xib in Resources */,
 				1858EFE22976AD63005A3492 /* DistributionVC.xib in Resources */,
 				18DE66B42965A069003324A5 /* LaunchScreen.storyboard in Resources */,
@@ -1012,6 +1011,7 @@
 				18DA32DE296BFCE10066FF9C /* MyCategoryTVC.xib in Resources */,
 				27197AE729680B5300B53B25 /* KabinetVC.xib in Resources */,
 				2718BF84297183D100DC0A8A /* ChatTVC.xib in Resources */,
+				277388EE297834D100054CC4 /* KuryerVC.xib in Resources */,
 				2776B0FE2971748A00544B1E /* ListVC.xib in Resources */,
 				2769292A297568DF009BF0A5 /* NewTVC.xib in Resources */,
 				277388EC29782A3E00054CC4 /* ResetPasswordVC.xib in Resources */,
