@@ -30,7 +30,7 @@ class TaxiVC: UIViewController {
     var isLeftRegion: Bool = true
     var selectIndexTVC: Int = 0
     var isReplacement: Bool = false
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigation()
@@ -291,11 +291,13 @@ extension TaxiVC: TaxiFilterTVCDelegate {
         self.fromRegionId = nil
         self.toDistrictId = nil
         self.fromRegionText = "Viloyat, tuman"
+        
         if isNew {
             self.newsAllDates()
         } else {
             self.historyAllDates()
         }
+        
     }
     
     func toCloseTapped() {
@@ -331,6 +333,7 @@ extension TaxiVC: TaxiFilterTVCDelegate {
                 self.uploadHistoryTaxi(page: self.historyCurrentPage, fromReg: fromRegionId, fromDis: fromDistrictId, toReg: toRegionId, toDis: toDistrictId)
             }
         }
+        
         self.isReplacement = !self.isReplacement
     }
 }
