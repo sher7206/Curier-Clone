@@ -12,7 +12,7 @@ public class Loader {
         let loadV = LoaderView()
         loadV.tag = 19995
         loadV.frame = UIScreen.main.bounds
-        let customView = AnimationView()
+        let customView = LottieAnimationView()
         customView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
                 
         loadV.animationView.addSubview(customView)
@@ -25,7 +25,7 @@ public class Loader {
         customView.backgroundColor = .clear
         if let view = UIApplication.shared.keyWindow {
             view.addSubview(loadV)
-            customView.animation = Animation.named("loader")
+            customView.animation = LottieAnimation.named("loader")
             customView.animationSpeed = 1.5
             customView.loopMode = .loop
             customView.play()

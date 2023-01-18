@@ -6,16 +6,13 @@
 import UIKit
 
 enum MailStatus{
-    case nothing
     case new
     case accepted
     case active
     case completed
     case canceled
     case available
-    case draft
 }
-
 
 class PostVC: UIViewController {
 
@@ -36,55 +33,59 @@ class PostVC: UIViewController {
     let headerTexts = ["Buyurtmalar", "Yangi", "Qabul qilingan", "Yo'lda", "Yetkazilgan", "Bekor qilingan"]
     var selectIndexCVC: Int = 0
     var isNew: Bool = true
+    
     var orderPage = 1
-    
-    
+    var newOrderPage = 1
+    var acceptedPage = 1
+    var activePage = 1
+    var completedPage = 1
+    var canceledPage = 1
+    var availablePage = 1
+    var pageType: MailStatus = .available
+    var newStatus = "&status=new"
+    var acceptedStatus = "&status=accepted"
+    var activeStatus = "&status=active"
+    var completedStatus = "&status=completed"
+    var canceledStatus = "&status=canceled"
+    var availableStatus = "/available"
+    var totalItems: Int = 0
+    var fromRegionId: Int?
+    var fromDistrictId: Int?
+    var toRegionId: Int?
+    var toDistrictId: Int?
+    var fromRegionText: String = "Viloyat, tuman"
+    var toRegionText: String = "Viloyat, tuman"
+    var isReplacement: Bool = false
+    var isLeftRegion: Bool = true
+    let v = UIView()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigation()
         title = "Pochta"
         setUpScretchView()
-        getApiResponse(page: 1, fromRegionId: nil, fromDistrictId: nil, toRegionId: nil, toDistrictId: nil, status: "", available: "available")
-    }
-    
-    func setupNavigation(){
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = UIColor(named: "primary900")
-        appearance.shadowColor = .clear
-        navigationController?.navigationBar.standardAppearance = appearance
-        navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        let menuBtn = UIBarButtonItem(image: UIImage(named: "menu-list"), style: .plain, target: self, action: #selector(menuBtnPressed))
-        navigationItem.leftBarButtonItem = menuBtn
-        let filterBtn = UIBarButtonItem(image: UIImage(named: "filter-post"), style: .plain, target: self, action: #selector(filterBtnPressed))
-        navigationItem.rightBarButtonItem = filterBtn
-        navigationItem.backButtonTitle = ""
-    }
-    
-    func setUpScretchView(){
-        let header = SkretchableHeaderView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 5))
-        header.v.backgroundColor = UIColor(named: "primary900")
-        tableView.tableHeaderView = header
-        self.view.backgroundColor = UIColor(named: "white300")
+        getApiResponse(page: 1, fromRegionId: nil, fromDistrictId: nil, toRegionId: nil, toDistrictId: nil, status: "", available: "/available")
+        makeCollectionView()
     }
     
     func getApiResponse(page: Int, fromRegionId: Int?, fromDistrictId: Int?, toRegionId: Int?,toDistrictId: Int?,status: String, available: String){
+        getAllDates.removeAll()
         let service = PostService()
         Loader.start()
-        
         service.getPostResponse(model: PostRequest(page: page, fromRegionId: fromRegionId, fromDistrictId: fromDistrictId, toRegionId: toRegionId, toDistrictId: toDistrictId, status: status, available: available)) { [self] result in
+            
             switch result{
             case .success(let content):
                 Loader.stop()
                 guard let dates = content.data else{return}
                 guard let meta = content.meta?.total else{return}
-                self.orderPage = meta
+                self.totalItems = meta
                 getAllDates.append(contentsOf: dates)
                 self.tableView.reloadData()
             case .failure(let error):
+
                 Alert.showAlert(forState: .error, message: error.message ?? "Error", vibrationType: .error)
             }
-
         }
     }
     
@@ -96,7 +97,6 @@ class PostVC: UIViewController {
 
     @IBAction func scanBtnPressed(_ sender: Any) {
     }
-    
     
     @IBAction func listBtnPressed(_ sender: Any) {
         let vc = ListBranchVC()
@@ -125,11 +125,12 @@ extension PostVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelega
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "TaxiFilterTVC", for: indexPath) as? TaxiFilterTVC else {return UITableViewCell()}
+            cell.delegate = self
+            cell.updateCell(from: fromRegionText, to: toRegionText)
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: PostInsideTVC.identifier, for: indexPath) as? PostInsideTVC else {return UITableViewCell()}
             cell.updateCell(data: getAllDates[indexPath.row])
-            
             if indexPath.row == 0{
                 cell.headerDateLbl.isHidden = false
             }else{
@@ -141,36 +142,11 @@ extension PostVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelega
                     cell.headerDateLbl.isHidden = false
                 }
             }
-
             return cell
         }
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        let v = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.frame.width, height: 40))
-        
-        v.backgroundColor = UIColor(named: "primary900")
-        let layout = UICollectionViewFlowLayout()
-        
-        
-        layout.scrollDirection = .horizontal
-        layout.minimumInteritemSpacing = 0
-        layout.minimumLineSpacing = 0
-        let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
-        self.view.addSubview(collectionView)
-        collectionView.delegate   = self
-        collectionView.dataSource = self
-        collectionView.register(UINib(nibName: "TaxiHeaderCVC", bundle: nil), forCellWithReuseIdentifier: "TaxiHeaderCVC")
-        v.addSubview(collectionView)
-        
-        collectionView.backgroundColor = UIColor(named: "primary900")
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.topAnchor.constraint(equalTo: v.topAnchor, constant: 0).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: v.bottomAnchor, constant: 0).isActive = true
-        collectionView.leadingAnchor.constraint(equalTo: v.leadingAnchor, constant: 0).isActive = true
-        collectionView.trailingAnchor.constraint(equalTo: v.trailingAnchor, constant: 0).isActive = true
-        layout.collectionView?.showsHorizontalScrollIndicator = false
         return v
     }
     
@@ -187,18 +163,38 @@ extension PostVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelega
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == getAllDates.count-1{
-            if self.orderPage > getAllDates.count{
-                orderPage += 1
-                Loader.start()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [self] in
-                    Loader.stop()
-
-                //    asdjnasdnadlnaldkdas
-                    
-                    tableView.reloadData()
+        if indexPath.row == getAllDates.count-1 {
+            if self.totalItems > getAllDates.count {
+                switch pageType{
+                case .new:
+                    newOrderPage += 1
+                    takePageAnation(page: newOrderPage, fromRegionId: fromRegionId, fromDistrictId: fromDistrictId, toRegionId: toRegionId, toDistrictId: toDistrictId, status: "&status=new", available: "")
+                case .accepted:
+                    acceptedPage += 1
+                    takePageAnation(page: acceptedPage, fromRegionId: fromRegionId, fromDistrictId: fromDistrictId, toRegionId: toRegionId, toDistrictId: toDistrictId, status: acceptedStatus, available: "")
+                case .active:
+                    activePage += 1
+                    takePageAnation(page: activePage, fromRegionId: fromRegionId, fromDistrictId: fromDistrictId, toRegionId: toRegionId, toDistrictId: toDistrictId, status: activeStatus, available: "")
+                case .completed:
+                    completedPage += 1
+                    takePageAnation(page: completedPage, fromRegionId: fromRegionId, fromDistrictId: fromDistrictId, toRegionId: toRegionId, toDistrictId: toDistrictId, status: completedStatus, available: "")
+                case .canceled:
+                    canceledPage += 1
+                    takePageAnation(page: canceledPage, fromRegionId: fromRegionId, fromDistrictId: fromDistrictId, toRegionId: toRegionId, toDistrictId: toDistrictId, status: canceledStatus, available: "")
+                case .available:
+                    availablePage += 1
+                    takePageAnation(page: orderPage, fromRegionId: fromRegionId, fromDistrictId: fromDistrictId, toRegionId: toRegionId, toDistrictId: toDistrictId, status: "", available: availableStatus)
                 }
             }
+        }
+    }
+    
+    func takePageAnation(page: Int, fromRegionId: Int?, fromDistrictId: Int?, toRegionId: Int?,toDistrictId: Int?,status: String, available: String){
+        Loader.start()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [self] in
+            Loader.stop()
+            getApiResponse(page: page, fromRegionId: fromRegionId, fromDistrictId: fromDistrictId, toRegionId: toRegionId, toDistrictId: toDistrictId, status: status, available: available)
+            tableView.reloadData()
         }
     }
     
@@ -220,12 +216,12 @@ extension PostVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TaxiHeaderCVC", for: indexPath) as? TaxiHeaderCVC else {return UICollectionViewCell()}
         
         cell.bottomView.backgroundColor = .clear
         cell.titleLbl.textColor = UIColor(named: "black600")
         cell.titleLbl.font = .systemFont(ofSize: 14, weight: .regular)
+        
         if selectIndexCVC == indexPath.row {
             cell.bottomView.backgroundColor = .black
             cell.titleLbl.textColor = .black
@@ -237,7 +233,6 @@ extension PostVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         }
         
         cell.updateCell(title: headerTexts[indexPath.row])
-        
         return cell
     }
     
@@ -245,6 +240,37 @@ extension PostVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         self.selectIndexCVC = indexPath.row
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         collectionView.reloadData()
+
+        switch indexPath.row{
+        case 0:
+            pageType = .available
+            availablePage = 1
+            getApiResponse(page: availablePage, fromRegionId: fromRegionId, fromDistrictId: fromDistrictId, toRegionId: toRegionId, toDistrictId: toDistrictId, status: "", available: availableStatus)
+        case 1:
+            pageType = .new
+            newOrderPage = 1
+            getApiResponse(page: newOrderPage, fromRegionId: fromRegionId, fromDistrictId: fromDistrictId, toRegionId: toRegionId, toDistrictId: toDistrictId, status: newStatus, available: "")
+        case 2:
+            pageType = .accepted
+            acceptedPage = 1
+            getApiResponse(page: acceptedPage, fromRegionId: fromRegionId, fromDistrictId: fromDistrictId, toRegionId: toRegionId, toDistrictId: toDistrictId, status: acceptedStatus, available: "")
+        case 3:
+            pageType = .active
+            activePage = 1
+            getApiResponse(page: activePage, fromRegionId: fromRegionId, fromDistrictId: fromDistrictId, toRegionId: toRegionId, toDistrictId: toDistrictId, status: activeStatus, available: "")
+        case 4:
+            pageType = .completed
+            completedPage = 1
+            getApiResponse(page: completedPage, fromRegionId: fromRegionId, fromDistrictId: fromDistrictId, toRegionId: toRegionId, toDistrictId: toDistrictId, status: completedStatus, available: "")
+        case 5:
+            pageType = .canceled
+            canceledPage = 1
+            getApiResponse(page: canceledPage, fromRegionId: fromRegionId, fromDistrictId: fromDistrictId, toRegionId: toRegionId, toDistrictId: toDistrictId, status: canceledStatus, available: "")
+        default:
+            print("Smth")
+        }
+        tableView.reloadData()
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -253,3 +279,138 @@ extension PostVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     
 }
 
+//MARK: REGIONS
+extension PostVC: TaxiFilterTVCDelegate{
+    
+    func fromRegionTapped() {
+        self.isLeftRegion = true
+        let vc = RegionsVC()
+        vc.vc = self
+        present(vc, animated: true)
+    }
+    
+    func toRegionTapped() {
+        self.isLeftRegion = false
+        let vc = RegionsVC()
+        vc.vc = self
+        present(vc, animated: true)
+    }
+    
+    func fromCloseTapped() {
+        self.fromRegionId = nil
+        self.toDistrictId = nil
+        self.fromRegionText = "Viloyat, tuman"
+        pageTypeReloadData(fromR: fromRegionId, fromD: fromDistrictId, toR: toRegionId, toD: toDistrictId)
+    }
+    
+    func toCloseTapped() {
+        self.toRegionId = nil
+        self.toDistrictId = nil
+        self.toRegionText = "Viloyat, tuman"
+        pageTypeReloadData(fromR: fromRegionId, fromD: fromDistrictId, toR: toRegionId, toD: toDistrictId)
+    }
+    
+    
+    func replaceTapped() {
+        let a = fromRegionText
+        let b = toRegionText
+        self.fromRegionText = b
+        self.toRegionText = a
+        
+        if isReplacement{
+            pageTypeReloadData(fromR: toRegionId, fromD: toDistrictId, toR: fromRegionId, toD: fromDistrictId)
+        }else{
+            pageTypeReloadData(fromR: fromRegionId, fromD: fromDistrictId, toR: toRegionId, toD: toDistrictId)
+        }
+        
+        isReplacement = !isReplacement
+    }
+    
+    func pageTypeReloadData(fromR: Int?, fromD: Int?, toR: Int?, toD: Int?){
+        getAllDates.removeAll()
+        switch pageType{
+        case .new:
+            newOrderPage = 1
+            getApiResponse(page: newOrderPage, fromRegionId: fromR, fromDistrictId: fromD, toRegionId: toR, toDistrictId: toD, status: newStatus, available: "")
+        case .accepted:
+            acceptedPage = 1
+            getApiResponse(page: acceptedPage, fromRegionId: fromR, fromDistrictId: fromD, toRegionId: toR, toDistrictId: toD, status: acceptedStatus, available: "")
+        case .active:
+            activePage = 1
+            getApiResponse(page: activePage, fromRegionId: fromR, fromDistrictId: fromD, toRegionId: toR, toDistrictId: toD, status: activeStatus, available: "")
+        case .completed:
+            completedPage = 1
+            getApiResponse(page: completedPage, fromRegionId: fromR, fromDistrictId: fromD, toRegionId: toR, toDistrictId: toD, status: completedStatus, available: "")
+        case .canceled:
+            canceledPage = 1
+            getApiResponse(page: canceledPage, fromRegionId: fromR, fromDistrictId: fromD, toRegionId: toR, toDistrictId: toD, status: canceledStatus, available: "")
+        case .available:
+            availablePage = 1
+            getApiResponse(page: availablePage, fromRegionId: fromR, fromDistrictId: fromD, toRegionId: toR, toDistrictId: toD, status: "", available: availableStatus)
+        }
+    }
+    
+}
+
+//MARK: - Region Selected Delegate
+extension PostVC: RegionSelectedVCDelegate {
+    func setLocatoin(region id: Int, regoin name: String, state: States, isToRegion: Bool) {
+            if isLeftRegion {
+                self.fromRegionText = name + ", " + state.name
+                self.fromRegionId = id
+                self.fromDistrictId = state.id
+            } else {
+                self.toRegionText = name + ", " + state.name
+                self.toRegionId = id
+                self.toDistrictId = state.id
+            }
+        pageTypeReloadData(fromR: fromRegionId, fromD: fromDistrictId, toR: toRegionId, toD: toDistrictId)
+    }
+    
+}
+
+extension PostVC{
+    func makeCollectionView(){
+        v.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 40)
+        v.backgroundColor = UIColor(named: "primary900")
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+        self.view.addSubview(collectionView)
+        collectionView.delegate   = self
+        collectionView.dataSource = self
+        collectionView.register(UINib(nibName: "TaxiHeaderCVC", bundle: nil), forCellWithReuseIdentifier: "TaxiHeaderCVC")
+        v.addSubview(collectionView)
+        collectionView.backgroundColor = UIColor(named: "primary900")
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.topAnchor.constraint(equalTo: v.topAnchor, constant: 0).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: v.bottomAnchor, constant: 0).isActive = true
+        collectionView.leadingAnchor.constraint(equalTo: v.leadingAnchor, constant: 0).isActive = true
+        collectionView.trailingAnchor.constraint(equalTo: v.trailingAnchor, constant: 0).isActive = true
+        layout.collectionView?.showsHorizontalScrollIndicator = false
+    }
+    
+    func setupNavigation(){
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = UIColor(named: "primary900")
+        appearance.shadowColor = .clear
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        let menuBtn = UIBarButtonItem(image: UIImage(named: "menu-list"), style: .plain, target: self, action: #selector(menuBtnPressed))
+        navigationItem.leftBarButtonItem = menuBtn
+        let filterBtn = UIBarButtonItem(image: UIImage(named: "filter-post"), style: .plain, target: self, action: #selector(filterBtnPressed))
+        navigationItem.rightBarButtonItem = filterBtn
+        navigationItem.backButtonTitle = ""
+    }
+    
+    func setUpScretchView(){
+        let header = SkretchableHeaderView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 5))
+        header.v.backgroundColor = UIColor(named: "primary900")
+        tableView.tableHeaderView = header
+        self.view.backgroundColor = UIColor(named: "white300")
+    }
+    
+}

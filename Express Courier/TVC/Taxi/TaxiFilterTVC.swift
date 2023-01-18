@@ -1,9 +1,6 @@
-//
+
 //  TaxiFilterTVC.swift
 //  Express Courier
-//
-//  Created by Sherzod on 11/01/23.
-//
 
 import UIKit
 
@@ -14,6 +11,7 @@ protocol TaxiFilterTVCDelegate {
     func toCloseTapped()
     func replaceTapped()
 }
+
 
 class TaxiFilterTVC: UITableViewCell {
     
@@ -29,6 +27,7 @@ class TaxiFilterTVC: UITableViewCell {
         super.awakeFromNib()
         
     }
+    
     
     func updateCell(from: String, to: String) {
         fromRegionLbl.text = from
@@ -55,4 +54,5 @@ class TaxiFilterTVC: UITableViewCell {
     @IBAction func replaceBtnTapped(_ sender: UIButton) {
         self.delegate?.replaceTapped()
     }
+    
 }
