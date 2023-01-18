@@ -139,12 +139,23 @@
                                                         <constraint firstAttribute="bottom" secondItem="vcP-c3-yEt" secondAttribute="bottom" id="yy9-mN-cSi"/>
                                                     </constraints>
                                                 </stackView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="05n-lk-RfG">
+                                                    <rect key="frame" x="0.0" y="0.0" width="382" height="46"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <connections>
+                                                        <action selector="openRegionTapped:" destination="-1" eventType="touchUpInside" id="bmz-9Q-LNM"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" name="white500"/>
                                             <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="05n-lk-RfG" secondAttribute="bottom" id="6iv-2x-rgX"/>
                                                 <constraint firstItem="qV6-HN-GJ4" firstAttribute="leading" secondItem="49H-mU-yXb" secondAttribute="leading" constant="15" id="BxY-cf-yVT"/>
+                                                <constraint firstAttribute="trailing" secondItem="05n-lk-RfG" secondAttribute="trailing" id="bN9-Bm-4VX"/>
                                                 <constraint firstAttribute="trailing" secondItem="qV6-HN-GJ4" secondAttribute="trailing" constant="10" id="dcb-mP-BL0"/>
+                                                <constraint firstItem="05n-lk-RfG" firstAttribute="leading" secondItem="49H-mU-yXb" secondAttribute="leading" id="fhe-DA-MDS"/>
                                                 <constraint firstAttribute="bottom" secondItem="qV6-HN-GJ4" secondAttribute="bottom" id="mUv-Jt-2HH"/>
+                                                <constraint firstItem="05n-lk-RfG" firstAttribute="top" secondItem="49H-mU-yXb" secondAttribute="top" id="phR-mH-urz"/>
                                                 <constraint firstItem="qV6-HN-GJ4" firstAttribute="top" secondItem="49H-mU-yXb" secondAttribute="top" id="uS1-Be-Z6F"/>
                                                 <constraint firstAttribute="height" constant="46" id="w4r-U3-cqp"/>
                                             </constraints>

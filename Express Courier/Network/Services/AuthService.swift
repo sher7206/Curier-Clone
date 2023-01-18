@@ -22,5 +22,16 @@ struct AuthService: BaseService {
     //        request(.sendFcmToken(model: model), completion: completion)
     //    }
     
+    func resetPassword(model: ResetPasswordRequest, completion: @escaping Completion<ResetPasswordResponse>) {
+        request(.resetPassword(model: model), completion: completion)
+    }
+    
+    func verifyCode(model: VerifyCodeRequest, completion: @escaping Completion<VerifyCodeResponse>) {
+        request(.verifyCode(model: model), completion: completion)
+    }
+    
+    func confirmPassword(model: ConfirmPasswordRequest, completion: @escaping Completion<ConfirmPasswordResponse>) {
+        request(.confirmPassword(model: model), completion: completion)
+    }
 }
 

@@ -47,6 +47,15 @@ class KabinetVC: UIViewController {
         isShowPassword = !isShowPassword
     }
     
+    @IBAction func forgetPasswordTapped(_ sender: UIButton) {
+        let vc = OtpPhoneNumberVC()
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .overFullScreen
+        self.present(vc, animated: true)
+    }
+    
+    
+    
     @IBAction func confirmBtnTapped(_ sender: UIButton) {
         let login = AuthService()
         login.login(model: LoginRequest(

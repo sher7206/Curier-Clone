@@ -122,6 +122,18 @@
 		2769292E297568FE009BF0A5 /* AboutNewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2769292D297568FE009BF0A5 /* AboutNewVC.xib */; };
 		2769293129756C52009BF0A5 /* AboutAppVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2769292F29756C52009BF0A5 /* AboutAppVC.swift */; };
 		2769293229756C52009BF0A5 /* AboutAppVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2769293029756C52009BF0A5 /* AboutAppVC.xib */; };
+		277388CF2977DD4500054CC4 /* TeamRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277388CE2977DD4500054CC4 /* TeamRequest.swift */; };
+		277388D12977DD9D00054CC4 /* TeamResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277388D02977DD9D00054CC4 /* TeamResponse.swift */; };
+		277388D32977DEA400054CC4 /* TeamRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277388D22977DEA400054CC4 /* TeamRouter.swift */; };
+		277388D52977DFA200054CC4 /* TeamService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277388D42977DFA200054CC4 /* TeamService.swift */; };
+		277388D8297805D500054CC4 /* OtpPhoneNumberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277388D6297805D500054CC4 /* OtpPhoneNumberVC.swift */; };
+		277388D9297805D500054CC4 /* OtpPhoneNumberVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 277388D7297805D500054CC4 /* OtpPhoneNumberVC.xib */; };
+		277388E32978106A00054CC4 /* OtpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277388E12978106A00054CC4 /* OtpVC.swift */; };
+		277388E42978106A00054CC4 /* OtpVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 277388E22978106A00054CC4 /* OtpVC.xib */; };
+		277388E72978109100054CC4 /* OTPFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277388E52978109100054CC4 /* OTPFieldView.swift */; };
+		277388E82978109100054CC4 /* OTPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277388E62978109100054CC4 /* OTPTextField.swift */; };
+		277388EB29782A3E00054CC4 /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277388E929782A3E00054CC4 /* ResetPasswordVC.swift */; };
+		277388EC29782A3E00054CC4 /* ResetPasswordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 277388EA29782A3E00054CC4 /* ResetPasswordVC.xib */; };
 		2776B0FD2971748A00544B1E /* ListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2776B0FB2971748A00544B1E /* ListVC.swift */; };
 		2776B0FE2971748A00544B1E /* ListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2776B0FC2971748A00544B1E /* ListVC.xib */; };
 		2777854C296EBA7100FC0141 /* KuryerModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2777854A296EBA7100FC0141 /* KuryerModalVC.swift */; };
@@ -278,6 +290,18 @@
 		2769292D297568FE009BF0A5 /* AboutNewVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutNewVC.xib; sourceTree = "<group>"; };
 		2769292F29756C52009BF0A5 /* AboutAppVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppVC.swift; sourceTree = "<group>"; };
 		2769293029756C52009BF0A5 /* AboutAppVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutAppVC.xib; sourceTree = "<group>"; };
+		277388CE2977DD4500054CC4 /* TeamRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamRequest.swift; sourceTree = "<group>"; };
+		277388D02977DD9D00054CC4 /* TeamResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamResponse.swift; sourceTree = "<group>"; };
+		277388D22977DEA400054CC4 /* TeamRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamRouter.swift; sourceTree = "<group>"; };
+		277388D42977DFA200054CC4 /* TeamService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamService.swift; sourceTree = "<group>"; };
+		277388D6297805D500054CC4 /* OtpPhoneNumberVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpPhoneNumberVC.swift; sourceTree = "<group>"; };
+		277388D7297805D500054CC4 /* OtpPhoneNumberVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtpPhoneNumberVC.xib; sourceTree = "<group>"; };
+		277388E12978106A00054CC4 /* OtpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtpVC.swift; sourceTree = "<group>"; };
+		277388E22978106A00054CC4 /* OtpVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OtpVC.xib; sourceTree = "<group>"; };
+		277388E52978109100054CC4 /* OTPFieldView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTPFieldView.swift; sourceTree = "<group>"; };
+		277388E62978109100054CC4 /* OTPTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTPTextField.swift; sourceTree = "<group>"; };
+		277388E929782A3E00054CC4 /* ResetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
+		277388EA29782A3E00054CC4 /* ResetPasswordVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResetPasswordVC.xib; sourceTree = "<group>"; };
 		2776B0FB2971748A00544B1E /* ListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVC.swift; sourceTree = "<group>"; };
 		2776B0FC2971748A00544B1E /* ListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListVC.xib; sourceTree = "<group>"; };
 		2777854A296EBA7100FC0141 /* KuryerModalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KuryerModalVC.swift; sourceTree = "<group>"; };
@@ -535,6 +559,7 @@
 				27CD00562971A3C40088449B /* UserRouter.swift */,
 				27D9E0AA29757F43002F57A2 /* TaxiRouter.swift */,
 				1858EFEF2976C207005A3492 /* PostRouter.swift */,
+				277388D22977DEA400054CC4 /* TeamRouter.swift */,
 			);
 			path = Routers;
 			sourceTree = "<group>";
@@ -554,6 +579,7 @@
 				27CD00542971A2A20088449B /* UserResponse.swift */,
 				27D9E0A8297577C7002F57A2 /* TaxiResponse.swift */,
 				1858EFEB2976C009005A3492 /* PostResponse.swift */,
+				277388D02977DD9D00054CC4 /* TeamResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -577,6 +603,7 @@
 				27CD005A2971ADBC0088449B /* UserRequest.swift */,
 				27D9E0AC29757FC0002F57A2 /* TaxiRequest.swift */,
 				1858EFE92976BF6C005A3492 /* PostRequest.swift */,
+				277388CE2977DD4500054CC4 /* TeamRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -599,6 +626,7 @@
 				27CD00582971A4E50088449B /* UserService.swift */,
 				27D9E0AE29758030002F57A2 /* TaxiService.swift */,
 				1858EFED2976C1ED005A3492 /* PostService.swift */,
+				277388D42977DFA200054CC4 /* TeamService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -606,10 +634,9 @@
 		27197AE329680B3D00B53B25 /* Authorization */ = {
 			isa = PBXGroup;
 			children = (
-				27197AE429680B5300B53B25 /* KabinetVC.swift */,
-				27197AE529680B5300B53B25 /* KabinetVC.xib */,
-				279BAAAF296825490028B2EC /* RegisterVC.swift */,
-				279BAAB0296825490028B2EC /* RegisterVC.xib */,
+				277388DC29780FD700054CC4 /* Register */,
+				277388DB29780FD000054CC4 /* Login */,
+				277388DA29780FB800054CC4 /* ResetPassword */,
 			);
 			path = Authorization;
 			sourceTree = "<group>";
@@ -705,6 +732,39 @@
 				2777854B296EBA7100FC0141 /* KuryerModalVC.xib */,
 			);
 			path = Kuryer;
+			sourceTree = "<group>";
+		};
+		277388DA29780FB800054CC4 /* ResetPassword */ = {
+			isa = PBXGroup;
+			children = (
+				277388E12978106A00054CC4 /* OtpVC.swift */,
+				277388E22978106A00054CC4 /* OtpVC.xib */,
+				277388D6297805D500054CC4 /* OtpPhoneNumberVC.swift */,
+				277388D7297805D500054CC4 /* OtpPhoneNumberVC.xib */,
+				277388E52978109100054CC4 /* OTPFieldView.swift */,
+				277388E62978109100054CC4 /* OTPTextField.swift */,
+				277388E929782A3E00054CC4 /* ResetPasswordVC.swift */,
+				277388EA29782A3E00054CC4 /* ResetPasswordVC.xib */,
+			);
+			path = ResetPassword;
+			sourceTree = "<group>";
+		};
+		277388DB29780FD000054CC4 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				27197AE429680B5300B53B25 /* KabinetVC.swift */,
+				27197AE529680B5300B53B25 /* KabinetVC.xib */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		277388DC29780FD700054CC4 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				279BAAAF296825490028B2EC /* RegisterVC.swift */,
+				279BAAB0296825490028B2EC /* RegisterVC.xib */,
+			);
+			path = Register;
 			sourceTree = "<group>";
 		};
 		2776B0FA2971742C00544B1E /* List */ = {
@@ -954,7 +1014,10 @@
 				2718BF84297183D100DC0A8A /* ChatTVC.xib in Resources */,
 				2776B0FE2971748A00544B1E /* ListVC.xib in Resources */,
 				2769292A297568DF009BF0A5 /* NewTVC.xib in Resources */,
+				277388EC29782A3E00054CC4 /* ResetPasswordVC.xib in Resources */,
+				277388D9297805D500054CC4 /* OtpPhoneNumberVC.xib in Resources */,
 				2718BF72297183B700DC0A8A /* FinishOrderVC.xib in Resources */,
+				277388E42978106A00054CC4 /* OtpVC.xib in Resources */,
 				1858EFCD29758059005A3492 /* ReportTVC.xib in Resources */,
 				27A267142971571B00294BE7 /* DeleteTeamVC.xib in Resources */,
 				188F45F02972D1C50029FCEC /* RegionTVC.xib in Resources */,
@@ -1043,6 +1106,7 @@
 				18DA32DD296BFCE10066FF9C /* NotificationTVC.swift in Sources */,
 				27CD00592971A4E50088449B /* UserService.swift in Sources */,
 				27CD00532971896B0088449B /* AuthRouter.swift in Sources */,
+				277388E72978109100054CC4 /* OTPFieldView.swift in Sources */,
 				18DA32CA296BFCC00066FF9C /* SettingsVC.swift in Sources */,
 				2718BFDB297186C700DC0A8A /* Domain.swift in Sources */,
 				188F45F12972D1C50029FCEC /* RegionTVC.swift in Sources */,
@@ -1070,6 +1134,7 @@
 				188F45D32972B1730029FCEC /* Loader.swift in Sources */,
 				27D9E0AD29757FC0002F57A2 /* TaxiRequest.swift in Sources */,
 				27D9E0AF29758030002F57A2 /* TaxiService.swift in Sources */,
+				277388CF2977DD4500054CC4 /* TeamRequest.swift in Sources */,
 				2718BFDA297186C700DC0A8A /* BaseService.swift in Sources */,
 				27347F16297038E400D871EC /* TaxiOldUserModalVC.swift in Sources */,
 				2718BFD9297186C700DC0A8A /* BaseURLRequestConvertible.swift in Sources */,
@@ -1077,19 +1142,23 @@
 				2718BF8B297185C900DC0A8A /* Cache.swift in Sources */,
 				1858EFF02976C207005A3492 /* PostRouter.swift in Sources */,
 				18DA32CD296BFCC00066FF9C /* PaymentHistoryVC.swift in Sources */,
+				277388E82978109100054CC4 /* OTPTextField.swift in Sources */,
 				2718BF86297183D100DC0A8A /* ChatTVC.swift in Sources */,
+				277388EB29782A3E00054CC4 /* ResetPasswordVC.swift in Sources */,
 				2718BF76297183B700DC0A8A /* FinishOrderVC.swift in Sources */,
 				1858EFD029758B34005A3492 /* SortVC.swift in Sources */,
 				18DA32D4296BFCC10066FF9C /* MyKabinetVC.swift in Sources */,
 				27347F12297028A000D871EC /* TaxiNewsModalVC.swift in Sources */,
 				188F45E22972C8770029FCEC /* ListBranchVC.swift in Sources */,
 				18DA32C8296BFCC00066FF9C /* PayAccountVC.swift in Sources */,
+				277388D32977DEA400054CC4 /* TeamRouter.swift in Sources */,
 				2769292C297568FA009BF0A5 /* AboutNewVC.swift in Sources */,
 				188F45DC2972B96D0029FCEC /* BranchListTVC.swift in Sources */,
 				188F45DF2972BCB50029FCEC /* Ex+Int.swift in Sources */,
 				2718BF71297183B700DC0A8A /* EnterTimerVC.swift in Sources */,
 				1858EFCC29758059005A3492 /* ReportTVC.swift in Sources */,
 				2718BFCE297186C700DC0A8A /* Header.swift in Sources */,
+				277388D52977DFA200054CC4 /* TeamService.swift in Sources */,
 				2755F9E4297692100021BCB2 /* KuryerVC.swift in Sources */,
 				2718BF75297183B700DC0A8A /* ArrivedPostVC.swift in Sources */,
 				2718BFD0297186C700DC0A8A /* NetworkLogger.swift in Sources */,
@@ -1103,7 +1172,9 @@
 				18DE66A82965A067003324A5 /* AppDelegate.swift in Sources */,
 				27778556296ECBC200FC0141 /* TaxiFilterTVC.swift in Sources */,
 				1858EFD429758C9B005A3492 /* SortTVC.swift in Sources */,
+				277388D12977DD9D00054CC4 /* TeamResponse.swift in Sources */,
 				18DA32E7296C0D430066FF9C /* MainTabBarController.swift in Sources */,
+				277388E32978106A00054CC4 /* OtpVC.swift in Sources */,
 				18DE66C62966C940003324A5 /* Ex+UIView.swift in Sources */,
 				18AF68DA296836DE00B35B64 /* HeaderCVC.swift in Sources */,
 				27CD00552971A2A20088449B /* UserResponse.swift in Sources */,
@@ -1121,6 +1192,7 @@
 				27197AE629680B5300B53B25 /* KabinetVC.swift in Sources */,
 				27A2670F297148D700294BE7 /* AddTeamVC.swift in Sources */,
 				27692924297568AF009BF0A5 /* NewsVC.swift in Sources */,
+				277388D8297805D500054CC4 /* OtpPhoneNumberVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

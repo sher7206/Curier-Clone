@@ -10,11 +10,17 @@ import UIKit
 class TeamVC: UIViewController {
     
     
+    @IBOutlet weak var emptyStack: UIStackView!
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    
+    
+    var dates: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    
         setupNavigation()
     }
     
@@ -35,7 +41,7 @@ extension TeamVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return dates.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -56,9 +62,6 @@ extension TeamVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
 //MARK: - Funs
 extension TeamVC {
     func setupNavigation() {
-        
-        
-        
         title = "Jamoa"
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
@@ -71,13 +74,28 @@ extension TeamVC {
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "TeamCVC", bundle: nil), forCellWithReuseIdentifier: "TeamCVC")
         collectionView.contentInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+        if self.dates.count > 0 {
+            self.emptyStack.isHidden = true
+            self.collectionView.isHidden = false
+        } else {
+            self.emptyStack.isHidden = false
+            self.collectionView.isHidden = true
+        }
     }
 }
 
 //MARK: - AddTeamVCDelegate
 extension TeamVC: AddTeamVCDelegate {
     func addTeam() {
-        print("Add bosildi!")
+//        self.dates.append("Bek")
+        self.collectionView.reloadData()
+        if self.dates.count > 0 {
+            self.emptyStack.isHidden = true
+            self.collectionView.isHidden = false
+        } else {
+            self.emptyStack.isHidden = false
+            self.collectionView.isHidden = true
+        }
     }
 }
 

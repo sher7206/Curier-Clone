@@ -16,9 +16,22 @@ struct RegisterRequest {
     var password: String
 }
 
-struct FcmTokenRequest{
+struct ResetPasswordRequest {
+    var username: String
+}
+
+struct VerifyCodeRequest {
+    var username: String
+    var code: String
+}
+
+struct ConfirmPasswordRequest {
+    var password: String
+    var password_confirmation: String
+}
+
+struct FcmTokenRequest {
     var fcm_token: String
     var platform: String
     var app_id: String
 }
-

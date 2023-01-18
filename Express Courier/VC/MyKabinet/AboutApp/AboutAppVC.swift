@@ -1,7 +1,7 @@
 //
 //  AboutAppVC.swift
 //  Express Courier
-//
+//`
 //  Created by Sherzod on 16/01/23.
 //
 
@@ -15,6 +15,7 @@ class AboutAppVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "100k.uz"
         guard let url = URL (string: "https://yuzka.uz/") else {return}
         let requestObj = URLRequest(url: url)
         webView.loadRequest(requestObj)

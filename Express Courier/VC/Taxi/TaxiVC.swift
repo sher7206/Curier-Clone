@@ -14,10 +14,14 @@ class TaxiVC: UIViewController {
     var isNew: Bool = true
     var headerTexts = ["Yangilar", "Ko'rilganlar"]
     var refreshControl = UIRefreshControl()
+    
     var newsTaxiDates: [GetNewsTaxiData]? = []
     var historyTaxiDates: [GetNewsTaxiData]? = []
+    
     var newsCurrentPage: Int = 1
     var historyCurrentPage: Int = 1
+    var newsDataTotal: Int = 0
+    var historyDataTotal: Int = 0
     
     var fromRegionText: String = "Viloyat, tuman"
     var toRegionText: String = "Viloyat, tuman"
@@ -30,6 +34,9 @@ class TaxiVC: UIViewController {
     var isLeftRegion: Bool = true
     var selectIndexTVC: Int = 0
     var isReplacement: Bool = false
+    
+    var lastContentOffset: CGFloat = 0
+    var downScroll: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,11 +56,9 @@ class TaxiVC: UIViewController {
             case.success(let content):
                 Loader.stop()
                 guard let data = content.data else {return}
+                self.newsDataTotal = content.meta?.total ?? 0
                 self.newsTaxiDates?.append(contentsOf: data)
                 self.tableView.reloadData()
-                DispatchQueue.main.async {
-                    self.tableView.scrollToRow(at: IndexPath(row: 0, section: 1), at: .top, animated: false)
-                }
             case.failure(let error):
                 Loader.stop()
                 Alert.showAlert(forState: .error, message: error.localizedDescription, vibrationType: .error)
@@ -69,11 +74,9 @@ class TaxiVC: UIViewController {
             case.success(let content):
                 Loader.stop()
                 guard let data = content.data else {return}
+                self.historyDataTotal = content.meta?.total ?? 0
                 self.historyTaxiDates?.append(contentsOf: data)
                 self.tableView.reloadData()
-                DispatchQueue.main.async {
-                    self.tableView.scrollToRow(at: IndexPath(row: 0, section: 1), at: .top, animated: false)
-                }
             case.failure(let error):
                 Loader.stop()
                 print(error.localizedDescription)
@@ -134,6 +137,20 @@ extension TaxiVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelega
         }
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            if downScroll {
+                return UITableView.automaticDimension
+            } else {
+                return 0
+            }
+            
+        } else {
+            return UITableView.automaticDimension
+        }
+    }
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if indexPath.section == 0 {
@@ -144,31 +161,10 @@ extension TaxiVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelega
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "TaxiTVC", for: indexPath) as? TaxiTVC else {return UITableViewCell()}
             if isNew {
-                if indexPath.row == 0 {
-                    cell.dateLbl.isHidden = false
-                } else {
-                    let first = newsTaxiDates?[indexPath.row - 1].created_at ?? ""
-                    let second = newsTaxiDates?[indexPath.row].created_at ?? ""
-                    if first.prefix(10) == second.prefix(10) {
-                        cell.dateLbl.isHidden = true
-                    } else {
-                        cell.dateLbl.isHidden = false
-                    }
-                }
+                hideShowDate(index: indexPath.row, dates: self.newsTaxiDates, dateLabel: cell.dateLbl)
                 cell.updateCell(data: self.newsTaxiDates?[indexPath.row], index: indexPath.row)
             } else {
-                
-                if indexPath.row == 0 {
-                    cell.dateLbl.isHidden = false
-                } else {
-                    let first = historyTaxiDates?[indexPath.row - 1].created_at ?? ""
-                    let second = historyTaxiDates?[indexPath.row].created_at ?? ""
-                    if first.prefix(10) == second.prefix(10) {
-                        cell.dateLbl.isHidden = true
-                    } else {
-                        cell.dateLbl.isHidden = false
-                    }
-                }
+                hideShowDate(index: indexPath.row, dates: self.historyTaxiDates, dateLabel: cell.dateLbl)
                 cell.updateCell(data: self.historyTaxiDates?[indexPath.row], index: indexPath.row)
             }
             return cell
@@ -223,10 +219,44 @@ extension TaxiVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelega
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard let header = tableView.tableHeaderView as? SkretchableHeaderView else{
-            return
-        }
+        guard let header = tableView.tableHeaderView as? SkretchableHeaderView else{return}
         header.crollViewDidScroll(scrollView: tableView)
+        let translation = scrollView.panGestureRecognizer.translation(in: scrollView.superview)
+        if translation.y > 0 {
+            if !downScroll {
+                self.tableView.beginUpdates()
+                self.downScroll = true
+                self.tableView.endUpdates()
+            }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if isNew {
+            guard let data = newsTaxiDates else {return}
+            if indexPath.row == data.count - 1 {
+                if self.newsDataTotal > data.count {
+                    self.newsCurrentPage += 1
+                    Loader.start()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                        Loader.stop()
+                        self.uploadNewsTaxi(page: self.newsCurrentPage, fromReg: self.fromRegionId, fromDis: self.fromDistrictId, toReg: self.toRegionId, toDis: self.toDistrictId)
+                    }
+                }
+            }
+        } else {
+            guard let data = historyTaxiDates else {return}
+            if indexPath.row == data.count - 1 {
+                if self.historyDataTotal > data.count {
+                    self.historyCurrentPage += 1
+                    Loader.start()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                        Loader.stop()
+                        self.uploadHistoryTaxi(page: self.newsCurrentPage, fromReg: self.fromRegionId, fromDis: self.fromDistrictId, toReg: self.toRegionId, toDis: self.toDistrictId)
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -395,5 +425,21 @@ extension TaxiVC {
         self.newsTaxiDates?.removeAll()
         self.historyTaxiDates?.removeAll()
         self.uploadHistoryTaxi(page: historyCurrentPage, fromReg: fromRegionId, fromDis: fromDistrictId, toReg: toRegionId, toDis: toDistrictId)
+    }
+}
+
+extension TaxiVC {
+    func hideShowDate(index: Int, dates: [GetNewsTaxiData]?, dateLabel: UILabel) {
+        if index == 0 {
+            dateLabel.isHidden = false
+        } else {
+            let first = dates?[index - 1].created_at ?? ""
+            let second = dates?[index].created_at ?? ""
+            if first.prefix(10) == second.prefix(10) {
+                dateLabel.isHidden  = true
+            } else {
+                dateLabel.isHidden  = false
+            }
+        }
     }
 }

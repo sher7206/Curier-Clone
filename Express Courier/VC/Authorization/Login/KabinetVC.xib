@@ -186,6 +186,9 @@
                                             <state key="normal" title="Parol yodimda yo‘q ?">
                                                 <color key="titleColor" name="info300"/>
                                             </state>
+                                            <connections>
+                                                <action selector="forgetPasswordTapped:" destination="-1" eventType="touchUpInside" id="2ZM-cq-4bN"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>

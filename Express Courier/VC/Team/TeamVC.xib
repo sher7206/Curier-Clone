@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TeamVC" customModule="Express_Courier" customModuleProvider="target">
             <connections>
                 <outlet property="collectionView" destination="0td-Dc-3p2" id="no2-ZI-eh4"/>
+                <outlet property="emptyStack" destination="khm-df-Icg" id="g6z-FT-McU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -85,7 +86,7 @@
                         <constraint firstItem="AQL-Y0-wrK" firstAttribute="leading" secondItem="khm-df-Icg" secondAttribute="leading" id="UtW-cv-Q3Q"/>
                     </constraints>
                 </stackView>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="0td-Dc-3p2">
+                <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="0td-Dc-3p2">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="LSH-6T-f36">
