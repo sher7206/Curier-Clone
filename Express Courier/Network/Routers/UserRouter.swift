@@ -16,6 +16,7 @@ enum UserRouter: BaseURLRequestConvertible {
     case updateUser
     case getNews(model: GetNewsRequest)
     case logOut
+    case becomeCourier
     
     var path: String {
         switch self {
@@ -33,6 +34,8 @@ enum UserRouter: BaseURLRequestConvertible {
             return "/api/news?page=\(model.page)"
         case .logOut:
             return "/api/profile/logout"
+        case .becomeCourier:
+            return "/api/profile/become-driver"
         }
     }
     
@@ -51,6 +54,8 @@ enum UserRouter: BaseURLRequestConvertible {
         case .getNews:
             return .get
         case .logOut:
+            return .post
+        case .becomeCourier:
             return .post
         }
     }

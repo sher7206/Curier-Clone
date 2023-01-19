@@ -60,6 +60,31 @@ struct UserService: BaseService {
         }
     }
     
+    func becomeCourier(passportData: Data, passport: String, pravaData: Data, prava: String, transport_type: String, completion: @escaping Completion<BecomeCourierResponse>) {
+        
+        // Create router.
+        let router = UserRouter.becomeCourier
+        // Create upload request.
+        let request = AF.upload(multipartFormData: {
+            $0.append(passportData, withName: passport, fileName: passport, mimeType: "image/jpeg")
+            $0.append(pravaData, withName: prava, fileName: prava, mimeType: "image/jpeg")
+            var params: [String: Any] = [:]
+            params["transport_type"] = transport_type
+            for (key, value) in params {
+                guard let data = "\(value)".data(using: String.Encoding.utf8) else {continue}
+                $0.append(data, withName: key as String)
+                
+            }
+            
+        }, with: router)
+        
+        // Track progress and handle response.
+        request.responseDecodable { response in
+            //            print("Data")
+            AnalysisResponseMonitor<BecomeCourierResponse>(response: response).monitor(completion: completion)
+        }
+    }
+    
     //MARK: - Get News
     func getNews(model: GetNewsRequest, completion: @escaping Completion<GetNewsResponse>) {
         request(.getNews(model: model), completion: completion)

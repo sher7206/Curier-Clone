@@ -51,9 +51,9 @@ class RegisterVC: UIViewController {
     
     
     @IBAction func confirmBtnTapped(_ sender: UIButton) {
+        Loader.start()
         guard let number = gmailTf.text?.replacingOccurrences(of: " ", with: "") else {return}
         let register = AuthService()
-        
         print(number, usernameTf.text!, passwordTf.text!)
         register.register(model: RegisterRequest(
             name: usernameTf.text!,
@@ -61,7 +61,7 @@ class RegisterVC: UIViewController {
             password: passwordTf.text!)) { result in
                 switch result {
                 case.success(let content):
-                    
+                    Loader.stop()
                     guard let token = content.data else {return}
                     UserDefaults.standard.set("Bearer " + token, forKey: Keys.userToken)
                     let vc = MainTabBarController()
@@ -72,8 +72,8 @@ class RegisterVC: UIViewController {
                     let duration: TimeInterval = 0.3
                     UIView.transition(with: window, duration: duration, options: options, animations: {
                     }, completion:{completed in})
-                    
                 case.failure(let error):
+                    Loader.stop()
                     Alert.showAlert(forState: .error, message: error.localizedDescription, vibrationType: .error)
                 }
             }

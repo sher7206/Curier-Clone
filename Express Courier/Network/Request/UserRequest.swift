@@ -17,3 +17,8 @@ struct GetNewsRequest {
     var page: Int
 }
 
+struct BecomeCourierRequest {
+    var passport: String
+    var transport_type: String
+    var drivers_license: String
+}

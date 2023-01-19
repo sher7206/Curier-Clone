@@ -89,6 +89,9 @@ class KuryerVC: UIViewController {
         isPassport = false
     }
     
+    @IBAction func submitBtnTapped(_ sender: UIButton) {
+        
+    }
 }
 
 extension KuryerVC {
