@@ -172,6 +172,7 @@
 		27EC950A297964A200B567D5 /* NetworkMonitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC9507297964A200B567D5 /* NetworkMonitorView.swift */; };
 		27EC950B297964A200B567D5 /* NetworkMonitorView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27EC9508297964A200B567D5 /* NetworkMonitorView.storyboard */; };
 		27EC950C297964A200B567D5 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC9509297964A200B567D5 /* NetworkMonitor.swift */; };
+		27EC95122979731000B567D5 /* noInternet.json in Resources */ = {isa = PBXBuildFile; fileRef = 27EC95112979731000B567D5 /* noInternet.json */; };
 		305AA461FD9762D2FB4069B3 /* Pods_Express_Courier.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7515E66C971F51E4D1D05754 /* Pods_Express_Courier.framework */; };
 /* End PBXBuildFile section */
 
@@ -343,6 +344,7 @@
 		27EC9507297964A200B567D5 /* NetworkMonitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkMonitorView.swift; sourceTree = "<group>"; };
 		27EC9508297964A200B567D5 /* NetworkMonitorView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NetworkMonitorView.storyboard; sourceTree = "<group>"; };
 		27EC9509297964A200B567D5 /* NetworkMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		27EC95112979731000B567D5 /* noInternet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = noInternet.json; sourceTree = "<group>"; };
 		7515E66C971F51E4D1D05754 /* Pods_Express_Courier.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Express_Courier.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AECA3B6FA7DD6CDF1FF69094 /* Pods-Express Courier.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Express Courier.release.xcconfig"; path = "Target Support Files/Pods-Express Courier/Pods-Express Courier.release.xcconfig"; sourceTree = "<group>"; };
 		AFA739C01BEB9A5F6B80A6C5 /* Pods-Express Courier.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Express Courier.debug.xcconfig"; path = "Target Support Files/Pods-Express Courier/Pods-Express Courier.debug.xcconfig"; sourceTree = "<group>"; };
@@ -381,6 +383,7 @@
 		188F45D42972B18C0029FCEC /* Lotties */ = {
 			isa = PBXGroup;
 			children = (
+				27EC95112979731000B567D5 /* noInternet.json */,
 				188F45D72972B3E00029FCEC /* loader.json */,
 				188F45D52972B19C0029FCEC /* loading.json */,
 			);
@@ -1040,6 +1043,7 @@
 				2776B0FE2971748A00544B1E /* ListVC.xib in Resources */,
 				2769292A297568DF009BF0A5 /* NewTVC.xib in Resources */,
 				277388EC29782A3E00054CC4 /* ResetPasswordVC.xib in Resources */,
+				27EC95122979731000B567D5 /* noInternet.json in Resources */,
 				277388D9297805D500054CC4 /* OtpPhoneNumberVC.xib in Resources */,
 				2718BF72297183B700DC0A8A /* FinishOrderVC.xib in Resources */,
 				277388E42978106A00054CC4 /* OtpVC.xib in Resources */,

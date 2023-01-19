@@ -6,15 +6,31 @@
 //
 
 import UIKit
+import Lottie
 
 class NetworkMonitorView: UIViewController {
     
-    @IBOutlet weak var messageLabel: UILabel?
+    
+    @IBOutlet weak var animationView: LottieAnimationView!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        messageLabel?.text = "It looks like you`re not connected to the internet"
-//        messageLabel?.font = UIFont.SFProDisplay(.medium, size: 18)
+        // 1. Set animation content mode
+        
+        animationView.contentMode = .scaleAspectFit
+        
+        // 2. Set animation loop mode
+        
+        animationView.loopMode = .loop
+        
+        // 3. Adjust animation speed
+        
+        animationView.animationSpeed = 0.5
+        
+        // 4. Play animation
+        animationView.play()
     }
 }
