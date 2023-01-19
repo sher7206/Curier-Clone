@@ -17,10 +17,28 @@ class KuryerModalVC: UIViewController {
         
         containerView.layer.cornerRadius = 25
         containerView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        openAnimetion()
+    }
+    
+    func openAnimetion() {
+        Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false) { _ in
+            UIView.animate(withDuration: 0.3) {
+                self.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+            }
+        }
+    }
+    
+    func dismissFunc() {
+        self.view.backgroundColor = .clear
+        Timer.scheduledTimer(withTimeInterval: 0.05, repeats: false) { _ in
+            UIView.animate(withDuration: 0.05) {
+                self.dismiss(animated: true)
+            }
+        }
     }
     
     @IBAction func dismissBtnTapped(_ sender: UIButton) {
-        self.dismiss(animated: true)
+        dismissFunc()
     }
     
     @IBAction func submitTapped(_ sender: UIButton) {
@@ -31,6 +49,4 @@ class KuryerModalVC: UIViewController {
         present(naVc, animated: true)
         
     }
-    
-    
 }

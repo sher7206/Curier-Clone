@@ -371,7 +371,6 @@ extension TaxiVC: TaxiFilterTVCDelegate {
 //MARK: - Region Selected Delegate
 extension TaxiVC: RegionSelectedVCDelegate {
     func setLocatoin(region id: Int, regoin name: String, state: States, isToRegion: Bool) {
-        
         if isNew {
             if isLeftRegion {
                 self.fromRegionText = name + ", " + state.name

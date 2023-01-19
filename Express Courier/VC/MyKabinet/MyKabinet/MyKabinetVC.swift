@@ -169,6 +169,14 @@ extension MyKabinetVC {
                 case.success(let content):
                     Loader.stop()
                     print(content)
+                    let vc = KabinetVC()
+                    guard let window = UIApplication.shared.windows.filter({$0.isKeyWindow}).first else { return }
+                    window.rootViewController = vc
+                    window.makeKeyAndVisible()
+                    let options: UIView.AnimationOptions = .transitionCrossDissolve
+                    let duration: TimeInterval = 0.3
+                    UIView.transition(with: window, duration: duration, options: options, animations: {
+                    }, completion:{completed in})
                     Cache.saveUser(user: nil)
                     UserDefaults.standard.set(nil, forKey: Keys.userToken)
                     self.tableView.reloadData()

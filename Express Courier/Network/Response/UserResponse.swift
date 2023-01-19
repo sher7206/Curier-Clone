@@ -192,6 +192,37 @@ struct LogOutResponse: Codable {
 }
 
 
+//MARK: - Become Courier Response
+struct BecomeCourierResponse: Codable {
+    var message: String?
+    var data: BecomeCourierData?
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        message = try? container.decode(String.self, forKey: .message)
+        data = try? container.decode(BecomeCourierData.self, forKey: .data)
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case message, data
+    }
+}
+
+struct BecomeCourierData: Codable {
+    var id: Int?
+    var user_id: Int?
+    var name: String?
+    var phone: String?
+    var surname: String?
+    var comment: String?
+    var status: String?
+    var transport_type: String?
+    var created_at: String?
+    var passport: String?
+    var drivers_license: String?
+    var created_at_label: String?
+}
+
 
 
 

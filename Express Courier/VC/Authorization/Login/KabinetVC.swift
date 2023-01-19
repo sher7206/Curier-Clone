@@ -57,12 +57,14 @@ class KabinetVC: UIViewController {
     
     
     @IBAction func confirmBtnTapped(_ sender: UIButton) {
+        Loader.start()
         let login = AuthService()
         login.login(model: LoginRequest(
             username: usernameTf.text!,
             password: passwordTf.text!)) { result in
                 switch result {
                 case.success(let content):
+                    Loader.stop()
                     guard let token = content.data else { return }
                     UserDefaults.standard.set("Bearer " + token, forKey: Keys.userToken)
                     let vc = MainTabBarController()
@@ -74,7 +76,8 @@ class KabinetVC: UIViewController {
                     UIView.transition(with: window, duration: duration, options: options, animations: {
                     }, completion:{completed in})
                 case.failure(let error):
-                    print(error.localizedDescription)
+                    Loader.stop()
+                    Alert.showAlert(forState: .error, message: error.localizedDescription, vibrationType: .error)
                 }
             }
     }
