@@ -175,6 +175,12 @@
 		27EC95122979731000B567D5 /* noInternet.json in Resources */ = {isa = PBXBuildFile; fileRef = 27EC95112979731000B567D5 /* noInternet.json */; };
 		27EC951A29797ADD00B567D5 /* BranchesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC951829797ADD00B567D5 /* BranchesVC.swift */; };
 		27EC951B29797ADD00B567D5 /* BranchesVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27EC951929797ADD00B567D5 /* BranchesVC.xib */; };
+		27EC951F29797BFD00B567D5 /* BranchesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC951D29797BFD00B567D5 /* BranchesTVC.swift */; };
+		27EC952029797BFD00B567D5 /* BranchesTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27EC951E29797BFD00B567D5 /* BranchesTVC.xib */; };
+		27EC952229797FB800B567D5 /* BranchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC952129797FB800B567D5 /* BranchRequest.swift */; };
+		27EC952429797FE100B567D5 /* BranchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC952329797FE100B567D5 /* BranchResponse.swift */; };
+		27EC95262979816A00B567D5 /* BranchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC95252979816A00B567D5 /* BranchRouter.swift */; };
+		27EC9528297981FA00B567D5 /* BranchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC9527297981FA00B567D5 /* BranchService.swift */; };
 		305AA461FD9762D2FB4069B3 /* Pods_Express_Courier.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7515E66C971F51E4D1D05754 /* Pods_Express_Courier.framework */; };
 /* End PBXBuildFile section */
 
@@ -349,6 +355,12 @@
 		27EC95112979731000B567D5 /* noInternet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = noInternet.json; sourceTree = "<group>"; };
 		27EC951829797ADD00B567D5 /* BranchesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchesVC.swift; sourceTree = "<group>"; };
 		27EC951929797ADD00B567D5 /* BranchesVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BranchesVC.xib; sourceTree = "<group>"; };
+		27EC951D29797BFD00B567D5 /* BranchesTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchesTVC.swift; sourceTree = "<group>"; };
+		27EC951E29797BFD00B567D5 /* BranchesTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BranchesTVC.xib; sourceTree = "<group>"; };
+		27EC952129797FB800B567D5 /* BranchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchRequest.swift; sourceTree = "<group>"; };
+		27EC952329797FE100B567D5 /* BranchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchResponse.swift; sourceTree = "<group>"; };
+		27EC95252979816A00B567D5 /* BranchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchRouter.swift; sourceTree = "<group>"; };
+		27EC9527297981FA00B567D5 /* BranchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchService.swift; sourceTree = "<group>"; };
 		7515E66C971F51E4D1D05754 /* Pods_Express_Courier.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Express_Courier.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AECA3B6FA7DD6CDF1FF69094 /* Pods-Express Courier.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Express Courier.release.xcconfig"; path = "Target Support Files/Pods-Express Courier/Pods-Express Courier.release.xcconfig"; sourceTree = "<group>"; };
 		AFA739C01BEB9A5F6B80A6C5 /* Pods-Express Courier.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Express Courier.debug.xcconfig"; path = "Target Support Files/Pods-Express Courier/Pods-Express Courier.debug.xcconfig"; sourceTree = "<group>"; };
@@ -485,6 +497,7 @@
 		18AF68DD296844D500B35B64 /* TVC */ = {
 			isa = PBXGroup;
 			children = (
+				27EC951C29797BE600B567D5 /* Branch */,
 				188F45ED2972D1B20029FCEC /* Regions */,
 				188F45D92972B8B90029FCEC /* List */,
 				27778553296ECB9800FC0141 /* Taxi */,
@@ -574,6 +587,7 @@
 				27D9E0AA29757F43002F57A2 /* TaxiRouter.swift */,
 				1858EFEF2976C207005A3492 /* PostRouter.swift */,
 				277388D22977DEA400054CC4 /* TeamRouter.swift */,
+				27EC95252979816A00B567D5 /* BranchRouter.swift */,
 			);
 			path = Routers;
 			sourceTree = "<group>";
@@ -594,6 +608,7 @@
 				27D9E0A8297577C7002F57A2 /* TaxiResponse.swift */,
 				1858EFEB2976C009005A3492 /* PostResponse.swift */,
 				277388D02977DD9D00054CC4 /* TeamResponse.swift */,
+				27EC952329797FE100B567D5 /* BranchResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -618,6 +633,7 @@
 				27D9E0AC29757FC0002F57A2 /* TaxiRequest.swift */,
 				1858EFE92976BF6C005A3492 /* PostRequest.swift */,
 				277388CE2977DD4500054CC4 /* TeamRequest.swift */,
+				27EC952129797FB800B567D5 /* BranchRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -641,6 +657,7 @@
 				27D9E0AE29758030002F57A2 /* TaxiService.swift */,
 				1858EFED2976C1ED005A3492 /* PostService.swift */,
 				277388D42977DFA200054CC4 /* TeamService.swift */,
+				27EC9527297981FA00B567D5 /* BranchService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -953,6 +970,15 @@
 			path = Branch;
 			sourceTree = "<group>";
 		};
+		27EC951C29797BE600B567D5 /* Branch */ = {
+			isa = PBXGroup;
+			children = (
+				27EC951D29797BFD00B567D5 /* BranchesTVC.swift */,
+				27EC951E29797BFD00B567D5 /* BranchesTVC.xib */,
+			);
+			path = Branch;
+			sourceTree = "<group>";
+		};
 		6B739F688FC3BEC377E3BA6A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1032,6 +1058,7 @@
 				27B808DC2965C0A300E1357C /* Colors.xcassets in Resources */,
 				18DA32CE296BFCC00066FF9C /* PayAccountVC.xib in Resources */,
 				2718BF83297183D100DC0A8A /* ArrivedItemTVC.xib in Resources */,
+				27EC952029797BFD00B567D5 /* BranchesTVC.xib in Resources */,
 				2777855C296ED85000FC0141 /* TaxiHeaderCVC.xib in Resources */,
 				2718BF73297183B700DC0A8A /* EnterTimerVC.xib in Resources */,
 				188F45DD2972B96D0029FCEC /* BranchListTVC.xib in Resources */,
@@ -1147,6 +1174,7 @@
 				18DA32EC296C1F060066FF9C /* Vibration.swift in Sources */,
 				1858EFEC2976C009005A3492 /* PostResponse.swift in Sources */,
 				18DA32E0296BFCE10066FF9C /* MyInfoTVC.swift in Sources */,
+				27EC9528297981FA00B567D5 /* BranchService.swift in Sources */,
 				1858EFD929759124005A3492 /* ItemCVC.swift in Sources */,
 				18DA32DD296BFCE10066FF9C /* NotificationTVC.swift in Sources */,
 				27CD00592971A4E50088449B /* UserService.swift in Sources */,
@@ -1193,6 +1221,8 @@
 				2718BF86297183D100DC0A8A /* ChatTVC.swift in Sources */,
 				277388EB29782A3E00054CC4 /* ResetPasswordVC.swift in Sources */,
 				2718BF76297183B700DC0A8A /* FinishOrderVC.swift in Sources */,
+				27EC95262979816A00B567D5 /* BranchRouter.swift in Sources */,
+				27EC952229797FB800B567D5 /* BranchRequest.swift in Sources */,
 				1858EFD029758B34005A3492 /* SortVC.swift in Sources */,
 				18DA32D4296BFCC10066FF9C /* MyKabinetVC.swift in Sources */,
 				27347F12297028A000D871EC /* TaxiNewsModalVC.swift in Sources */,
@@ -1209,6 +1239,7 @@
 				2718BF75297183B700DC0A8A /* ArrivedPostVC.swift in Sources */,
 				2718BFD0297186C700DC0A8A /* NetworkLogger.swift in Sources */,
 				2718BFC5297186C700DC0A8A /* AnalysisResponseMonitor.swift in Sources */,
+				27EC951F29797BFD00B567D5 /* BranchesTVC.swift in Sources */,
 				2718BFE0297186C700DC0A8A /* AuthService.swift in Sources */,
 				1858EFEA2976BF6C005A3492 /* PostRequest.swift in Sources */,
 				18DA32C9296BFCC00066FF9C /* PinkodVC.swift in Sources */,
@@ -1226,6 +1257,7 @@
 				18AF68DA296836DE00B35B64 /* HeaderCVC.swift in Sources */,
 				27CD00552971A2A20088449B /* UserResponse.swift in Sources */,
 				1858EFE12976AD63005A3492 /* DistributionVC.swift in Sources */,
+				27EC952429797FE100B567D5 /* BranchResponse.swift in Sources */,
 				188F45EC2972D1550029FCEC /* RegionsVC.swift in Sources */,
 				270273D0296C0B6900687A2A /* NotificationViewController.swift in Sources */,
 				2718BF85297183D100DC0A8A /* ArrivedItemTVC.swift in Sources */,

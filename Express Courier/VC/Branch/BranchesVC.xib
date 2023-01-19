@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BranchesVC" customModule="Express_Courier" customModuleProvider="target">
             <connections>
+                <outlet property="tableView" destination="ino-cI-fjl" id="4WZ-6w-rFM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,9 +19,21 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ino-cI-fjl">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-            <point key="canvasLocation" x="36" y="20"/>
+            <constraints>
+                <constraint firstItem="ino-cI-fjl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="P2f-DG-Hpl"/>
+                <constraint firstAttribute="bottom" secondItem="ino-cI-fjl" secondAttribute="bottom" id="Td6-3U-8dT"/>
+                <constraint firstItem="ino-cI-fjl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="VLH-CW-oqF"/>
+                <constraint firstAttribute="trailing" secondItem="ino-cI-fjl" secondAttribute="trailing" id="k02-A5-8eM"/>
+            </constraints>
+            <point key="canvasLocation" x="34.782608695652179" y="19.419642857142858"/>
         </view>
     </objects>
     <resources>

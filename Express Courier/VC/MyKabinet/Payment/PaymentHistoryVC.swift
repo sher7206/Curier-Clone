@@ -73,7 +73,6 @@ extension PaymentHistoryVC: UITableViewDelegate, UITableViewDataSource {
             if self.totalItems > dates.count {
                 self.currentPage += 1
                 self.uploadData(page: currentPage)
-                self.tableView.reloadData()
             }
         }
     }
