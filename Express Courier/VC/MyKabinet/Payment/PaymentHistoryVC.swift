@@ -10,6 +10,8 @@ import UIKit
 class PaymentHistoryVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var emptyLbl: UILabel!
+    
     var dates: [GetTransactionsData] = []
     var totalItems: Int = 0
     var currentPage: Int = 1
@@ -18,6 +20,7 @@ class PaymentHistoryVC: UIViewController {
         super.viewDidLoad()
         setupNavigation()
         uploadData(page: currentPage)
+        emptyLbl.isHidden = true
     }
     
     func setupNavigation() {
@@ -43,6 +46,7 @@ class PaymentHistoryVC: UIViewController {
                 guard let data = content.data else {return}
                 self.dates.append(contentsOf: data)
                 self.totalItems = content.meta?.total ?? 0
+                self.isEmptyDates(dates: self.dates, textLbl: self.emptyLbl)
                 self.tableView.reloadData()
             case.failure(let error):
                 Loader.stop()
@@ -75,4 +79,13 @@ extension PaymentHistoryVC: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+extension PaymentHistoryVC {
+    func isEmptyDates(dates: [GetTransactionsData], textLbl: UILabel) {
+        if dates.count == 0 {
+            textLbl.isHidden = false
+        } else {
+            textLbl.isHidden = true
+        }
+    }
+}
 
