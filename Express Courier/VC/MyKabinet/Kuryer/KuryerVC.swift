@@ -21,12 +21,21 @@ class KuryerVC: UIViewController {
     @IBOutlet weak var editImagePassport: UIImageView!
     @IBOutlet weak var editImagePrava: UIImageView!
     
+    let user = Cache.getUser() ?? UserDM()
     var isPassport: Bool = true
     var isCheck: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigation()
+        uploadData()
+    }
+    
+    func uploadData() {
+        self.nameTf.text = user.name ?? ""
+        self.lastNameTf.text = user.surname ?? ""
+        self.phoneNumberTf.text = user.phone ?? ""
+        
     }
     
     func setupNavigation() {
@@ -90,7 +99,20 @@ class KuryerVC: UIViewController {
     }
     
     @IBAction func submitBtnTapped(_ sender: UIButton) {
-        
+        Loader.start()
+        let becomrCourier = UserService()
+        guard let passportData = self.passportImage.image?.pngData() else {return}
+        guard let pravaData = self.pravaImage.image?.pngData() else {return}
+        becomrCourier.becomeCourier(passportData: passportData, passport: "passport", pravaData: pravaData, prava: "drivers_license", transport_type: "on_car") { result in
+            switch result {
+            case.success(let content):
+                Loader.stop()
+                print(content)
+            case.failure(let error):
+                Loader.stop()
+                Alert.showAlert(forState: .error, message: error.localizedDescription, vibrationType: .error)
+            }
+        }
     }
 }
 

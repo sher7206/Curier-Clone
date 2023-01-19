@@ -10,22 +10,11 @@ import IQKeyboardManagerSwift
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        IQKeyboardManager.shared.enable = true
-        window = UIWindow()
-        print("Get user token =", Cache.share.getUserToken())
         
-        let abc = UserService()
-        let img = UIImage(systemName: "person")
-        let imgData = img?.pngData()
-        guard let imageData = imgData else {return true}
-        abc.becomeCourier(passportData: imageData, passport: "passport", pravaData: imageData, prava: "drivers_license", transport_type: "on_car") { result in
-            switch result {
-            case.success(let content):
-                print(content)
-            case.failure(let error):
-                print(error.localizedDescription)
-            }
-        }
+        IQKeyboardManager.shared.enable = true
+        NetworkMonitor.shared.startMonitoring()
+        
+        window = UIWindow()
         if Cache.share.getUserToken() == nil {
             let vc = OnboardingVC()
             window?.rootViewController = vc
