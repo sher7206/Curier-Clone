@@ -144,7 +144,6 @@ extension TaxiVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelega
             } else {
                 return 0
             }
-            
         } else {
             return UITableView.automaticDimension
         }

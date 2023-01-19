@@ -26,6 +26,8 @@
 		1858EFEC2976C009005A3492 /* PostResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1858EFEB2976C009005A3492 /* PostResponse.swift */; };
 		1858EFEE2976C1ED005A3492 /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1858EFED2976C1ED005A3492 /* PostService.swift */; };
 		1858EFF02976C207005A3492 /* PostRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1858EFEF2976C207005A3492 /* PostRouter.swift */; };
+		1858EFF4297835AD005A3492 /* KuryerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1858EFF3297835AD005A3492 /* KuryerVC.swift */; };
+		1858EFF6297835B5005A3492 /* KuryerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1858EFF5297835B5005A3492 /* KuryerVC.xib */; };
 		188F45D32972B1730029FCEC /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188F45D22972B1730029FCEC /* Loader.swift */; };
 		188F45D62972B19C0029FCEC /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 188F45D52972B19C0029FCEC /* loading.json */; };
 		188F45D82972B3E10029FCEC /* loader.json in Resources */ = {isa = PBXBuildFile; fileRef = 188F45D72972B3E00029FCEC /* loader.json */; };
@@ -113,7 +115,6 @@
 		27347F17297038E400D871EC /* TaxiOldUserModalVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27347F15297038E400D871EC /* TaxiOldUserModalVC.xib */; };
 		27347F1F2970525B00D871EC /* TeamVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27347F1D2970525B00D871EC /* TeamVC.swift */; };
 		27347F202970525B00D871EC /* TeamVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27347F1E2970525B00D871EC /* TeamVC.xib */; };
-		2755F9E4297692100021BCB2 /* KuryerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2755F9E3297692100021BCB2 /* KuryerVC.swift */; };
 		27692924297568AF009BF0A5 /* NewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27692923297568AF009BF0A5 /* NewsVC.swift */; };
 		27692926297568B8009BF0A5 /* NewsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27692925297568B8009BF0A5 /* NewsVC.xib */; };
 		27692928297568DA009BF0A5 /* NewTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27692927297568DA009BF0A5 /* NewTVC.swift */; };
@@ -134,7 +135,6 @@
 		277388E82978109100054CC4 /* OTPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277388E62978109100054CC4 /* OTPTextField.swift */; };
 		277388EB29782A3E00054CC4 /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277388E929782A3E00054CC4 /* ResetPasswordVC.swift */; };
 		277388EC29782A3E00054CC4 /* ResetPasswordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 277388EA29782A3E00054CC4 /* ResetPasswordVC.xib */; };
-		277388EE297834D100054CC4 /* KuryerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 277388ED297834D100054CC4 /* KuryerVC.xib */; };
 		2776B0FD2971748A00544B1E /* ListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2776B0FB2971748A00544B1E /* ListVC.swift */; };
 		2776B0FE2971748A00544B1E /* ListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2776B0FC2971748A00544B1E /* ListVC.xib */; };
 		2777854C296EBA7100FC0141 /* KuryerModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2777854A296EBA7100FC0141 /* KuryerModalVC.swift */; };
@@ -192,6 +192,8 @@
 		1858EFEB2976C009005A3492 /* PostResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostResponse.swift; sourceTree = "<group>"; };
 		1858EFED2976C1ED005A3492 /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
 		1858EFEF2976C207005A3492 /* PostRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRouter.swift; sourceTree = "<group>"; };
+		1858EFF3297835AD005A3492 /* KuryerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KuryerVC.swift; sourceTree = "<group>"; };
+		1858EFF5297835B5005A3492 /* KuryerVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KuryerVC.xib; sourceTree = "<group>"; };
 		188F45D22972B1730029FCEC /* Loader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		188F45D52972B19C0029FCEC /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		188F45D72972B3E00029FCEC /* loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loader.json; sourceTree = "<group>"; };
@@ -281,7 +283,6 @@
 		27347F15297038E400D871EC /* TaxiOldUserModalVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaxiOldUserModalVC.xib; sourceTree = "<group>"; };
 		27347F1D2970525B00D871EC /* TeamVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamVC.swift; sourceTree = "<group>"; };
 		27347F1E2970525B00D871EC /* TeamVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamVC.xib; sourceTree = "<group>"; };
-		2755F9E3297692100021BCB2 /* KuryerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KuryerVC.swift; sourceTree = "<group>"; };
 		27692923297568AF009BF0A5 /* NewsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsVC.swift; sourceTree = "<group>"; };
 		27692925297568B8009BF0A5 /* NewsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsVC.xib; sourceTree = "<group>"; };
 		27692927297568DA009BF0A5 /* NewTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTVC.swift; sourceTree = "<group>"; };
@@ -302,7 +303,6 @@
 		277388E62978109100054CC4 /* OTPTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTPTextField.swift; sourceTree = "<group>"; };
 		277388E929782A3E00054CC4 /* ResetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
 		277388EA29782A3E00054CC4 /* ResetPasswordVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResetPasswordVC.xib; sourceTree = "<group>"; };
-		277388ED297834D100054CC4 /* KuryerVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = KuryerVC.xib; path = ../../../../../../Downloads/KuryerVC.xib; sourceTree = "<group>"; };
 		2776B0FB2971748A00544B1E /* ListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVC.swift; sourceTree = "<group>"; };
 		2776B0FC2971748A00544B1E /* ListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListVC.xib; sourceTree = "<group>"; };
 		2777854A296EBA7100FC0141 /* KuryerModalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KuryerModalVC.swift; sourceTree = "<group>"; };
@@ -726,8 +726,8 @@
 		2769293529756E38009BF0A5 /* Kuryer */ = {
 			isa = PBXGroup;
 			children = (
-				2755F9E3297692100021BCB2 /* KuryerVC.swift */,
-				277388ED297834D100054CC4 /* KuryerVC.xib */,
+				1858EFF3297835AD005A3492 /* KuryerVC.swift */,
+				1858EFF5297835B5005A3492 /* KuryerVC.xib */,
 				2777854A296EBA7100FC0141 /* KuryerModalVC.swift */,
 				2777854B296EBA7100FC0141 /* KuryerModalVC.xib */,
 			);
@@ -1011,7 +1011,7 @@
 				18DA32DE296BFCE10066FF9C /* MyCategoryTVC.xib in Resources */,
 				27197AE729680B5300B53B25 /* KabinetVC.xib in Resources */,
 				2718BF84297183D100DC0A8A /* ChatTVC.xib in Resources */,
-				277388EE297834D100054CC4 /* KuryerVC.xib in Resources */,
+				1858EFF6297835B5005A3492 /* KuryerVC.xib in Resources */,
 				2776B0FE2971748A00544B1E /* ListVC.xib in Resources */,
 				2769292A297568DF009BF0A5 /* NewTVC.xib in Resources */,
 				277388EC29782A3E00054CC4 /* ResetPasswordVC.xib in Resources */,
@@ -1159,13 +1159,13 @@
 				1858EFCC29758059005A3492 /* ReportTVC.swift in Sources */,
 				2718BFCE297186C700DC0A8A /* Header.swift in Sources */,
 				277388D52977DFA200054CC4 /* TeamService.swift in Sources */,
-				2755F9E4297692100021BCB2 /* KuryerVC.swift in Sources */,
 				2718BF75297183B700DC0A8A /* ArrivedPostVC.swift in Sources */,
 				2718BFD0297186C700DC0A8A /* NetworkLogger.swift in Sources */,
 				2718BFC5297186C700DC0A8A /* AnalysisResponseMonitor.swift in Sources */,
 				2718BFE0297186C700DC0A8A /* AuthService.swift in Sources */,
 				1858EFEA2976BF6C005A3492 /* PostRequest.swift in Sources */,
 				18DA32C9296BFCC00066FF9C /* PinkodVC.swift in Sources */,
+				1858EFF4297835AD005A3492 /* KuryerVC.swift in Sources */,
 				2718BF70297183B700DC0A8A /* ChatVC.swift in Sources */,
 				27B7E3562966FD1B00C3A69E /* OnboardingVC.swift in Sources */,
 				27778551296EC56000FC0141 /* TaxiVC.swift in Sources */,
@@ -1334,7 +1334,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = P4Q44BG5PV;
+				DEVELOPMENT_TEAM = L27Y355PSC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Express Courier/Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "We needed camer or photo library image";
@@ -1364,7 +1364,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = P4Q44BG5PV;
+				DEVELOPMENT_TEAM = L27Y355PSC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Express Courier/Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "We needed camer or photo library image";

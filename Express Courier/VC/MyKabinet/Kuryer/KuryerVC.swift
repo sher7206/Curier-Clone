@@ -1,9 +1,7 @@
-//
+
 //  KuryerVC.swift
 //  Express Courier
-//
 //  Created by Sherzod on 09/01/23.
-//
 
 import UIKit
 import SwiftPhoneNumberFormatter
@@ -25,7 +23,6 @@ class KuryerVC: UIViewController {
     
     var isPassport: Bool = true
     var isCheck: Bool = false
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()

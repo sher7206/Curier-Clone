@@ -23,7 +23,7 @@ class PostVC: UIViewController {
             tableView.register(TaxiFilterTVC.nib(), forCellReuseIdentifier: TaxiFilterTVC.identifier)
             tableView.register(PostInsideTVC.nib(), forCellReuseIdentifier: PostInsideTVC.identifier)
             tableView.separatorStyle = .none
-            
+            tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
             if #available(iOS 15.0, *) { tableView.sectionHeaderTopPadding = 0 } else {}
         }
     }
@@ -57,6 +57,8 @@ class PostVC: UIViewController {
     var toRegionText: String = "Viloyat, tuman"
     var isReplacement: Bool = false
     var isLeftRegion: Bool = true
+    var downScroll: Bool = false
+
     let v = UIView()
 
     override func viewDidLoad() {
@@ -73,7 +75,6 @@ class PostVC: UIViewController {
         let service = PostService()
         Loader.start()
         service.getPostResponse(model: PostRequest(page: page, fromRegionId: fromRegionId, fromDistrictId: fromDistrictId, toRegionId: toRegionId, toDistrictId: toDistrictId, status: status, available: available)) { [self] result in
-            
             switch result{
             case .success(let content):
                 Loader.stop()
@@ -83,7 +84,6 @@ class PostVC: UIViewController {
                 getAllDates.append(contentsOf: dates)
                 self.tableView.reloadData()
             case .failure(let error):
-
                 Alert.showAlert(forState: .error, message: error.message ?? "Error", vibrationType: .error)
             }
         }
@@ -103,7 +103,6 @@ class PostVC: UIViewController {
         vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc, animated: true)
     }
-    
     
 }
 
@@ -189,6 +188,18 @@ extension PostVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelega
         }
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            if downScroll {
+                return UITableView.automaticDimension
+            } else {
+                return 0
+            }
+        } else {
+            return UITableView.automaticDimension
+        }
+    }
+
     func takePageAnation(page: Int, fromRegionId: Int?, fromDistrictId: Int?, toRegionId: Int?,toDistrictId: Int?,status: String, available: String){
         Loader.start()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [self] in
@@ -198,11 +209,20 @@ extension PostVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelega
         }
     }
     
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard let header = tableView.tableHeaderView as? SkretchableHeaderView else{
             return
         }
         header.crollViewDidScroll(scrollView: tableView)
+        let translation = scrollView.panGestureRecognizer.translation(in: scrollView.superview)
+        if translation.y > 0 {
+            if !downScroll {
+                self.tableView.beginUpdates()
+                self.downScroll = true
+                self.tableView.endUpdates()
+            }
+        }
     }
     
 }
