@@ -318,9 +318,8 @@ extension TaxiVC: TaxiFilterTVCDelegate {
     
     func fromCloseTapped() {
         self.fromRegionId = nil
-        self.toDistrictId = nil
+        self.fromDistrictId = nil
         self.fromRegionText = "Viloyat, tuman"
-        
         if isNew {
             self.newsAllDates()
         } else {
