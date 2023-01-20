@@ -34,6 +34,10 @@ class Cache {
         return UserDefaults.standard.string(forKey: Keys.userToken)
     }
     
+    func getUserPassword() -> String? {
+        return UserDefaults.standard.string(forKey: Keys.userPassword)
+    }
+    
     //Get User
     static func getUser()-> UserDM? {
         let decoder = JSONDecoder()

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import LocalAuthentication
 
 class TaxiVC: UIViewController {
     
@@ -40,6 +41,7 @@ class TaxiVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupNavigation()
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         tableView.addSubview(refreshControl)
@@ -47,6 +49,8 @@ class TaxiVC: UIViewController {
         self.historyAllDates()
         setUpScretchView()
     }
+    
+   
     
     func uploadNewsTaxi(page: Int, fromReg: Int?, fromDis: Int?, toReg: Int?, toDis: Int?) {
         Loader.start()

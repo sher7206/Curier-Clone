@@ -64,6 +64,7 @@ class SetupPinKodVC: UIViewController {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
                             Alert.showAlert(forState: .success, message: "Success", vibrationType: .success)
                             self.navigationController?.popViewController(animated: true)
+                            UserDefaults.standard.set(self.code, forKey: Keys.userPassword)
                         })
                     } else {
                         Alert.showAlert(forState: .error, message: "Error", vibrationType: .error)
