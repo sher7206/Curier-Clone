@@ -21,7 +21,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     private lazy var branch: BranchesVC = {
         let vc = BranchesVC(nibName: "BranchesVC", bundle: nil)
         vc.tabBarItem = UITabBarItem(
-            title: nil,
+            title: "Filiallar",
             image: UIImage(named: "building-menu"),
             selectedImage: UIImage(named: "building-menu")
         )
@@ -31,9 +31,10 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     private lazy var team: TeamVC = {
         let vc = TeamVC(nibName: "TeamVC", bundle: nil)
         vc.tabBarItem = UITabBarItem(
-            title: nil,
+            title: "Jamoa",
             image: UIImage(named: "people-menu"),
             selectedImage: UIImage(named: "people-menu")
+            
         )
         return vc
     }()
@@ -52,8 +53,8 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         let vc = MyKabinetVC(nibName: "MyKabinetVC", bundle: nil)
         vc.tabBarItem = UITabBarItem(
             title: "Kabinet",
-            image: UIImage(named: "support-menu"),
-            selectedImage: UIImage(named: "support-menu")
+            image: UIImage(systemName: "person"),
+            selectedImage: UIImage(systemName: "person")
         )
         return vc
     }()
@@ -78,6 +79,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         
         foriOS15()
        // tabBar.tintColor = UIColor(named: "blackWhite")
+        tabBar.tintColor = UIColor(named: "primary900")
     }
     
     func foriOS15() {
@@ -85,15 +87,16 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
             let appearance = UINavigationBarAppearance()
             appearance.configureWithOpaqueBackground()
             appearance.backgroundColor = .white
-            appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+            appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.red.cgColor]
             navigationController?.navigationBar.standardAppearance = appearance
             navigationController?.navigationBar.compactScrollEdgeAppearance = appearance
             navigationController?.navigationBar.scrollEdgeAppearance = appearance
             let appearance1 = UITabBarAppearance()
             appearance1.configureWithOpaqueBackground()
-          //  appearance1.backgroundColor = UIColor(named: "newDarkBlack")
+            appearance1.selectionIndicatorTintColor = .green
             self.tabBar.standardAppearance = appearance1
             self.tabBar.scrollEdgeAppearance = self.tabBar.standardAppearance
+
         }
     }
     

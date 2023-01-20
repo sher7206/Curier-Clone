@@ -485,7 +485,6 @@
 				2718BF66297183B700DC0A8A /* FinishOrderVC.xib */,
 				2718BF6B297183B700DC0A8A /* PostAgreemantVC.swift */,
 				2718BF6C297183B700DC0A8A /* PostAgreemantVC.xib */,
-				18DA32E6296C0D430066FF9C /* MainTabBarController.swift */,
 			);
 			path = PostVC;
 			sourceTree = "<group>";
@@ -545,9 +544,10 @@
 		18DE66A62965A067003324A5 /* Express Courier */ = {
 			isa = PBXGroup;
 			children = (
+				279BAAAA29681F8B0028B2EC /* AppDelegate */,
+				278AB686297A813300B4577D /* Tabbar */,
 				2718BF88297185A100DC0A8A /* Cache */,
 				18DA32E8296C1EF20066FF9C /* Alert */,
-				279BAAAA29681F8B0028B2EC /* AppDelegate */,
 				27EC9505297964A200B567D5 /* NetworkMonitor */,
 				18AF68D52968347000B35B64 /* Extensions */,
 				2718BF91297186C700DC0A8A /* Network */,
@@ -884,6 +884,14 @@
 				27692929297568DF009BF0A5 /* NewTVC.xib */,
 			);
 			path = MyKabinet;
+			sourceTree = "<group>";
+		};
+		278AB686297A813300B4577D /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				18DA32E6296C0D430066FF9C /* MainTabBarController.swift */,
+			);
+			path = Tabbar;
 			sourceTree = "<group>";
 		};
 		279BAAAA29681F8B0028B2EC /* AppDelegate */ = {

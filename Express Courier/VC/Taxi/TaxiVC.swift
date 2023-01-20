@@ -152,7 +152,7 @@ extension TaxiVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelega
         if indexPath.section == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "TaxiFilterTVC", for: indexPath) as? TaxiFilterTVC else {return UITableViewCell()}
             cell.delegate = self
-            cell.updateCell(from: fromRegionText, to: toRegionText)
+            cell.updateCell(from: fromRegionText, to: toRegionText, fromRegionId: self.fromRegionId, toRegionId: self.toRegionId)
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "TaxiTVC", for: indexPath) as? TaxiTVC else {return UITableViewCell()}
