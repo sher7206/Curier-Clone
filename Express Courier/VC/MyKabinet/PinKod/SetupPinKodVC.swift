@@ -62,12 +62,12 @@ class SetupPinKodVC: UIViewController {
                 if second {
                     if confirmCode == code {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
-                            Alert.showAlert(forState: .success, message: "Success", vibrationType: .success)
+                            Alert.showAlert(forState: .success, message: "PIN kod o'rnatildi", vibrationType: .success)
                             self.navigationController?.popViewController(animated: true)
                             UserDefaults.standard.set(self.code, forKey: Keys.userPassword)
                         })
                     } else {
-                        Alert.showAlert(forState: .error, message: "Error", vibrationType: .error)
+                        Alert.showAlert(forState: .error, message: "Xato kiritildi", vibrationType: .error)
                         kodView.shake()
                         self.numberCount = 0
                         self.code = ""
