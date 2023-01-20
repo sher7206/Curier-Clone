@@ -948,7 +948,7 @@
 		9CA893DD99C94BD393AE57F1817D3344 /* AnimationSubview.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnimationSubview.swift; path = Sources/Public/iOS/AnimationSubview.swift; sourceTree = "<group>"; };
 		9D12CDE2714307DD3B4E3D22FB03C9C4 /* Concurrency.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Concurrency.swift; path = Source/Concurrency.swift; sourceTree = "<group>"; };
 		9D72F345F920A4B24AECE357B95BAED7 /* GroupNode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GroupNode.swift; path = Sources/Private/MainThread/NodeRenderSystem/Nodes/RenderContainers/GroupNode.swift; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9E221BEF526FD2EF097B2BD97702CC63 /* Pods-Express Courier.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Express Courier.debug.xcconfig"; sourceTree = "<group>"; };
 		9E8807348DD87A9E1769332515903CD9 /* SDAsyncBlockOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDAsyncBlockOperation.h; path = SDWebImage/Private/SDAsyncBlockOperation.h; sourceTree = "<group>"; };
 		9F1B84B42B43AAAF780A704EB1FBCBDE /* Rectangle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Rectangle.swift; path = Sources/Private/Model/ShapeItems/Rectangle.swift; sourceTree = "<group>"; };
@@ -1360,6 +1360,7 @@
 				CD2F7B1F133EE1928FFEAABFED75160D /* Validation.swift */,
 				561E527F72593220C1CDA3EED6C696E7 /* Support Files */,
 			);
+			name = Alamofire;
 			path = Alamofire;
 			sourceTree = "<group>";
 		};
@@ -1377,6 +1378,7 @@
 				3643E078ECF51B2A44B9965D01152060 /* Core */,
 				5099DBD4F793685F58938C180DDAA167 /* Support Files */,
 			);
+			name = SDWebImage;
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
@@ -1539,6 +1541,7 @@
 				4773C6507A8C914CBFCAB19359726535 /* PhoneFormatter.swift */,
 				48D09D5BA14B322244278DA0CFA46055 /* Support Files */,
 			);
+			name = SwiftPhoneNumberFormatter;
 			path = SwiftPhoneNumberFormatter;
 			sourceTree = "<group>";
 		};
@@ -1621,6 +1624,7 @@
 				FCBB8A7E43946756495E2A3EEA2C6880 /* Resources */,
 				0F35A2146A7F8D539D3B885C3E880F7A /* Support Files */,
 			);
+			name = BarcodeScanner;
 			path = BarcodeScanner;
 			sourceTree = "<group>";
 		};
@@ -1675,6 +1679,7 @@
 				CEF58D947A0DD78CA91B183819FE1DD2 /* Resources */,
 				E5E4275220FA3B322B3BAF4946C46059 /* Support Files */,
 			);
+			name = XNLogger;
 			path = XNLogger;
 			sourceTree = "<group>";
 		};
@@ -1879,6 +1884,7 @@
 				0B27E24316BD8CB4AFC5EA30644E6207 /* VisibilityAnimation.swift */,
 				02DD729F1BCCC840690A6C12030525AC /* Support Files */,
 			);
+			name = "lottie-ios";
 			path = "lottie-ios";
 			sourceTree = "<group>";
 		};
@@ -1934,6 +1940,7 @@
 				E0668615D5FB6942D2FB6119C8CEF4A0 /* SCPageControlView.swift */,
 				81AF7AE576A6DAA81A33907298BE1C18 /* Support Files */,
 			);
+			name = SCPageControl;
 			path = SCPageControl;
 			sourceTree = "<group>";
 		};
@@ -2002,6 +2009,7 @@
 				D9929D86C3E9FA5AF66E0615C9FF53AB /* SwiftyJSON.swift */,
 				0E15EE9FFDB1C98343BECB953C031503 /* Support Files */,
 			);
+			name = SwiftyJSON;
 			path = SwiftyJSON;
 			sourceTree = "<group>";
 		};
@@ -2060,6 +2068,7 @@
 				1AD68EC79707D5204D507665F0D54FFE /* IQUIViewController+Additions.swift */,
 				D22332B395352C43D095290BC3D41B78 /* Support Files */,
 			);
+			name = IQKeyboardManagerSwift;
 			path = IQKeyboardManagerSwift;
 			sourceTree = "<group>";
 		};

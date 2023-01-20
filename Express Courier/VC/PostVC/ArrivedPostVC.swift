@@ -1,13 +1,15 @@
+
 //  ArrivedPostVC.swift
 //  Express Courier
 //  Created by apple on 07/01/23.
 
+
 import UIKit
+import SDWebImage
 
 class ArrivedPostVC: UIViewController {
 
-    
-    
+    @IBOutlet weak var matterLbl: UILabel!
     @IBOutlet weak var arrivingPriceLbl: UILabel!
     @IBOutlet weak var insurancePriceLbl: UILabel!
     
@@ -38,10 +40,14 @@ class ArrivedPostVC: UIViewController {
             tableView.separatorStyle = .none
         }
     }
-    
+    var id = 0
+
     var menuItems: [UIAction] {
         return [
-            UIAction(title: "Xabarlar", image: UIImage(named: "notification-bing-post"), handler: { (_) in
+            UIAction(title: "Xabarlar", image: UIImage(named: "notification-bing-post"), handler: { [self] (_) in
+                let vc = ChatVC()
+                vc.id = id
+                self.navigationController?.pushViewController(vc, animated: true)
             }),
             UIAction(title: "Taymer kiritish", image: UIImage(named: "clock-post"), handler: { (_) in
             }),
@@ -54,8 +60,8 @@ class ArrivedPostVC: UIViewController {
         return UIMenu(title: "", image: UIImage(named: "more-list"), identifier: nil, options: [], children: menuItems)
     }
     
-    var id = 0
     var getOne: GetOneRespnseData!
+    var phoneNumber = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,7 +84,6 @@ class ArrivedPostVC: UIViewController {
         }
     }
     
-    
     func getAPIResponse(id: Int){
         let service = PostService()
         Loader.start()
@@ -98,12 +103,17 @@ class ArrivedPostVC: UIViewController {
                 creatorPhoneLbl.text = "+998"
                 
                 toRegionLbl.text = "\(getOne.to_region_name ?? ""), \(getOne.to_district_name ?? "")"
-                toAddressLbl.text = getOne.to_address ?? ""
-                
+                toAddressLbl.text = getOne.to_address ?? "+998"
+                recipientPhoneLbl.text = getOne.recipient_phone ?? ""
                 priceLbl.text = "\(getOne.cash_amount ?? 0) so'm"
                 deliveryPriceLbl.text = "\(getOne.delivery_fee_amount ?? 0) so'm"
                 insurPriceLbl.text = "\(getOne.insurance_amount ?? 0) so'm"
-                            
+                         
+                phoneNumber = getOne.recipient_phone ?? ""
+                commentLbl.text = getOne.note ?? ""
+                commentImg.sd_setImage(with: URL(string: getOne.creator_avatar ?? ""), placeholderImage: UIImage(named: "Onboarding"))
+                commentNameLbl.text = getOne.creator_name ?? "Onboarding"
+                matterLbl.text = getOne.matter ?? ""
                 if let date = getOne.expired_at{
                     dateLbl.text = "\(String(date.prefix(10)))"
                 }else{
@@ -127,7 +137,9 @@ class ArrivedPostVC: UIViewController {
     }
     
     @IBAction func callBtnPressed(_ sender: Any) {
-
+        let number = phoneNumber
+        guard let number = URL(string: "tel://" + number) else { return }
+        UIApplication.shared.open(number)
     }
     
     @IBAction func callCommentorBtnPressed(_ sender: Any) {

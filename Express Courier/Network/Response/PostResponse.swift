@@ -20,8 +20,6 @@ struct GetPostResponse: Codable {
     }
 }
 
-
-
 struct GetPostRespnseData: Codable {
     var id: Int?
     var creator_id: Int?
@@ -111,6 +109,32 @@ struct GetOneRespnseData:Codable{
     var delivery_fee_amount: Int?
     var insurance_amount: Int?
     var expired_at: String?
+    var created_at: String?
+    var created_at_label: String?
+}
+
+
+//MARK: CreateChatRespinse
+struct CreateChatResonse: Codable {
+    var data: [GetChatResponse]?
+    var links: Link?
+    var meta: Meta?
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        data = try? container.decode([GetChatResponse].self, forKey: .data)
+        links = try? container.decode(Link.self, forKey: .links)
+        meta = try? container.decode(Meta.self, forKey: .meta)
+    }
+    enum CodingKeys: String, CodingKey {
+        case data, links, meta
+    }
+}
+
+//Create Chat
+struct GetChatResponse: Codable{
+    var id: Int?
+    var text: String?
+    var author: String?
     var created_at: String?
     var created_at_label: String?
 }

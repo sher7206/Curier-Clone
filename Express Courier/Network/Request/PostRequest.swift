@@ -23,3 +23,12 @@ struct PostIdRequest: Codable {
 struct PostAcceptRequest{
     var id: Int
 }
+
+struct PostGetChatRequest{
+    var page: Int
+    var id: Int
+}
+struct PostChatRequest{
+    var text: String
+    var id: Int
+}

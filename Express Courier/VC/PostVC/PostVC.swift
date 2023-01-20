@@ -169,6 +169,7 @@ extension PostVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelega
         }else{
             let vc = ArrivedPostVC()
             vc.id = getAllDates[indexPath.row].id ?? 0
+            vc.hidesBottomBarWhenPushed = true    
             navigationController?.pushViewController(vc, animated: true)
         }
     }

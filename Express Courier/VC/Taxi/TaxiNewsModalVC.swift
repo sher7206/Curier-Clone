@@ -54,6 +54,7 @@ class TaxiNewsModalVC: UIViewController {
         let number = "+998999757206"
         guard let number = URL(string: "tel://" + number) else { return }
         UIApplication.shared.open(number)
+        
     }
     
 }
