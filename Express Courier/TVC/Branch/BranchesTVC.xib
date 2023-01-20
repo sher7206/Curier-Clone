@@ -34,16 +34,16 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="JcA-JA-SJf">
-                                <rect key="frame" x="60" y="9.3333333333333357" width="325" height="71.666666666666657"/>
+                                <rect key="frame" x="60" y="10" width="325" height="70.333333333333329"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100K Chilonzor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="063-Qd-nVs">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="21.666666666666668"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100K Chilonzor" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="063-Qd-nVs">
+                                        <rect key="frame" x="0.0" y="0.0" width="121" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="cjK-47-R3j">
-                                        <rect key="frame" x="0.0" y="28.666666666666671" width="208" height="18"/>
+                                        <rect key="frame" x="0.0" y="27.333333333333336" width="208" height="18"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gps-to-taxi" translatesAutoresizingMaskIntoConstraints="NO" id="mlH-Fe-uhN">
                                                 <rect key="frame" x="0.0" y="0.0" width="18" height="18"/>
@@ -61,7 +61,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="C0R-4O-vk3">
-                                        <rect key="frame" x="0.0" y="53.666666666666671" width="161.33333333333334" height="18"/>
+                                        <rect key="frame" x="0.0" y="52.333333333333329" width="161.33333333333334" height="18"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="call" translatesAutoresizingMaskIntoConstraints="NO" id="7bM-9h-gpy">
                                                 <rect key="frame" x="0.0" y="0.0" width="18" height="18"/>
