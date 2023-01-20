@@ -19,6 +19,10 @@ class ChatTVC: UITableViewCell {
         super.awakeFromNib()
     }
 
-    
+    func updateCell(data: GetChatResponse){
+        textLbl.text = data.text
+        dateLbl.text = data.created_at_label
+        senderLbl.text = "Sender: \(data.author ?? "")"
+    }
     
 }

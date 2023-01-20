@@ -26,10 +26,10 @@
                     <color key="backgroundColor" name="white300"/>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jrr-hI-bl6">
-                    <rect key="frame" x="16" y="788" width="382" height="50"/>
+                    <rect key="frame" x="16" y="796" width="382" height="50"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bQR-3Z-qd4">
-                            <rect key="frame" x="326" y="7" width="36" height="36"/>
+                            <rect key="frame" x="336" y="7" width="36" height="36"/>
                             <color key="backgroundColor" red="0.97647058819999999" green="0.79215686269999996" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="36" id="8BE-5j-Nmy"/>
@@ -48,7 +48,7 @@
                             </connections>
                         </button>
                         <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Xabaringizni yozing" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rRF-BC-xSn">
-                            <rect key="frame" x="20" y="10" width="296" height="30"/>
+                            <rect key="frame" x="20" y="10" width="306" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
@@ -59,7 +59,7 @@
                         <constraint firstAttribute="bottom" secondItem="rRF-BC-xSn" secondAttribute="bottom" constant="10" id="BDb-lF-1mv"/>
                         <constraint firstItem="rRF-BC-xSn" firstAttribute="top" secondItem="Jrr-hI-bl6" secondAttribute="top" constant="10" id="Cq9-xn-q8f"/>
                         <constraint firstAttribute="height" constant="50" id="NYJ-gP-zmp"/>
-                        <constraint firstAttribute="trailing" secondItem="bQR-3Z-qd4" secondAttribute="trailing" constant="20" id="dbd-J3-hAD"/>
+                        <constraint firstAttribute="trailing" secondItem="bQR-3Z-qd4" secondAttribute="trailing" constant="10" id="dbd-J3-hAD"/>
                         <constraint firstItem="bQR-3Z-qd4" firstAttribute="leading" secondItem="rRF-BC-xSn" secondAttribute="trailing" constant="10" id="rIA-l0-HQZ"/>
                         <constraint firstItem="rRF-BC-xSn" firstAttribute="leading" secondItem="Jrr-hI-bl6" secondAttribute="leading" constant="20" id="z3q-DB-8oO"/>
                     </constraints>
@@ -75,7 +75,7 @@
             <constraints>
                 <constraint firstItem="7dL-Sj-jTL" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="MdQ-wI-Wxr"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="7dL-Sj-jTL" secondAttribute="bottom" id="RtQ-Ew-7Ot"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Jrr-hI-bl6" secondAttribute="bottom" constant="24" id="WUs-Er-Xd5"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Jrr-hI-bl6" secondAttribute="bottom" constant="16" id="WUs-Er-Xd5"/>
                 <constraint firstItem="Jrr-hI-bl6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="aHz-Sd-9GC"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Jrr-hI-bl6" secondAttribute="trailing" constant="16" id="aPc-XX-DWz"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="7dL-Sj-jTL" secondAttribute="trailing" id="q1q-lX-wuk"/>

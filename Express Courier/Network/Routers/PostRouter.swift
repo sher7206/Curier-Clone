@@ -13,7 +13,9 @@ enum PostRouter: BaseURLRequestConvertible {
     case getPost(model: PostRequest)
     case acceptPost(model: PostAcceptRequest)
     case getOnePost(model: PostIdRequest)
-    
+    case createChaPost(model: PostChatRequest)
+    case getChatPost(model: PostGetChatRequest)
+
     var path: String {
         switch self {
         case.getPost(let model):
@@ -37,6 +39,10 @@ enum PostRouter: BaseURLRequestConvertible {
             return "/api/driver/packages/\(model.id)/accept"
         case .getOnePost(model: let model):
             return "/api/driver/packages/\(model.id)"
+        case .createChaPost(model: let model):
+            return "/api/driver/packages/\(model.id)/comments"
+        case .getChatPost(model: let model):
+            return "/api/driver/packages/\(model.id)/comments?page=\(model.page)"
         }
     }
     
@@ -48,11 +54,27 @@ enum PostRouter: BaseURLRequestConvertible {
             return .post
         case .getOnePost:
             return .get
+        case .createChaPost:
+            return .post
+        case .getChatPost:
+            return .get
         }
     }
     
     var parameters: Alamofire.Parameters? {
-        return nil
+        switch self {
+        case .getPost:
+            return nil
+        case .acceptPost:
+            return nil
+        case .getOnePost:
+            return nil
+        case .createChaPost(let model):
+            let param: [String : Any] = ["text" : model.text]
+            return param
+        case .getChatPost:
+            return nil
+        }
     }
     
     func asURLRequest() throws -> URLRequest {
