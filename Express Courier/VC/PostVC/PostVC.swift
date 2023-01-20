@@ -84,7 +84,8 @@ class PostVC: UIViewController {
                 getAllDates.append(contentsOf: dates)
                 self.tableView.reloadData()
             case .failure(let error):
-                Alert.showAlert(forState: .error, message: error.message ?? "Error", vibrationType: .error)
+                Loader.stop()
+                Alert.showAlert(forState: .error, message: error.localizedDescription, vibrationType: .error)
             }
         }
     }

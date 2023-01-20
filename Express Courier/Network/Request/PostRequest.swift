@@ -28,7 +28,14 @@ struct PostGetChatRequest{
     var page: Int
     var id: Int
 }
+
 struct PostChatRequest{
     var text: String
     var id: Int
+}
+
+
+struct CancelOrderPostRequest{
+    var id: Int
+    var reason: String
 }

@@ -48,7 +48,8 @@ class ChatVC: UIViewController {
                 Loader.stop()
                 getChatAPI(page: page)
             case.failure(let error):
-                print(error.message ?? "GGGGGGG")
+                Loader.stop()
+                Alert.showAlert(forState: .error, message: error.localizedDescription, vibrationType: .error)
             }
         }
     }
@@ -65,10 +66,11 @@ class ChatVC: UIViewController {
                 chats.append(contentsOf: data)
                 tableView.reloadData()
             case.failure(let error):
-                Alert.showAlert(forState: .error, message: error.message ?? "Error", vibrationType: .error)
+                Alert.showAlert(forState: .error, message: error.localizedDescription, vibrationType: .error)
             }
         }
     }
+    
     
     @IBAction func sendBtnPressed(_ sender: Any) {
         if chatTF.text! != "" {
