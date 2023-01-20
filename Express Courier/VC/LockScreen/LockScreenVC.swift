@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import LocalAuthentication
 
 class LockScreenVC: UIViewController {
     
@@ -22,6 +23,31 @@ class LockScreenVC: UIViewController {
         super.viewDidLoad()
         
         self.numberImages.forEach({$0.image = UIImage(named: "unselectNumber")})
+        setupFaceID()
+    }
+    
+    
+    func setupFaceID() {
+        
+        let contex = LAContext()
+        var error: NSError? = nil
+        if contex.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+            contex.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Face ID") { success, error in
+                if success {
+                    DispatchQueue.main.async {
+                        let vc = MainTabBarController()
+                        guard let window = UIApplication.shared.windows.filter({$0.isKeyWindow}).first else { return }
+                        window.rootViewController = vc
+                        window.makeKeyAndVisible()
+                        let options: UIView.AnimationOptions = .transitionCrossDissolve
+                        let duration: TimeInterval = 0.3
+                        UIView.transition(with: window, duration: duration, options: options, animations: {
+                        }, completion:{completed in})
+                    }
+                }
+                
+            }
+        }
     }
     
     @IBAction func numberSelect(_ sender: UIButton) {
