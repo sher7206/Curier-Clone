@@ -33,7 +33,7 @@ class TaxiVC: UIViewController {
     
     var isLeftRegion: Bool = true
     var selectIndexTVC: Int = 0
-    var isReplacement: Bool = false
+    var isReplacement: Bool = true
     
     var lastContentOffset: CGFloat = 0
     var downScroll: Bool = false
@@ -314,9 +314,8 @@ extension TaxiVC: TaxiFilterTVCDelegate {
     
     func fromCloseTapped() {
         self.fromRegionId = nil
-        self.toDistrictId = nil
+        self.fromDistrictId = nil
         self.fromRegionText = "Viloyat, tuman"
-        
         if isNew {
             self.newsAllDates()
         } else {
@@ -337,7 +336,6 @@ extension TaxiVC: TaxiFilterTVCDelegate {
     }
     
     func replaceTapped() {
-        
         let a = fromRegionText
         let b = toRegionText
         self.fromRegionText = b
@@ -345,17 +343,17 @@ extension TaxiVC: TaxiFilterTVCDelegate {
         
         if isNew {
             self.newsCurrentPage = 1
-            if !isReplacement {
-                self.uploadNewsTaxi(page: newsCurrentPage, fromReg: toRegionId, fromDis: toDistrictId, toReg: fromRegionId, toDis: fromDistrictId)
-            } else {
+            if isReplacement {
                 self.uploadNewsTaxi(page: newsCurrentPage, fromReg: fromRegionId, fromDis: fromDistrictId, toReg: toRegionId, toDis: toDistrictId)
+            } else {
+                self.uploadNewsTaxi(page: newsCurrentPage, fromReg: toRegionId, fromDis: toDistrictId, toReg: fromRegionId, toDis: fromDistrictId)
             }
         } else {
             self.historyCurrentPage = 1
-            if !isReplacement {
-                self.uploadHistoryTaxi(page: self.historyCurrentPage, fromReg: toRegionId, fromDis: toDistrictId, toReg: fromRegionId, toDis: fromDistrictId)
-            } else {
+            if isReplacement {
                 self.uploadHistoryTaxi(page: self.historyCurrentPage, fromReg: fromRegionId, fromDis: fromDistrictId, toReg: toRegionId, toDis: toDistrictId)
+            } else {
+                self.uploadHistoryTaxi(page: self.historyCurrentPage, fromReg: toRegionId, fromDis: toDistrictId, toReg: fromRegionId, toDis: fromDistrictId)
             }
         }
         

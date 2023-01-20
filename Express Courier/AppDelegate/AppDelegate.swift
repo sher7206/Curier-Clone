@@ -11,7 +11,10 @@ import XNLogger
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
         IQKeyboardManager.shared.enable = true
+        NetworkMonitor.shared.startMonitoring()
+        
         window = UIWindow()
         print("Get user token =", Cache.share.getUserToken())
         XNLogger.shared.startLogging()

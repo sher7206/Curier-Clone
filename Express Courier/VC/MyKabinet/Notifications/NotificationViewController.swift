@@ -11,6 +11,7 @@ class NotificationViewController: UIViewController {
     
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var emptyLbl: UILabel!
     var dates: [GetNotificationsData] = []
     var currentPage: Int = 1
     var totalItems: Int = 0
@@ -20,6 +21,7 @@ class NotificationViewController: UIViewController {
         super.viewDidLoad()
         setupNavigation()
         uploadData(page: currentPage)
+        emptyLbl.isHidden = true
     }
     
     func uploadData(page: Int) {
@@ -32,6 +34,7 @@ class NotificationViewController: UIViewController {
                 guard let data = content.data else {return}
                 self.dates.append(contentsOf: data)
                 self.totalItems = content.meta?.total ?? 0
+                self.isEmptyDates(dates: self.dates, textLbl: self.emptyLbl)
                 self.tableView.reloadData()
             case.failure(let error):
                 Alert.showAlert(forState: .error, message: error.localizedDescription, vibrationType: .error)
@@ -75,6 +78,14 @@ extension NotificationViewController: UITableViewDelegate, UITableViewDataSource
             }
         }
     }
-    
-    
+}
+
+extension NotificationViewController {
+    func isEmptyDates(dates: [GetNotificationsData], textLbl: UILabel) {
+        if dates.count == 0 {
+            textLbl.isHidden = false
+        } else {
+            textLbl.isHidden = true
+        }
+    }
 }

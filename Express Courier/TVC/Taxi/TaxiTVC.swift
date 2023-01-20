@@ -49,7 +49,7 @@ class TaxiTVC: UITableViewCell {
 
         priceLbl.text = "\(data?.cost?.priceFormetter() ?? "")"
         userImage.sd_setImage(with: URL(string: data?.creator_avatar ?? ""))
-        fromRegionLbl.text = (data?.from_region_name ?? "") + ", " + (data?.to_district_name ?? "")
+        fromRegionLbl.text = (data?.from_region_name ?? "") + ", " + (data?.from_district_name ?? "")
         fromDistrictLbl.text = data?.from_address ?? ""
         toRegionLbl.text = (data?.to_region_name ?? "") + ", " + (data?.to_district_name ?? "")
         toDistrictlbl.text = data?.to_address ?? ""

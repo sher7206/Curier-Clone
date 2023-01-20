@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NotificationViewController" customModule="Express_Courier" customModuleProvider="target">
             <connections>
+                <outlet property="emptyLbl" destination="6Kf-Z3-cW4" id="4DN-9o-7WK"/>
                 <outlet property="tableView" destination="m0t-tn-KiN" id="fxi-U9-5DI"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -24,14 +25,23 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sizda bildirishnomalar mavjud emas" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Kf-Z3-cW4">
+                    <rect key="frame" x="20" y="437.5" width="374" height="21.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="m0t-tn-KiN" secondAttribute="bottom" id="0C0-ce-qML"/>
+                <constraint firstItem="6Kf-Z3-cW4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Gj1-23-ys5"/>
                 <constraint firstItem="m0t-tn-KiN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="cHX-jd-aej"/>
+                <constraint firstItem="6Kf-Z3-cW4" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="h4x-9O-Ah8"/>
                 <constraint firstItem="m0t-tn-KiN" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="sJK-tC-EQa"/>
                 <constraint firstItem="m0t-tn-KiN" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="yL1-04-Jiq"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="6Kf-Z3-cW4" secondAttribute="trailing" constant="20" id="yho-c8-djt"/>
             </constraints>
             <point key="canvasLocation" x="126.08695652173914" y="19.419642857142858"/>
         </view>
