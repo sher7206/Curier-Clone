@@ -30,6 +30,7 @@ class MyKabinetVC: UIViewController {
         setupNavigation()
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         tableView.addSubview(refreshControl)
+        setUpScretchView()
     }
     
     @objc func refresh(send: UIRefreshControl) {
@@ -58,6 +59,13 @@ class MyKabinetVC: UIViewController {
         tableView.register(UINib(nibName: "MyInfoTVC", bundle: nil), forCellReuseIdentifier: "MyInfoTVC")
         tableView.register(UINib(nibName: "MyCategoryTVC", bundle: nil), forCellReuseIdentifier: "MyCategoryTVC")
         uploadData()
+    }
+    
+    func setUpScretchView(){
+        let header = SkretchableHeaderView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 5))
+        header.v.backgroundColor = UIColor(named: "primary900")
+        tableView.tableHeaderView = header
+        self.view.backgroundColor = UIColor(named: "white300")
     }
     
     func uploadData() {
@@ -114,6 +122,12 @@ extension MyKabinetVC: UITableViewDelegate, UITableViewDataSource {
         } else {
             return UITableView.automaticDimension
         }
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard let header = tableView.tableHeaderView as? SkretchableHeaderView else{return}
+        header.crollViewDidScroll(scrollView: tableView)
+        let translation = scrollView.panGestureRecognizer.translation(in: scrollView.superview)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

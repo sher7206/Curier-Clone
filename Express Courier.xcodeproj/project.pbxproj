@@ -149,6 +149,8 @@
 		2777855C296ED85000FC0141 /* TaxiHeaderCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2777855A296ED85000FC0141 /* TaxiHeaderCVC.xib */; };
 		27778563296EEF3C00FC0141 /* TaxiTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27778561296EEF3C00FC0141 /* TaxiTVC.swift */; };
 		27778564296EEF3C00FC0141 /* TaxiTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27778562296EEF3C00FC0141 /* TaxiTVC.xib */; };
+		278AB689297A9FB500B4577D /* LockScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278AB687297A9FB500B4577D /* LockScreenVC.swift */; };
+		278AB68A297A9FB500B4577D /* LockScreenVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 278AB688297A9FB500B4577D /* LockScreenVC.xib */; };
 		279BAAB1296825490028B2EC /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279BAAAF296825490028B2EC /* RegisterVC.swift */; };
 		279BAAB2296825490028B2EC /* RegisterVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 279BAAB0296825490028B2EC /* RegisterVC.xib */; };
 		27A2670F297148D700294BE7 /* AddTeamVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A2670D297148D700294BE7 /* AddTeamVC.swift */; };
@@ -331,6 +333,8 @@
 		2777855A296ED85000FC0141 /* TaxiHeaderCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaxiHeaderCVC.xib; sourceTree = "<group>"; };
 		27778561296EEF3C00FC0141 /* TaxiTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiTVC.swift; sourceTree = "<group>"; };
 		27778562296EEF3C00FC0141 /* TaxiTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaxiTVC.xib; sourceTree = "<group>"; };
+		278AB687297A9FB500B4577D /* LockScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockScreenVC.swift; sourceTree = "<group>"; };
+		278AB688297A9FB500B4577D /* LockScreenVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LockScreenVC.xib; sourceTree = "<group>"; };
 		279BAAAF296825490028B2EC /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		279BAAB0296825490028B2EC /* RegisterVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterVC.xib; sourceTree = "<group>"; };
 		27A2670D297148D700294BE7 /* AddTeamVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTeamVC.swift; sourceTree = "<group>"; };
@@ -485,7 +489,6 @@
 				2718BF66297183B700DC0A8A /* FinishOrderVC.xib */,
 				2718BF6B297183B700DC0A8A /* PostAgreemantVC.swift */,
 				2718BF6C297183B700DC0A8A /* PostAgreemantVC.xib */,
-				18DA32E6296C0D430066FF9C /* MainTabBarController.swift */,
 			);
 			path = PostVC;
 			sourceTree = "<group>";
@@ -545,9 +548,10 @@
 		18DE66A62965A067003324A5 /* Express Courier */ = {
 			isa = PBXGroup;
 			children = (
+				279BAAAA29681F8B0028B2EC /* AppDelegate */,
+				278AB686297A813300B4577D /* Tabbar */,
 				2718BF88297185A100DC0A8A /* Cache */,
 				18DA32E8296C1EF20066FF9C /* Alert */,
-				279BAAAA29681F8B0028B2EC /* AppDelegate */,
 				27EC9505297964A200B567D5 /* NetworkMonitor */,
 				18AF68D52968347000B35B64 /* Extensions */,
 				2718BF91297186C700DC0A8A /* Network */,
@@ -886,6 +890,23 @@
 			path = MyKabinet;
 			sourceTree = "<group>";
 		};
+		278AB686297A813300B4577D /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				18DA32E6296C0D430066FF9C /* MainTabBarController.swift */,
+			);
+			path = Tabbar;
+			sourceTree = "<group>";
+		};
+		278AB68B297A9FC200B4577D /* LockScreen */ = {
+			isa = PBXGroup;
+			children = (
+				278AB687297A9FB500B4577D /* LockScreenVC.swift */,
+				278AB688297A9FB500B4577D /* LockScreenVC.xib */,
+			);
+			path = LockScreen;
+			sourceTree = "<group>";
+		};
 		279BAAAA29681F8B0028B2EC /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
@@ -897,6 +918,7 @@
 		27B7E3502966FCC800C3A69E /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				278AB68B297A9FC200B4577D /* LockScreen */,
 				27EC951329797AAE00B567D5 /* Branch */,
 				188F45E82972D1490029FCEC /* Regions */,
 				2776B0FA2971742C00544B1E /* List */,
@@ -1100,6 +1122,7 @@
 				27A267142971571B00294BE7 /* DeleteTeamVC.xib in Resources */,
 				188F45F02972D1C50029FCEC /* RegionTVC.xib in Resources */,
 				27A26710297148D700294BE7 /* AddTeamVC.xib in Resources */,
+				278AB68A297A9FB500B4577D /* LockScreenVC.xib in Resources */,
 				27347F13297028A000D871EC /* TaxiNewsModalVC.xib in Resources */,
 				18DA32D2296BFCC10066FF9C /* SetupPinKodVC.xib in Resources */,
 				2769292E297568FE009BF0A5 /* AboutNewVC.xib in Resources */,
@@ -1177,6 +1200,7 @@
 				1858EFC829757FED005A3492 /* ReportVC.swift in Sources */,
 				2718BF8C297185C900DC0A8A /* Keys.swift in Sources */,
 				27CD005B2971ADBC0088449B /* UserRequest.swift in Sources */,
+				278AB689297A9FB500B4577D /* LockScreenVC.swift in Sources */,
 				2718BFCC297186C700DC0A8A /* AuthResponse.swift in Sources */,
 				18DA32EC296C1F060066FF9C /* Vibration.swift in Sources */,
 				1858EFEC2976C009005A3492 /* PostResponse.swift in Sources */,
@@ -1425,7 +1449,7 @@
 				DEVELOPMENT_TEAM = YM5H6L638F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Express Courier/Info.plist";
-				INFOPLIST_KEY_NSCameraUsageDescription = "We needed camer or photo library image";
+				INFOPLIST_KEY_NSCameraUsageDescription = "camera use";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -1436,7 +1460,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Nurillo.Express-Courier.";
+				PRODUCT_BUNDLE_IDENTIFIER = "Nurillo.Express-Courier..";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1455,7 +1479,7 @@
 				DEVELOPMENT_TEAM = YM5H6L638F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Express Courier/Info.plist";
-				INFOPLIST_KEY_NSCameraUsageDescription = "We needed camer or photo library image";
+				INFOPLIST_KEY_NSCameraUsageDescription = "camera use";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -1466,7 +1490,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Nurillo.Express-Courier.";
+				PRODUCT_BUNDLE_IDENTIFIER = "Nurillo.Express-Courier..";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

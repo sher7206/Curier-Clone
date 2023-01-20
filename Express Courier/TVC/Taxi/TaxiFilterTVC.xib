@@ -172,7 +172,9 @@
                 <constraint firstItem="ymF-Aw-Cid" firstAttribute="width" secondItem="KGk-i7-Jjw" secondAttribute="width" multiplier="0.38" id="F0h-kt-GHc"/>
             </constraints>
             <connections>
+                <outlet property="fromImg" destination="H84-08-oqE" id="szO-cB-9n7"/>
                 <outlet property="fromRegionLbl" destination="5Bf-Of-F9B" id="Ubh-5N-7AS"/>
+                <outlet property="toImg" destination="0MK-Aw-uFD" id="JJ4-GE-7vB"/>
                 <outlet property="toRegionLbl" destination="r08-sr-JXd" id="Ohl-Wm-Ohx"/>
             </connections>
             <point key="canvasLocation" x="142.74809160305344" y="38.732394366197184"/>

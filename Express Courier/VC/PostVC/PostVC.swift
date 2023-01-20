@@ -127,7 +127,7 @@ extension PostVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelega
         if indexPath.section == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "TaxiFilterTVC", for: indexPath) as? TaxiFilterTVC else {return UITableViewCell()}
             cell.delegate = self
-            cell.updateCell(from: fromRegionText, to: toRegionText)
+            cell.updateCell(from: fromRegionText, to: toRegionText, fromRegionId: nil, toRegionId: nil)
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: PostInsideTVC.identifier, for: indexPath) as? PostInsideTVC else {return UITableViewCell()}

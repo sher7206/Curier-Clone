@@ -17,6 +17,9 @@ class TaxiFilterTVC: UITableViewCell {
     
     @IBOutlet weak var fromRegionLbl: UILabel!
     @IBOutlet weak var toRegionLbl: UILabel!
+    @IBOutlet weak var fromImg: UIButton!
+    @IBOutlet weak var toImg: UIButton!
+    
     
     static let identifier = "TaxiFilterTVC"
     static func nib()->UINib{return UINib(nibName: identifier, bundle: nil)}
@@ -29,9 +32,20 @@ class TaxiFilterTVC: UITableViewCell {
     }
     
     
-    func updateCell(from: String, to: String) {
+    func updateCell(from: String, to: String, fromRegionId: Int?, toRegionId: Int?) {
         fromRegionLbl.text = from
         toRegionLbl.text = to
+        if from != "Viloyat, tuman" {
+            self.fromImg.isHidden = false
+        } else {
+            self.fromImg.isHidden = true
+        }
+        
+        if to != "Viloyat, tuman" {
+            self.toImg.isHidden = false
+        } else {
+            self.toImg.isHidden = true
+        }
     }
     
     

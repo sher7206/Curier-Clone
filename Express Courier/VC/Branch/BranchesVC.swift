@@ -55,8 +55,8 @@ class BranchesVC: UIViewController {
     
 }
 
-extension BranchesVC: UITableViewDelegate, UITableViewDataSource {
-    
+extension BranchesVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.dates.count
     }

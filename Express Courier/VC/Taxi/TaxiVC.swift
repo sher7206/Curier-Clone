@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import LocalAuthentication
 
 class TaxiVC: UIViewController {
     
@@ -40,6 +41,7 @@ class TaxiVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupNavigation()
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         tableView.addSubview(refreshControl)
@@ -47,6 +49,8 @@ class TaxiVC: UIViewController {
         self.historyAllDates()
         setUpScretchView()
     }
+    
+   
     
     func uploadNewsTaxi(page: Int, fromReg: Int?, fromDis: Int?, toReg: Int?, toDis: Int?) {
         Loader.start()
@@ -123,7 +127,7 @@ extension TaxiVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelega
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return 1
@@ -152,7 +156,7 @@ extension TaxiVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelega
         if indexPath.section == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "TaxiFilterTVC", for: indexPath) as? TaxiFilterTVC else {return UITableViewCell()}
             cell.delegate = self
-            cell.updateCell(from: fromRegionText, to: toRegionText)
+            cell.updateCell(from: fromRegionText, to: toRegionText, fromRegionId: self.fromRegionId, toRegionId: self.toRegionId)
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "TaxiTVC", for: indexPath) as? TaxiTVC else {return UITableViewCell()}
@@ -313,6 +317,12 @@ extension TaxiVC: TaxiFilterTVCDelegate {
     }
     
     func fromCloseTapped() {
+        
+        if fromRegionId == nil || toDistrictId == nil {
+            self.toRegionId = nil
+            self.toDistrictId = nil
+        }
+        
         self.fromRegionId = nil
         self.fromDistrictId = nil
         self.fromRegionText = "Viloyat, tuman"
@@ -325,6 +335,12 @@ extension TaxiVC: TaxiFilterTVCDelegate {
     }
     
     func toCloseTapped() {
+        
+        if toRegionId == nil || toDistrictId == nil {
+            self.fromRegionId = nil
+            self.fromDistrictId = nil
+        }
+        
         self.toRegionId = nil
         self.toDistrictId = nil
         self.toRegionText = "Viloyat, tuman"
@@ -336,6 +352,7 @@ extension TaxiVC: TaxiFilterTVCDelegate {
     }
     
     func replaceTapped() {
+        
         let a = fromRegionText
         let b = toRegionText
         self.fromRegionText = b
@@ -344,9 +361,9 @@ extension TaxiVC: TaxiFilterTVCDelegate {
         if isNew {
             self.newsCurrentPage = 1
             if isReplacement {
-                self.uploadNewsTaxi(page: newsCurrentPage, fromReg: fromRegionId, fromDis: fromDistrictId, toReg: toRegionId, toDis: toDistrictId)
-            } else {
                 self.uploadNewsTaxi(page: newsCurrentPage, fromReg: toRegionId, fromDis: toDistrictId, toReg: fromRegionId, toDis: fromDistrictId)
+            } else {
+                self.uploadNewsTaxi(page: newsCurrentPage, fromReg: fromRegionId, fromDis: fromDistrictId, toReg: toRegionId, toDis: toDistrictId)
             }
         } else {
             self.historyCurrentPage = 1
@@ -356,7 +373,6 @@ extension TaxiVC: TaxiFilterTVCDelegate {
                 self.uploadHistoryTaxi(page: self.historyCurrentPage, fromReg: toRegionId, fromDis: toDistrictId, toReg: fromRegionId, toDis: fromDistrictId)
             }
         }
-        
         self.isReplacement = !self.isReplacement
     }
 }
