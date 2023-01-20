@@ -61,11 +61,12 @@ class ListBranchVC: UIViewController {
 //MARK: TABLE VIEW
 extension ListBranchVC: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return self.dates.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: BranchListTVC.identifier, for: indexPath) as? BranchListTVC else {return UITableViewCell()}
-        //        cell.updateCell(data: self.dates[indexPath.row])
+        
+        
         cell.selectionStyle = .none
         return cell
     }
@@ -73,14 +74,5 @@ extension ListBranchVC: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = ListVC()
         navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == self.dates.count - 1 {
-            if totalItems > dates.count {
-                self.currentPage += 1
-                self.uploadData(page: self.currentPage)
-            }
-        }
     }
 }
