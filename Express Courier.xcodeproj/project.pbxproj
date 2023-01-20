@@ -151,6 +151,10 @@
 		27778564296EEF3C00FC0141 /* TaxiTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27778562296EEF3C00FC0141 /* TaxiTVC.xib */; };
 		278AB689297A9FB500B4577D /* LockScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278AB687297A9FB500B4577D /* LockScreenVC.swift */; };
 		278AB68A297A9FB500B4577D /* LockScreenVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 278AB688297A9FB500B4577D /* LockScreenVC.xib */; };
+		278AB68D297ABB5F00B4577D /* ListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278AB68C297ABB5F00B4577D /* ListRequest.swift */; };
+		278AB68F297ABB9600B4577D /* ListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278AB68E297ABB9600B4577D /* ListResponse.swift */; };
+		278AB691297ABD5D00B4577D /* ListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278AB690297ABD5D00B4577D /* ListService.swift */; };
+		278AB693297ABD7200B4577D /* ListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278AB692297ABD7200B4577D /* ListRouter.swift */; };
 		279BAAB1296825490028B2EC /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279BAAAF296825490028B2EC /* RegisterVC.swift */; };
 		279BAAB2296825490028B2EC /* RegisterVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 279BAAB0296825490028B2EC /* RegisterVC.xib */; };
 		27A2670F297148D700294BE7 /* AddTeamVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A2670D297148D700294BE7 /* AddTeamVC.swift */; };
@@ -335,6 +339,10 @@
 		27778562296EEF3C00FC0141 /* TaxiTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaxiTVC.xib; sourceTree = "<group>"; };
 		278AB687297A9FB500B4577D /* LockScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockScreenVC.swift; sourceTree = "<group>"; };
 		278AB688297A9FB500B4577D /* LockScreenVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LockScreenVC.xib; sourceTree = "<group>"; };
+		278AB68C297ABB5F00B4577D /* ListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRequest.swift; sourceTree = "<group>"; };
+		278AB68E297ABB9600B4577D /* ListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListResponse.swift; sourceTree = "<group>"; };
+		278AB690297ABD5D00B4577D /* ListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListService.swift; sourceTree = "<group>"; };
+		278AB692297ABD7200B4577D /* ListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRouter.swift; sourceTree = "<group>"; };
 		279BAAAF296825490028B2EC /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		279BAAB0296825490028B2EC /* RegisterVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterVC.xib; sourceTree = "<group>"; };
 		27A2670D297148D700294BE7 /* AddTeamVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTeamVC.swift; sourceTree = "<group>"; };
@@ -598,6 +606,7 @@
 				1858EFEF2976C207005A3492 /* PostRouter.swift */,
 				277388D22977DEA400054CC4 /* TeamRouter.swift */,
 				27EC95252979816A00B567D5 /* BranchRouter.swift */,
+				278AB692297ABD7200B4577D /* ListRouter.swift */,
 			);
 			path = Routers;
 			sourceTree = "<group>";
@@ -619,6 +628,7 @@
 				1858EFEB2976C009005A3492 /* PostResponse.swift */,
 				277388D02977DD9D00054CC4 /* TeamResponse.swift */,
 				27EC952329797FE100B567D5 /* BranchResponse.swift */,
+				278AB68E297ABB9600B4577D /* ListResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -644,6 +654,7 @@
 				1858EFE92976BF6C005A3492 /* PostRequest.swift */,
 				277388CE2977DD4500054CC4 /* TeamRequest.swift */,
 				27EC952129797FB800B567D5 /* BranchRequest.swift */,
+				278AB68C297ABB5F00B4577D /* ListRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -668,6 +679,7 @@
 				1858EFED2976C1ED005A3492 /* PostService.swift */,
 				277388D42977DFA200054CC4 /* TeamService.swift */,
 				27EC9527297981FA00B567D5 /* BranchService.swift */,
+				278AB690297ABD5D00B4577D /* ListService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1228,6 +1240,7 @@
 				18B90B1C29794C5F003605D8 /* ScannerVC.swift in Sources */,
 				2776B0FD2971748A00544B1E /* ListVC.swift in Sources */,
 				2718BF7B297183B700DC0A8A /* PostVC.swift in Sources */,
+				278AB68D297ABB5F00B4577D /* ListRequest.swift in Sources */,
 				279BAAB1296825490028B2EC /* RegisterVC.swift in Sources */,
 				18DA32D3296BFCC10066FF9C /* SetupPinKodVC.swift in Sources */,
 				2718BF82297183D100DC0A8A /* PostInsideTVC.swift in Sources */,
@@ -1236,6 +1249,7 @@
 				18DA32EB296C1F060066FF9C /* Alert.swift in Sources */,
 				27B7E35B2966FEF500C3A69E /* OnboardingCVC.swift in Sources */,
 				27EC951A29797ADD00B567D5 /* BranchesVC.swift in Sources */,
+				278AB693297ABD7200B4577D /* ListRouter.swift in Sources */,
 				2718BFD8297186C700DC0A8A /* NetworkFlowDelegate.swift in Sources */,
 				27347F1F2970525B00D871EC /* TeamVC.swift in Sources */,
 				188F45D32972B1730029FCEC /* Loader.swift in Sources */,
@@ -1243,6 +1257,7 @@
 				27D9E0AF29758030002F57A2 /* TaxiService.swift in Sources */,
 				277388CF2977DD4500054CC4 /* TeamRequest.swift in Sources */,
 				2718BFDA297186C700DC0A8A /* BaseService.swift in Sources */,
+				278AB691297ABD5D00B4577D /* ListService.swift in Sources */,
 				27347F16297038E400D871EC /* TaxiOldUserModalVC.swift in Sources */,
 				2718BFD9297186C700DC0A8A /* BaseURLRequestConvertible.swift in Sources */,
 				27A267132971571B00294BE7 /* DeleteTeamVC.swift in Sources */,
@@ -1266,6 +1281,7 @@
 				188F45DF2972BCB50029FCEC /* Ex+Int.swift in Sources */,
 				2718BF71297183B700DC0A8A /* EnterTimerVC.swift in Sources */,
 				1858EFCC29758059005A3492 /* ReportTVC.swift in Sources */,
+				278AB68F297ABB9600B4577D /* ListResponse.swift in Sources */,
 				2718BFCE297186C700DC0A8A /* Header.swift in Sources */,
 				277388D52977DFA200054CC4 /* TeamService.swift in Sources */,
 				2718BF75297183B700DC0A8A /* ArrivedPostVC.swift in Sources */,
