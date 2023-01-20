@@ -123,7 +123,7 @@ extension TaxiVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelega
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return 1
@@ -349,8 +349,6 @@ extension TaxiVC: TaxiFilterTVCDelegate {
     
     func replaceTapped() {
         
-        print("✅fromReg =", fromRegionId, "fromDis =", fromDistrictId, "toReg =", toRegionId, "toDis =", toDistrictId)
-        
         let a = fromRegionText
         let b = toRegionText
         self.fromRegionText = b
@@ -359,15 +357,8 @@ extension TaxiVC: TaxiFilterTVCDelegate {
         if isNew {
             self.newsCurrentPage = 1
             if isReplacement {
-                
-                
-                
                 self.uploadNewsTaxi(page: newsCurrentPage, fromReg: toRegionId, fromDis: toDistrictId, toReg: fromRegionId, toDis: fromDistrictId)
-                
             } else {
-                
-                
-                
                 self.uploadNewsTaxi(page: newsCurrentPage, fromReg: fromRegionId, fromDis: fromDistrictId, toReg: toRegionId, toDis: toDistrictId)
             }
         } else {
@@ -378,7 +369,6 @@ extension TaxiVC: TaxiFilterTVCDelegate {
                 self.uploadHistoryTaxi(page: self.historyCurrentPage, fromReg: toRegionId, fromDis: toDistrictId, toReg: fromRegionId, toDis: fromDistrictId)
             }
         }
-        
         self.isReplacement = !self.isReplacement
     }
 }
