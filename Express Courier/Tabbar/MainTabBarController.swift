@@ -18,12 +18,12 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     }()
     
     
-    private lazy var branch: BranchesVC = {
-        let vc = BranchesVC(nibName: "BranchesVC", bundle: nil)
+    private lazy var taxi: TaxiVC = {
+        let vc = TaxiVC(nibName: "TaxiVC", bundle: nil)
         vc.tabBarItem = UITabBarItem(
-            title: "Filiallar",
-            image: UIImage(named: "building-menu"),
-            selectedImage: UIImage(named: "building-menu")
+            title: "Taksi",
+            image: UIImage(named: "car-menu"),
+            selectedImage: UIImage(named: "car-menu")
         )
         return vc
     }()
@@ -39,16 +39,16 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         return vc
     }()
     
-    private lazy var taxi: TaxiVC = {
-        let vc = TaxiVC(nibName: "TaxiVC", bundle: nil)
+    private lazy var branch: BranchesVC = {
+        let vc = BranchesVC(nibName: "BranchesVC", bundle: nil)
         vc.tabBarItem = UITabBarItem(
-            title: "Taksi",
-            image: UIImage(named: "car-menu"),
-            selectedImage: UIImage(named: "car-menu")
+            title: "Filiallar",
+            image: UIImage(named: "building-menu"),
+            selectedImage: UIImage(named: "building-menu")
         )
         return vc
     }()
-
+    
     private lazy var profile: MyKabinetVC = {
         let vc = MyKabinetVC(nibName: "MyKabinetVC", bundle: nil)
         vc.tabBarItem = UITabBarItem(
@@ -58,16 +58,16 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         )
         return vc
     }()
-
+    
     //On tabbar viewDidload
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
         viewControllers = [
             UINavigationController(rootViewController: main),
-            UINavigationController(rootViewController: branch),
-            UINavigationController(rootViewController: team),
             UINavigationController(rootViewController: taxi),
+            UINavigationController(rootViewController: team),
+            UINavigationController(rootViewController: branch),
             UINavigationController(rootViewController: profile)
         ]
         
@@ -78,7 +78,6 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         tabBar.items![4].imageInsets = UIEdgeInsets(top: 3, left: 0, bottom: -3, right: 0)
         
         foriOS15()
-       // tabBar.tintColor = UIColor(named: "blackWhite")
         tabBar.tintColor = UIColor(named: "primary900")
     }
     
@@ -96,7 +95,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
             appearance1.selectionIndicatorTintColor = .green
             self.tabBar.standardAppearance = appearance1
             self.tabBar.scrollEdgeAppearance = self.tabBar.standardAppearance
-
+            
         }
     }
     

@@ -313,6 +313,12 @@ extension TaxiVC: TaxiFilterTVCDelegate {
     }
     
     func fromCloseTapped() {
+        
+        if fromRegionId == nil || toDistrictId == nil {
+            self.toRegionId = nil
+            self.toDistrictId = nil
+        }
+        
         self.fromRegionId = nil
         self.fromDistrictId = nil
         self.fromRegionText = "Viloyat, tuman"
@@ -325,6 +331,12 @@ extension TaxiVC: TaxiFilterTVCDelegate {
     }
     
     func toCloseTapped() {
+        
+        if toRegionId == nil || toDistrictId == nil {
+            self.fromRegionId = nil
+            self.fromDistrictId = nil
+        }
+        
         self.toRegionId = nil
         self.toDistrictId = nil
         self.toRegionText = "Viloyat, tuman"
@@ -336,6 +348,9 @@ extension TaxiVC: TaxiFilterTVCDelegate {
     }
     
     func replaceTapped() {
+        
+        print("✅fromReg =", fromRegionId, "fromDis =", fromDistrictId, "toReg =", toRegionId, "toDis =", toDistrictId)
+        
         let a = fromRegionText
         let b = toRegionText
         self.fromRegionText = b
@@ -344,9 +359,16 @@ extension TaxiVC: TaxiFilterTVCDelegate {
         if isNew {
             self.newsCurrentPage = 1
             if isReplacement {
-                self.uploadNewsTaxi(page: newsCurrentPage, fromReg: fromRegionId, fromDis: fromDistrictId, toReg: toRegionId, toDis: toDistrictId)
-            } else {
+                
+                
+                
                 self.uploadNewsTaxi(page: newsCurrentPage, fromReg: toRegionId, fromDis: toDistrictId, toReg: fromRegionId, toDis: fromDistrictId)
+                
+            } else {
+                
+                
+                
+                self.uploadNewsTaxi(page: newsCurrentPage, fromReg: fromRegionId, fromDis: fromDistrictId, toReg: toRegionId, toDis: toDistrictId)
             }
         } else {
             self.historyCurrentPage = 1

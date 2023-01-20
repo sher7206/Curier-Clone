@@ -35,17 +35,16 @@ class TaxiFilterTVC: UITableViewCell {
     func updateCell(from: String, to: String, fromRegionId: Int?, toRegionId: Int?) {
         fromRegionLbl.text = from
         toRegionLbl.text = to
-        
-        if fromRegionId == nil {
-            self.fromImg.isHidden = true
-        } else {
+        if from != "Viloyat, tuman" {
             self.fromImg.isHidden = false
+        } else {
+            self.fromImg.isHidden = true
         }
         
-        if toRegionId == nil {
-            self.toImg.isHidden = true
-        } else {
+        if to != "Viloyat, tuman" {
             self.toImg.isHidden = false
+        } else {
+            self.toImg.isHidden = true
         }
     }
     
