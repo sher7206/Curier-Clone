@@ -5,6 +5,7 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import XNLogger
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -13,7 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         window = UIWindow()
         print("Get user token =", Cache.share.getUserToken())
-        
+        XNLogger.shared.startLogging()
+
         let abc = UserService()
         let img = UIImage(systemName: "person")
         let imgData = img?.pngData()

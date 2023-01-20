@@ -45,6 +45,8 @@
 		18AF68DC29683DD700B35B64 /* Ex+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AF68DB29683DD700B35B64 /* Ex+String.swift */; };
 		18AF68E029684E2D00B35B64 /* PostCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AF68DE29684E2D00B35B64 /* PostCVC.swift */; };
 		18AF68E129684E2D00B35B64 /* PostCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18AF68DF29684E2D00B35B64 /* PostCVC.xib */; };
+		18B90B1C29794C5F003605D8 /* ScannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B90B1A29794C5F003605D8 /* ScannerVC.swift */; };
+		18B90B1D29794C5F003605D8 /* ScannerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18B90B1B29794C5F003605D8 /* ScannerVC.xib */; };
 		18DA32C8296BFCC00066FF9C /* PayAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DA32BB296BFCBF0066FF9C /* PayAccountVC.swift */; };
 		18DA32C9296BFCC00066FF9C /* PinkodVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DA32BC296BFCC00066FF9C /* PinkodVC.swift */; };
 		18DA32CA296BFCC00066FF9C /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DA32BD296BFCC00066FF9C /* SettingsVC.swift */; };
@@ -211,6 +213,8 @@
 		18AF68DB29683DD700B35B64 /* Ex+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+String.swift"; sourceTree = "<group>"; };
 		18AF68DE29684E2D00B35B64 /* PostCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCVC.swift; sourceTree = "<group>"; };
 		18AF68DF29684E2D00B35B64 /* PostCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCVC.xib; sourceTree = "<group>"; };
+		18B90B1A29794C5F003605D8 /* ScannerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerVC.swift; sourceTree = "<group>"; };
+		18B90B1B29794C5F003605D8 /* ScannerVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScannerVC.xib; sourceTree = "<group>"; };
 		18DA32BB296BFCBF0066FF9C /* PayAccountVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayAccountVC.swift; sourceTree = "<group>"; };
 		18DA32BC296BFCC00066FF9C /* PinkodVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinkodVC.swift; sourceTree = "<group>"; };
 		18DA32BD296BFCC00066FF9C /* SettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
@@ -443,6 +447,8 @@
 			children = (
 				2718BF6F297183B700DC0A8A /* PostVC.swift */,
 				2718BF68297183B700DC0A8A /* PostVC.xib */,
+				18B90B1A29794C5F003605D8 /* ScannerVC.swift */,
+				18B90B1B29794C5F003605D8 /* ScannerVC.xib */,
 				1858EFDD2976926D005A3492 /* SkretchableHeaderView.swift */,
 				2718BF69297183B700DC0A8A /* ArrivedPostVC.swift */,
 				2718BF6D297183B700DC0A8A /* ArrivedPostVC.xib */,
@@ -1013,6 +1019,7 @@
 				2718BF84297183D100DC0A8A /* ChatTVC.xib in Resources */,
 				1858EFF6297835B5005A3492 /* KuryerVC.xib in Resources */,
 				2776B0FE2971748A00544B1E /* ListVC.xib in Resources */,
+				18B90B1D29794C5F003605D8 /* ScannerVC.xib in Resources */,
 				2769292A297568DF009BF0A5 /* NewTVC.xib in Resources */,
 				277388EC29782A3E00054CC4 /* ResetPasswordVC.xib in Resources */,
 				277388D9297805D500054CC4 /* OtpPhoneNumberVC.xib in Resources */,
@@ -1120,6 +1127,7 @@
 				27D9E0AB29757F43002F57A2 /* TaxiRouter.swift in Sources */,
 				2718BFD1297186C700DC0A8A /* NetworkError.swift in Sources */,
 				1858EFEE2976C1ED005A3492 /* PostService.swift in Sources */,
+				18B90B1C29794C5F003605D8 /* ScannerVC.swift in Sources */,
 				2776B0FD2971748A00544B1E /* ListVC.swift in Sources */,
 				2718BF7B297183B700DC0A8A /* PostVC.swift in Sources */,
 				279BAAB1296825490028B2EC /* RegisterVC.swift in Sources */,

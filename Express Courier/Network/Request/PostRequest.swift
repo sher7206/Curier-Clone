@@ -1,9 +1,7 @@
-//
+
 //  PostReques.swift
 //  Express Courier
-//
 //  Created by apple on 17/01/23.
-//
 
 import Foundation
 import UIKit
@@ -18,7 +16,10 @@ struct PostRequest: Codable {
     var available: String
 }
 
-
 struct PostIdRequest: Codable {
+    var id: Int
+}
+
+struct PostAcceptRequest{
     var id: Int
 }

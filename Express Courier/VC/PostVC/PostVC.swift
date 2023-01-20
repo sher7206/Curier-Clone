@@ -96,6 +96,8 @@ class PostVC: UIViewController {
     }
 
     @IBAction func scanBtnPressed(_ sender: Any) {
+        let vc = ScannerVC()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func listBtnPressed(_ sender: Any) {
@@ -158,7 +160,17 @@ extension PostVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelega
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-     
+        if pageType == .available{
+            let vc = PostAgreemantVC()
+            vc.modalPresentationStyle = .overFullScreen
+            vc.delegate = self
+            vc.id = getAllDates[indexPath.row].id ?? 0
+            present(vc, animated: true, completion: nil)
+        }else{
+            let vc = ArrivedPostVC()
+            vc.id = getAllDates[indexPath.row].id ?? 0
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -208,7 +220,6 @@ extension PostVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelega
             tableView.reloadData()
         }
     }
-    
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard let header = tableView.tableHeaderView as? SkretchableHeaderView else{
@@ -330,7 +341,6 @@ extension PostVC: TaxiFilterTVCDelegate{
         pageTypeReloadData(fromR: fromRegionId, fromD: fromDistrictId, toR: toRegionId, toD: toDistrictId)
     }
     
-    
     func replaceTapped() {
         let a = fromRegionText
         let b = toRegionText
@@ -373,7 +383,12 @@ extension PostVC: TaxiFilterTVCDelegate{
 }
 
 //MARK: - Region Selected Delegate
-extension PostVC: RegionSelectedVCDelegate {
+extension PostVC: RegionSelectedVCDelegate, PostAgreemantVCDelegate{
+    
+    func dataUpdater() {
+        pageTypeReloadData(fromR: fromRegionId, fromD: fromDistrictId, toR: toRegionId, toD: toDistrictId)
+    }
+    
     func setLocatoin(region id: Int, regoin name: String, state: States, isToRegion: Bool) {
             if isLeftRegion {
                 self.fromRegionText = name + ", " + state.name

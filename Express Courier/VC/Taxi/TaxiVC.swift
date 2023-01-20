@@ -108,7 +108,6 @@ class TaxiVC: UIViewController {
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         navigationItem.backButtonTitle = ""
-        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "TaxiFilterTVC", bundle: nil), forCellReuseIdentifier: "TaxiFilterTVC")
@@ -124,7 +123,7 @@ extension TaxiVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelega
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return 1
@@ -149,9 +148,7 @@ extension TaxiVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelega
         }
     }
     
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         if indexPath.section == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "TaxiFilterTVC", for: indexPath) as? TaxiFilterTVC else {return UITableViewCell()}
             cell.delegate = self
@@ -168,7 +165,6 @@ extension TaxiVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelega
             }
             return cell
         }
-        
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

@@ -16,6 +16,8 @@
                 <outlet property="commentImg" destination="YZy-Hp-Iwd" id="4C9-Kj-qcb"/>
                 <outlet property="commentLbl" destination="obl-OY-PdI" id="P6O-Ka-rnq"/>
                 <outlet property="commentNameLbl" destination="gw7-cl-Ltx" id="rwy-Cp-DGj"/>
+                <outlet property="creatorNameLbl" destination="ML0-VS-Z8e" id="oaK-EZ-C4A"/>
+                <outlet property="creatorPhoneLbl" destination="w0A-vN-eZ2" id="5FO-oV-OzL"/>
                 <outlet property="dateLbl" destination="VQ4-F8-S7B" id="LeS-xn-kOa"/>
                 <outlet property="deliveryPriceLbl" destination="yMh-s3-fo0" id="wXJ-Ac-eTn"/>
                 <outlet property="fromAddressLbl" destination="Ret-KX-Rmd" id="fLc-SR-52A"/>
@@ -23,9 +25,11 @@
                 <outlet property="insurPriceLbl" destination="sV0-QU-4ZO" id="bhn-Q7-yX8"/>
                 <outlet property="insurancePriceLbl" destination="LTq-5J-xSi" id="7I5-vk-Pzq"/>
                 <outlet property="priceLbl" destination="UWh-2e-5uk" id="O2t-z9-sVX"/>
+                <outlet property="recipientNameLbl" destination="h7t-do-Vvx" id="IVn-HI-7Wt"/>
+                <outlet property="recipientPhoneLbl" destination="u6K-8R-ZEL" id="fvX-31-9l4"/>
                 <outlet property="tableView" destination="RWo-Kh-lVl" id="QzF-nY-XSq"/>
-                <outlet property="toRegionLbl" destination="ML0-VS-Z8e" id="JEK-2X-p3L"/>
-                <outlet property="tomAddressLbl" destination="w0A-vN-eZ2" id="woM-Yl-tTe"/>
+                <outlet property="toAddressLbl" destination="cgK-Df-6Xr" id="cIp-Qs-gYO"/>
+                <outlet property="toRegionLbl" destination="vXi-Ub-61p" id="tRV-uv-Fwl"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

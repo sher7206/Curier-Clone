@@ -6,12 +6,21 @@ import UIKit
 
 class ArrivedPostVC: UIViewController {
 
+    
+    
     @IBOutlet weak var arrivingPriceLbl: UILabel!
     @IBOutlet weak var insurancePriceLbl: UILabel!
+    
     @IBOutlet weak var fromRegionLbl: UILabel!
     @IBOutlet weak var fromAddressLbl: UILabel!
+    @IBOutlet weak var creatorNameLbl: UILabel!
+    @IBOutlet weak var creatorPhoneLbl: UILabel!
+    
     @IBOutlet weak var toRegionLbl: UILabel!
-    @IBOutlet weak var tomAddressLbl: UILabel!
+    @IBOutlet weak var toAddressLbl: UILabel!
+    @IBOutlet weak var recipientNameLbl: UILabel!
+    @IBOutlet weak var recipientPhoneLbl: UILabel!
+    
     @IBOutlet weak var commentNameLbl: UILabel!
     @IBOutlet weak var commentLbl: UILabel!
     @IBOutlet weak var commentImg: UIImageView!
@@ -20,7 +29,16 @@ class ArrivedPostVC: UIViewController {
     @IBOutlet weak var deliveryPriceLbl: UILabel!
     @IBOutlet weak var insurPriceLbl: UILabel!
     @IBOutlet weak var dateLbl: UILabel!
-
+    
+    @IBOutlet weak var tableView: UITableView!{
+        didSet{
+            tableView.delegate = self
+            tableView.dataSource = self
+            tableView.register(ArrivedItemTVC.nib(), forCellReuseIdentifier: ArrivedItemTVC.identifier)
+            tableView.separatorStyle = .none
+        }
+    }
+    
     var menuItems: [UIAction] {
         return [
             UIAction(title: "Xabarlar", image: UIImage(named: "notification-bing-post"), handler: { (_) in
@@ -36,18 +54,13 @@ class ArrivedPostVC: UIViewController {
         return UIMenu(title: "", image: UIImage(named: "more-list"), identifier: nil, options: [], children: menuItems)
     }
     
-    @IBOutlet weak var tableView: UITableView!{
-        didSet{
-            tableView.delegate = self
-            tableView.dataSource = self
-            tableView.register(ArrivedItemTVC.nib(), forCellReuseIdentifier: ArrivedItemTVC.identifier)
-            tableView.separatorStyle = .none
-        }
-    }
-
+    var id = 0
+    var getOne: GetOneRespnseData!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigation()
+        getAPIResponse(id: id)
     }
 
     func setNavigation(){
@@ -57,17 +70,51 @@ class ArrivedPostVC: UIViewController {
         appearance.shadowColor = .clear
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        title = "#12345"
-        
-
+        title = "#\(id)"
         if #available(iOS 14.0, *) {
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: "", image: UIImage(named: "more-list"), primaryAction: nil, menu: demoMenu)
         } else {
             // Fallback on earlier versions
         }
-
     }
     
+    
+    func getAPIResponse(id: Int){
+        let service = PostService()
+        Loader.start()
+        service.getOnePostResponse(model: PostIdRequest(id: id)) { [self] result in
+            switch result{
+            case.success(let content):
+                guard let data = content.data else {return}
+                Loader.stop()
+                getOne = data
+                
+                arrivingPriceLbl.text = "\(getOne.delivery_fee_amount ?? 0) so'm"
+                insurancePriceLbl.text = "\(getOne.insurance_amount ?? 0) so'm"
+                
+                fromRegionLbl.text = "\(getOne.from_region_name ?? ""), \(getOne.from_district_name ?? "")"
+                fromAddressLbl.text = "\(getOne.from_address ?? "")"
+                creatorNameLbl.text = "\(getOne.creator_name ?? "")"
+                creatorPhoneLbl.text = "+998"
+                
+                toRegionLbl.text = "\(getOne.to_region_name ?? ""), \(getOne.to_district_name ?? "")"
+                toAddressLbl.text = getOne.to_address ?? ""
+                
+                priceLbl.text = "\(getOne.cash_amount ?? 0) so'm"
+                deliveryPriceLbl.text = "\(getOne.delivery_fee_amount ?? 0) so'm"
+                insurPriceLbl.text = "\(getOne.insurance_amount ?? 0) so'm"
+                            
+                if let date = getOne.expired_at{
+                    dateLbl.text = "\(String(date.prefix(10)))"
+                }else{
+                    dateLbl.text = "-"
+                }
+                
+            case.failure(let error):
+                Alert.showAlert(forState: .error, message: error.message ?? "Errror", vibrationType: .error)
+            }
+        }
+    }
     
     
     @IBAction func xBtnPressed(_ sender: Any) {
