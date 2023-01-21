@@ -15,7 +15,11 @@ enum PostRouter: BaseURLRequestConvertible {
     case getOnePost(model: PostIdRequest)
     case createChaPost(model: PostChatRequest)
     case getChatPost(model: PostGetChatRequest)
-
+    case cancelPost(model: CancelOrderPostRequest)
+    case confrimPost(model: ConfirmPostRequest)
+    case takePost(model: TakeOrderPostRequest)
+    case enterTimerPost(model: TimerOrderPostRequest)
+    
     var path: String {
         switch self {
         case.getPost(let model):
@@ -43,6 +47,15 @@ enum PostRouter: BaseURLRequestConvertible {
             return "/api/driver/packages/\(model.id)/comments"
         case .getChatPost(model: let model):
             return "/api/driver/packages/\(model.id)/comments?page=\(model.page)"
+        case .cancelPost(model: let model):
+            return "/api/driver/packages/\(model.id)/cancel"
+        case .confrimPost(model: let model):
+            return "/api/driver/packages/\(model.id)/complete"
+        case .takePost(model: let model):
+            return "/api/driver/packages/\(model.id)/refresh-recipient"
+        case .enterTimerPost(model: let model):
+            return "/api/driver/packages/\(model.id)/delivery-time"
+
         }
     }
     
@@ -58,6 +71,14 @@ enum PostRouter: BaseURLRequestConvertible {
             return .post
         case .getChatPost:
             return .get
+        case .cancelPost:
+            return .patch
+        case .confrimPost:
+            return .patch
+        case .takePost:
+            return .patch
+        case .enterTimerPost:
+            return .patch
         }
     }
     
@@ -74,6 +95,18 @@ enum PostRouter: BaseURLRequestConvertible {
             return param
         case .getChatPost:
             return nil
+        case .cancelPost(model: let model):
+            let param: [String : Any] = ["comment" : model.reason]
+            return param
+        case .confrimPost(model: let model):
+            let param: [String : Any] = ["comment" : model.reason]
+            return param
+        case .takePost(model: let model):
+            let param: [String : Any] = ["comment" : model.reason]
+            return param
+        case .enterTimerPost(model: let model):
+            let param: [String : Any] = ["comment" : model.reason, "expired_at" : model.date]
+            return param
         }
     }
     

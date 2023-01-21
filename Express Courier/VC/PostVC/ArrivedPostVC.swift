@@ -6,8 +6,13 @@
 
 import UIKit
 import SDWebImage
+protocol ArrivedPostVCDelegate{
+    func cancelOrder()
+}
+
 
 class ArrivedPostVC: UIViewController {
+        
 
     @IBOutlet weak var matterLbl: UILabel!
     @IBOutlet weak var arrivingPriceLbl: UILabel!
@@ -47,11 +52,24 @@ class ArrivedPostVC: UIViewController {
             UIAction(title: "Xabarlar", image: UIImage(named: "notification-bing-post"), handler: { [self] (_) in
                 let vc = ChatVC()
                 vc.id = id
+                
                 self.navigationController?.pushViewController(vc, animated: true)
             }),
-            UIAction(title: "Taymer kiritish", image: UIImage(named: "clock-post"), handler: { (_) in
+            UIAction(title: "Taymer kiritish", image: UIImage(named: "clock-post"), handler: { [self] (_) in
+                let vc = EnterTimerVC()
+                vc.modalPresentationStyle = .overFullScreen
+                vc.id = id
+                vc.orderType = .taymer
+                vc.delegate = self
+                self.present(vc, animated: true, completion: nil)
             }),
-            UIAction(title: "Buyurtma olish", image: UIImage(named: "repeat-post"), handler: { (_) in
+            UIAction(title: "Buyurtma olish", image: UIImage(named: "repeat-post"), handler: { [self] (_) in
+                let vc = EnterTimerVC()
+                vc.modalPresentationStyle = .overFullScreen
+                vc.id = id
+                vc.orderType = .takeOrder
+                vc.delegate = self
+                present(vc, animated: true, completion: nil)
             })
         ]
     }
@@ -59,6 +77,7 @@ class ArrivedPostVC: UIViewController {
     var demoMenu: UIMenu {
         return UIMenu(title: "", image: UIImage(named: "more-list"), identifier: nil, options: [], children: menuItems)
     }
+    var delegate: ArrivedPostVCDelegate?
     
     var getOne: GetOneRespnseData!
     var phoneNumber = ""
@@ -132,9 +151,22 @@ class ArrivedPostVC: UIViewController {
     }
     
     @IBAction func cancelBtnPressed(_ sender: Any) {
+        let vc = EnterTimerVC()
+        vc.modalPresentationStyle = .overFullScreen
+        vc.orderType = .cancelOrder
+        vc.id = id
+        vc.delegate = self
+        present(vc, animated: true, completion: nil)
     }
     
     @IBAction func confirmedBtnPressed(_ sender: Any) {
+        let vc = EnterTimerVC()
+        vc.modalPresentationStyle = .overFullScreen
+        vc.orderType = .overOrder
+        vc.id = id
+        vc.delegate = self
+        present(vc, animated: true, completion: nil)
+
     }
     
     @IBAction func callBtnPressed(_ sender: Any) {
@@ -144,21 +176,27 @@ class ArrivedPostVC: UIViewController {
     }
     
     @IBAction func callCommentorBtnPressed(_ sender: Any) {
-        
     }
     
 }
-
 
 //MARK: Table View
 extension ArrivedPostVC: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         3
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ArrivedItemTVC.identifier, for: indexPath) as! ArrivedItemTVC
         cell.selectionStyle = .none
         return cell
     }
 }
+
+//MARK: Cancel Order
+extension ArrivedPostVC: EnterTimerVCDelegate{
+    func dismissOrder() {
+        delegate?.cancelOrder()
+        navigationController?.popViewController(animated: true)
+    }
+}
+
