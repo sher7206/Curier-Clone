@@ -18,7 +18,8 @@ class ListVC: UIViewController {
         }
     }
     
-    let headerTexts = ["Yo'lda", "Yetkazilgan", "Bekor qilingan"]
+    let search = UISearchController(searchResultsController: nil)
+    let headerTexts = ["Buyurtmalar", "Yangi", "Qabul qilingan"]
     var selectIndexCVC: Int = 0
     var menuItems: [UIAction] {
         return [
@@ -41,16 +42,12 @@ class ListVC: UIViewController {
     var demoMenu: UIMenu {
         return UIMenu(title: "", image: UIImage(named: "more-list"), identifier: nil, options: [], children: menuItems)
     }
-    
-    
     var backColor: UIColor =  UIColor(named: "primary900")!
     var backWhiteColor: UIColor = UIColor(named: "white300")!
-    let search = UISearchController(searchResultsController: nil)
-    var status: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.searchController = search
+        navigationItem.searchController = search
         setupNavigation()
         setUpScretchView()
     }
@@ -104,6 +101,8 @@ extension ListVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelega
         
         v.backgroundColor = UIColor(named: "primary900")
         let layout = UICollectionViewFlowLayout()
+        
+        
         layout.scrollDirection = .horizontal
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
@@ -113,6 +112,7 @@ extension ListVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelega
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "TaxiHeaderCVC", bundle: nil), forCellWithReuseIdentifier: "TaxiHeaderCVC")
         v.addSubview(collectionView)
+        
         collectionView.backgroundColor = UIColor(named: "primary900")
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.topAnchor.constraint(equalTo: v.topAnchor, constant: 0).isActive = true
@@ -172,15 +172,6 @@ extension ListVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.selectIndexCVC = indexPath.row
-        
-        if self.selectIndexCVC == 0 {
-            status = "active"
-        } else if self.selectIndexCVC == 1 {
-            status = "completed"
-        } else {
-            status = "canceled"
-        }
-        
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         collectionView.reloadData()
     }
