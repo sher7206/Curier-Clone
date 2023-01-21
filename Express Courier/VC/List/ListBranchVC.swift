@@ -21,6 +21,8 @@ class ListBranchVC: UIViewController {
     var currentPage: Int = 1
     var totalItems: Int = 0
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigation()
