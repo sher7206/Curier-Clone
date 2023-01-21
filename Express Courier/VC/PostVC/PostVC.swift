@@ -73,6 +73,9 @@ class PostVC: UIViewController {
         setUpScretchView()
         getApiResponse(page: 1, fromRegionId: nil, fromDistrictId: nil, toRegionId: nil, toDistrictId: nil, status: "", available: "/available")
         makeCollectionView()
+        
+        
+        
     }
     
     func getApiResponse(page: Int, fromRegionId: Int?, fromDistrictId: Int?, toRegionId: Int?,toDistrictId: Int?,status: String, available: String){
@@ -176,6 +179,8 @@ extension PostVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelega
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
         if pageType == .available{
             let vc = PostAgreemantVC()
             vc.modalPresentationStyle = .overFullScreen

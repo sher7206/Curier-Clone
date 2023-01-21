@@ -14,6 +14,8 @@ enum AuthRouter: BaseURLRequestConvertible {
     case resetPassword(model: ResetPasswordRequest)
     case verifyCode(model: VerifyCodeRequest)
     case confirmPassword(model: ConfirmPasswordRequest)
+    case sendFcmToken(model: FcmTokenRequest)
+
     
     var path: String {
         switch self {
@@ -27,6 +29,8 @@ enum AuthRouter: BaseURLRequestConvertible {
             return "/api/auth/sanctum/verify-code"
         case .confirmPassword:
             return "/api/profile/update-password"
+        case .sendFcmToken:
+            return "/api/profile/set-device-token"
         }
     }
     
@@ -41,6 +45,8 @@ enum AuthRouter: BaseURLRequestConvertible {
         case .verifyCode:
             return .post
         case .confirmPassword:
+            return .post
+        case .sendFcmToken:
             return .post
         }
     }
@@ -77,6 +83,12 @@ enum AuthRouter: BaseURLRequestConvertible {
                 "password_confirmation": model.password_confirmation
             ]
             return params
+        case .sendFcmToken(let model):
+            let param: [String: Any] = ["fcm_token" : model.fcm_token,
+                                        "platform" : model.platform,
+                                        "app_id" : model.app_id]
+            return param
+            
         }
         
     }

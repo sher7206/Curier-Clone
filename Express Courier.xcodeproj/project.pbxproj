@@ -29,6 +29,7 @@
 		1858EFF4297835AD005A3492 /* KuryerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1858EFF3297835AD005A3492 /* KuryerVC.swift */; };
 		1858EFF6297835B5005A3492 /* KuryerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1858EFF5297835B5005A3492 /* KuryerVC.xib */; };
 		1868BC8A297C2DB400B4CCA9 /* scanning.json in Resources */ = {isa = PBXBuildFile; fileRef = 1868BC89297C2DB300B4CCA9 /* scanning.json */; };
+		1868BC8F297C39DF00B4CCA9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1868BC8E297C39DF00B4CCA9 /* GoogleService-Info.plist */; };
 		188F45D32972B1730029FCEC /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188F45D22972B1730029FCEC /* Loader.swift */; };
 		188F45D62972B19C0029FCEC /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 188F45D52972B19C0029FCEC /* loading.json */; };
 		188F45D82972B3E10029FCEC /* loader.json in Resources */ = {isa = PBXBuildFile; fileRef = 188F45D72972B3E00029FCEC /* loader.json */; };
@@ -216,6 +217,8 @@
 		1858EFF3297835AD005A3492 /* KuryerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KuryerVC.swift; sourceTree = "<group>"; };
 		1858EFF5297835B5005A3492 /* KuryerVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KuryerVC.xib; sourceTree = "<group>"; };
 		1868BC89297C2DB300B4CCA9 /* scanning.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = scanning.json; sourceTree = "<group>"; };
+		1868BC8B297C38E800B4CCA9 /* Express Courier.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Express Courier.entitlements"; sourceTree = "<group>"; };
+		1868BC8E297C39DF00B4CCA9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		188F45D22972B1730029FCEC /* Loader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		188F45D52972B19C0029FCEC /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		188F45D72972B3E00029FCEC /* loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loader.json; sourceTree = "<group>"; };
@@ -559,6 +562,7 @@
 		18DE66A62965A067003324A5 /* Express Courier */ = {
 			isa = PBXGroup;
 			children = (
+				1868BC8B297C38E800B4CCA9 /* Express Courier.entitlements */,
 				279BAAAA29681F8B0028B2EC /* AppDelegate */,
 				278AB686297A813300B4577D /* Tabbar */,
 				2718BF88297185A100DC0A8A /* Cache */,
@@ -572,6 +576,7 @@
 				18DE66B02965A069003324A5 /* Assets.xcassets */,
 				18DE66B22965A069003324A5 /* LaunchScreen.storyboard */,
 				18DE66B52965A069003324A5 /* Info.plist */,
+				1868BC8E297C39DF00B4CCA9 /* GoogleService-Info.plist */,
 				27B808DB2965C0A300E1357C /* Colors.xcassets */,
 			);
 			path = "Express Courier";
@@ -1117,6 +1122,7 @@
 				27B7E35C2966FEF500C3A69E /* OnboardingCVC.xib in Resources */,
 				188F45EB2972D1550029FCEC /* RegionsVC.xib in Resources */,
 				18AF68E129684E2D00B35B64 /* PostCVC.xib in Resources */,
+				1868BC8F297C39DF00B4CCA9 /* GoogleService-Info.plist in Resources */,
 				188F45D62972B19C0029FCEC /* loading.json in Resources */,
 				18DA32CC296BFCC00066FF9C /* MyKabinetVC.xib in Resources */,
 				18DE66B12965A069003324A5 /* Assets.xcassets in Resources */,
@@ -1464,12 +1470,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Express Courier/Express Courier.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YM5H6L638F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Express Courier/Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "camera use";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "This application wants to access your FaceID scanner";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -1480,7 +1488,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Nurillo.Express-Courier..";
+				PRODUCT_BUNDLE_IDENTIFIER = uz.100k.express.courier;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1494,12 +1502,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Express Courier/Express Courier.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YM5H6L638F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Express Courier/Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "camera use";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "This application wants to access your FaceID scanner";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -1510,7 +1520,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Nurillo.Express-Courier..";
+				PRODUCT_BUNDLE_IDENTIFIER = uz.100k.express.courier;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

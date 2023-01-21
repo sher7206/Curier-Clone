@@ -18,7 +18,7 @@ class KabinetVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         eyeImg.isHidden = true
         usernameTf.delegate = self
         passwordTf.delegate = self
@@ -69,6 +69,7 @@ class KabinetVC: UIViewController {
                     UserDefaults.standard.set("Bearer " + token, forKey: Keys.userToken)
                     let vc = MainTabBarController()
                     guard let window = UIApplication.shared.windows.filter({$0.isKeyWindow}).first else { return }
+                    self.sendFcmToken()
                     window.rootViewController = vc
                     window.makeKeyAndVisible()
                     let options: UIView.AnimationOptions = .transitionCrossDissolve
@@ -80,6 +81,22 @@ class KabinetVC: UIViewController {
                     Alert.showAlert(forState: .error, message: error.localizedDescription, vibrationType: .error)
                 }
             }
+    }
+    
+    
+    func sendFcmToken(){
+        let send = AuthService()
+        if let fcmToken = UserDefaults.standard.string(forKey: Keys.fcmToken){
+            
+            send.sendFcmToken(model: FcmTokenRequest(fcm_token: fcmToken, platform: "ios", app_id: "uz.100k.express.courier")) { result in
+                switch result{
+                case.success(let content):
+                    print(content.message,"🟢")
+                case.failure(let error):
+                    print(error.localizedDescription,"🔴")
+                }
+            }
+        }
     }
     
     @IBAction func registerTapped(_ sender: UIButton) {
