@@ -39,3 +39,20 @@ struct CancelOrderPostRequest{
     var id: Int
     var reason: String
 }
+
+
+struct ConfirmPostRequest{
+    var id: Int
+    var reason: String
+}
+
+struct TakeOrderPostRequest{
+    var id: Int
+    var reason: String
+}
+
+struct TimerOrderPostRequest{
+    var id: Int
+    var reason: String
+    var date: String
+}

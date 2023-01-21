@@ -3,6 +3,7 @@
 //  Express Courier
 //  Created by apple on 05/01/23.
 
+
 import UIKit
 
 enum MailStatus{
@@ -170,7 +171,8 @@ extension PostVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelega
         }else{
             let vc = ArrivedPostVC()
             vc.id = getAllDates[indexPath.row].id ?? 0
-            vc.hidesBottomBarWhenPushed = true    
+            vc.hidesBottomBarWhenPushed = true
+            vc.delegate = self
             navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -385,7 +387,11 @@ extension PostVC: TaxiFilterTVCDelegate{
 }
 
 //MARK: - Region Selected Delegate
-extension PostVC: RegionSelectedVCDelegate, PostAgreemantVCDelegate{
+extension PostVC: RegionSelectedVCDelegate, PostAgreemantVCDelegate,ArrivedPostVCDelegate{
+    
+    func cancelOrder() {
+        dataUpdater()
+    }
     
     func dataUpdater() {
         pageTypeReloadData(fromR: fromRegionId, fromD: fromDistrictId, toR: toRegionId, toD: toDistrictId)

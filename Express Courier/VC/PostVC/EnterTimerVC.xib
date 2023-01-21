@@ -15,9 +15,11 @@
                 <outlet property="confirmBtn" destination="EN1-iG-cDc" id="T6a-dh-DxF"/>
                 <outlet property="confirmationLbl" destination="g7N-VI-cnf" id="Pax-Rc-c6t"/>
                 <outlet property="contView" destination="oMd-SE-lip" id="SeN-2f-LAe"/>
+                <outlet property="datetf" destination="LZu-CQ-WaT" id="awr-6S-zdQ"/>
                 <outlet property="headerView" destination="uNg-He-4pd" id="Hd0-AR-v5p"/>
                 <outlet property="hiddenStack" destination="0YE-zv-sj5" id="4ut-tT-tYP"/>
                 <outlet property="reasonLbl" destination="xOb-6I-KWe" id="SX4-xO-l3b"/>
+                <outlet property="textView" destination="TqU-mO-BXr" id="fw0-20-0Qb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewNameLbl" destination="htK-DV-JOa" id="Qcw-DY-bJk"/>
             </connections>
@@ -35,7 +37,7 @@
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oMd-SE-lip">
-                    <rect key="frame" x="0.0" y="398.5" width="414" height="497.5"/>
+                    <rect key="frame" x="0.0" y="518" width="414" height="378"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uNg-He-4pd">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="58"/>
@@ -71,10 +73,10 @@
                             </constraints>
                         </view>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="Qz5-c1-qTu">
-                            <rect key="frame" x="16" y="74" width="382" height="383.5"/>
+                            <rect key="frame" x="16" y="74" width="382" height="264"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="0YE-zv-sj5">
-                                    <rect key="frame" x="0.0" y="0.0" width="382" height="205"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="382" height="85.5"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="j5k-8i-dy2">
                                             <rect key="frame" x="0.0" y="0.0" width="382" height="85.5"/>
@@ -106,25 +108,14 @@
                                                                 </imageView>
                                                             </subviews>
                                                         </stackView>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dA0-he-GQa">
-                                                            <rect key="frame" x="0.0" y="0.0" width="382" height="56"/>
-                                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                            <connections>
-                                                                <action selector="calendarBtnPressed:" destination="-1" eventType="touchUpInside" id="wuQ-BF-LcC"/>
-                                                            </connections>
-                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" name="white500"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="bottom" secondItem="dA0-he-GQa" secondAttribute="bottom" id="6c8-gm-Lfm"/>
                                                         <constraint firstItem="QDi-fJ-vWr" firstAttribute="leading" secondItem="wQ1-A4-S85" secondAttribute="leading" constant="16" id="8F5-9Z-gKm"/>
                                                         <constraint firstItem="QDi-fJ-vWr" firstAttribute="top" secondItem="wQ1-A4-S85" secondAttribute="top" constant="8" id="AJY-tF-69T"/>
-                                                        <constraint firstItem="dA0-he-GQa" firstAttribute="leading" secondItem="wQ1-A4-S85" secondAttribute="leading" id="F5s-U5-kzC"/>
                                                         <constraint firstAttribute="bottom" secondItem="QDi-fJ-vWr" secondAttribute="bottom" constant="8" id="G5e-TN-nwI"/>
                                                         <constraint firstAttribute="height" constant="56" id="R79-fZ-Ihn"/>
                                                         <constraint firstAttribute="trailing" secondItem="QDi-fJ-vWr" secondAttribute="trailing" constant="16" id="UUR-Sd-d1e"/>
-                                                        <constraint firstItem="dA0-he-GQa" firstAttribute="top" secondItem="wQ1-A4-S85" secondAttribute="top" id="mzQ-Td-y1h"/>
-                                                        <constraint firstAttribute="trailing" secondItem="dA0-he-GQa" secondAttribute="trailing" id="sLb-YL-FYX"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -134,78 +125,16 @@
                                                 </view>
                                             </subviews>
                                         </stackView>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="DFr-Cf-Xp0">
-                                            <rect key="frame" x="0.0" y="96.5" width="382" height="108.5"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sababini kiriting" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abs-PQ-PXx">
-                                                    <rect key="frame" x="0.0" y="0.0" width="382" height="19.5"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="fDS-co-Vwh">
-                                                    <rect key="frame" x="0.0" y="25.5" width="382" height="83"/>
-                                                    <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="AQR-CC-l0o">
-                                                            <rect key="frame" x="0.0" y="0.0" width="382" height="33.5"/>
-                                                            <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vNk-mQ-n42">
-                                                                    <rect key="frame" x="0.0" y="6" width="22" height="22"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="22" id="4rU-Jd-E82"/>
-                                                                        <constraint firstAttribute="width" secondItem="vNk-mQ-n42" secondAttribute="height" id="zAw-mU-gtW"/>
-                                                                    </constraints>
-                                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                    <state key="normal" image="checked-post"/>
-                                                                    <connections>
-                                                                        <action selector="tickBtnPressed:" destination="-1" eventType="touchUpInside" id="T04-UO-9wn"/>
-                                                                    </connections>
-                                                                </button>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mijoz bilan aloqa yo‘q, Buyurtma vaqtincha kuryerda qoladi" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OBZ-0J-zxN">
-                                                                    <rect key="frame" x="32" y="0.0" width="350" height="33.5"/>
-                                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
-                                                        </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="eER-IH-VER">
-                                                            <rect key="frame" x="0.0" y="49.5" width="382" height="33.5"/>
-                                                            <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bEC-oP-QQt">
-                                                                    <rect key="frame" x="0.0" y="6" width="22" height="22"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="width" secondItem="bEC-oP-QQt" secondAttribute="height" id="DXa-4y-4Uo"/>
-                                                                        <constraint firstAttribute="height" constant="22" id="y7n-hy-BXz"/>
-                                                                    </constraints>
-                                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                    <state key="normal" image="tick-square-post"/>
-                                                                    <connections>
-                                                                        <action selector="tickBtnPressed:" destination="-1" eventType="touchUpInside" id="qBU-I8-mAq"/>
-                                                                    </connections>
-                                                                </button>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mijoz buyurtmani vaqtincha saqlab turishini so‘radi " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LTY-x1-IEJ">
-                                                                    <rect key="frame" x="32" y="8.5" width="350" height="17"/>
-                                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
-                                                                    <color key="textColor" name="black700"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
-                                                        </stackView>
-                                                    </subviews>
-                                                </stackView>
-                                            </subviews>
-                                        </stackView>
                                     </subviews>
                                 </stackView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Buyurmani olib qolishdan maqsad nima?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xOb-6I-KWe">
-                                    <rect key="frame" x="0.0" y="216" width="382" height="19.5"/>
+                                    <rect key="frame" x="0.0" y="96.5" width="382" height="19.5"/>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CDh-Dm-3n9">
-                                    <rect key="frame" x="0.0" y="246.5" width="382" height="70"/>
+                                    <rect key="frame" x="0.0" y="127" width="382" height="70"/>
                                     <subviews>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Izoh qoldiring" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TqU-mO-BXr">
                                             <rect key="frame" x="10" y="10" width="362" height="50"/>
@@ -230,7 +159,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EN1-iG-cDc">
-                                    <rect key="frame" x="0.0" y="327.5" width="382" height="56"/>
+                                    <rect key="frame" x="0.0" y="208" width="382" height="56"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="kgj-hG-AQl">
                                             <rect key="frame" x="136.5" y="18" width="109.5" height="20"/>
@@ -312,12 +241,7 @@
     <resources>
         <image name="back-post" width="24" height="24"/>
         <image name="calendar-post" width="20" height="20"/>
-        <image name="checked-post" width="20" height="20"/>
         <image name="tick-circle-login" width="20" height="20"/>
-        <image name="tick-square-post" width="20" height="20"/>
-        <namedColor name="black700">
-            <color red="0.35699999332427979" green="0.35699999332427979" blue="0.35699999332427979" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="primary900">
             <color red="0.94099998474121094" green="0.70599997043609619" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

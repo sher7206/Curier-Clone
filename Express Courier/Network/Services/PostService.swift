@@ -24,5 +24,23 @@ struct PostService: BaseService {
     func getChatExpressData(model: PostGetChatRequest,  completion: @escaping Completion<CreateChatResonse>){
         request(.getChatPost(model: model), completion: completion)
     }
+    
+    func cancelOrderPostData(model: CancelOrderPostRequest,  completion: @escaping Completion<CancelPostResponse>){
+        request(.cancelPost(model: model), completion: completion)
+    }
+    
+    func confirmOrderPostData(model: ConfirmPostRequest,  completion: @escaping Completion<ConfirmPostResponse>){
+        request(.confrimPost(model: model), completion: completion)
+    }
+
+    func takeOrderData(model: TakeOrderPostRequest,  completion: @escaping Completion<TakeOrderPostResponse>){
+        request(.takePost(model: model), completion: completion)
+    }
+    
+    func enterTimerOrderData(model: TimerOrderPostRequest,  completion: @escaping Completion<EnterTimerOrderPostResponse>){
+        request(.enterTimerPost(model: model), completion: completion)
+    }
+
+
 
 }

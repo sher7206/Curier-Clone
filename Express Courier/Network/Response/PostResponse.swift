@@ -138,3 +138,52 @@ struct GetChatResponse: Codable{
     var created_at: String?
     var created_at_label: String?
 }
+
+struct CancelPostResponse: Codable {
+    
+    var message: String?
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        message = try? container.decode(String.self, forKey: .message)
+    }
+    enum CodingKeys: String, CodingKey {
+        case message
+    }
+}
+
+
+struct ConfirmPostResponse: Codable {
+    
+    var message: String?
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        message = try? container.decode(String.self, forKey: .message)
+    }
+    enum CodingKeys: String, CodingKey {
+        case message
+    }
+}
+
+struct TakeOrderPostResponse: Codable {
+    
+    var message: String?
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        message = try? container.decode(String.self, forKey: .message)
+    }
+    enum CodingKeys: String, CodingKey {
+        case message
+    }
+}
+
+struct EnterTimerOrderPostResponse: Codable {
+    
+    var message: String?
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        message = try? container.decode(String.self, forKey: .message)
+    }
+    enum CodingKeys: String, CodingKey {
+        case message
+    }
+}
