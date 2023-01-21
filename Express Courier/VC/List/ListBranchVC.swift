@@ -47,9 +47,7 @@ class ListBranchVC: UIViewController {
             switch result {
             case.success(let content):
                 Loader.stop()
-                print("✅ content =", content)
                 guard let data = content.data else {return}
-                
                 self.dates.append(contentsOf: data)
                 self.totalItems = content.meta?.total ?? 0
                 self.tableView.reloadData()
@@ -59,7 +57,6 @@ class ListBranchVC: UIViewController {
             }
         }
     }
-    
 }
 
 //MARK: TABLE VIEW
@@ -77,7 +74,7 @@ extension ListBranchVC: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = ListVC()
         vc.itemId = self.dates[indexPath.row].id ?? 0
-        vc.itemTitle = (self.dates[indexPath.row].storage_name ?? "") + " - " + "\(self.dates[indexPath.row].id ?? 0)"
+        vc.itemTitle = (self.dates[indexPath.row].storage_name ?? "") + " - " + "#\(self.dates[indexPath.row].id ?? 0)"
         navigationController?.pushViewController(vc, animated: true)
     }
     
