@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PostVC" customModule="Express_Courier" customModuleProvider="target">
             <connections>
+                <outlet property="emptyStack" destination="J4R-h6-lxy" id="4Sa-M0-uWb"/>
                 <outlet property="tableView" destination="wds-Fb-dhC" id="Zru-Wc-nbO"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -25,7 +26,7 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="nBC-VV-Izy">
-                    <rect key="frame" x="342" y="684" width="56" height="128"/>
+                    <rect key="frame" x="342" y="710" width="56" height="128"/>
                     <subviews>
                         <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKB-bc-Nu4">
                             <rect key="frame" x="0.0" y="0.0" width="56" height="56"/>
@@ -61,22 +62,45 @@
                         </button>
                     </subviews>
                 </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="J4R-h6-lxy">
+                    <rect key="frame" x="30" y="372" width="354" height="192"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty_box" translatesAutoresizingMaskIntoConstraints="NO" id="ydz-CG-oxV">
+                            <rect key="frame" x="94" y="0.0" width="166" height="165.5"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="ydz-CG-oxV" secondAttribute="height" id="9SU-8B-Xl2"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hech narsa topilmadi" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yqR-xb-dpL">
+                            <rect key="frame" x="74" y="165.5" width="206.5" height="26.5"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="white300"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="nBC-VV-Izy" secondAttribute="trailing" constant="16" id="5lT-23-Yrh"/>
+                <constraint firstItem="J4R-h6-lxy" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="20" id="8kv-Z5-b5C"/>
                 <constraint firstAttribute="bottom" secondItem="wds-Fb-dhC" secondAttribute="bottom" id="BtW-Ro-hGr"/>
                 <constraint firstAttribute="trailing" secondItem="wds-Fb-dhC" secondAttribute="trailing" id="INw-c3-xlu"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="nBC-VV-Izy" secondAttribute="bottom" constant="50" id="OTe-3A-0SB"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="nBC-VV-Izy" secondAttribute="bottom" constant="24" id="OTe-3A-0SB"/>
+                <constraint firstAttribute="trailing" secondItem="J4R-h6-lxy" secondAttribute="trailing" constant="30" id="QVV-ge-Jxw"/>
                 <constraint firstItem="wds-Fb-dhC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="VPE-lK-aXg"/>
+                <constraint firstItem="J4R-h6-lxy" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="WSb-Q7-Zuq"/>
+                <constraint firstItem="J4R-h6-lxy" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="XCH-2T-ZRl"/>
                 <constraint firstItem="wds-Fb-dhC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="bEs-q7-yS0"/>
+                <constraint firstItem="ydz-CG-oxV" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.4" id="cUb-Mq-TUy"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="109.82142857142857"/>
         </view>
     </objects>
     <resources>
         <image name="clipboard-text-post" width="24" height="24"/>
+        <image name="empty_box" width="519" height="481"/>
         <image name="scan-post" width="24" height="24"/>
         <namedColor name="primary900">
             <color red="0.94099998474121094" green="0.70599997043609619" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -5,23 +5,29 @@
 
 import UIKit
 import AVFoundation
+import Lottie
+
+protocol ScannerVCDelegate{
+    func isScannered(id: Int)
+}
 
 
 class ScannerVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, AVCapturePhotoCaptureDelegate, AVCaptureMetadataOutputObjectsDelegate  {
 
     @IBOutlet weak var previewView: UIView!
-    @IBOutlet weak var lblOutput: UILabel!
     
     
     var imageOrientation: AVCaptureVideoOrientation?
     var captureSession: AVCaptureSession?
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     var capturePhotoOutput: AVCapturePhotoOutput?
-    
+    var delegate: ScannerVCDelegate?
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+
+
+        title = "Scanner Item"
         
         // Get an instance of the AVCaptureDevice class to initialize a
         // device object and provide the video as the media type parameter
@@ -30,7 +36,6 @@ class ScannerVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
         }
         // handler chiamato quando viene cambiato orientamento
         self.imageOrientation = AVCaptureVideoOrientation.portrait
-                              
         do {
             // Get an instance of the AVCaptureDeviceInput class using the previous deivce object
             let input = try AVCaptureDeviceInput(device: captureDevice)
@@ -76,6 +81,7 @@ class ScannerVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
 
     override func viewWillAppear(_ animated: Bool) {
    //     navigationController?.setNavigationBarHidden(true, animated: false)
+        
         self.captureSession?.startRunning()
     }
     
@@ -94,26 +100,35 @@ class ScannerVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     func metadataOutput(_ captureOutput: AVCaptureMetadataOutput,
                         didOutput metadataObjects: [AVMetadataObject],
                         from connection: AVCaptureConnection) {
+        
         // Check if the metadataObjects array is contains at least one object.
         if metadataObjects.count == 0 {
             return
         }
-        
-        //self.captureSession?.stopRunning()
-        
+        self.captureSession?.stopRunning()
         // Get the metadata object.
         let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
-        
         if metadataObj.type == AVMetadataObject.ObjectType.qr {
             if let outputString = metadataObj.stringValue {
-                DispatchQueue.main.async {
-                    print(outputString)
-                    self.lblOutput.text = outputString
+                DispatchQueue.main.async { [self] in
+                    scannerQRCode(id: Int(outputString.dropFirst(8)) ?? 0)
                 }
             }
         }
-        
     }
-
-
+    
+    func scannerQRCode(id: Int){
+        let service = PostService()
+        service.getOnePostResponse(model: PostIdRequest(id: id)) { [self] result in
+            switch result{
+            case.success:
+                navigationController?.popViewController(animated: true)
+                delegate?.isScannered(id: id)
+                Alert.showAlert(forState: .success, message: "Succes", vibrationType: .success)
+            case.failure(let error):
+                Alert.showAlert(forState: .error, message: error.localizedDescription, vibrationType: .error)
+            }
+        }
+    }
+    
 }

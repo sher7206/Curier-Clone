@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PostAgreemantVC" customModule="Express_Courier" customModuleProvider="target">
             <connections>
                 <outlet property="backView" destination="3Wy-gw-K4J" id="P2i-hu-t8z"/>
+                <outlet property="orderTxtLbl" destination="1S1-Df-kvG" id="VgG-ND-2Xm"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -37,19 +38,19 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="k5P-G9-n2z">
-                            <rect key="frame" x="24" y="32" width="366" height="141"/>
+                            <rect key="frame" x="24" y="32" width="366" height="174"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tEl-9p-wHu">
-                                    <rect key="frame" x="0.0" y="0.0" width="366" height="77"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="366" height="110"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tizim yetkazib berish miqdoridan 20% komissiyasi oladi" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1S1-Df-kvG">
-                                            <rect key="frame" x="23.5" y="0.0" width="319.5" height="43"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Tizim yetkazib berish miqdoridan 20% komissiyasi oladi" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1S1-Df-kvG">
+                                            <rect key="frame" x="23.5" y="0.0" width="319.5" height="76"/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bunga rozimisiz ?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x3x-70-iwf">
-                                            <rect key="frame" x="103.5" y="53" width="159.5" height="24"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Bunga rozimisiz ?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x3x-70-iwf">
+                                            <rect key="frame" x="103.5" y="86" width="159.5" height="24"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -57,7 +58,7 @@
                                     </subviews>
                                 </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="hML-SB-S24">
-                                    <rect key="frame" x="0.0" y="101" width="366" height="40"/>
+                                    <rect key="frame" x="0.0" y="134" width="366" height="40"/>
                                     <subviews>
                                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uRK-7x-XdV">
                                             <rect key="frame" x="0.0" y="0.0" width="171" height="40"/>
@@ -173,6 +174,7 @@
                         <constraint firstAttribute="trailing" secondItem="k5P-G9-n2z" secondAttribute="trailing" constant="24" id="DGo-Ro-RIt"/>
                         <constraint firstAttribute="height" constant="230" id="V5o-nY-7d0"/>
                         <constraint firstItem="k5P-G9-n2z" firstAttribute="top" secondItem="fed-4i-kFj" secondAttribute="bottom" constant="16" id="Zbb-ls-YfO"/>
+                        <constraint firstAttribute="bottom" secondItem="k5P-G9-n2z" secondAttribute="bottom" constant="24" id="bNS-UJ-Yaq"/>
                         <constraint firstItem="fed-4i-kFj" firstAttribute="centerX" secondItem="3Wy-gw-K4J" secondAttribute="centerX" id="zgr-RF-69M"/>
                     </constraints>
                 </view>

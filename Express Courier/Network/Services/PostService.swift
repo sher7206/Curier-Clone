@@ -41,6 +41,9 @@ struct PostService: BaseService {
         request(.enterTimerPost(model: model), completion: completion)
     }
 
+    func returnOrderData(model: ReturnPostRequest,  completion: @escaping Completion<ReturnOrderPostResponse>){
+        request(.returnOrderPost(model: model), completion: completion)
+    }
 
 
 }

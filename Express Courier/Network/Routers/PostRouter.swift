@@ -9,7 +9,6 @@ import Alamofire
 
 enum PostRouter: BaseURLRequestConvertible {
     
-    
     case getPost(model: PostRequest)
     case acceptPost(model: PostAcceptRequest)
     case getOnePost(model: PostIdRequest)
@@ -19,6 +18,7 @@ enum PostRouter: BaseURLRequestConvertible {
     case confrimPost(model: ConfirmPostRequest)
     case takePost(model: TakeOrderPostRequest)
     case enterTimerPost(model: TimerOrderPostRequest)
+    case returnOrderPost(model: ReturnPostRequest)
     
     var path: String {
         switch self {
@@ -55,7 +55,8 @@ enum PostRouter: BaseURLRequestConvertible {
             return "/api/driver/packages/\(model.id)/refresh-recipient"
         case .enterTimerPost(model: let model):
             return "/api/driver/packages/\(model.id)/delivery-time"
-
+        case .returnOrderPost(model: let model):
+            return "/api/driver/packages/\(model.id)/activate"
         }
     }
     
@@ -78,6 +79,8 @@ enum PostRouter: BaseURLRequestConvertible {
         case .takePost:
             return .patch
         case .enterTimerPost:
+            return .patch
+        case .returnOrderPost:
             return .patch
         }
     }
@@ -107,6 +110,8 @@ enum PostRouter: BaseURLRequestConvertible {
         case .enterTimerPost(model: let model):
             let param: [String : Any] = ["comment" : model.reason, "expired_at" : model.date]
             return param
+        case .returnOrderPost:
+            return nil
         }
     }
     

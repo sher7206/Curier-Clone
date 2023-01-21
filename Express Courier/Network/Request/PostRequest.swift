@@ -6,6 +6,7 @@
 import Foundation
 import UIKit
 
+
 struct PostRequest: Codable {
     var page: Int
     var fromRegionId: Int?
@@ -55,4 +56,8 @@ struct TimerOrderPostRequest{
     var id: Int
     var reason: String
     var date: String
+}
+
+struct ReturnPostRequest{
+    var id: Int
 }
