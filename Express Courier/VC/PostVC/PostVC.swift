@@ -31,7 +31,8 @@ class PostVC: UIViewController {
     }
     
     var getAllDates: [GetPostRespnseData] = []
-    
+    var refreshControl = UIRefreshControl()
+
     let headerTexts = ["Buyurtmalar", "Yangi", "Qabul qilingan", "Yo'lda", "Yetkazilgan", "Bekor qilingan"]
     var selectIndexCVC: Int = 0
     var isNew: Bool = true
@@ -66,6 +67,8 @@ class PostVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigation()
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        tableView.addSubview(refreshControl)
         title = "Pochta"
         setUpScretchView()
         getApiResponse(page: 1, fromRegionId: nil, fromDistrictId: nil, toRegionId: nil, toDistrictId: nil, status: "", available: "/available")
@@ -90,6 +93,12 @@ class PostVC: UIViewController {
                 Loader.stop()
                 Alert.showAlert(forState: .error, message: error.localizedDescription, vibrationType: .error)
             }
+        }
+    }
+    @objc func refresh(send: UIRefreshControl) {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+            self.refreshControl.endRefreshing()
         }
     }
 
