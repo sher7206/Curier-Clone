@@ -51,6 +51,8 @@ class ListVC: UIViewController {
     var currentPage: Int = 1
     var totalItems: Int = 0
     var itemTitle: String = ""
+    var packages_count: Int = 0
+    var packages_count_sold: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,7 +81,7 @@ class ListVC: UIViewController {
         navigationItem.backButtonTitle = ""
         if #available(iOS 14.0, *) {
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: "", image: UIImage(named: "more-list"), primaryAction: nil, menu: demoMenu) } else {}
-        titleViewFunc(navigationTitle: itemTitle, title: "")
+        titleViewFunc(navigationTitle: itemTitle, title: "\(self.packages_count)/\(self.packages_count_sold)")
     }
     
     func titleViewFunc(navigationTitle: String, title: String) {

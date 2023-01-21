@@ -73,8 +73,11 @@ extension ListBranchVC: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = ListVC()
-        vc.itemId = self.dates[indexPath.row].id ?? 0
-        vc.itemTitle = (self.dates[indexPath.row].storage_name ?? "") + " - " + "#\(self.dates[indexPath.row].id ?? 0)"
+        let data = self.dates[indexPath.row]
+        vc.itemId = data.id ?? 0
+        vc.itemTitle = (data.storage_name ?? "") + " - " + "#\(data.id ?? 0)"
+        vc.packages_count = data.packages_count ?? 0
+        vc.packages_count_sold = data.packages_count_sold  ?? 0
         navigationController?.pushViewController(vc, animated: true)
     }
     
