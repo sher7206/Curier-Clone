@@ -21,7 +21,7 @@ class ReportVC: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Hisobot"
+        title = "Statistika"
     }
     
 

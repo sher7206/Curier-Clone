@@ -24,15 +24,15 @@ class ListVC: UIViewController {
     var menuItems: [UIAction] {
         return [
             UIAction(title: "Statistika", image: UIImage(named: "diagram-list"), handler: { (_) in
-                let vc = DistributionVC()
-                self.navigationController?.pushViewController(vc, animated: true)
-            }),
-            UIAction(title: "Hisoblash", image: UIImage(named: "math-list"), handler: { (_) in
                 let vc = ReportVC()
                 self.navigationController?.pushViewController(vc, animated: true)
             }),
-            UIAction(title: "Taqsimlash", image: UIImage(named: "discount-circle-list"), handler: { (_) in
+            UIAction(title: "Hisoblash", image: UIImage(named: "math-list"), handler: { (_) in
                 let vc = SortVC()
+                self.navigationController?.pushViewController(vc, animated: true)
+            }),
+            UIAction(title: "Taqsimlash", image: UIImage(named: "discount-circle-list"), handler: { (_) in
+                let vc = DistributionVC()
                 self.navigationController?.pushViewController(vc, animated: true)
             }),
             UIAction(title: "Jurnal", image: UIImage(named: "note-list"), handler: { (_) in
@@ -46,7 +46,7 @@ class ListVC: UIViewController {
     var backWhiteColor: UIColor = UIColor(named: "white300")!
     
     var dates: [ListPackagesData] = []
-    var itemId: Int = 59
+    var itemId: Int = 0
     var itemStatus: String = "active"
     var currentPage: Int = 1
     var totalItems: Int = 0
