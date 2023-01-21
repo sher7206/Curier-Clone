@@ -19,7 +19,7 @@ class ListVC: UIViewController {
     }
     
     let search = UISearchController(searchResultsController: nil)
-    let headerTexts = ["Buyurtmalar", "Yangi", "Qabul qilingan"]
+    let headerTexts = ["Yo'lda", "Yetkazilgan", "Bekor qilingan"]
     var selectIndexCVC: Int = 0
     var menuItems: [UIAction] {
         return [

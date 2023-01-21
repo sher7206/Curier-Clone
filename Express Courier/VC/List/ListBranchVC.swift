@@ -63,12 +63,12 @@ class ListBranchVC: UIViewController {
 //MARK: TABLE VIEW
 extension ListBranchVC: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.dates.count
+        return 5
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: BranchListTVC.identifier, for: indexPath) as? BranchListTVC else {return UITableViewCell()}
         
-        cell.updateCell(data: self.dates[indexPath.row])
+//        cell.updateCell(data: self.dates[indexPath.row])
         cell.selectionStyle = .none
         return cell
     }
