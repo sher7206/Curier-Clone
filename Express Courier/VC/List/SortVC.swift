@@ -8,7 +8,7 @@
 import UIKit
 
 class SortVC: UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!{
         didSet{
             tableView.delegate = self
@@ -33,30 +33,59 @@ class SortVC: UIViewController {
     
     var selectIndexCVC: Int = 0
     var headerTexts = ["Barchasi", "Yo‘lda", "Yetkazilgan", "Bekor qilingan"]
+    
+    var itemId: Int = 0
+    var groupBy: String = "matter"
+    var status: String?
+    var dates: [CountPackagesData] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Saralash"
-        print("didload index =", segmentControlOutlet.selectedSegmentIndex)
+        uploadData(status: status, groupBy: groupBy)
     }
-    @IBAction func segmentControllClick(_ sender: UISegmentedControl) {
-        switch segmentControlOutlet.selectedSegmentIndex {
-        case 0:
-            print("0")
-        default:
-            print("1")
-            
+    
+    func uploadData(status: String?, groupBy: String) {
+        Loader.start()
+        let countPackages = ListService()
+        countPackages.countPackages(model: CountPackagesRequest(id: self.itemId, status: status, group_by: groupBy)) { result in
+            switch result {
+            case.success(let content):
+                Loader.stop()
+                guard let data = content.data else {return}
+                self.dates.append(contentsOf: data)
+                self.tableView.reloadData()
+            case.failure(let error):
+                Loader.stop()
+                Alert.showAlert(forState: .error, message: error.localizedDescription, vibrationType: .error)
+            }
         }
     }
     
+    @IBAction func segmentControllClick(_ sender: UISegmentedControl) {
+        switch segmentControlOutlet.selectedSegmentIndex {
+        case 0:
+            self.dates.removeAll()
+            self.tableView.reloadData()
+            self.groupBy = "matter"
+            self.uploadData(status: status, groupBy: self.groupBy)
+        default:
+            self.dates.removeAll()
+            self.tableView.reloadData()
+            self.groupBy = "to_district_id"
+            self.uploadData(status: status, groupBy: self.groupBy)
+        }
+    }
 }
 
 //MARK: TABLE VIEW
 extension SortVC: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        5
+        return self.dates.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SortTVC.identifier, for: indexPath) as! SortTVC
+        cell.updateCell(data: self.dates[indexPath.row])
         return cell
     }
     
@@ -65,7 +94,7 @@ extension SortVC: UITableViewDelegate, UITableViewDataSource{
 //MARK: COLLECTION VIEW
 extension SortVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-       return headerTexts.count
+        return headerTexts.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ItemCVC.identifier, for: indexPath) as! ItemCVC
@@ -87,9 +116,31 @@ extension SortVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         return CGSize(width: self.headerTexts[indexPath.row].widthOfStringg(usingFont: .systemFont(ofSize: 15)) + 30, height: 40)
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            self.selectIndexCVC = indexPath.row
-            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-            collectionView.reloadData()
+        self.selectIndexCVC = indexPath.row
+        if indexPath.row == 0 {
+            self.status = nil
+            self.dates.removeAll()
+            self.tableView.reloadData()
+            self.uploadData(status: status, groupBy: groupBy)
+            
+        } else if indexPath.row == 1 {
+            self.status = "active"
+            self.dates.removeAll()
+            self.tableView.reloadData()
+            self.uploadData(status: status, groupBy: groupBy)
+        } else if indexPath.row == 2 {
+            self.status = "completed"
+            self.dates.removeAll()
+            self.tableView.reloadData()
+            self.uploadData(status: status, groupBy: groupBy)
+        } else {
+            self.status = "canceled"
+            self.dates.removeAll()
+            self.tableView.reloadData()
+            self.uploadData(status: status, groupBy: groupBy)
+        }
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        collectionView.reloadData()
     }
 }
 

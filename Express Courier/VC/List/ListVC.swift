@@ -18,21 +18,34 @@ class ListVC: UIViewController {
         }
     }
     
+    var itemId: Int = 0
     let search = UISearchController(searchResultsController: nil)
     let headerTexts = ["Yo'lda", "Yetkazilgan", "Bekor qilingan"]
     var selectIndexCVC: Int = 0
+    var backColor: UIColor =  UIColor(named: "primary900")!
+    var backWhiteColor: UIColor = UIColor(named: "white300")!
+    var dates: [ListPackagesData] = []
+    var itemStatus: String = "active"
+    var currentPage: Int = 1
+    var totalItems: Int = 0
+    var itemTitle: String = ""
+    var packages_count: Int = 0
+    var packages_count_sold: Int = 0
+    
     var menuItems: [UIAction] {
         return [
             UIAction(title: "Statistika", image: UIImage(named: "diagram-list"), handler: { (_) in
-                let vc = DistributionVC()
+                let vc = ReportVC()
+                vc.itemId = self.itemId
                 self.navigationController?.pushViewController(vc, animated: true)
             }),
             UIAction(title: "Hisoblash", image: UIImage(named: "math-list"), handler: { (_) in
-                let vc = ReportVC()
+                let vc = SortVC()
+                vc.itemId = self.itemId
                 self.navigationController?.pushViewController(vc, animated: true)
             }),
             UIAction(title: "Taqsimlash", image: UIImage(named: "discount-circle-list"), handler: { (_) in
-                let vc = SortVC()
+                let vc = DistributionVC()
                 self.navigationController?.pushViewController(vc, animated: true)
             }),
             UIAction(title: "Jurnal", image: UIImage(named: "note-list"), handler: { (_) in
@@ -42,18 +55,15 @@ class ListVC: UIViewController {
     var demoMenu: UIMenu {
         return UIMenu(title: "", image: UIImage(named: "more-list"), identifier: nil, options: [], children: menuItems)
     }
-    var backColor: UIColor =  UIColor(named: "primary900")!
-    var backWhiteColor: UIColor = UIColor(named: "white300")!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.searchController = search
+        search.searchBar.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50)
+        self.extendedLayoutIncludesOpaqueBars = true
         setupNavigation()
         setUpScretchView()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+        uploadData(page: self.currentPage, status: itemStatus)
     }
     
     func setUpScretchView(){
@@ -62,9 +72,8 @@ class ListVC: UIViewController {
         tableView.tableHeaderView = header
         self.view.backgroundColor = UIColor(named: "white300")
     }
-
+    
     func setupNavigation() {
-        title = "Bon-Ton store"
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = UIColor(named: "primary900")
@@ -73,36 +82,100 @@ class ListVC: UIViewController {
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         navigationItem.backButtonTitle = ""
         if #available(iOS 14.0, *) {
-            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "", image: UIImage(named: "more-list"), primaryAction: nil, menu: demoMenu)
-        } else {
-            // Fallback on earlier versions
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "", image: UIImage(named: "more-list"), primaryAction: nil, menu: demoMenu) } else {}
+        titleViewFunc(navigationTitle: itemTitle, title: "\(self.packages_count)/\(self.packages_count_sold)")
+    }
+    
+    func titleViewFunc(navigationTitle: String, title: String) {
+        
+        let v = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50))
+        
+        let stack: UIStackView = {
+            let stack = UIStackView()
+            stack.alignment = .center
+            stack.distribution = .equalSpacing
+            stack.axis = .vertical
+            stack.spacing = 0
+            return stack
+        }()
+        
+        let lbl1: UILabel = {
+            let lbl = UILabel()
+            lbl.text = navigationTitle
+            lbl.font = .systemFont(ofSize: 16, weight: .semibold)
+            lbl.textAlignment = .center
+            return lbl
+        }()
+        
+        let lbl2: UILabel = {
+            let lbl = UILabel()
+            lbl.text = title
+            lbl.font = .systemFont(ofSize: 13)
+            lbl.textAlignment = .center
+            return lbl
+        }()
+        
+        v.addSubview(stack)
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.leadingAnchor.constraint(equalTo: v.leadingAnchor, constant: 0).isActive = true
+        stack.trailingAnchor.constraint(equalTo: v.trailingAnchor, constant: 0).isActive = true
+        stack.topAnchor.constraint(equalTo: v.topAnchor, constant: 0).isActive = true
+        stack.bottomAnchor.constraint(equalTo: v.bottomAnchor, constant: 0).isActive = true
+        stack.addArrangedSubview(lbl1)
+        stack.addArrangedSubview(lbl2)
+        self.navigationItem.titleView = v
+    }
+    
+    func uploadData(page: Int, status: String) {
+        Loader.start()
+        let getList = ListService()
+        getList.listPackages(model: ListPackagesRequest(id: itemId, page: currentPage, status: status)) { result in
+            switch result {
+            case.success(let content):
+                Loader.stop()
+                guard let data = content.data else {return}
+                self.dates.append(contentsOf: data)
+                self.totalItems = content.meta?.total ?? 0
+                self.tableView.reloadData()
+            case.failure(let error):
+                Loader.stop()
+                Alert.showAlert(forState: .error, message: error.localizedDescription, vibrationType: .error)
+            }
         }
     }
-
+    
 }
 
 //MARK: - Table View Delegate
 extension ListVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return 1
+        return self.dates.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: PostInsideTVC.identifier, for: indexPath) as! PostInsideTVC
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: PostInsideTVC.identifier, for: indexPath) as? PostInsideTVC else {return UITableViewCell()}
+        if indexPath.row == 0 {
+            cell.headerDateLbl.isHidden = false
+        }else{
+            let first = dates[indexPath.row-1].created_at
+            let second = dates[indexPath.row].created_at
+            if first?.prefix(10) == second?.prefix(10){
+                cell.headerDateLbl.isHidden = true
+            }else{
+                cell.headerDateLbl.isHidden = false
+            }
+        }
+        cell.updateCellListData(data: self.dates[indexPath.row])
         return cell
-        
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let v = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.frame.width, height: 40))
-        
         v.backgroundColor = UIColor(named: "primary900")
         let layout = UICollectionViewFlowLayout()
-        
-        
         layout.scrollDirection = .horizontal
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
@@ -124,12 +197,9 @@ extension ListVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelega
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-            return 40
+        return 40
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
-    }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard let header = tableView.tableHeaderView as? SkretchableHeaderView else{
             return
@@ -137,6 +207,14 @@ extension ListVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelega
         header.crollViewDidScroll(scrollView: tableView)
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == dates.count - 1 {
+            if self.totalItems > dates.count {
+                self.currentPage += 1
+                self.uploadData(page: self.currentPage, status: itemStatus)
+            }
+        }
+    }
 }
 
 
@@ -172,6 +250,25 @@ extension ListVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.selectIndexCVC = indexPath.row
+        if indexPath.row == 0 {
+            self.itemStatus = "active"
+            self.currentPage = 1
+            self.dates.removeAll()
+            self.tableView.reloadData()
+            self.uploadData(page: self.currentPage, status: self.itemStatus)
+        } else if indexPath.row == 1 {
+            self.itemStatus = "completed"
+            self.currentPage = 1
+            self.dates.removeAll()
+            self.tableView.reloadData()
+            self.uploadData(page: self.currentPage, status: self.itemStatus)
+        } else {
+            self.itemStatus = "canceled"
+            self.currentPage = 1
+            self.dates.removeAll()
+            self.tableView.reloadData()
+            self.uploadData(page: self.currentPage, status: self.itemStatus)
+        }
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         collectionView.reloadData()
     }
@@ -181,5 +278,7 @@ extension ListVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     }
     
 }
+
+
 
 

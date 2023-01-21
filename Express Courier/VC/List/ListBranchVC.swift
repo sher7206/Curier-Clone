@@ -57,24 +57,36 @@ class ListBranchVC: UIViewController {
             }
         }
     }
-    
 }
 
 //MARK: TABLE VIEW
 extension ListBranchVC: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return self.dates.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: BranchListTVC.identifier, for: indexPath) as? BranchListTVC else {return UITableViewCell()}
-        
-//        cell.updateCell(data: self.dates[indexPath.row])
+        cell.updateCell(data: self.dates[indexPath.row])
         cell.selectionStyle = .none
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = ListVC()
+        let data = self.dates[indexPath.row]
+        vc.itemId = data.id ?? 0
+        vc.itemTitle = (data.storage_name ?? "") + " - " + "#\(data.id ?? 0)"
+        vc.packages_count = data.packages_count ?? 0
+        vc.packages_count_sold = data.packages_count_sold  ?? 0
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == self.dates.count - 1 {
+            if self.totalItems > self.dates.count {
+                self.currentPage += 1
+                self.uploadData(page: currentPage)
+            }
+        }
     }
 }

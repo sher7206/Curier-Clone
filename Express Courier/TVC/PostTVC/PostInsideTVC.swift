@@ -8,7 +8,7 @@
 import UIKit
 
 class PostInsideTVC: UITableViewCell {
-
+    
     static let identifier = "PostInsideTVC"
     static func nib()->UINib{return UINib(nibName: identifier, bundle: nil)}
     
@@ -31,12 +31,12 @@ class PostInsideTVC: UITableViewCell {
     @IBOutlet weak var idLbl: UILabel!
     @IBOutlet weak var arrivingDateLbl: UILabel!
     @IBOutlet weak var senderLbl: UILabel!
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     func updateCell(data: GetPostRespnseData){
         matterLbl.text = data.matter ?? ""
         priceLbl.text = "\(data.delivery_fee_amount?.priceFormetter() ?? "")"
@@ -50,6 +50,19 @@ class PostInsideTVC: UITableViewCell {
         senderLbl.text = data.creator_name ?? ""
         guard let create = data.created_at else {return}
         headerDateLbl.text = String(create.prefix(10))
+    }
+    
+    func updateCellListData(data: ListPackagesData) {
+        guard let expiredAt = data.expired_at else {return}
+        matterLbl.text = data.matter ?? ""
+        priceLbl.text = "\(data.delivery_fee_amount?.priceFormetter() ?? "")"
+        fromRegionLbl.text = (data.from_region_name ?? "") + ", " + (data.from_district_name ?? "")
+        fromAdressLbl.text = data.from_address ?? ""
+        toRegionLbl.text = (data.to_region_name ?? "") + ", " + (data.to_district_name ?? "")
+        toAdressLbl.text = data.to_address ?? ""
+        idLbl.text = "\(data.id ?? 0)"
+        arrivingDateLbl.text = String(expiredAt.prefix(10))
+        senderLbl.text = data.creator_name ?? ""
     }
     
     

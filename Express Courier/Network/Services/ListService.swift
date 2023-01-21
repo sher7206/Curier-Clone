@@ -12,4 +12,16 @@ struct ListService: BaseService {
     func getAllPackages(model: getAllPackagesRequest, completion: @escaping Completion<getAllPackagesResponse>) {
         request(.getAllPackages(model: model), completion: completion)
     }
+    
+    func listPackages(model: ListPackagesRequest, completion: @escaping Completion<ListPackagesResponse>) {
+        request(.listPackages(model: model), completion: completion)
+    }
+    
+    func statsPackages(model: StatsPackagesRequest, completion: @escaping Completion<StatsPackagesResponse>) {
+        request(.statsPackages(model: model), completion: completion)
+    }
+    
+    func countPackages(model: CountPackagesRequest, completion: @escaping Completion<CountPackagesResponse>) {
+        request(.countPackages(model: model), completion: completion)
+    }
 }

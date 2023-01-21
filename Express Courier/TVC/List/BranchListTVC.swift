@@ -23,14 +23,14 @@ class BranchListTVC: UITableViewCell {
     }
     
     func updateCell(data: GetAllPackagesData) {
-        self.storeImg.sd_setImage(with: URL(string: data.store_avatar ?? "")) { img, _, _, _ in
+        guard let date = data.created_at else {return}
+        self.storeImg.sd_setImage(with: URL(string: data.storage_logo ?? "")) { img, _, _, _ in
             if let _ = img {
-                print("Yuklandi!")
             } else { self.storeImg.image = UIImage(systemName: "person")?.withTintColor(.black, renderingMode: .alwaysOriginal)}}
-        self.storeNameLbl.text = data.store_name ?? ""
-        self.productCountLbl.text = "\(data.packages_count ?? 0)"
-        self.dateLbl.text = data.created_at ?? ""
-        self.priceLbl.text = "\(data.packages_amount ?? 0) so'm"
+        self.storeNameLbl.text = data.storage_name ?? ""
+        self.productCountLbl.text = "\(data.packages_count ?? 0) ta/\(data.packages_count_sold ?? 0) ta"
+        self.dateLbl.text = String(date.prefix(10))
+        self.priceLbl.text = data.packages_amount ?? ""
     }
     
 }
