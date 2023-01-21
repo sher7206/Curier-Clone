@@ -45,11 +45,19 @@ class ListVC: UIViewController {
     var backColor: UIColor =  UIColor(named: "primary900")!
     var backWhiteColor: UIColor = UIColor(named: "white300")!
     
+    var dates: [ListPackagesData] = []
+    var itemId: Int = 59
+    var itemStatus: String = "active"
+    var currentPage: Int = 1
+    var totalItems: Int = 0
+    var itemTitle: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.searchController = search
         setupNavigation()
         setUpScretchView()
+        uploadData(page: self.currentPage)
     }
     
     override func viewDidLayoutSubviews() {
@@ -62,9 +70,9 @@ class ListVC: UIViewController {
         tableView.tableHeaderView = header
         self.view.backgroundColor = UIColor(named: "white300")
     }
-
+    
     func setupNavigation() {
-        title = "Bon-Ton store"
+        navigationItem.title = self.itemTitle
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = UIColor(named: "primary900")
@@ -78,31 +86,45 @@ class ListVC: UIViewController {
             // Fallback on earlier versions
         }
     }
-
+    
+    func uploadData(page: Int) {
+        Loader.start()
+        let getList = ListService()
+        getList.listPackages(model: ListPackagesRequest(id: itemId, page: currentPage, status: itemStatus)) { result in
+            switch result {
+            case.success(let content):
+                Loader.stop()
+                guard let data = content.data else {return}
+                self.dates.append(contentsOf: data)
+                self.totalItems = content.meta?.total ?? 0
+                self.tableView.reloadData()
+            case.failure(let error):
+                Loader.stop()
+                Alert.showAlert(forState: .error, message: error.localizedDescription, vibrationType: .error)
+            }
+        }
+    }
+    
 }
 
 //MARK: - Table View Delegate
 extension ListVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return 1
+        return self.dates.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: PostInsideTVC.identifier, for: indexPath) as! PostInsideTVC
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: PostInsideTVC.identifier, for: indexPath) as? PostInsideTVC else {return UITableViewCell()}
         return cell
-        
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let v = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.frame.width, height: 40))
-        
         v.backgroundColor = UIColor(named: "primary900")
         let layout = UICollectionViewFlowLayout()
-        
-        
         layout.scrollDirection = .horizontal
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
@@ -124,11 +146,11 @@ extension ListVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelega
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-            return 40
+        return 40
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        
     }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard let header = tableView.tableHeaderView as? SkretchableHeaderView else{

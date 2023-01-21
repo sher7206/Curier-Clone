@@ -47,7 +47,9 @@ class ListBranchVC: UIViewController {
             switch result {
             case.success(let content):
                 Loader.stop()
+                print("✅ content =", content)
                 guard let data = content.data else {return}
+                
                 self.dates.append(contentsOf: data)
                 self.totalItems = content.meta?.total ?? 0
                 self.tableView.reloadData()
@@ -63,18 +65,28 @@ class ListBranchVC: UIViewController {
 //MARK: TABLE VIEW
 extension ListBranchVC: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return self.dates.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: BranchListTVC.identifier, for: indexPath) as? BranchListTVC else {return UITableViewCell()}
-        
-//        cell.updateCell(data: self.dates[indexPath.row])
+        cell.updateCell(data: self.dates[indexPath.row])
         cell.selectionStyle = .none
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = ListVC()
+        vc.itemId = self.dates[indexPath.row].id ?? 0
+        vc.itemTitle = (self.dates[indexPath.row].storage_name ?? "") + " - " + "\(self.dates[indexPath.row].id ?? 0)"
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == self.dates.count - 1 {
+            if self.totalItems > self.dates.count {
+                self.currentPage += 1
+                self.uploadData(page: currentPage)
+            }
+        }
     }
 }

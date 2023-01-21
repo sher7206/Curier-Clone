@@ -12,4 +12,8 @@ struct ListService: BaseService {
     func getAllPackages(model: getAllPackagesRequest, completion: @escaping Completion<getAllPackagesResponse>) {
         request(.getAllPackages(model: model), completion: completion)
     }
+    
+    func listPackages(model: ListPackagesRequest, completion: @escaping Completion<ListPackagesResponse>) {
+        request(.listPackages(model: model), completion: completion)
+    }
 }

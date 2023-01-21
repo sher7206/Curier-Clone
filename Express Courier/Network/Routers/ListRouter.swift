@@ -10,11 +10,14 @@ import Alamofire
 enum ListRouter: BaseURLRequestConvertible {
     
     case getAllPackages(model: getAllPackagesRequest)
+    case listPackages(model: ListPackagesRequest)
     
     var path: String {
         switch self {
         case .getAllPackages(let model):
             return "/api/driver/package-lists?page=\(model.page)"
+        case .listPackages(let model):
+            return "/api/driver/package-lists/\(model.id)/packages?page=\(model.page)&status=\(model.status)"
         }
     }
     
@@ -22,12 +25,16 @@ enum ListRouter: BaseURLRequestConvertible {
         switch self {
         case .getAllPackages:
             return .get
+        case .listPackages:
+            return .get
         }
     }
     
     var parameters: Alamofire.Parameters? {
         switch self {
         case.getAllPackages:
+            return nil
+        case .listPackages:
             return nil
         }
     }
