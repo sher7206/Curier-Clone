@@ -36,7 +36,7 @@ class SortVC: UIViewController {
     
     var itemId: Int = 0
     var groupBy: String = "matter"
-    var status: String? = "active"
+    var status: String?
     var dates: [CountPackagesData] = []
     
     override func viewDidLoad() {
