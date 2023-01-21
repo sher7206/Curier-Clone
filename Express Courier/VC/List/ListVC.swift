@@ -18,17 +18,30 @@ class ListVC: UIViewController {
         }
     }
     
+    var itemId: Int = 0
     let search = UISearchController(searchResultsController: nil)
     let headerTexts = ["Yo'lda", "Yetkazilgan", "Bekor qilingan"]
     var selectIndexCVC: Int = 0
+    var backColor: UIColor =  UIColor(named: "primary900")!
+    var backWhiteColor: UIColor = UIColor(named: "white300")!
+    var dates: [ListPackagesData] = []
+    var itemStatus: String = "active"
+    var currentPage: Int = 1
+    var totalItems: Int = 0
+    var itemTitle: String = ""
+    var packages_count: Int = 0
+    var packages_count_sold: Int = 0
+    
     var menuItems: [UIAction] {
         return [
             UIAction(title: "Statistika", image: UIImage(named: "diagram-list"), handler: { (_) in
                 let vc = ReportVC()
+                vc.itemId = self.itemId
                 self.navigationController?.pushViewController(vc, animated: true)
             }),
             UIAction(title: "Hisoblash", image: UIImage(named: "math-list"), handler: { (_) in
                 let vc = SortVC()
+                vc.itemId = self.itemId
                 self.navigationController?.pushViewController(vc, animated: true)
             }),
             UIAction(title: "Taqsimlash", image: UIImage(named: "discount-circle-list"), handler: { (_) in
@@ -42,17 +55,6 @@ class ListVC: UIViewController {
     var demoMenu: UIMenu {
         return UIMenu(title: "", image: UIImage(named: "more-list"), identifier: nil, options: [], children: menuItems)
     }
-    var backColor: UIColor =  UIColor(named: "primary900")!
-    var backWhiteColor: UIColor = UIColor(named: "white300")!
-    
-    var dates: [ListPackagesData] = []
-    var itemId: Int = 0
-    var itemStatus: String = "active"
-    var currentPage: Int = 1
-    var totalItems: Int = 0
-    var itemTitle: String = ""
-    var packages_count: Int = 0
-    var packages_count_sold: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()

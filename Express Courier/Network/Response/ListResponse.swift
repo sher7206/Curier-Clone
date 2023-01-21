@@ -92,3 +92,44 @@ struct ListPackagesData: Codable {
     var created_at: String?
     var created_at_label: String?
 }
+
+//MARK: - Stats Packages Response
+struct StatsPackagesResponse: Codable {
+    var message: String?
+    var data: [StatsPackagesData]?
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        message = try? container.decode(String.self, forKey: .message)
+        data = try? container.decode([StatsPackagesData].self, forKey: .data)
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case message, data
+    }
+}
+
+struct StatsPackagesData: Codable {
+    var label: String?
+    var value: Int?
+    var icon: String?
+}
+
+//MARK: - Count Packages Response
+struct CountPackagesResponse: Codable {
+    var data: [CountPackagesData]?
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        data = try? container.decode([CountPackagesData].self, forKey: .data)
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case data
+    }
+}
+
+struct CountPackagesData: Codable {
+    var count: Int?
+    var label: String?
+}

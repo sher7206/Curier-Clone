@@ -16,3 +16,13 @@ struct ListPackagesRequest {
     var page: Int
     var status: String
 }
+
+struct StatsPackagesRequest {
+    var id: Int
+}
+
+struct CountPackagesRequest {
+    var id: Int
+    var status: String?
+    var group_by: String
+}

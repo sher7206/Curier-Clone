@@ -18,6 +18,10 @@ class SortTVC: UITableViewCell {
         super.awakeFromNib()
     }
     
+    func updateCell(data: CountPackagesData) {
+        self.nameLbl.text = data.label
+        self.countLbl.text = "\(data.count ?? 0) ta"
+    }
 
     
 }
