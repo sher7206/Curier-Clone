@@ -127,7 +127,6 @@ extension MyKabinetVC: UITableViewDelegate, UITableViewDataSource {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard let header = tableView.tableHeaderView as? SkretchableHeaderView else{return}
         header.crollViewDidScroll(scrollView: tableView)
-        let translation = scrollView.panGestureRecognizer.translation(in: scrollView.superview)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
