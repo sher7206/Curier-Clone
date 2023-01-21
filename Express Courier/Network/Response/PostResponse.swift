@@ -187,3 +187,15 @@ struct EnterTimerOrderPostResponse: Codable {
         case message
     }
 }
+
+struct ReturnOrderPostResponse: Codable {
+    
+    var message: String?
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        message = try? container.decode(String.self, forKey: .message)
+    }
+    enum CodingKeys: String, CodingKey {
+        case message
+    }
+}

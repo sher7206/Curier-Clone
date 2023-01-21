@@ -13,6 +13,8 @@ protocol ArrivedPostVCDelegate{
 
 class ArrivedPostVC: UIViewController {
         
+    @IBOutlet weak var activeStack: UIStackView!
+    @IBOutlet weak var cancelStack: UIStackView!
 
     @IBOutlet weak var matterLbl: UILabel!
     @IBOutlet weak var arrivingPriceLbl: UILabel!
@@ -77,8 +79,11 @@ class ArrivedPostVC: UIViewController {
     var demoMenu: UIMenu {
         return UIMenu(title: "", image: UIImage(named: "more-list"), identifier: nil, options: [], children: menuItems)
     }
-    var delegate: ArrivedPostVCDelegate?
     
+    var isScanner = false
+    
+    var delegate: ArrivedPostVCDelegate?
+    var orderType:MailStatus!
     var getOne: GetOneRespnseData!
     var phoneNumber = ""
     
@@ -86,7 +91,20 @@ class ArrivedPostVC: UIViewController {
         super.viewDidLoad()
         setNavigation()
         getAPIResponse(id: id)
+        if orderType == .canceled{
+            activeStack.isHidden = false
+            cancelStack.isHidden = true
+        }else{
+            activeStack.isHidden = true
+            cancelStack.isHidden = false
+        }
     }
+    
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        navigationController?.popToViewController(ofClass: PostVC.self, animated: true)
+//    }
+    
 
     func setNavigation(){
         let appearance = UINavigationBarAppearance()
@@ -112,10 +130,8 @@ class ArrivedPostVC: UIViewController {
                 guard let data = content.data else {return}
                 Loader.stop()
                 getOne = data
-                
                 arrivingPriceLbl.text = "\(getOne.delivery_fee_amount ?? 0) so'm"
                 insurancePriceLbl.text = "\(getOne.insurance_amount ?? 0) so'm"
-                
                 fromRegionLbl.text = "\(getOne.from_region_name ?? ""), \(getOne.from_district_name ?? "")"
                 fromAddressLbl.text = "\(getOne.from_address ?? "")"
                 creatorNameLbl.text = "\(getOne.creator_name ?? "")"
@@ -138,7 +154,6 @@ class ArrivedPostVC: UIViewController {
                 }else{
                     dateLbl.text = "-"
                 }
-                
             case.failure(let error):
                 Loader.stop()
                 Alert.showAlert(forState: .error, message: error.localizedDescription, vibrationType: .error)
@@ -147,6 +162,21 @@ class ArrivedPostVC: UIViewController {
     }
     
     
+    @IBAction func activeBtnPressed(_ sender: Any) {
+        let vc = PostAgreemantVC()
+        vc.modalPresentationStyle = .overFullScreen
+        vc.isCancelled = true
+        vc.id = id
+        vc.delegate = self
+        present(vc, animated: true, completion: nil)
+    }
+    
+    @IBAction func callToResipientBtnPressed(_ sender: Any) {
+        let number = getOne.recipient_phone ?? "+998"
+        guard let number = URL(string: "tel://" + number) else { return }
+        UIApplication.shared.open(number)
+    }
+
     @IBAction func xBtnPressed(_ sender: Any) {
     }
     
@@ -166,7 +196,6 @@ class ArrivedPostVC: UIViewController {
         vc.id = id
         vc.delegate = self
         present(vc, animated: true, completion: nil)
-
     }
     
     @IBAction func callBtnPressed(_ sender: Any) {
@@ -176,6 +205,7 @@ class ArrivedPostVC: UIViewController {
     }
     
     @IBAction func callCommentorBtnPressed(_ sender: Any) {
+        navigationController?.popToViewController(ofClass: PostVC.self, animated: true)
     }
     
 }
@@ -193,10 +223,31 @@ extension ArrivedPostVC: UITableViewDelegate, UITableViewDataSource{
 }
 
 //MARK: Cancel Order
-extension ArrivedPostVC: EnterTimerVCDelegate{
+extension ArrivedPostVC: EnterTimerVCDelegate, PostAgreemantVCDelegate{
+    func dataUpdater() {
+        delegate?.cancelOrder()
+        navigationController?.popViewController(animated: true)
+    }
+    
     func dismissOrder() {
         delegate?.cancelOrder()
         navigationController?.popViewController(animated: true)
     }
 }
 
+extension UINavigationController{
+    func popToViewController(ofClass: AnyClass, animated: Bool = true) {
+        if let vc = viewControllers.filter({$0.isKind(of: ofClass)}).last {
+            popToViewController(vc, animated: animated)
+        }
+    }
+}
+
+extension UINavigationController {
+    
+    func removeViewController(_ controller: UIViewController.Type) {
+        if let viewController = viewControllers.first(where: { $0.isKind(of: controller.self) }) {
+            viewController.removeFromParent()
+        }
+    }
+}

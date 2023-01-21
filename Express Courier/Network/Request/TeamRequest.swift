@@ -1,9 +1,7 @@
-//
+
 //  TeamRequest.swift
 //  Express Courier
-//
 //  Created by Sherzod on 18/01/23.
-//
 
 import UIKit
 

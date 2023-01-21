@@ -17,6 +17,7 @@ enum MailStatus{
 
 class PostVC: UIViewController {
 
+    @IBOutlet weak var emptyStack: UIStackView!
     @IBOutlet weak var tableView: UITableView!{
         didSet{
             tableView.delegate = self
@@ -83,6 +84,7 @@ class PostVC: UIViewController {
                 guard let meta = content.meta?.total else{return}
                 self.totalItems = meta
                 getAllDates.append(contentsOf: dates)
+                emptyStack.isHidden = !getAllDates.isEmpty
                 self.tableView.reloadData()
             case .failure(let error):
                 Loader.stop()
@@ -90,15 +92,12 @@ class PostVC: UIViewController {
             }
         }
     }
-    
-    @objc func menuBtnPressed(){
-    }
-    
-    @objc func filterBtnPressed(){
-    }
+
 
     @IBAction func scanBtnPressed(_ sender: Any) {
         let vc = ScannerVC()
+        vc.hidesBottomBarWhenPushed = true
+        vc.delegate = self
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -111,7 +110,13 @@ class PostVC: UIViewController {
 }
 
 //MARK: - Table View Delegate
-extension PostVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
+extension PostVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, ScannerVCDelegate {
+    func isScannered(id: Int) {
+        let vc = ArrivedPostVC()
+        vc.id = id
+        vc.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -173,6 +178,7 @@ extension PostVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelega
             vc.id = getAllDates[indexPath.row].id ?? 0
             vc.hidesBottomBarWhenPushed = true
             vc.delegate = self
+            vc.orderType = pageType
             navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -442,10 +448,6 @@ extension PostVC{
         appearance.shadowColor = .clear
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        let menuBtn = UIBarButtonItem(image: UIImage(named: "menu-list"), style: .plain, target: self, action: #selector(menuBtnPressed))
-        navigationItem.leftBarButtonItem = menuBtn
-        let filterBtn = UIBarButtonItem(image: UIImage(named: "filter-post"), style: .plain, target: self, action: #selector(filterBtnPressed))
-        navigationItem.rightBarButtonItem = filterBtn
         navigationItem.backButtonTitle = ""
     }
     
