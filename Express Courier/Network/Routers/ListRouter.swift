@@ -39,7 +39,7 @@ enum ListRouter: BaseURLRequestConvertible {
             return .get
         case .statsPackages:
             return .get
-        case .countPackages(let model):
+        case .countPackages:
             return .get
         }
     }
