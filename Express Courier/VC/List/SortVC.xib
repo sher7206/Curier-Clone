@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SortVC" customModule="Express_Courier" customModuleProvider="target">
             <connections>
                 <outlet property="collectionView" destination="5s7-AX-wp3" id="keI-i6-pq8"/>
+                <outlet property="segmentControlOutlet" destination="uUR-ns-b0p" id="jPV-ul-2NR"/>
                 <outlet property="tableView" destination="TcS-fO-pxh" id="Ddc-jG-tjs"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -22,7 +23,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="uUR-ns-b0p">
-                    <rect key="frame" x="16" y="54" width="382" height="31"/>
+                    <rect key="frame" x="16" y="58" width="382" height="31"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="KQL-gr-Cnk"/>
                     </constraints>
@@ -30,9 +31,12 @@
                         <segment title="Jo'natma bo'yicha"/>
                         <segment title="Tuman bo'yicha"/>
                     </segments>
+                    <connections>
+                        <action selector="segmentControllClick:" destination="-1" eventType="valueChanged" id="7sw-fZ-BEZ"/>
+                    </connections>
                 </segmentedControl>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="5s7-AX-wp3">
-                    <rect key="frame" x="0.0" y="89" width="414" height="40"/>
+                    <rect key="frame" x="0.0" y="93" width="414" height="40"/>
                     <color key="backgroundColor" name="white300"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="Qff-ad-Xd7"/>
@@ -45,7 +49,7 @@
                     </collectionViewFlowLayout>
                 </collectionView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Natija" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ux-K0-n20">
-                    <rect key="frame" x="16" y="145" width="382" height="16"/>
+                    <rect key="frame" x="16" y="149" width="382" height="16"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="16" id="0pm-js-J5h"/>
                     </constraints>
@@ -54,7 +58,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="TcS-fO-pxh">
-                    <rect key="frame" x="0.0" y="161" width="414" height="701"/>
+                    <rect key="frame" x="0.0" y="165" width="414" height="697"/>
                     <color key="backgroundColor" name="white300"/>
                 </tableView>
             </subviews>

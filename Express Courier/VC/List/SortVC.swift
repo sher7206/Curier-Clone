@@ -28,14 +28,26 @@ class SortVC: UIViewController {
         }
     }
     
+    
+    @IBOutlet weak var segmentControlOutlet: UISegmentedControl!
+    
     var selectIndexCVC: Int = 0
     var headerTexts = ["Barchasi", "Yo‘lda", "Yetkazilgan", "Bekor qilingan"]
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Saralash"
+        print("didload index =", segmentControlOutlet.selectedSegmentIndex)
+    }
+    @IBAction func segmentControllClick(_ sender: UISegmentedControl) {
+        switch segmentControlOutlet.selectedSegmentIndex {
+        case 0:
+            print("0")
+        default:
+            print("1")
+            
+        }
     }
     
-
 }
 
 //MARK: TABLE VIEW
