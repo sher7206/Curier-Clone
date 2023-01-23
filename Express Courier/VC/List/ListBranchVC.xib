@@ -21,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="FHu-Ix-NJA">
-                    <rect key="frame" x="0.0" y="48" width="414" height="814"/>
+                    <rect key="frame" x="0.0" y="48" width="414" height="848"/>
                 </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
@@ -30,9 +30,9 @@
                 <constraint firstItem="FHu-Ix-NJA" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="47E-rm-xeF"/>
                 <constraint firstItem="FHu-Ix-NJA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="8PZ-U9-Uwa"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="FHu-Ix-NJA" secondAttribute="trailing" id="P5O-83-Utr"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="FHu-Ix-NJA" secondAttribute="bottom" id="yqS-tg-6PM"/>
+                <constraint firstAttribute="bottom" secondItem="FHu-Ix-NJA" secondAttribute="bottom" id="nks-GF-ogB"/>
             </constraints>
-            <point key="canvasLocation" x="133" y="110"/>
+            <point key="canvasLocation" x="131.8840579710145" y="109.82142857142857"/>
         </view>
     </objects>
     <resources>
