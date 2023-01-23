@@ -165,7 +165,7 @@ class ListVC: UIViewController {
                 guard let data = content.data else {return}
                 self.dates.append(contentsOf: data)
                 self.totalItems = content.meta?.total ?? 0
-                self.emptyView(view: self.emptyView, count: self.dates.count)
+                self.emptyView(view: self.emptyView, count: self.dates.count, tableView: self.tableView)
                 self.tableView.reloadData()
             case.failure(let error):
                 Loader.stop()
@@ -318,6 +318,7 @@ extension ListVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             self.dates.removeAll()
             self.currentPage = 1
             self.tableView.reloadData()
+            self.emptyView.isHidden = true
             UIView.animate(withDuration: 0.5, delay: 0.5, usingSpringWithDamping: 0.6, initialSpringVelocity: 1, options: [.curveEaseOut], animations: {
                 self.filterSubView.transform = CGAffineTransform.identity.scaledBy(x: 0.5, y: 0.5)
                 self.filterSubView.alpha = 0
@@ -361,11 +362,13 @@ extension ListVC {
 }
 
 extension UIViewController {
-    func emptyView(view: UIView, count: Int) {
+    func emptyView(view: UIView, count: Int, tableView: UITableView) {
         if count == 0 {
             view.isHidden = false
+            tableView.isScrollEnabled = false
         } else {
             view.isHidden = true
+            tableView.isScrollEnabled = true
         }
     }
 }

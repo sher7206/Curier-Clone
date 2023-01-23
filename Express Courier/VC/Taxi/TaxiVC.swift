@@ -11,6 +11,8 @@ import LocalAuthentication
 class TaxiVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var emptyView: UIView!
+    
     var selectIndexCVC: Int = 0
     var isNew: Bool = true
     var headerTexts = ["Yangilar", "Ko'rilganlar"]
@@ -62,6 +64,7 @@ class TaxiVC: UIViewController {
                 guard let data = content.data else {return}
                 self.newsDataTotal = content.meta?.total ?? 0
                 self.newsTaxiDates?.append(contentsOf: data)
+                self.emptyView(view: self.emptyView, count: self.newsTaxiDates?.count ?? 0, tableView: self.tableView)
                 self.tableView.reloadData()
             case.failure(let error):
                 Loader.stop()
@@ -80,6 +83,7 @@ class TaxiVC: UIViewController {
                 guard let data = content.data else {return}
                 self.historyDataTotal = content.meta?.total ?? 0
                 self.historyTaxiDates?.append(contentsOf: data)
+                self.emptyView(view: self.emptyView, count: self.historyTaxiDates?.count ?? 0, tableView: self.tableView)
                 self.tableView.reloadData()
             case.failure(let error):
                 Loader.stop()

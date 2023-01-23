@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TaxiVC" customModule="Express_Courier" customModuleProvider="target">
             <connections>
+                <outlet property="emptyView" destination="OpV-Q1-Yf5" id="y5J-Lc-kZg"/>
                 <outlet property="tableView" destination="9P0-qC-8Dk" id="FfK-sc-Tek"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -28,15 +29,47 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OpV-Q1-Yf5">
+                    <rect key="frame" x="112" y="374" width="190" height="148"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4cx-qU-QOy">
+                            <rect key="frame" x="0.0" y="0.0" width="190" height="148"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty_box" translatesAutoresizingMaskIntoConstraints="NO" id="pS3-Yi-xai">
+                                    <rect key="frame" x="33" y="0.0" width="124" height="124"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="pS3-Yi-xai" secondAttribute="height" id="zfM-wJ-wNQ"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hech narsa topilmadi" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0TE-Ww-etT">
+                                    <rect key="frame" x="0.0" y="124" width="190" height="24"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="4cx-qU-QOy" secondAttribute="trailing" id="4OJ-NZ-k06"/>
+                        <constraint firstItem="4cx-qU-QOy" firstAttribute="top" secondItem="OpV-Q1-Yf5" secondAttribute="top" id="DBN-vf-kES"/>
+                        <constraint firstItem="4cx-qU-QOy" firstAttribute="leading" secondItem="OpV-Q1-Yf5" secondAttribute="leading" id="V7I-bV-VI3"/>
+                        <constraint firstAttribute="bottom" secondItem="4cx-qU-QOy" secondAttribute="bottom" id="WrM-6W-6dX"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="white300"/>
             <constraints>
                 <constraint firstItem="9P0-qC-8Dk" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="CMo-CM-9HO"/>
                 <constraint firstAttribute="bottom" secondItem="9P0-qC-8Dk" secondAttribute="bottom" id="Dmn-5e-J1J"/>
+                <constraint firstItem="OpV-Q1-Yf5" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="N87-qJ-hks"/>
                 <constraint firstItem="9P0-qC-8Dk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="NAP-6R-0Qy"/>
                 <constraint firstItem="Ld5-vD-h9l" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.25" id="f6o-Pg-4Al"/>
                 <constraint firstItem="Ld5-vD-h9l" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="itT-it-Mjg"/>
+                <constraint firstItem="pS3-Yi-xai" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.3" id="noS-o0-dzW"/>
+                <constraint firstItem="OpV-Q1-Yf5" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="oH6-Yq-8uv"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Ld5-vD-h9l" secondAttribute="trailing" id="tSG-oH-baJ"/>
                 <constraint firstItem="9P0-qC-8Dk" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="u16-bS-X45"/>
                 <constraint firstItem="Ld5-vD-h9l" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="uqb-Da-bQB"/>
@@ -45,6 +78,7 @@
         </view>
     </objects>
     <resources>
+        <image name="empty_box" width="519" height="481"/>
         <namedColor name="white300">
             <color red="0.97600001096725464" green="0.97600001096725464" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
