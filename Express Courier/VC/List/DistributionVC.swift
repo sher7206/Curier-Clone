@@ -83,6 +83,7 @@ extension DistributionVC: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: DisttributionTVC.identifier, for: indexPath) as! DisttributionTVC
+        cell.updateCell(data: self.dates[indexPath.row])
         return cell
     }
 }

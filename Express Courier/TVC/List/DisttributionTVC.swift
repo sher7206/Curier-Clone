@@ -8,7 +8,7 @@
 import UIKit
 
 class DisttributionTVC: UITableViewCell {
-
+    
     static let identifier = "DisttributionTVC"
     static func nib()->UINib{return UINib(nibName: identifier, bundle: nil)}
     
@@ -24,6 +24,13 @@ class DisttributionTVC: UITableViewCell {
     }
     
     func updateCell(data: ListPackagesData) {
-        
+        guard let createDate = data.created_at else {return}
+        guard let expiredDate = data.expired_at else {return}
+        self.dateLbl.text = String(createDate.prefix(10))
+        self.priceLbl.text = data.delivery_fee_amount?.priceFormetter()
+        self.nameLbl.text = data.matter ?? ""
+        self.idlbl.text = "\(data.id ?? 0)"
+        self.arrivingTimeLbl.text = String(expiredDate.prefix(10))
+        self.senderLbl.text = data.driver_name ?? ""
     }
 }

@@ -31,6 +31,7 @@ class ListVC: UIViewController {
     var itemTitle: String = ""
     var packages_count: Int = 0
     var packages_count_sold: Int = 0
+    var districtId: Int?
     
     var menuItems: [UIAction] {
         return [
@@ -64,7 +65,7 @@ class ListVC: UIViewController {
         self.extendedLayoutIncludesOpaqueBars = true
         setupNavigation()
         setUpScretchView()
-        uploadData(page: self.currentPage, status: itemStatus)
+        uploadData(page: self.currentPage, status: itemStatus, districtId: districtId)
     }
     
     func setUpScretchView(){
@@ -127,10 +128,10 @@ class ListVC: UIViewController {
         self.navigationItem.titleView = v
     }
     
-    func uploadData(page: Int, status: String) {
+    func uploadData(page: Int, status: String, districtId: Int?) {
         Loader.start()
         let getList = ListService()
-        getList.listPackages(model: ListPackagesRequest(id: itemId, page: currentPage, status: status)) { result in
+        getList.listPackages(model: ListPackagesRequest(id: itemId, page: currentPage, status: status, toDistrictId: districtId)) { result in
             switch result {
             case.success(let content):
                 Loader.stop()
@@ -212,7 +213,7 @@ extension ListVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelega
         if indexPath.row == dates.count - 1 {
             if self.totalItems > dates.count {
                 self.currentPage += 1
-                self.uploadData(page: self.currentPage, status: itemStatus)
+                self.uploadData(page: self.currentPage, status: itemStatus, districtId: districtId)
             }
         }
     }
@@ -256,19 +257,19 @@ extension ListVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             self.currentPage = 1
             self.dates.removeAll()
             self.tableView.reloadData()
-            self.uploadData(page: self.currentPage, status: self.itemStatus)
+            self.uploadData(page: self.currentPage, status: self.itemStatus, districtId: districtId)
         } else if indexPath.row == 1 {
             self.itemStatus = "completed"
             self.currentPage = 1
             self.dates.removeAll()
             self.tableView.reloadData()
-            self.uploadData(page: self.currentPage, status: self.itemStatus)
+            self.uploadData(page: self.currentPage, status: self.itemStatus, districtId: districtId)
         } else {
             self.itemStatus = "canceled"
             self.currentPage = 1
             self.dates.removeAll()
             self.tableView.reloadData()
-            self.uploadData(page: self.currentPage, status: self.itemStatus)
+            self.uploadData(page: self.currentPage, status: self.itemStatus, districtId: districtId)
         }
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         collectionView.reloadData()

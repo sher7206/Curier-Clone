@@ -15,6 +15,7 @@ struct ListPackagesRequest {
     var id: Int
     var page: Int
     var status: String
+    var toDistrictId: Int?
 }
 
 struct StatsPackagesRequest {
