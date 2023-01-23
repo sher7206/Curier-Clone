@@ -11,6 +11,7 @@ class ListVC: UIViewController {
     @IBOutlet weak var filterView: UIView!
     @IBOutlet weak var filterSubView: UIView!
     @IBOutlet weak var filterCollectionView: UICollectionView!
+    @IBOutlet weak var emptyView: UIView!
     
     var itemId: Int = 0
     let search = UISearchController(searchResultsController: nil)
@@ -164,6 +165,7 @@ class ListVC: UIViewController {
                 guard let data = content.data else {return}
                 self.dates.append(contentsOf: data)
                 self.totalItems = content.meta?.total ?? 0
+                self.emptyView(view: self.emptyView, count: self.dates.count)
                 self.tableView.reloadData()
             case.failure(let error):
                 Loader.stop()
@@ -326,23 +328,11 @@ extension ListVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         } else {
             self.selectIndexCVC = indexPath.row
             if indexPath.row == 0 {
-                self.itemStatus = "active"
-                self.currentPage = 1
-                self.dates.removeAll()
-                self.tableView.reloadData()
-                self.uploadData(page: self.currentPage, status: self.itemStatus, districtId: districtId)
+                updateStatus(status: "active")
             } else if indexPath.row == 1 {
-                self.itemStatus = "completed"
-                self.currentPage = 1
-                self.dates.removeAll()
-                self.tableView.reloadData()
-                self.uploadData(page: self.currentPage, status: self.itemStatus, districtId: districtId)
+                updateStatus(status: "completed")
             } else {
-                self.itemStatus = "canceled"
-                self.currentPage = 1
-                self.dates.removeAll()
-                self.tableView.reloadData()
-                self.uploadData(page: self.currentPage, status: self.itemStatus, districtId: districtId)
+                updateStatus(status: "canceled")
             }
             collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
             collectionView.reloadData()
@@ -359,6 +349,26 @@ extension ListVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     
 }
 
+extension ListVC {
+    func updateStatus(status: String) {
+        self.itemStatus = status
+        self.currentPage = 1
+        self.dates.removeAll()
+        self.tableView.reloadData()
+        self.emptyView.isHidden = true
+        self.uploadData(page: self.currentPage, status: self.itemStatus, districtId: districtId)
+    }
+}
+
+extension UIViewController {
+    func emptyView(view: UIView, count: Int) {
+        if count == 0 {
+            view.isHidden = false
+        } else {
+            view.isHidden = true
+        }
+    }
+}
 
 
 
