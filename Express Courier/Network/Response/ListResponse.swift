@@ -133,3 +133,41 @@ struct CountPackagesData: Codable {
     var count: Int?
     var label: String?
 }
+
+//MARK: - List District Response
+struct ListDistrictRessponse: Codable {
+    var data: [ListDistrictData]?
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        data = try? container.decode([ListDistrictData].self, forKey: .data)
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case data
+    }
+}
+
+struct ListDistrictData: Codable {
+    var id: Int?
+    var name: String?
+    var region_id: Int?
+}
+
+//MARK: - List District Dates
+struct ListDistrictDatesResponse: Codable {
+    var data: [ListPackagesData]?
+    var links: Link?
+    var meta: Meta?
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        data = try? container.decode([ListPackagesData].self, forKey: .data)
+        links = try? container.decode(Link.self, forKey: .links)
+        meta = try? container.decode(Meta.self, forKey: .meta)
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case data, links, meta
+    }
+}

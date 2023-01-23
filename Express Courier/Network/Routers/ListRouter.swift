@@ -13,12 +13,19 @@ enum ListRouter: BaseURLRequestConvertible {
     case listPackages(model: ListPackagesRequest)
     case statsPackages(model: StatsPackagesRequest)
     case countPackages(model: CountPackagesRequest)
+    case listDistrict(model: ListDistrictResquest)
+    case lisdDistrictDates(model: ListDistrictDatesRequest)
     
     var path: String {
         switch self {
         case .getAllPackages(let model):
             return "/api/driver/package-lists?page=\(model.page)"
         case .listPackages(let model):
+            
+            if let toDistrictId = model.toDistrictId {
+                return "/api/driver/package-lists/\(model.id)/packages?page=\(model.page)&status=\(model.status)&toDistrictId=\(toDistrictId)"
+            }
+            
             return "/api/driver/package-lists/\(model.id)/packages?page=\(model.page)&status=\(model.status)"
         case .statsPackages(let model):
             return "/api/driver/package-lists/\(model.id)/stats"
@@ -28,6 +35,10 @@ enum ListRouter: BaseURLRequestConvertible {
                 return "/api/driver/package-lists/\(model.id)/counter?status=\(status)&group_by=\(model.group_by)"
             }
             return "/api/driver/package-lists/\(model.id)/counter?group_by=\(model.group_by)"
+        case .listDistrict(let model):
+            return "/api/driver/package-lists/\(model.id)/districts"
+        case .lisdDistrictDates(let model):
+            return "/api/driver/package-lists/\(model.id)/packages?page=\(model.page)&status=\(model.status)&toDistrictId=\(model.toDistrictId)"
         }
     }
     
@@ -41,20 +52,15 @@ enum ListRouter: BaseURLRequestConvertible {
             return .get
         case .countPackages:
             return .get
+        case .listDistrict:
+            return .get
+        case .lisdDistrictDates:
+            return .get
         }
     }
     
     var parameters: Alamofire.Parameters? {
-        switch self {
-        case.getAllPackages:
-            return nil
-        case .listPackages:
-            return nil
-        case .statsPackages:
-            return nil
-        case .countPackages:
-            return nil
-        }
+        return nil
     }
     
     func asURLRequest() throws -> URLRequest {

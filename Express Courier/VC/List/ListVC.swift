@@ -7,16 +7,11 @@ import UIKit
 
 class ListVC: UIViewController {
     
-    @IBOutlet weak var tableView: UITableView!{
-        didSet{
-            tableView.delegate = self
-            tableView.dataSource = self
-            tableView.register(TaxiFilterTVC.nib(), forCellReuseIdentifier: TaxiFilterTVC.identifier)
-            tableView.register(PostInsideTVC.nib(), forCellReuseIdentifier: PostInsideTVC.identifier)
-            tableView.separatorStyle = .none
-            if #available(iOS 15.0, *) { tableView.sectionHeaderTopPadding = 0 } else {}
-        }
-    }
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var filterView: UIView!
+    @IBOutlet weak var filterSubView: UIView!
+    @IBOutlet weak var filterCollectionView: UICollectionView!
+    @IBOutlet weak var emptyView: UIView!
     
     var itemId: Int = 0
     let search = UISearchController(searchResultsController: nil)
@@ -25,12 +20,15 @@ class ListVC: UIViewController {
     var backColor: UIColor =  UIColor(named: "primary900")!
     var backWhiteColor: UIColor = UIColor(named: "white300")!
     var dates: [ListPackagesData] = []
+    var districtDtaes: [ListDistrictData] = []
     var itemStatus: String = "active"
     var currentPage: Int = 1
     var totalItems: Int = 0
     var itemTitle: String = ""
     var packages_count: Int = 0
     var packages_count_sold: Int = 0
+    var districtId: Int?
+    
     
     var menuItems: [UIAction] {
         return [
@@ -46,6 +44,7 @@ class ListVC: UIViewController {
             }),
             UIAction(title: "Taqsimlash", image: UIImage(named: "discount-circle-list"), handler: { (_) in
                 let vc = DistributionVC()
+                vc.itemId = self.itemId
                 self.navigationController?.pushViewController(vc, animated: true)
             }),
             UIAction(title: "Jurnal", image: UIImage(named: "note-list"), handler: { (_) in
@@ -63,7 +62,8 @@ class ListVC: UIViewController {
         self.extendedLayoutIncludesOpaqueBars = true
         setupNavigation()
         setUpScretchView()
-        uploadData(page: self.currentPage, status: itemStatus)
+        uploadDistrict()
+        uploadData(page: self.currentPage, status: itemStatus, districtId: districtId)
     }
     
     func setUpScretchView(){
@@ -84,6 +84,18 @@ class ListVC: UIViewController {
         if #available(iOS 14.0, *) {
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: "", image: UIImage(named: "more-list"), primaryAction: nil, menu: demoMenu) } else {}
         titleViewFunc(navigationTitle: itemTitle, title: "\(self.packages_count)/\(self.packages_count_sold)")
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(TaxiFilterTVC.nib(), forCellReuseIdentifier: TaxiFilterTVC.identifier)
+        tableView.register(PostInsideTVC.nib(), forCellReuseIdentifier: PostInsideTVC.identifier)
+        tableView.separatorStyle = .none
+        if #available(iOS 15.0, *) { tableView.sectionHeaderTopPadding = 0 } else {}
+        filterCollectionView.delegate = self
+        filterCollectionView.dataSource = self
+        filterCollectionView.register(UINib(nibName: "ItemCVC", bundle: nil), forCellWithReuseIdentifier: "ItemCVC")
+        filterSubView.transform = .init(scaleX: 0.5, y: 0.5)
+        filterSubView.alpha = 0
+        
     }
     
     func titleViewFunc(navigationTitle: String, title: String) {
@@ -126,16 +138,34 @@ class ListVC: UIViewController {
         self.navigationItem.titleView = v
     }
     
-    func uploadData(page: Int, status: String) {
+    func uploadDistrict() {
+        Loader.start()
+        let getDistrict = ListService()
+        getDistrict.listDistrict(model: ListDistrictResquest(id: self.itemId)) { result in
+            switch result {
+            case.success(let content):
+                Loader.stop()
+                guard let data = content.data else {return}
+                self.districtDtaes.append(contentsOf: data)
+                self.filterCollectionView.reloadData()
+            case.failure(let error):
+                Loader.stop()
+                Alert.showAlert(forState: .error, message: error.localizedDescription, vibrationType: .error)
+            }
+        }
+    }
+    
+    func uploadData(page: Int, status: String, districtId: Int?) {
         Loader.start()
         let getList = ListService()
-        getList.listPackages(model: ListPackagesRequest(id: itemId, page: currentPage, status: status)) { result in
+        getList.listPackages(model: ListPackagesRequest(id: itemId, page: currentPage, status: status, toDistrictId: districtId)) { result in
             switch result {
             case.success(let content):
                 Loader.stop()
                 guard let data = content.data else {return}
                 self.dates.append(contentsOf: data)
                 self.totalItems = content.meta?.total ?? 0
+                self.emptyView(view: self.emptyView, count: self.dates.count, tableView: self.tableView)
                 self.tableView.reloadData()
             case.failure(let error):
                 Loader.stop()
@@ -144,6 +174,31 @@ class ListVC: UIViewController {
         }
     }
     
+    
+    @IBAction func filterClearTapped(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.5, delay: 0.5, usingSpringWithDamping: 0.6, initialSpringVelocity: 1, options: [.curveEaseOut], animations: {
+            self.filterSubView.transform = CGAffineTransform.identity.scaledBy(x: 0.5, y: 0.5)
+            self.filterSubView.alpha = 0
+            self.filterView.isHidden = true
+        })
+    }
+    
+    @IBAction func filterTapped(_ sender: UIButton) {
+        self.filterView.isHidden = false
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.6, options: [.curveEaseIn], animations: {
+            self.filterSubView.transform = .identity
+            self.filterSubView.alpha = 1
+            
+        }, completion: nil)
+    }
+    
+    @IBAction func filterDissmissTapped(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.5, delay: 0.5, usingSpringWithDamping: 0.6, initialSpringVelocity: 1, options: [.curveEaseOut], animations: {
+            self.filterSubView.transform = CGAffineTransform.identity.scaledBy(x: 0.5, y: 0.5)
+            self.filterSubView.alpha = 0
+            self.filterView.isHidden = true
+        })
+    }
 }
 
 //MARK: - Table View Delegate
@@ -211,7 +266,7 @@ extension ListVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelega
         if indexPath.row == dates.count - 1 {
             if self.totalItems > dates.count {
                 self.currentPage += 1
-                self.uploadData(page: self.currentPage, status: itemStatus)
+                self.uploadData(page: self.currentPage, status: itemStatus, districtId: districtId)
             }
         }
     }
@@ -222,63 +277,101 @@ extension ListVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelega
 extension ListVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return headerTexts.count
+        if collectionView == filterCollectionView {
+            return districtDtaes.count
+        } else {
+            return headerTexts.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TaxiHeaderCVC", for: indexPath) as? TaxiHeaderCVC else {return UICollectionViewCell()}
-        
-        cell.bottomView.backgroundColor = .clear
-        cell.titleLbl.textColor = UIColor(named: "black600")
-        cell.titleLbl.font = .systemFont(ofSize: 14, weight: .regular)
-        
-        if selectIndexCVC == indexPath.row {
-            cell.bottomView.backgroundColor = .black
-            cell.titleLbl.textColor = .black
-            cell.titleLbl.font = .systemFont(ofSize: 15, weight: .medium)
+        if collectionView == filterCollectionView {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCVC", for: indexPath) as? ItemCVC else {return UICollectionViewCell()}
+            cell.updateCell(data: self.districtDtaes[indexPath.row])
+            return cell
         } else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TaxiHeaderCVC", for: indexPath) as? TaxiHeaderCVC else {return UICollectionViewCell()}
+            
             cell.bottomView.backgroundColor = .clear
             cell.titleLbl.textColor = UIColor(named: "black600")
-            cell.titleLbl.font = .systemFont(ofSize: 15, weight: .regular)
+            cell.titleLbl.font = .systemFont(ofSize: 14, weight: .regular)
+            
+            if selectIndexCVC == indexPath.row {
+                cell.bottomView.backgroundColor = .black
+                cell.titleLbl.textColor = .black
+                cell.titleLbl.font = .systemFont(ofSize: 15, weight: .medium)
+            } else {
+                cell.bottomView.backgroundColor = .clear
+                cell.titleLbl.textColor = UIColor(named: "black600")
+                cell.titleLbl.font = .systemFont(ofSize: 15, weight: .regular)
+            }
+            
+            cell.updateCell(title: headerTexts[indexPath.row])
+            
+            return cell
         }
-        
-        cell.updateCell(title: headerTexts[indexPath.row])
-        
-        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.selectIndexCVC = indexPath.row
-        if indexPath.row == 0 {
-            self.itemStatus = "active"
-            self.currentPage = 1
+        
+        if collectionView == filterCollectionView {
             self.dates.removeAll()
-            self.tableView.reloadData()
-            self.uploadData(page: self.currentPage, status: self.itemStatus)
-        } else if indexPath.row == 1 {
-            self.itemStatus = "completed"
             self.currentPage = 1
-            self.dates.removeAll()
             self.tableView.reloadData()
-            self.uploadData(page: self.currentPage, status: self.itemStatus)
+            self.emptyView.isHidden = true
+            UIView.animate(withDuration: 0.5, delay: 0.5, usingSpringWithDamping: 0.6, initialSpringVelocity: 1, options: [.curveEaseOut], animations: {
+                self.filterSubView.transform = CGAffineTransform.identity.scaledBy(x: 0.5, y: 0.5)
+                self.filterSubView.alpha = 0
+                self.filterView.isHidden = true
+            })
+            self.districtId = self.districtDtaes[indexPath.row].id ?? 0
+            uploadData(page: self.currentPage, status: itemStatus, districtId: districtId)
         } else {
-            self.itemStatus = "canceled"
-            self.currentPage = 1
-            self.dates.removeAll()
-            self.tableView.reloadData()
-            self.uploadData(page: self.currentPage, status: self.itemStatus)
+            self.selectIndexCVC = indexPath.row
+            if indexPath.row == 0 {
+                updateStatus(status: "active")
+            } else if indexPath.row == 1 {
+                updateStatus(status: "completed")
+            } else {
+                updateStatus(status: "canceled")
+            }
+            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+            collectionView.reloadData()
         }
-        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-        collectionView.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.headerTexts[indexPath.row].widthOfStringg(usingFont: .systemFont(ofSize: 15)) + 25, height: 40)
+        if collectionView == filterCollectionView {
+            return CGSize(width: (self.districtDtaes[indexPath.row].name?.widthOfStringg(usingFont: .systemFont(ofSize: 15)) ?? 0) + 25, height: 40)
+        } else {
+            return CGSize(width: self.headerTexts[indexPath.row].widthOfStringg(usingFont: .systemFont(ofSize: 15)) + 25, height: 40)
+        }
     }
     
 }
 
+extension ListVC {
+    func updateStatus(status: String) {
+        self.itemStatus = status
+        self.currentPage = 1
+        self.dates.removeAll()
+        self.tableView.reloadData()
+        self.emptyView.isHidden = true
+        self.uploadData(page: self.currentPage, status: self.itemStatus, districtId: districtId)
+    }
+}
+
+extension UIViewController {
+    func emptyView(view: UIView, count: Int, tableView: UITableView?) {
+        if count == 0 {
+            view.isHidden = false
+            tableView?.isScrollEnabled = false
+        } else {
+            view.isHidden = true
+            tableView?.isScrollEnabled = true
+        }
+    }
+}
 
 
 

@@ -24,4 +24,12 @@ struct ListService: BaseService {
     func countPackages(model: CountPackagesRequest, completion: @escaping Completion<CountPackagesResponse>) {
         request(.countPackages(model: model), completion: completion)
     }
+    
+    func listDistrict(model: ListDistrictResquest, completion: @escaping Completion<ListDistrictRessponse>) {
+        request(.listDistrict(model: model), completion: completion)
+    }
+    
+    func listDistrictDates(model: ListDistrictDatesRequest, completion: @escaping Completion<ListDistrictDatesResponse>) {
+        request(.lisdDistrictDates(model: model), completion: completion)
+    }
 }

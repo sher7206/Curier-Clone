@@ -17,5 +17,9 @@ class ItemCVC: UICollectionViewCell {
         super.awakeFromNib()
     }
     
+    func updateCell(data: ListDistrictData) {
+        self.itemLbl.text = data.name ?? ""
+    }
+    
     
 }

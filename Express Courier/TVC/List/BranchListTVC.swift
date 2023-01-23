@@ -12,6 +12,7 @@ class BranchListTVC: UITableViewCell {
     static func nib()->UINib{return UINib(nibName: identifier, bundle: nil)}
     
     
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var storeImg: UIImageView!
     @IBOutlet weak var storeNameLbl: UILabel!
     @IBOutlet weak var productCountLbl: UILabel!
@@ -23,14 +24,19 @@ class BranchListTVC: UITableViewCell {
     }
     
     func updateCell(data: GetAllPackagesData) {
-        guard let date = data.created_at else {return}
         self.storeImg.sd_setImage(with: URL(string: data.storage_logo ?? "")) { img, _, _, _ in
             if let _ = img {
             } else { self.storeImg.image = UIImage(systemName: "person")?.withTintColor(.black, renderingMode: .alwaysOriginal)}}
         self.storeNameLbl.text = data.storage_name ?? ""
         self.productCountLbl.text = "\(data.packages_count ?? 0) ta/\(data.packages_count_sold ?? 0) ta"
-        self.dateLbl.text = String(date.prefix(10))
-        self.priceLbl.text = data.packages_amount ?? ""
+        self.dateLbl.text = data.created_at_label ?? ""
+        self.priceLbl.text = (Int(data.packages_amount ?? "")?.priceFormetter() ?? "0") + " so'm"
+        guard let isClosed = data.is_closed else {return}
+        if isClosed {
+            containerView.backgroundColor = UIColor(named: "success300")
+        } else {
+            containerView.backgroundColor = .white
+        }
+        
     }
-    
 }

@@ -114,6 +114,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="containerView" destination="LHV-On-xyM" id="2bl-fZ-gQO"/>
                 <outlet property="dateLbl" destination="p59-qj-5c5" id="wlU-5M-9f0"/>
                 <outlet property="priceLbl" destination="uDy-yW-4tR" id="EkM-UI-mKX"/>
                 <outlet property="productCountLbl" destination="0bN-ll-GRq" id="UW9-u9-EIh"/>
