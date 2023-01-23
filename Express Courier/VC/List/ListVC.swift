@@ -362,13 +362,13 @@ extension ListVC {
 }
 
 extension UIViewController {
-    func emptyView(view: UIView, count: Int, tableView: UITableView) {
+    func emptyView(view: UIView, count: Int, tableView: UITableView?) {
         if count == 0 {
             view.isHidden = false
-            tableView.isScrollEnabled = false
+            tableView?.isScrollEnabled = false
         } else {
             view.isHidden = true
-            tableView.isScrollEnabled = true
+            tableView?.isScrollEnabled = true
         }
     }
 }

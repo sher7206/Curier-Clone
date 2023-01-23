@@ -52,7 +52,7 @@ class TaxiVC: UIViewController {
         setUpScretchView()
     }
     
-   
+    
     
     func uploadNewsTaxi(page: Int, fromReg: Int?, fromDis: Int?, toReg: Int?, toDis: Int?) {
         Loader.start()
@@ -64,8 +64,8 @@ class TaxiVC: UIViewController {
                 guard let data = content.data else {return}
                 self.newsDataTotal = content.meta?.total ?? 0
                 self.newsTaxiDates?.append(contentsOf: data)
-                self.emptyView(view: self.emptyView, count: self.newsTaxiDates?.count ?? 0, tableView: self.tableView)
                 self.tableView.reloadData()
+                self.emptyView(view: self.emptyView, count: self.newsTaxiDates?.count ?? 0, tableView: nil)
             case.failure(let error):
                 Loader.stop()
                 Alert.showAlert(forState: .error, message: error.localizedDescription, vibrationType: .error)
@@ -83,7 +83,7 @@ class TaxiVC: UIViewController {
                 guard let data = content.data else {return}
                 self.historyDataTotal = content.meta?.total ?? 0
                 self.historyTaxiDates?.append(contentsOf: data)
-                self.emptyView(view: self.emptyView, count: self.historyTaxiDates?.count ?? 0, tableView: self.tableView)
+                self.emptyView(view: self.emptyView, count: self.historyTaxiDates?.count ?? 0, tableView: nil)
                 self.tableView.reloadData()
             case.failure(let error):
                 Loader.stop()
