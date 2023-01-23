@@ -83,6 +83,20 @@ extension DistributionVC: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: DisttributionTVC.identifier, for: indexPath) as! DisttributionTVC
+        
+        if indexPath.row == 0 {
+            cell.dateLbl.isHidden = false
+        }else{
+            let first = dates[indexPath.row-1].created_at
+            let second = dates[indexPath.row].created_at
+            if first?.prefix(10) == second?.prefix(10){
+                cell.dateLbl.isHidden = true
+            }else{
+                cell.dateLbl.isHidden = false
+            }
+        }
+        
+        
         cell.updateCell(data: self.dates[indexPath.row])
         return cell
     }
