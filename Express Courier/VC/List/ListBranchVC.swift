@@ -20,13 +20,22 @@ class ListBranchVC: UIViewController {
     var dates: [GetAllPackagesData] = []
     var currentPage: Int = 1
     var totalItems: Int = 0
-    
+    var refreshControl = UIRefreshControl()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigation()
         uploadData(page: currentPage)
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        tableView.addSubview(refreshControl)
+    }
+    
+    @objc func refresh(send: UIRefreshControl) {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+            self.refreshControl.endRefreshing()
+        }
     }
     
     func setupNavigation() {

@@ -26,3 +26,14 @@ struct CountPackagesRequest {
     var status: String?
     var group_by: String
 }
+
+struct ListDistrictResquest {
+    var id: Int
+}
+
+struct ListDistrictDatesRequest: Codable {
+    var id: Int
+    var page: Int
+    var status: String
+    var toDistrictId: Int
+}

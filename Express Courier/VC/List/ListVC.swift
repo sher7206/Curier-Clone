@@ -46,6 +46,7 @@ class ListVC: UIViewController {
             }),
             UIAction(title: "Taqsimlash", image: UIImage(named: "discount-circle-list"), handler: { (_) in
                 let vc = DistributionVC()
+                vc.itemId = self.itemId
                 self.navigationController?.pushViewController(vc, animated: true)
             }),
             UIAction(title: "Jurnal", image: UIImage(named: "note-list"), handler: { (_) in

@@ -23,4 +23,7 @@ class DisttributionTVC: UITableViewCell {
         super.awakeFromNib()
     }
     
+    func updateCell(data: ListPackagesData) {
+        
+    }
 }
