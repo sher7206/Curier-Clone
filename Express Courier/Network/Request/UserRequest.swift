@@ -22,3 +22,7 @@ struct BecomeCourierRequest {
     var transport_type: String
     var drivers_license: String
 }
+
+struct NewRequest{
+    var id: Int
+}

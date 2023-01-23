@@ -168,6 +168,18 @@ struct GetNewsResponse: Codable {
     }
 }
 
+
+struct GetOneNewResponse: Codable{
+    var data: GetNewsData?
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        data = try? container.decode(GetNewsData.self, forKey: .data)
+    }
+    enum CodingKeys: String, CodingKey {
+        case data
+    }
+}
+
 struct GetNewsData: Codable {
     var id: Int?
     var title: String?
@@ -222,6 +234,8 @@ struct BecomeCourierData: Codable {
     var drivers_license: String?
     var created_at_label: String?
 }
+
+
 
 
 

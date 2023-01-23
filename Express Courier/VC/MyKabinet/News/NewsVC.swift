@@ -33,8 +33,11 @@ class NewsVC: UIViewController {
         super.viewWillAppear(animated)
         title = "Yangiliklar"
         tabBarController?.tabBar.isHidden = true
+        
+
     }
     
+
     func uploadNews(page: Int) {
         Loader.start()
         let getNews = UserService()

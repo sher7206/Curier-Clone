@@ -6,6 +6,12 @@
 
 import UIKit
 
+
+enum PushNotification: String{
+    case id = "id"
+    case type = "type"
+}
+
 enum MailStatus{
     case new
     case accepted
@@ -34,6 +40,7 @@ class PostVC: UIViewController {
     var refreshControl = UIRefreshControl()
 
     let headerTexts = ["Buyurtmalar", "Yangi", "Qabul qilingan", "Yo'lda", "Yetkazilgan", "Bekor qilingan"]
+    
     var selectIndexCVC: Int = 0
     var isNew: Bool = true
     
@@ -73,10 +80,30 @@ class PostVC: UIViewController {
         setUpScretchView()
         getApiResponse(page: 1, fromRegionId: nil, fromDistrictId: nil, toRegionId: nil, toDistrictId: nil, status: "", available: "/available")
         makeCollectionView()
-        
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(pushNotification), name: NSNotification.Name(Keys.notificationName), object: nil)
+    }
+    
+    @objc func pushNotification(_ notification: Notification){
+        if let userInfo = notification.userInfo {
+            if let id = userInfo[PushNotification.id.rawValue] as? String {
+                let servise = UserService()
+                servise.getOneNewDataResponse(model: NewRequest(id: Int(id) ?? 0)) { result in
+                    switch result{
+                    case.success(let content):
+                        guard let data = content.data else {return}
+                        let vc = AboutNewVC()
+                        vc.dates = data
+                        self.present(vc, animated: true, completion: nil)
+                    case.failure(let error):
+                        print(error.localizedDescription,"🟨")
+                    }
+                }
+            }
+        }
         
     }
+    
+
     
     func getApiResponse(page: Int, fromRegionId: Int?, fromDistrictId: Int?, toRegionId: Int?,toDistrictId: Int?,status: String, available: String){
         getAllDates.removeAll()

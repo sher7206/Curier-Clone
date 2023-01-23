@@ -27,7 +27,9 @@ struct UserService: BaseService {
         request(.getRegion, completion: completion)
     }
     
-   
+    func getOneNewDataResponse(model: NewRequest, completion: @escaping Completion<GetOneNewResponse>){
+        request(.getOneNewData(model: model), completion: completion)
+    }
     
     
     //MARK: - UpdateProfile

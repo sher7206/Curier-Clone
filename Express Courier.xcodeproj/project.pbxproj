@@ -42,6 +42,7 @@
 		188F45EC2972D1550029FCEC /* RegionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188F45EA2972D1550029FCEC /* RegionsVC.swift */; };
 		188F45F02972D1C50029FCEC /* RegionTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188F45EE2972D1C50029FCEC /* RegionTVC.xib */; };
 		188F45F12972D1C50029FCEC /* RegionTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188F45EF2972D1C50029FCEC /* RegionTVC.swift */; };
+		1890E42D297D799A00C6A8E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1890E42C297D799A00C6A8E0 /* SceneDelegate.swift */; };
 		18AF68D9296836DE00B35B64 /* HeaderCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18AF68D7296836DE00B35B64 /* HeaderCVC.xib */; };
 		18AF68DA296836DE00B35B64 /* HeaderCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AF68D8296836DE00B35B64 /* HeaderCVC.swift */; };
 		18AF68DC29683DD700B35B64 /* Ex+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AF68DB29683DD700B35B64 /* Ex+String.swift */; };
@@ -231,6 +232,7 @@
 		188F45EA2972D1550029FCEC /* RegionsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionsVC.swift; sourceTree = "<group>"; };
 		188F45EE2972D1C50029FCEC /* RegionTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegionTVC.xib; sourceTree = "<group>"; };
 		188F45EF2972D1C50029FCEC /* RegionTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionTVC.swift; sourceTree = "<group>"; };
+		1890E42C297D799A00C6A8E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		18AF68D7296836DE00B35B64 /* HeaderCVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderCVC.xib; sourceTree = "<group>"; };
 		18AF68D8296836DE00B35B64 /* HeaderCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderCVC.swift; sourceTree = "<group>"; };
 		18AF68DB29683DD700B35B64 /* Ex+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+String.swift"; sourceTree = "<group>"; };
@@ -931,6 +933,7 @@
 			isa = PBXGroup;
 			children = (
 				18DE66A72965A067003324A5 /* AppDelegate.swift */,
+				1890E42C297D799A00C6A8E0 /* SceneDelegate.swift */,
 			);
 			path = AppDelegate;
 			sourceTree = "<group>";
@@ -1292,6 +1295,7 @@
 				2718BF71297183B700DC0A8A /* EnterTimerVC.swift in Sources */,
 				1858EFCC29758059005A3492 /* ReportTVC.swift in Sources */,
 				278AB68F297ABB9600B4577D /* ListResponse.swift in Sources */,
+				1890E42D297D799A00C6A8E0 /* SceneDelegate.swift in Sources */,
 				2718BFCE297186C700DC0A8A /* Header.swift in Sources */,
 				277388D52977DFA200054CC4 /* TeamService.swift in Sources */,
 				2718BF75297183B700DC0A8A /* ArrivedPostVC.swift in Sources */,
