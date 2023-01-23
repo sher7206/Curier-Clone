@@ -23,7 +23,7 @@ enum ListRouter: BaseURLRequestConvertible {
         case .listPackages(let model):
             
             if let toDistrictId = model.toDistrictId {
-                return "/api/driver/package-lists/59/packages?page=1&status=active&toDistrictId=\(toDistrictId)"
+                return "/api/driver/package-lists/\(model.id)/packages?page=\(model.page)&status=\(model.status)&toDistrictId=\(toDistrictId)"
             }
             
             return "/api/driver/package-lists/\(model.id)/packages?page=\(model.page)&status=\(model.status)"
