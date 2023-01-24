@@ -43,20 +43,7 @@ enum ListRouter: BaseURLRequestConvertible {
     }
     
     var method: Alamofire.HTTPMethod {
-        switch self {
-        case .getAllPackages:
-            return .get
-        case .listPackages:
-            return .get
-        case .statsPackages:
-            return .get
-        case .countPackages:
-            return .get
-        case .listDistrict:
-            return .get
-        case .lisdDistrictDates:
-            return .get
-        }
+        return .get
     }
     
     var parameters: Alamofire.Parameters? {
