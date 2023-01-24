@@ -29,7 +29,6 @@ class ListVC: UIViewController {
     var packages_count_sold: Int = 0
     var districtId: Int?
     
-    
     var menuItems: [UIAction] {
         return [
             UIAction(title: "Statistika", image: UIImage(named: "diagram-list"), handler: { (_) in

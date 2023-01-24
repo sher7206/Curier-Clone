@@ -22,7 +22,6 @@ class ListBranchVC: UIViewController {
     var totalItems: Int = 0
     var refreshControl = UIRefreshControl()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigation()
@@ -66,6 +65,7 @@ class ListBranchVC: UIViewController {
             }
         }
     }
+    
 }
 
 //MARK: TABLE VIEW
@@ -74,6 +74,7 @@ extension ListBranchVC: UITableViewDelegate, UITableViewDataSource{
         return self.dates.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: BranchListTVC.identifier, for: indexPath) as? BranchListTVC else {return UITableViewCell()}
         cell.updateCell(data: self.dates[indexPath.row])
         cell.selectionStyle = .none
@@ -90,6 +91,7 @@ extension ListBranchVC: UITableViewDelegate, UITableViewDataSource{
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == self.dates.count - 1 {
             if self.totalItems > self.dates.count {
@@ -98,4 +100,5 @@ extension ListBranchVC: UITableViewDelegate, UITableViewDataSource{
             }
         }
     }
+    
 }

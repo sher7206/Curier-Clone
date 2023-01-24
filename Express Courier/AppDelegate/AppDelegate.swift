@@ -11,7 +11,6 @@ import FirebaseMessaging
 import UserNotificationsUI
 import UserNotifications
 
-
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
@@ -27,25 +26,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UNUserNotificationCenter.current().delegate = self
         Messaging.messaging().delegate = self
         XNLogger.shared.startLogging()
-        if Cache.share.getUserToken() == nil {
-            let vc = OnboardingVC()
-            window?.rootViewController = vc
-        } else {
-            if Cache.share.getUserPassword() == nil {
-                let vc = MainTabBarController()
-                window?.rootViewController = vc
-            } else {
-                let vc = LockScreenVC()
-                window?.rootViewController = vc
-            }
-        }
         registerForPushNotifications()
         UINavigationBar.appearance().tintColor = .black
         window?.makeKeyAndVisible()
         return true
     }
 
-    
     func applicationDidBecomeActive(_ application: UIApplication) {
         UIApplication.shared.applicationIconBadgeNumber = 0
     }
@@ -57,22 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 // MARK: - Delegates
 extension AppDelegate: UNUserNotificationCenterDelegate {
     
-    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-
-        switch UIApplication.shared.applicationState {
-        case .active:
-
-            print("Received push message from APNs on Foreground🤩")
-        case .background:
-
-            print("Received push message from APNs on Background🇺🇿")
-        case .inactive:
-            print("Received push message from APNs back to Foreground🤬")
-        @unknown default:
-            print("🎃")
-        }
-
-    }
+ 
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         Messaging.messaging().apnsToken = deviceToken
@@ -95,7 +66,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     
     private func process(_ notification: UNNotification) {
         let userInfo = notification.request.content.userInfo
-        
         NotificationCenter.default.post(name: Notification.Name(Keys.notificationName), object: nil, userInfo: userInfo)
     }
     
@@ -113,7 +83,6 @@ extension AppDelegate: MessagingDelegate {
         print(error.localizedDescription)
     }
     
-
     
 }
 

@@ -86,24 +86,42 @@ class PostVC: UIViewController {
     @objc func pushNotification(_ notification: Notification){
         if let userInfo = notification.userInfo {
             if let id = userInfo[PushNotification.id.rawValue] as? String {
-                let servise = UserService()
-                servise.getOneNewDataResponse(model: NewRequest(id: Int(id) ?? 0)) { result in
-                    switch result{
-                    case.success(let content):
-                        guard let data = content.data else {return}
-                        let vc = AboutNewVC()
-                        vc.dates = data
-                        self.present(vc, animated: true, completion: nil)
-                    case.failure(let error):
-                        print(error.localizedDescription,"🟨")
+                if let type = userInfo[PushNotification.type.rawValue] as? String{
+                    let idInt = Int(id) ?? 0
+                    switch type{
+                    case "news":
+                        getApiforNews(id: idInt)
+                    case "package":
+                        let vc = ArrivedPostVC()
+                        vc.id = idInt
+                        vc.hidesBottomBarWhenPushed = true
+                        navigationController?.pushViewController(vc, animated: true)
+                    case "packageList":
+                        let vc = ListVC()
+                        vc.itemId = idInt
+                        navigationController?.pushViewController(vc, animated: true)
+                    default:
+                        break
                     }
                 }
             }
         }
-        
     }
     
-
+    func getApiforNews(id: Int){
+        let servise = UserService()
+        servise.getOneNewDataResponse(model: NewRequest(id: id)) { result in
+            switch result{
+            case.success(let content):
+                guard let data = content.data else {return}
+                let vc = AboutNewVC()
+                vc.dates = data
+                self.present(vc, animated: true, completion: nil)
+            case.failure(let error):
+                Alert.showAlert(forState: .error, message: error.localizedDescription, vibrationType: .error)
+            }
+        }
+    }
     
     func getApiResponse(page: Int, fromRegionId: Int?, fromDistrictId: Int?, toRegionId: Int?,toDistrictId: Int?,status: String, available: String){
         getAllDates.removeAll()

@@ -33,7 +33,7 @@ class BranchListTVC: UITableViewCell {
         self.priceLbl.text = (Int(data.packages_amount ?? "")?.priceFormetter() ?? "0") + " so'm"
         guard let isClosed = data.is_closed else {return}
         if isClosed {
-            containerView.backgroundColor = UIColor(named: "success300")
+            containerView.backgroundColor = UIColor(named: "success200")
         } else {
             containerView.backgroundColor = .white
         }
