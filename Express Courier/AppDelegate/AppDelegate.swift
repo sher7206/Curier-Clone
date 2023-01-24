@@ -72,20 +72,15 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 }
 
 extension AppDelegate: MessagingDelegate {
-    
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
         guard let fcmToken = fcmToken else { return }
         UserDefaults.standard.set(fcmToken, forKey: Keys.fcmToken)
-        
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print(error.localizedDescription)
     }
-    
-    
 }
-
 
 //MARK: - Other Func
 extension AppDelegate {
