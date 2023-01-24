@@ -26,6 +26,7 @@ class ReportVC: UIViewController {
         super.viewDidLoad()
         title = "Statistika"
         uploadData()
+        
     }
     
     func uploadData() {

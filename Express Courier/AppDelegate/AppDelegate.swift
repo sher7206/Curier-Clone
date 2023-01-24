@@ -59,18 +59,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
 
-        switch UIApplication.shared.applicationState {
-        case .active:
-
-            print("Received push message from APNs on Foreground🤩")
-        case .background:
-
-            print("Received push message from APNs on Background🇺🇿")
-        case .inactive:
-            print("Received push message from APNs back to Foreground🤬")
-        @unknown default:
-            print("🎃")
-        }
+        
 
     }
     
