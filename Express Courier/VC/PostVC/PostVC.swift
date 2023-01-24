@@ -73,6 +73,7 @@ class PostVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        CheckUpdate.shared.showUpdate(withConfirmation: false)
         setupNavigation()
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         tableView.addSubview(refreshControl)
