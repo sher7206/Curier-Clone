@@ -33,18 +33,11 @@ class NetworkMonitor {
         monitor.pathUpdateHandler = { path in
             self.isConnected = path.status == .unsatisfied
             self.getConnectionType(path)
-            
-            let storyboard = UIStoryboard(name: "NetworkMonitorView", bundle: nil)
-            let vc = storyboard.instantiateViewController(identifier: "networkmonitor") as! NetworkMonitorView
-            vc.providesPresentationContextTransitionStyle = true
-            vc.definesPresentationContext = true
-            vc.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
-            vc.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-            
+
             if self.isConnected {
-                UIApplication.getTopViewController()?.present(vc, animated: true, completion: nil)
+                NetworkErrorView.start()
             } else {
-                UIApplication.getTopViewController()?.dismiss(animated: true, completion: nil)
+                NetworkErrorView.stop()
             }
         }
     }

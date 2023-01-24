@@ -43,6 +43,9 @@
 		188F45F02972D1C50029FCEC /* RegionTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188F45EE2972D1C50029FCEC /* RegionTVC.xib */; };
 		188F45F12972D1C50029FCEC /* RegionTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188F45EF2972D1C50029FCEC /* RegionTVC.swift */; };
 		1890E42D297D799A00C6A8E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1890E42C297D799A00C6A8E0 /* SceneDelegate.swift */; };
+		1890E4362980046300C6A8E0 /* NetworkErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1890E4342980046300C6A8E0 /* NetworkErrorView.swift */; };
+		1890E4372980046300C6A8E0 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1890E4352980046300C6A8E0 /* NetworkMonitor.swift */; };
+		1890E43A298004CF00C6A8E0 /* CheckUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1890E439298004CF00C6A8E0 /* CheckUpdate.swift */; };
 		18AF68D9296836DE00B35B64 /* HeaderCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18AF68D7296836DE00B35B64 /* HeaderCVC.xib */; };
 		18AF68DA296836DE00B35B64 /* HeaderCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AF68D8296836DE00B35B64 /* HeaderCVC.swift */; };
 		18AF68DC29683DD700B35B64 /* Ex+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AF68DB29683DD700B35B64 /* Ex+String.swift */; };
@@ -180,9 +183,6 @@
 		27D9E0AF29758030002F57A2 /* TaxiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D9E0AE29758030002F57A2 /* TaxiService.swift */; };
 		27DE0ADC297057BC00900AAD /* TeamCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DE0ADA297057BC00900AAD /* TeamCVC.swift */; };
 		27DE0ADD297057BC00900AAD /* TeamCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27DE0ADB297057BC00900AAD /* TeamCVC.xib */; };
-		27EC950A297964A200B567D5 /* NetworkMonitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC9507297964A200B567D5 /* NetworkMonitorView.swift */; };
-		27EC950B297964A200B567D5 /* NetworkMonitorView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27EC9508297964A200B567D5 /* NetworkMonitorView.storyboard */; };
-		27EC950C297964A200B567D5 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC9509297964A200B567D5 /* NetworkMonitor.swift */; };
 		27EC95122979731000B567D5 /* noInternet.json in Resources */ = {isa = PBXBuildFile; fileRef = 27EC95112979731000B567D5 /* noInternet.json */; };
 		27EC951A29797ADD00B567D5 /* BranchesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC951829797ADD00B567D5 /* BranchesVC.swift */; };
 		27EC951B29797ADD00B567D5 /* BranchesVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27EC951929797ADD00B567D5 /* BranchesVC.xib */; };
@@ -233,6 +233,9 @@
 		188F45EE2972D1C50029FCEC /* RegionTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegionTVC.xib; sourceTree = "<group>"; };
 		188F45EF2972D1C50029FCEC /* RegionTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionTVC.swift; sourceTree = "<group>"; };
 		1890E42C297D799A00C6A8E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		1890E4342980046300C6A8E0 /* NetworkErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkErrorView.swift; sourceTree = "<group>"; };
+		1890E4352980046300C6A8E0 /* NetworkMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		1890E439298004CF00C6A8E0 /* CheckUpdate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckUpdate.swift; sourceTree = "<group>"; };
 		18AF68D7296836DE00B35B64 /* HeaderCVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderCVC.xib; sourceTree = "<group>"; };
 		18AF68D8296836DE00B35B64 /* HeaderCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderCVC.swift; sourceTree = "<group>"; };
 		18AF68DB29683DD700B35B64 /* Ex+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+String.swift"; sourceTree = "<group>"; };
@@ -372,9 +375,6 @@
 		27D9E0AE29758030002F57A2 /* TaxiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiService.swift; sourceTree = "<group>"; };
 		27DE0ADA297057BC00900AAD /* TeamCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCVC.swift; sourceTree = "<group>"; };
 		27DE0ADB297057BC00900AAD /* TeamCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamCVC.xib; sourceTree = "<group>"; };
-		27EC9507297964A200B567D5 /* NetworkMonitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkMonitorView.swift; sourceTree = "<group>"; };
-		27EC9508297964A200B567D5 /* NetworkMonitorView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NetworkMonitorView.storyboard; sourceTree = "<group>"; };
-		27EC9509297964A200B567D5 /* NetworkMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		27EC95112979731000B567D5 /* noInternet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = noInternet.json; sourceTree = "<group>"; };
 		27EC951829797ADD00B567D5 /* BranchesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchesVC.swift; sourceTree = "<group>"; };
 		27EC951929797ADD00B567D5 /* BranchesVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BranchesVC.xib; sourceTree = "<group>"; };
@@ -461,6 +461,31 @@
 				188F45EE2972D1C50029FCEC /* RegionTVC.xib */,
 			);
 			path = Regions;
+			sourceTree = "<group>";
+		};
+		1890E4322980046300C6A8E0 /* NetworkMonitor */ = {
+			isa = PBXGroup;
+			children = (
+				1890E4332980046300C6A8E0 /* NetworkMonitorView */,
+				1890E4352980046300C6A8E0 /* NetworkMonitor.swift */,
+			);
+			path = NetworkMonitor;
+			sourceTree = "<group>";
+		};
+		1890E4332980046300C6A8E0 /* NetworkMonitorView */ = {
+			isa = PBXGroup;
+			children = (
+				1890E4342980046300C6A8E0 /* NetworkErrorView.swift */,
+			);
+			path = NetworkMonitorView;
+			sourceTree = "<group>";
+		};
+		1890E438298004CF00C6A8E0 /* CheckUpdateView */ = {
+			isa = PBXGroup;
+			children = (
+				1890E439298004CF00C6A8E0 /* CheckUpdate.swift */,
+			);
+			path = CheckUpdateView;
 			sourceTree = "<group>";
 		};
 		18AF68D2296833C000B35B64 /* PostTVC */ = {
@@ -566,11 +591,12 @@
 			children = (
 				1868BC8B297C38E800B4CCA9 /* Express Courier.entitlements */,
 				279BAAAA29681F8B0028B2EC /* AppDelegate */,
+				1890E438298004CF00C6A8E0 /* CheckUpdateView */,
 				278AB686297A813300B4577D /* Tabbar */,
 				2718BF88297185A100DC0A8A /* Cache */,
 				18DA32E8296C1EF20066FF9C /* Alert */,
-				27EC9505297964A200B567D5 /* NetworkMonitor */,
 				18AF68D52968347000B35B64 /* Extensions */,
+				1890E4322980046300C6A8E0 /* NetworkMonitor */,
 				2718BF91297186C700DC0A8A /* Network */,
 				27B7E3522966FCD700C3A69E /* CVC */,
 				18AF68DD296844D500B35B64 /* TVC */,
@@ -994,24 +1020,6 @@
 			path = Team;
 			sourceTree = "<group>";
 		};
-		27EC9505297964A200B567D5 /* NetworkMonitor */ = {
-			isa = PBXGroup;
-			children = (
-				27EC9506297964A200B567D5 /* NetworkMonitorView */,
-				27EC9509297964A200B567D5 /* NetworkMonitor.swift */,
-			);
-			path = NetworkMonitor;
-			sourceTree = "<group>";
-		};
-		27EC9506297964A200B567D5 /* NetworkMonitorView */ = {
-			isa = PBXGroup;
-			children = (
-				27EC9507297964A200B567D5 /* NetworkMonitorView.swift */,
-				27EC9508297964A200B567D5 /* NetworkMonitorView.storyboard */,
-			);
-			path = NetworkMonitorView;
-			sourceTree = "<group>";
-		};
 		27EC951329797AAE00B567D5 /* Branch */ = {
 			isa = PBXGroup;
 			children = (
@@ -1161,7 +1169,6 @@
 				27692926297568B8009BF0A5 /* NewsVC.xib in Resources */,
 				270273D1296C0B6900687A2A /* NotificationViewController.xib in Resources */,
 				18DA32CF296BFCC00066FF9C /* PaymentHistoryVC.xib in Resources */,
-				27EC950B297964A200B567D5 /* NetworkMonitorView.storyboard in Resources */,
 				2718BF74297183B700DC0A8A /* PostVC.xib in Resources */,
 				18DA32D0296BFCC00066FF9C /* SettingsVC.xib in Resources */,
 				1858EFDA29759124005A3492 /* ItemCVC.xib in Resources */,
@@ -1237,17 +1244,18 @@
 				27CD00532971896B0088449B /* AuthRouter.swift in Sources */,
 				277388E72978109100054CC4 /* OTPFieldView.swift in Sources */,
 				18DA32CA296BFCC00066FF9C /* SettingsVC.swift in Sources */,
+				1890E43A298004CF00C6A8E0 /* CheckUpdate.swift in Sources */,
 				2718BFDB297186C700DC0A8A /* Domain.swift in Sources */,
 				188F45F12972D1C50029FCEC /* RegionTVC.swift in Sources */,
 				2718BFCF297186C700DC0A8A /* NetworkExtensions.swift in Sources */,
 				27692928297568DA009BF0A5 /* NewTVC.swift in Sources */,
 				27CD00572971A3C40088449B /* UserRouter.swift in Sources */,
+				1890E4372980046300C6A8E0 /* NetworkMonitor.swift in Sources */,
 				18AF68DC29683DD700B35B64 /* Ex+String.swift in Sources */,
 				2718BF77297183B700DC0A8A /* PostAgreemantVC.swift in Sources */,
 				18DA32E2296BFCE10066FF9C /* PaymentTVC.swift in Sources */,
 				2718BFCD297186C700DC0A8A /* NetworkDecoder.swift in Sources */,
 				27D9E0AB29757F43002F57A2 /* TaxiRouter.swift in Sources */,
-				27EC950C297964A200B567D5 /* NetworkMonitor.swift in Sources */,
 				2718BFD1297186C700DC0A8A /* NetworkError.swift in Sources */,
 				1858EFEE2976C1ED005A3492 /* PostService.swift in Sources */,
 				18B90B1C29794C5F003605D8 /* ScannerVC.swift in Sources */,
@@ -1328,12 +1336,12 @@
 				18DA32E3296BFCE10066FF9C /* MyCategoryTVC.swift in Sources */,
 				27D9E0A9297577C7002F57A2 /* TaxiResponse.swift in Sources */,
 				2769293129756C52009BF0A5 /* AboutAppVC.swift in Sources */,
-				27EC950A297964A200B567D5 /* NetworkMonitorView.swift in Sources */,
 				2777854C296EBA7100FC0141 /* KuryerModalVC.swift in Sources */,
 				2718BFD2297186C700DC0A8A /* AuthRequest.swift in Sources */,
 				27197AE629680B5300B53B25 /* KabinetVC.swift in Sources */,
 				27A2670F297148D700294BE7 /* AddTeamVC.swift in Sources */,
 				27692924297568AF009BF0A5 /* NewsVC.swift in Sources */,
+				1890E4362980046300C6A8E0 /* NetworkErrorView.swift in Sources */,
 				277388D8297805D500054CC4 /* OtpPhoneNumberVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
