@@ -122,6 +122,7 @@ class ScannerVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
             if let outputString = metadataObj.stringValue {
                 DispatchQueue.main.async { [self] in
                     scannerQRCode(id: Int(outputString.dropFirst(8)) ?? 0)
+                    UINotificationFeedbackGenerator().notificationOccurred(.success)
                 }
             }
         }
@@ -132,9 +133,9 @@ class ScannerVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
         service.getOnePostResponse(model: PostIdRequest(id: id)) { [self] result in
             switch result{
             case.success:
+                Alert.showAlert(forState: .success, message: "", vibrationType: .success)
                 navigationController?.popViewController(animated: true)
                 delegate?.isScannered(id: id)
-                Alert.showAlert(forState: .success, message: "Succes", vibrationType: .success)
             case.failure(let error):
                 Alert.showAlert(forState: .error, message: error.localizedDescription, vibrationType: .error)
             }
