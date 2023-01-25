@@ -595,7 +595,7 @@
 				1868BC8B297C38E800B4CCA9 /* Express Courier.entitlements */,
 				279BAAAA29681F8B0028B2EC /* AppDelegate */,
 				1890E438298004CF00C6A8E0 /* CheckUpdateView */,
-				278AB686297A813300B4577D /* Tabbar */,
+				278AB686297A813300B4577D /* MainTabbar */,
 				2718BF88297185A100DC0A8A /* Cache */,
 				18DA32E8296C1EF20066FF9C /* Alert */,
 				18AF68D52968347000B35B64 /* Extensions */,
@@ -941,12 +941,12 @@
 			path = MyKabinet;
 			sourceTree = "<group>";
 		};
-		278AB686297A813300B4577D /* Tabbar */ = {
+		278AB686297A813300B4577D /* MainTabbar */ = {
 			isa = PBXGroup;
 			children = (
 				18DA32E6296C0D430066FF9C /* MainTabBarController.swift */,
 			);
-			path = Tabbar;
+			path = MainTabbar;
 			sourceTree = "<group>";
 		};
 		278AB68B297A9FC200B4577D /* LockScreen */ = {
