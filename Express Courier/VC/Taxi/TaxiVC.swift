@@ -432,6 +432,8 @@ extension TaxiVC {
         self.newsCurrentPage = 1
         self.historyTaxiDates?.removeAll()
         self.newsTaxiDates?.removeAll()
+        self.emptyView.isHidden = true
+        self.tableView.reloadData()
         self.uploadNewsTaxi(page: newsCurrentPage, fromReg: fromRegionId, fromDis: fromDistrictId, toReg: toRegionId, toDis: toDistrictId)
     }
     
@@ -439,6 +441,8 @@ extension TaxiVC {
         self.historyCurrentPage = 1
         self.newsTaxiDates?.removeAll()
         self.historyTaxiDates?.removeAll()
+        self.emptyView.isHidden = true
+        self.tableView.reloadData()
         self.uploadHistoryTaxi(page: historyCurrentPage, fromReg: fromRegionId, fromDis: fromDistrictId, toReg: toRegionId, toDis: toDistrictId)
     }
 }

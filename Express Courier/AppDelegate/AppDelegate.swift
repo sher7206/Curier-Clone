@@ -5,7 +5,6 @@
 
 import UIKit
 import IQKeyboardManagerSwift
-import XNLogger
 import Firebase
 import FirebaseMessaging
 import UserNotificationsUI
