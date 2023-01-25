@@ -18,6 +18,7 @@ enum UserRouter: BaseURLRequestConvertible {
     case logOut
     case becomeCourier
     case getOneNewData(model: NewRequest)
+    case deleteAccount
     
     var path: String {
         switch self {
@@ -39,6 +40,8 @@ enum UserRouter: BaseURLRequestConvertible {
             return "/api/profile/become-driver"
         case .getOneNewData(let model):
             return "/api/news/\(model.id)"
+        case .deleteAccount:
+            return "/api/profile"
         }
     }
     
@@ -62,6 +65,8 @@ enum UserRouter: BaseURLRequestConvertible {
             return .post
         case .getOneNewData:
             return .get
+        case .deleteAccount:
+            return .delete
         }
     }
     

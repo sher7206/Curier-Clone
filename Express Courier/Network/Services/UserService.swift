@@ -96,4 +96,9 @@ struct UserService: BaseService {
     func logOut(completion: @escaping Completion<LogOutResponse>) {
         request(.logOut, completion: completion)
     }
+    
+    //MARK: - Delete Account
+    func deleteAccount(completion: @escaping Completion<DeleteAccountResponse>) {
+        request(.deleteAccount, completion: completion)
+    }
 }
