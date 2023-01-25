@@ -240,11 +240,7 @@ extension TaxiVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelega
             if indexPath.row == data.count - 1 {
                 if self.newsDataTotal > data.count {
                     self.newsCurrentPage += 1
-                    Loader.start()
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                        Loader.stop()
-                        self.uploadNewsTaxi(page: self.newsCurrentPage, fromReg: self.fromRegionId, fromDis: self.fromDistrictId, toReg: self.toRegionId, toDis: self.toDistrictId)
-                    }
+                    self.uploadNewsTaxi(page: self.newsCurrentPage, fromReg: self.fromRegionId, fromDis: self.fromDistrictId, toReg: self.toRegionId, toDis: self.toDistrictId)
                 }
             }
         } else {
@@ -252,11 +248,7 @@ extension TaxiVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelega
             if indexPath.row == data.count - 1 {
                 if self.historyDataTotal > data.count {
                     self.historyCurrentPage += 1
-                    Loader.start()
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                        Loader.stop()
-                        self.uploadHistoryTaxi(page: self.newsCurrentPage, fromReg: self.fromRegionId, fromDis: self.fromDistrictId, toReg: self.toRegionId, toDis: self.toDistrictId)
-                    }
+                    self.uploadHistoryTaxi(page: self.newsCurrentPage, fromReg: self.fromRegionId, fromDis: self.fromDistrictId, toReg: self.toRegionId, toDis: self.toDistrictId)
                 }
             }
         }
@@ -272,21 +264,19 @@ extension TaxiVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TaxiHeaderCVC", for: indexPath) as? TaxiHeaderCVC else {return UICollectionViewCell()}
-        
         cell.bottomView.backgroundColor = .clear
         cell.titleLbl.textColor = UIColor(named: "black600")
-        cell.titleLbl.font = .systemFont(ofSize: 14, weight: .regular)
+        cell.titleLbl.font = .systemFont(ofSize: 16, weight: .regular)
         if selectIndexCVC == indexPath.row {
             cell.bottomView.backgroundColor = .black
             cell.titleLbl.textColor = .black
-            cell.titleLbl.font = .systemFont(ofSize: 15, weight: .medium)
+            cell.titleLbl.font = .systemFont(ofSize: 18, weight: .medium)
         } else {
             cell.bottomView.backgroundColor = .clear
             cell.titleLbl.textColor = UIColor(named: "black600")
-            cell.titleLbl.font = .systemFont(ofSize: 15, weight: .regular)
+            cell.titleLbl.font = .systemFont(ofSize: 18, weight: .regular)
         }
         cell.updateCell(title: headerTexts[indexPath.row])
-        
         return cell
     }
     
@@ -321,12 +311,10 @@ extension TaxiVC: TaxiFilterTVCDelegate {
     }
     
     func fromCloseTapped() {
-        
         if fromRegionId == nil || toDistrictId == nil {
             self.toRegionId = nil
             self.toDistrictId = nil
         }
-        
         self.fromRegionId = nil
         self.fromDistrictId = nil
         self.fromRegionText = "Viloyat, tuman"
@@ -335,16 +323,13 @@ extension TaxiVC: TaxiFilterTVCDelegate {
         } else {
             self.historyAllDates()
         }
-        
     }
     
     func toCloseTapped() {
-        
         if toRegionId == nil || toDistrictId == nil {
             self.fromRegionId = nil
             self.fromDistrictId = nil
         }
-        
         self.toRegionId = nil
         self.toDistrictId = nil
         self.toRegionText = "Viloyat, tuman"
@@ -356,7 +341,6 @@ extension TaxiVC: TaxiFilterTVCDelegate {
     }
     
     func replaceTapped() {
-        
         let a = fromRegionText
         let b = toRegionText
         self.fromRegionText = b

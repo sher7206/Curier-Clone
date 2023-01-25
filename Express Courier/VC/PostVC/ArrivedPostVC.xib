@@ -170,7 +170,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6XN-0B-V6M">
                                             <rect key="frame" x="0.0" y="37.5" width="414" height="338"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ama-t4-mP2">
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ama-t4-mP2">
                                                     <rect key="frame" x="30" y="0.0" width="368" height="338"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kQX-Mc-AMI">
@@ -425,6 +425,7 @@
                                                 <constraint firstItem="qLL-l5-02b" firstAttribute="top" secondItem="6XN-0B-V6M" secondAttribute="top" constant="60" id="3hb-Iy-CVR"/>
                                                 <constraint firstAttribute="bottom" secondItem="ama-t4-mP2" secondAttribute="bottom" id="5uE-vS-R7v"/>
                                                 <constraint firstItem="ama-t4-mP2" firstAttribute="leading" secondItem="qLL-l5-02b" secondAttribute="trailing" id="66a-Wb-0hY"/>
+                                                <constraint firstAttribute="bottom" secondItem="qLL-l5-02b" secondAttribute="bottom" constant="100" id="UYL-7n-e4e"/>
                                                 <constraint firstItem="ama-t4-mP2" firstAttribute="top" secondItem="6XN-0B-V6M" secondAttribute="top" id="ZNO-aQ-kDv"/>
                                                 <constraint firstAttribute="bottom" secondItem="qLL-l5-02b" secondAttribute="bottom" constant="100" id="ha5-5a-PJU"/>
                                                 <constraint firstAttribute="trailing" secondItem="ama-t4-mP2" secondAttribute="trailing" constant="16" id="lr0-14-RWS"/>
@@ -750,7 +751,6 @@
                                 <constraint firstAttribute="trailing" secondItem="8C8-vP-KdZ" secondAttribute="trailing" constant="16" id="0CN-R0-bRR"/>
                                 <constraint firstAttribute="trailing" secondItem="UXJ-s8-7lh" secondAttribute="trailing" constant="16" id="2S8-ZV-zMC"/>
                                 <constraint firstItem="8C8-vP-KdZ" firstAttribute="leading" secondItem="aXX-3O-JZC" secondAttribute="leading" constant="16" id="5qP-j3-mPK"/>
-                                <constraint firstItem="4rO-jA-2p2" firstAttribute="leading" secondItem="1gl-87-fap" secondAttribute="trailing" constant="-384" id="BK7-iH-8jE"/>
                                 <constraint firstAttribute="trailing" secondItem="gXd-VJ-AVe" secondAttribute="trailing" id="Lbd-0F-6Cz"/>
                                 <constraint firstAttribute="trailing" secondItem="A2m-IU-8M3" secondAttribute="trailing" id="Puj-OS-Vat"/>
                                 <constraint firstAttribute="trailing" secondItem="1gl-87-fap" secondAttribute="trailing" id="Shh-Lr-8ex"/>

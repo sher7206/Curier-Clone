@@ -40,12 +40,13 @@
         }
         self.cancelled = YES;
         
-        dispatch_main_async_safe(^{
-            if (self.doneBlock) {
-                self.doneBlock(nil, nil, SDImageCacheTypeNone);
-                self.doneBlock = nil;
-            }
-        });
+        SDImageCacheQueryCompletionBlock doneBlock = self.doneBlock;
+        self.doneBlock = nil;
+        if (doneBlock) {
+            dispatch_main_async_safe(^{
+                doneBlock(nil, nil, SDImageCacheTypeNone);
+            });
+        }
     }
 }
 
@@ -108,13 +109,15 @@ static NSString * _defaultDiskCacheDirectory;
     if ((self = [super init])) {
         NSAssert(ns, @"Cache namespace should not be nil");
         
-        // Create IO serial queue
-        _ioQueue = dispatch_queue_create("com.hackemist.SDImageCache", DISPATCH_QUEUE_SERIAL);
-        
         if (!config) {
             config = SDImageCacheConfig.defaultCacheConfig;
         }
         _config = [config copy];
+        
+        // Create IO queue
+        dispatch_queue_attr_t ioQueueAttributes = _config.ioQueueAttributes;
+        _ioQueue = dispatch_queue_create("com.hackemist.SDImageCache", ioQueueAttributes);
+        NSAssert(_ioQueue, @"The IO queue should not be nil. Your configured `ioQueueAttributes` may be wrong");
         
         // Init the memory cache
         NSAssert([config.memoryCacheClass conformsToProtocol:@protocol(SDMemoryCache)], @"Custom memory cache class must conform to `SDMemoryCache` protocol");
@@ -245,7 +248,7 @@ static NSString * _defaultDiskCacheDirectory;
     dispatch_async(self.ioQueue, ^{
         @autoreleasepool {
             NSData *data = imageData;
-            if (!data && [image conformsToProtocol:@protocol(SDAnimatedImage)]) {
+            if (!data && [image respondsToSelector:@selector(animatedImageData)]) {
                 // If image is custom animated image class, prefer its original animated data
                 data = [((id<SDAnimatedImage>)image) animatedImageData];
             }
@@ -409,7 +412,16 @@ static NSString * _defaultDiskCacheDirectory;
         SDImageCacheType cacheType = [context[SDWebImageContextStoreCacheType] integerValue];
         shouldCacheToMomery = (cacheType == SDImageCacheTypeAll || cacheType == SDImageCacheTypeMemory);
     }
-    if (context[SDWebImageContextImageThumbnailPixelSize]) {
+    CGSize thumbnailSize = CGSizeZero;
+    NSValue *thumbnailSizeValue = context[SDWebImageContextImageThumbnailPixelSize];
+    if (thumbnailSizeValue != nil) {
+#if SD_MAC
+        thumbnailSize = thumbnailSizeValue.sizeValue;
+#else
+        thumbnailSize = thumbnailSizeValue.CGSizeValue;
+#endif
+    }
+    if (thumbnailSize.width > 0 && thumbnailSize.height > 0) {
         // Query full size cache key which generate a thumbnail, should not write back to full size memory cache
         shouldCacheToMomery = NO;
     }
@@ -431,8 +443,7 @@ static NSString * _defaultDiskCacheDirectory;
     if (image) {
         if (options & SDImageCacheDecodeFirstFrameOnly) {
             // Ensure static image
-            Class animatedImageClass = image.class;
-            if (image.sd_isAnimated || ([animatedImageClass isSubclassOfClass:[UIImage class]] && [animatedImageClass conformsToProtocol:@protocol(SDAnimatedImage)])) {
+            if (image.sd_isAnimated) {
 #if SD_MAC
                 image = [[NSImage alloc] initWithCGImage:image.CGImage scale:image.scale orientation:kCGImagePropertyOrientationUp];
 #else
@@ -565,8 +576,7 @@ static NSString * _defaultDiskCacheDirectory;
     if (image) {
         if (options & SDImageCacheDecodeFirstFrameOnly) {
             // Ensure static image
-            Class animatedImageClass = image.class;
-            if (image.sd_isAnimated || ([animatedImageClass isSubclassOfClass:[UIImage class]] && [animatedImageClass conformsToProtocol:@protocol(SDAnimatedImage)])) {
+            if (image.sd_isAnimated) {
 #if SD_MAC
                 image = [[NSImage alloc] initWithCGImage:image.CGImage scale:image.scale orientation:kCGImagePropertyOrientationUp];
 #else
@@ -626,7 +636,16 @@ static NSString * _defaultDiskCacheDirectory;
                 SDImageCacheType cacheType = [context[SDWebImageContextStoreCacheType] integerValue];
                 shouldCacheToMomery = (cacheType == SDImageCacheTypeAll || cacheType == SDImageCacheTypeMemory);
             }
-            if (context[SDWebImageContextImageThumbnailPixelSize]) {
+            CGSize thumbnailSize = CGSizeZero;
+            NSValue *thumbnailSizeValue = context[SDWebImageContextImageThumbnailPixelSize];
+            if (thumbnailSizeValue != nil) {
+        #if SD_MAC
+                thumbnailSize = thumbnailSizeValue.sizeValue;
+        #else
+                thumbnailSize = thumbnailSizeValue.CGSizeValue;
+        #endif
+            }
+            if (thumbnailSize.width > 0 && thumbnailSize.height > 0) {
                 // Query full size cache key which generate a thumbnail, should not write back to full size memory cache
                 shouldCacheToMomery = NO;
             }

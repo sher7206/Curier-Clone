@@ -58,7 +58,11 @@ class OtpVC: UIViewController {
     func timerSetUp() {
         _ = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [self] t in
             duration = duration - 1
-            timerLbl.text = "0\(duration/60) : \(duration%60)"
+            if duration == 0 {
+                timerLbl.text = "00 : 00"
+            } else {
+                timerLbl.text = "0\(duration/60) : \(duration%60)"
+            }
         })
     }
     

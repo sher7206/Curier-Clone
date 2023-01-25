@@ -50,12 +50,11 @@ class OtpPhoneNumberVC: UIViewController {
         }
         
     }
+
     
-    @IBAction func registerTapped(_ sender: UIButton) {
+    @IBAction func backBtnTapped(_ sender: UIButton) {
         self.dismiss(animated: true)
     }
-    
-    
 }
 
 

@@ -13,7 +13,6 @@ target 'Express Courier' do
   pod 'Alamofire'
   pod 'SDWebImage'
   pod 'lottie-ios', '~> 3.0'
-  pod 'BarcodeScanner'
   pod 'Firebase/Messaging'
   pod 'Firebase', '~> 7.0' # last version is 8.0.0
   

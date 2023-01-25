@@ -34,10 +34,10 @@ class NewsVC: UIViewController {
         title = "Yangiliklar"
         tabBarController?.tabBar.isHidden = true
         
-
+        
     }
     
-
+    
     func uploadNews(page: Int) {
         Loader.start()
         let getNews = UserService()
@@ -55,6 +55,7 @@ class NewsVC: UIViewController {
                 }
                 self.tableView.reloadData()
             case.failure(let error):
+                Loader.stop()
                 print(error.localizedDescription)
             }
         }
@@ -85,14 +86,10 @@ extension NewsVC: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == news.count - 1 {
-            //            Loader.start()
             if self.totalItems > news.count {
                 self.currentPage += 1
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    Loader.stop()
-                    self.uploadNews(page: self.currentPage)
-                    self.tableView.reloadData()
-                }
+                self.uploadNews(page: self.currentPage)
+                self.tableView.reloadData()
             }
         }
     }

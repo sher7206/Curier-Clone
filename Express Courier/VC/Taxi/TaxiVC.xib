@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,13 +20,9 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ld5-vD-h9l">
-                    <rect key="frame" x="0.0" y="48" width="414" height="224"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="9P0-qC-8Dk">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                 </tableView>
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OpV-Q1-Yf5">
                     <rect key="frame" x="112" y="374" width="190" height="148"/>
@@ -60,27 +55,20 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" name="white300"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="9P0-qC-8Dk" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="CMo-CM-9HO"/>
                 <constraint firstAttribute="bottom" secondItem="9P0-qC-8Dk" secondAttribute="bottom" id="Dmn-5e-J1J"/>
                 <constraint firstItem="OpV-Q1-Yf5" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="N87-qJ-hks"/>
                 <constraint firstItem="9P0-qC-8Dk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="NAP-6R-0Qy"/>
-                <constraint firstItem="Ld5-vD-h9l" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.25" id="f6o-Pg-4Al"/>
-                <constraint firstItem="Ld5-vD-h9l" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="itT-it-Mjg"/>
                 <constraint firstItem="pS3-Yi-xai" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.3" id="noS-o0-dzW"/>
                 <constraint firstItem="OpV-Q1-Yf5" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="oH6-Yq-8uv"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Ld5-vD-h9l" secondAttribute="trailing" id="tSG-oH-baJ"/>
                 <constraint firstItem="9P0-qC-8Dk" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="u16-bS-X45"/>
-                <constraint firstItem="Ld5-vD-h9l" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="uqb-Da-bQB"/>
             </constraints>
             <point key="canvasLocation" x="27.536231884057973" y="19.419642857142858"/>
         </view>
     </objects>
     <resources>
         <image name="empty_box" width="519" height="481"/>
-        <namedColor name="white300">
-            <color red="0.97600001096725464" green="0.97600001096725464" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
     </resources>
 </document>

@@ -38,43 +38,54 @@
                                 <constraint firstAttribute="height" constant="80" id="lSe-6H-bLl"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Parolni tiklash" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SDD-2D-aoF" userLabel="Parolni tiklash">
-                            <rect key="frame" x="131.5" y="210" width="151" height="29"/>
-                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
-                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="alP-VY-Lag">
+                            <rect key="frame" x="16" y="210" width="382" height="80"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Parolni tiklash" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SDD-2D-aoF" userLabel="Parolni tiklash">
+                                    <rect key="frame" x="115.5" y="0.0" width="151" height="29"/>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quyidagi manzilga kabinetingizga kirish uchun parol yuboriladi" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dre-MV-8Fs" userLabel="Parolni tiklash">
+                                    <rect key="frame" x="13.5" y="39" width="355" height="41"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" name="black700"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="mQv-9u-FlU">
-                            <rect key="frame" x="16" y="279" width="382" height="80"/>
+                            <rect key="frame" x="16" y="320" width="382" height="86"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="wr9-BY-KPR">
-                                    <rect key="frame" x="0.0" y="0.0" width="382" height="80"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="382" height="86"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Telefon raqam" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wiF-T8-ooE">
-                                            <rect key="frame" x="0.0" y="0.0" width="382" height="19"/>
-                                            <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="16"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="382" height="20"/>
+                                            <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="17"/>
                                             <color key="textColor" name="black1000"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xU3-mp-LAF">
-                                            <rect key="frame" x="0.0" y="25" width="382" height="55"/>
+                                            <rect key="frame" x="0.0" y="26" width="382" height="60"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2Iz-Y4-42S">
-                                                    <rect key="frame" x="15" y="0.0" width="352" height="55"/>
+                                                    <rect key="frame" x="15" y="0.0" width="352" height="60"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="call-login" translatesAutoresizingMaskIntoConstraints="NO" id="AYh-Ta-CmR">
-                                                            <rect key="frame" x="0.0" y="17.5" width="20" height="20"/>
+                                                            <rect key="frame" x="0.0" y="20" width="20" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="20" id="0iN-Jj-Hkb"/>
                                                                 <constraint firstAttribute="height" constant="20" id="6SC-hh-NsQ"/>
                                                             </constraints>
                                                         </imageView>
                                                         <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="+998" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G6M-4z-JJI" customClass="PhoneFormattedTextField" customModule="SwiftPhoneNumberFormatter">
-                                                            <rect key="frame" x="30" y="4.5" width="322" height="46"/>
+                                                            <rect key="frame" x="30" y="7" width="322" height="46"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="46" id="lcB-Ki-wJl"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="15"/>
+                                                            <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="16"/>
                                                             <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                                         </textField>
                                                     </subviews>
@@ -98,9 +109,9 @@
                             </subviews>
                         </stackView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9zL-es-ToF">
-                            <rect key="frame" x="16" y="401" width="382" height="50"/>
+                            <rect key="frame" x="16" y="448" width="382" height="60"/>
                             <color key="backgroundColor" name="primary400"/>
-                            <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="14"/>
+                            <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="17"/>
                             <color key="tintColor" name="primary1000"/>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                             <state key="normal" title="Parolni tiklash"/>
@@ -113,45 +124,58 @@
                                 <action selector="confirmBtnTapped:" destination="-1" eventType="touchUpInside" id="MTT-fr-NRk"/>
                             </connections>
                         </button>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Q2Y-I9-hPh">
-                            <rect key="frame" x="99.5" y="818" width="215.5" height="48"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xLG-qw-X4j">
+                            <rect key="frame" x="16" y="48" width="78" height="33"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Menda akkauntim mavjud emas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o66-KW-KC5">
-                                    <rect key="frame" x="0.0" y="0.0" width="215.5" height="18"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                    <color key="textColor" name="black700"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iuZ-G2-jwG">
-                                    <rect key="frame" x="45" y="18" width="125" height="30"/>
-                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                    <color key="tintColor" name="blue300"/>
-                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                    <state key="normal" title="Ro‘yhatdan o‘tish">
-                                        <color key="titleColor" name="info300"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="registerTapped:" destination="-1" eventType="touchUpInside" id="tPN-WM-e1O"/>
-                                    </connections>
-                                </button>
+                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="XUb-MG-fVl">
+                                    <rect key="frame" x="0.0" y="0.0" width="78" height="33"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.left" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="pZ9-Nu-Ltc">
+                                            <rect key="frame" x="0.0" y="8.5" width="20" height="16.5"/>
+                                            <color key="tintColor" name="black1000"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="4tI-63-Y0n"/>
+                                                <constraint firstAttribute="width" constant="20" id="bca-ZT-SxY"/>
+                                            </constraints>
+                                        </imageView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qOh-N6-jFm">
+                                            <rect key="frame" x="20" y="0.0" width="58" height="33"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title="Kabinet">
+                                                <color key="titleColor" name="black1000"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="backBtnTapped:" destination="-1" eventType="touchUpInside" id="whA-pl-AU9"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </stackView>
                             </subviews>
-                        </stackView>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="XUb-MG-fVl" firstAttribute="leading" secondItem="xLG-qw-X4j" secondAttribute="leading" id="Gdk-PR-3xL"/>
+                                <constraint firstAttribute="trailing" secondItem="XUb-MG-fVl" secondAttribute="trailing" id="QkO-Lh-NH7"/>
+                                <constraint firstItem="XUb-MG-fVl" firstAttribute="top" secondItem="xLG-qw-X4j" secondAttribute="top" id="ZFV-SM-NSO"/>
+                                <constraint firstAttribute="bottom" secondItem="XUb-MG-fVl" secondAttribute="bottom" id="lrv-Yl-f8z"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstItem="xU3-mp-LAF" firstAttribute="height" secondItem="CkI-39-xbA" secondAttribute="height" multiplier="55/896" id="0kW-2g-wKU"/>
-                        <constraint firstItem="9zL-es-ToF" firstAttribute="height" secondItem="CkI-39-xbA" secondAttribute="height" multiplier="50/896" id="1dB-Kg-F9H"/>
-                        <constraint firstItem="SDD-2D-aoF" firstAttribute="top" secondItem="umX-lW-siV" secondAttribute="bottom" constant="30" id="4Ab-vQ-tgU"/>
-                        <constraint firstAttribute="bottom" secondItem="Q2Y-I9-hPh" secondAttribute="bottom" constant="30" id="4Gl-Pz-eaq"/>
+                        <constraint firstItem="xU3-mp-LAF" firstAttribute="height" secondItem="CkI-39-xbA" secondAttribute="height" multiplier="60/896" id="0kW-2g-wKU"/>
+                        <constraint firstItem="9zL-es-ToF" firstAttribute="height" secondItem="CkI-39-xbA" secondAttribute="height" multiplier="60/896" id="1dB-Kg-F9H"/>
                         <constraint firstAttribute="trailing" secondItem="9zL-es-ToF" secondAttribute="trailing" constant="16" id="5lN-Lg-GCG"/>
                         <constraint firstItem="9zL-es-ToF" firstAttribute="top" secondItem="mQv-9u-FlU" secondAttribute="bottom" constant="42" id="713-aI-89G"/>
                         <constraint firstAttribute="trailing" secondItem="mQv-9u-FlU" secondAttribute="trailing" constant="16" id="9VK-Tt-haq"/>
+                        <constraint firstItem="xLG-qw-X4j" firstAttribute="leading" secondItem="CkI-39-xbA" secondAttribute="leading" constant="16" id="IEI-ah-81m"/>
+                        <constraint firstAttribute="trailing" secondItem="alP-VY-Lag" secondAttribute="trailing" constant="16" id="OaE-RN-KOL"/>
                         <constraint firstItem="umX-lW-siV" firstAttribute="centerX" secondItem="CkI-39-xbA" secondAttribute="centerX" id="PMd-yV-BsJ"/>
                         <constraint firstItem="mQv-9u-FlU" firstAttribute="leading" secondItem="CkI-39-xbA" secondAttribute="leading" constant="16" id="WBS-2v-nay"/>
-                        <constraint firstItem="SDD-2D-aoF" firstAttribute="centerX" secondItem="CkI-39-xbA" secondAttribute="centerX" id="ayM-n3-Jfn"/>
-                        <constraint firstItem="Q2Y-I9-hPh" firstAttribute="centerX" secondItem="CkI-39-xbA" secondAttribute="centerX" id="c0F-as-9ye"/>
+                        <constraint firstItem="mQv-9u-FlU" firstAttribute="top" secondItem="alP-VY-Lag" secondAttribute="bottom" constant="30" id="Zd0-p7-NCP"/>
+                        <constraint firstItem="alP-VY-Lag" firstAttribute="leading" secondItem="CkI-39-xbA" secondAttribute="leading" constant="16" id="bAb-48-yNH"/>
                         <constraint firstItem="umX-lW-siV" firstAttribute="top" secondItem="CkI-39-xbA" secondAttribute="top" constant="100" id="rxc-OZ-NKs"/>
-                        <constraint firstItem="mQv-9u-FlU" firstAttribute="top" secondItem="SDD-2D-aoF" secondAttribute="bottom" constant="40" id="sSD-vE-5ar"/>
+                        <constraint firstItem="alP-VY-Lag" firstAttribute="top" secondItem="umX-lW-siV" secondAttribute="bottom" constant="30" id="sGA-pp-lde"/>
                         <constraint firstItem="9zL-es-ToF" firstAttribute="leading" secondItem="CkI-39-xbA" secondAttribute="leading" constant="16" id="xdN-uF-0qt"/>
                     </constraints>
                 </view>
@@ -162,6 +186,7 @@
                 <constraint firstItem="CkI-39-xbA" firstAttribute="top" secondItem="DVa-Hg-p7a" secondAttribute="top" id="R3F-xO-fgf"/>
                 <constraint firstAttribute="bottom" secondItem="CkI-39-xbA" secondAttribute="bottom" id="ZLU-B1-cJe"/>
                 <constraint firstItem="CkI-39-xbA" firstAttribute="leading" secondItem="AIm-Hr-iwc" secondAttribute="leading" id="a4k-h8-Jc7"/>
+                <constraint firstItem="AIm-Hr-iwc" firstAttribute="top" secondItem="xLG-qw-X4j" secondAttribute="top" id="fuU-JW-oiK"/>
                 <constraint firstItem="CkI-39-xbA" firstAttribute="trailing" secondItem="AIm-Hr-iwc" secondAttribute="trailing" id="tjp-Di-ZHP"/>
             </constraints>
             <point key="canvasLocation" x="34.782608695652179" y="19.419642857142858"/>
@@ -169,18 +194,13 @@
     </objects>
     <resources>
         <image name="call-login" width="19" height="19"/>
+        <image name="chevron.left" catalog="system" width="97" height="128"/>
         <image name="logo-login" width="115" height="65"/>
         <namedColor name="black1000">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="black700">
             <color red="0.35699999332427979" green="0.35699999332427979" blue="0.35699999332427979" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="blue300">
-            <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="info300">
-            <color red="0.024000000208616257" green="0.48199999332427979" blue="0.93699997663497925" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="primary1000">
             <color red="0.87800002098083496" green="0.6589999794960022" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
