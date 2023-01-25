@@ -364,6 +364,10 @@ extension TaxiVC: TaxiFilterTVCDelegate {
         
         if isNew {
             self.newsCurrentPage = 1
+            self.newsTaxiDates?.removeAll()
+            self.emptyView.isHidden = true
+            self.tableView.reloadData()
+            
             if isReplacement {
                 self.uploadNewsTaxi(page: newsCurrentPage, fromReg: toRegionId, fromDis: toDistrictId, toReg: fromRegionId, toDis: fromDistrictId)
             } else {
@@ -371,6 +375,9 @@ extension TaxiVC: TaxiFilterTVCDelegate {
             }
         } else {
             self.historyCurrentPage = 1
+            self.historyTaxiDates?.removeAll()
+            self.emptyView.isHidden = true
+            self.tableView.reloadData()
             if isReplacement {
                 self.uploadHistoryTaxi(page: self.historyCurrentPage, fromReg: fromRegionId, fromDis: fromDistrictId, toReg: toRegionId, toDis: toDistrictId)
             } else {
