@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -20,6 +20,7 @@
                 <outlet property="commentNameLbl" destination="gw7-cl-Ltx" id="rwy-Cp-DGj"/>
                 <outlet property="creatorNameLbl" destination="ML0-VS-Z8e" id="oaK-EZ-C4A"/>
                 <outlet property="creatorPhoneLbl" destination="w0A-vN-eZ2" id="5FO-oV-OzL"/>
+                <outlet property="customertack" destination="1gl-87-fap" id="hPI-W8-dgh"/>
                 <outlet property="dateLbl" destination="VQ4-F8-S7B" id="LeS-xn-kOa"/>
                 <outlet property="deliveryPriceLbl" destination="yMh-s3-fo0" id="wXJ-Ac-eTn"/>
                 <outlet property="fromAddressLbl" destination="Ret-KX-Rmd" id="fLc-SR-52A"/>
@@ -58,7 +59,7 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ushbu yuboruvchi 100K Expressdan oldin ham jo‘natma yuborgan u doimiy mijoz" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i0q-RM-Pqt">
                                                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                             <color key="textColor" name="info300"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -749,6 +750,7 @@
                                 <constraint firstAttribute="trailing" secondItem="8C8-vP-KdZ" secondAttribute="trailing" constant="16" id="0CN-R0-bRR"/>
                                 <constraint firstAttribute="trailing" secondItem="UXJ-s8-7lh" secondAttribute="trailing" constant="16" id="2S8-ZV-zMC"/>
                                 <constraint firstItem="8C8-vP-KdZ" firstAttribute="leading" secondItem="aXX-3O-JZC" secondAttribute="leading" constant="16" id="5qP-j3-mPK"/>
+                                <constraint firstItem="4rO-jA-2p2" firstAttribute="leading" secondItem="1gl-87-fap" secondAttribute="trailing" constant="-384" id="BK7-iH-8jE"/>
                                 <constraint firstAttribute="trailing" secondItem="gXd-VJ-AVe" secondAttribute="trailing" id="Lbd-0F-6Cz"/>
                                 <constraint firstAttribute="trailing" secondItem="A2m-IU-8M3" secondAttribute="trailing" id="Puj-OS-Vat"/>
                                 <constraint firstAttribute="trailing" secondItem="1gl-87-fap" secondAttribute="trailing" id="Shh-Lr-8ex"/>

@@ -7,6 +7,8 @@ import UIKit
 
 class ListVC: UIViewController {
     
+    
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var filterView: UIView!
     @IBOutlet weak var filterSubView: UIView!
@@ -28,6 +30,7 @@ class ListVC: UIViewController {
     var packages_count: Int = 0
     var packages_count_sold: Int = 0
     var districtId: Int?
+    var searchId: Int?
     
     var menuItems: [UIAction] {
         return [
@@ -57,12 +60,16 @@ class ListVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.searchController = search
+        search.searchResultsUpdater = self
+        search.searchBar.delegate = self
+        search.searchBar.placeholder = "Id bo'yicha qidiring"
+        search.hidesNavigationBarDuringPresentation = false
         search.searchBar.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50)
         self.extendedLayoutIncludesOpaqueBars = true
         setupNavigation()
         setUpScretchView()
         uploadDistrict()
-        uploadData(page: self.currentPage, status: itemStatus, districtId: districtId)
+        uploadData(page: self.currentPage, status: itemStatus, districtId: districtId, search: searchId)
     }
     
     func setUpScretchView(){
@@ -154,10 +161,10 @@ class ListVC: UIViewController {
         }
     }
     
-    func uploadData(page: Int, status: String, districtId: Int?) {
+    func uploadData(page: Int, status: String, districtId: Int?, search: Int?) {
         Loader.start()
         let getList = ListService()
-        getList.listPackages(model: ListPackagesRequest(id: itemId, page: currentPage, status: status, toDistrictId: districtId)) { result in
+        getList.listPackages(model: ListPackagesRequest(id: itemId, page: currentPage, search: search, status: status, toDistrictId: districtId)) { result in
             switch result {
             case.success(let content):
                 Loader.stop()
@@ -265,7 +272,7 @@ extension ListVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelega
         if indexPath.row == dates.count - 1 {
             if self.totalItems > dates.count {
                 self.currentPage += 1
-                self.uploadData(page: self.currentPage, status: itemStatus, districtId: districtId)
+                self.uploadData(page: self.currentPage, status: itemStatus, districtId: districtId, search: searchId)
             }
         }
     }
@@ -324,7 +331,7 @@ extension ListVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
                 self.filterView.isHidden = true
             })
             self.districtId = self.districtDtaes[indexPath.row].id ?? 0
-            uploadData(page: self.currentPage, status: itemStatus, districtId: districtId)
+            uploadData(page: self.currentPage, status: itemStatus, districtId: districtId, search: searchId)
         } else {
             self.selectIndexCVC = indexPath.row
             if indexPath.row == 0 {
@@ -349,6 +356,28 @@ extension ListVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     
 }
 
+extension ListVC: UISearchResultsUpdating, UISearchBarDelegate {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text else {return}
+        self.dates.removeAll()
+        self.currentPage = 1
+        self.tableView.reloadData()
+        guard let id = Int(text) else {return}
+        self.searchId = id
+        uploadData(page: currentPage, status: itemStatus, districtId: districtId, search: searchId)
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        self.dates.removeAll()
+        self.currentPage = 1
+        self.emptyView.isHidden = true
+        self.tableView.reloadData()
+        self.searchId = nil
+        uploadData(page: currentPage, status: itemStatus, districtId: districtId, search: searchId)
+    }
+    
+}
+
 extension ListVC {
     func updateStatus(status: String) {
         self.itemStatus = status
@@ -356,7 +385,7 @@ extension ListVC {
         self.dates.removeAll()
         self.tableView.reloadData()
         self.emptyView.isHidden = true
-        self.uploadData(page: self.currentPage, status: self.itemStatus, districtId: districtId)
+        self.uploadData(page: self.currentPage, status: self.itemStatus, districtId: districtId, search: searchId)
     }
 }
 

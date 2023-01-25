@@ -16,6 +16,7 @@ target 'Express Courier' do
   pod 'BarcodeScanner'
   pod 'Firebase/Messaging'
   pod 'Firebase', '~> 7.0' # last version is 8.0.0
+  pod 'XNLogger'
 
   
 end

@@ -29,13 +29,12 @@ class MyCategoryTVC: UITableViewCell {
     func updateCell(dates: [MyKabinetCategoryDM], index: Int) {
         self.nameImage.image = UIImage(named: dates[index].imgName)
         self.nameLbl.text = dates[index].name
-        
-        if index == 9 {
+        if index == 9 || index == 10 {
             chevronImage.image = nil
         } else {
             chevronImage.image = UIImage(systemName: "chevron.right")
         }
-        if index == 9 {
+        if index == 10 {
             self.bottomView.isHidden = true
         } else {
             self.bottomView.isHidden = false

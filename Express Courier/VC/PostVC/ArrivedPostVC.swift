@@ -13,6 +13,7 @@ protocol ArrivedPostVCDelegate{
 
 class ArrivedPostVC: UIViewController {
         
+    @IBOutlet weak var customertack: UIStackView!
     @IBOutlet weak var activeStack: UIStackView!
     @IBOutlet weak var cancelStack: UIStackView!
 
@@ -89,6 +90,7 @@ class ArrivedPostVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+      //  customertack.isHidden = true
         setNavigation()
         getAPIResponse(id: id)
         if orderType == .canceled{
@@ -205,7 +207,11 @@ class ArrivedPostVC: UIViewController {
     }
     
     @IBAction func callCommentorBtnPressed(_ sender: Any) {
-        navigationController?.popToViewController(ofClass: PostVC.self, animated: true)
+        
+        
+        
+        
+        
     }
     
 }

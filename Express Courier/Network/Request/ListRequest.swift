@@ -14,6 +14,7 @@ struct getAllPackagesRequest {
 struct ListPackagesRequest {
     var id: Int
     var page: Int
+    var search: Int?
     var status: String
     var toDistrictId: Int?
 }

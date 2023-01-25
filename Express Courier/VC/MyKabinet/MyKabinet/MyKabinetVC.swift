@@ -22,8 +22,11 @@ class MyKabinetVC: UIViewController {
         MyKabinetCategoryDM(name: "Yangiliklar", imgName: "newsKabinet"),
         MyKabinetCategoryDM(name: "Dastur xaqida", imgName: "infoKabinet"),
         MyKabinetCategoryDM(name: "Murojat qilish", imgName: "24-support"),
-        MyKabinetCategoryDM(name: "Akkauntdan chiqish", imgName: "logout-my")
+        MyKabinetCategoryDM(name: "Hisobdan chiqish", imgName: "logout-my"),
+        MyKabinetCategoryDM(name: "Hisobni o'chirish", imgName: "deleteAccount")
     ]
+    
+    let user = Cache.getUser()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -115,6 +118,10 @@ extension MyKabinetVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 1 {
             if indexPath.row == 3 {
+                guard let roles = user?.roles else {return 0}
+                if roles.contains("driver") {
+                   return 0
+                }
                 return UITableView.automaticDimension
             } else {
                 return UITableView.automaticDimension
@@ -164,7 +171,9 @@ extension MyKabinetVC: UITableViewDelegate, UITableViewDataSource {
                 vc.hidesBottomBarWhenPushed = true
                 navigationController?.pushViewController(vc, animated: true)
             } else if indexPath.row == 9 {
-                showAlert(withTitle: "Chiqish", withMessage: "Profildan chiqishni hohlaysizmi?")
+                showAlertLogout(withTitle: "Hisobdan chiqish", withMessage: "Hisobdan chiqishni hohlaysizmi?")
+            } else if indexPath.row == 10 {
+                showAlertDeleteAcoount(withTitle: "Hisobni o'chirish", withMessage: "O'chirgandan keyin profilni qayta tiklab bo'lmaydi!")
             }
         }
     }
@@ -172,7 +181,7 @@ extension MyKabinetVC: UITableViewDelegate, UITableViewDataSource {
 
 extension MyKabinetVC {
     
-    func showAlert(withTitle title: String, withMessage message:String) {
+    func showAlertLogout(withTitle title: String, withMessage message:String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let ok = UIAlertAction(title: "Ha, chiqish", style: .default, handler: { action in
             Loader.start()
@@ -198,6 +207,19 @@ extension MyKabinetVC {
                     Alert.showAlert(forState: .error, message: error.localizedDescription, vibrationType: .error)
                 }
             }
+        })
+        let cancel = UIAlertAction(title: "Yo'q, ortga", style: .destructive, handler: nil)
+        alert.addAction(ok)
+        alert.addAction(cancel)
+        DispatchQueue.main.async(execute: {
+            self.present(alert, animated: true)
+        })
+    }
+    
+    func showAlertDeleteAcoount(withTitle title: String, withMessage message:String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "Ha, o'chirish", style: .default, handler: { action in
+            
         })
         let cancel = UIAlertAction(title: "Yo'q, ortga", style: .destructive, handler: nil)
         alert.addAction(ok)
