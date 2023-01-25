@@ -22,8 +22,8 @@ class MyKabinetVC: UIViewController {
         MyKabinetCategoryDM(name: "Yangiliklar", imgName: "newsKabinet"),
         MyKabinetCategoryDM(name: "Dastur xaqida", imgName: "infoKabinet"),
         MyKabinetCategoryDM(name: "Murojat qilish", imgName: "24-support"),
-        MyKabinetCategoryDM(name: "Hisobdan chiqish", imgName: "logout-my"),
-        MyKabinetCategoryDM(name: "Hisobni o'chirish", imgName: "deleteAccount")
+        MyKabinetCategoryDM(name: "Profildan chiqish", imgName: "logout-my"),
+        MyKabinetCategoryDM(name: "Profilni o'chirish", imgName: "deleteAccount")
     ]
     
     let user = Cache.getUser()
@@ -171,9 +171,9 @@ extension MyKabinetVC: UITableViewDelegate, UITableViewDataSource {
                 vc.hidesBottomBarWhenPushed = true
                 navigationController?.pushViewController(vc, animated: true)
             } else if indexPath.row == 9 {
-                showAlertLogout(withTitle: "Hisobdan chiqish", withMessage: "Hisobdan chiqishni hohlaysizmi?")
+                showAlertLogout(withTitle: "Profildan chiqish", withMessage: "Hisobdan chiqishni hohlaysizmi?")
             } else if indexPath.row == 10 {
-                showAlertDeleteAcoount(withTitle: "Hisobni o'chirish", withMessage: "O'chirgandan keyin profilni qayta tiklab bo'lmaydi!")
+                showAlertDeleteAcoount(withTitle: "Profilni o'chirish", withMessage: "O'chirgandan keyin profilni qayta tiklab bo'lmaydi!")
             }
         }
     }
@@ -188,7 +188,7 @@ extension MyKabinetVC {
             let logOut = UserService()
             logOut.logOut { resut in
                 switch resut {
-                case.success(let content):
+                case.success:
                     Loader.stop()
                     let vc = KabinetVC()
                     guard let window = UIApplication.shared.windows.filter({$0.isKeyWindow}).first else { return }
