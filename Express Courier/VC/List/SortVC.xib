@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SortVC" customModule="Express_Courier" customModuleProvider="target">
             <connections>
                 <outlet property="collectionView" destination="5s7-AX-wp3" id="keI-i6-pq8"/>
+                <outlet property="emptyView" destination="4ti-F8-cYZ" id="VDu-aM-Cf5"/>
                 <outlet property="segmentControlOutlet" destination="uUR-ns-b0p" id="jPV-ul-2NR"/>
                 <outlet property="tableView" destination="TcS-fO-pxh" id="Ddc-jG-tjs"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -61,6 +62,35 @@
                     <rect key="frame" x="0.0" y="175" width="414" height="687"/>
                     <color key="backgroundColor" name="white300"/>
                 </tableView>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ti-F8-cYZ">
+                    <rect key="frame" x="112" y="374" width="190" height="148"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="m8e-IY-ybW">
+                            <rect key="frame" x="0.0" y="0.0" width="190" height="148"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty_box" translatesAutoresizingMaskIntoConstraints="NO" id="Aro-NA-Gbw">
+                                    <rect key="frame" x="33" y="0.0" width="124" height="124"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="Aro-NA-Gbw" secondAttribute="height" id="BeH-VN-FLk"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hech narsa topilmadi" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ih1-gD-VC4">
+                                    <rect key="frame" x="0.0" y="124" width="190" height="24"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="m8e-IY-ybW" secondAttribute="bottom" id="UPa-BX-vE4"/>
+                        <constraint firstItem="m8e-IY-ybW" firstAttribute="leading" secondItem="4ti-F8-cYZ" secondAttribute="leading" id="kcZ-eR-PDl"/>
+                        <constraint firstItem="m8e-IY-ybW" firstAttribute="top" secondItem="4ti-F8-cYZ" secondAttribute="top" id="lPk-SS-fS2"/>
+                        <constraint firstAttribute="trailing" secondItem="m8e-IY-ybW" secondAttribute="trailing" id="vLK-31-dSN"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="white300"/>
@@ -69,8 +99,11 @@
                 <constraint firstItem="5s7-AX-wp3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Gns-IB-6Be"/>
                 <constraint firstItem="uUR-ns-b0p" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="IQR-DP-76n"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="9ux-K0-n20" secondAttribute="trailing" constant="16" id="NKS-9O-bO6"/>
+                <constraint firstItem="4ti-F8-cYZ" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Okc-M5-3as"/>
                 <constraint firstItem="TcS-fO-pxh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="SAZ-jP-FHi"/>
+                <constraint firstItem="4ti-F8-cYZ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="TFm-BS-ZLF"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="TcS-fO-pxh" secondAttribute="trailing" id="W9D-Fj-mfx"/>
+                <constraint firstItem="Aro-NA-Gbw" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.3" id="aLP-Di-sfh"/>
                 <constraint firstItem="5s7-AX-wp3" firstAttribute="top" secondItem="uUR-ns-b0p" secondAttribute="bottom" constant="5" id="dSt-AM-1GA"/>
                 <constraint firstItem="9ux-K0-n20" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="gOa-mo-nmI"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="TcS-fO-pxh" secondAttribute="bottom" id="gte-Iw-L8r"/>
@@ -83,6 +116,7 @@
         </view>
     </objects>
     <resources>
+        <image name="empty_box" width="519" height="481"/>
         <namedColor name="white300">
             <color red="0.97600001096725464" green="0.97600001096725464" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DistributionVC" customModule="Express_Courier" customModuleProvider="target">
             <connections>
                 <outlet property="collectionView" destination="iQZ-Yh-WZa" id="NsP-Ge-Vp3"/>
+                <outlet property="emptyView" destination="xZY-bi-lFY" id="OPk-mn-MqI"/>
                 <outlet property="tableView" destination="WFK-gg-Reu" id="iO0-H9-l3O"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -50,22 +51,55 @@
                     <rect key="frame" x="0.0" y="98" width="414" height="764"/>
                     <color key="backgroundColor" name="white300"/>
                 </tableView>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xZY-bi-lFY">
+                    <rect key="frame" x="112" y="374" width="190" height="148"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="sph-7a-bQX">
+                            <rect key="frame" x="0.0" y="0.0" width="190" height="148"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty_box" translatesAutoresizingMaskIntoConstraints="NO" id="ojF-im-nfj">
+                                    <rect key="frame" x="33" y="0.0" width="124" height="124"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="ojF-im-nfj" secondAttribute="height" id="TZR-CT-sLv"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hech narsa topilmadi" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E45-3p-Ed1">
+                                    <rect key="frame" x="0.0" y="124" width="190" height="24"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="sph-7a-bQX" firstAttribute="top" secondItem="xZY-bi-lFY" secondAttribute="top" id="Pig-3M-QSH"/>
+                        <constraint firstAttribute="bottom" secondItem="sph-7a-bQX" secondAttribute="bottom" id="YJl-pf-AqX"/>
+                        <constraint firstItem="sph-7a-bQX" firstAttribute="leading" secondItem="xZY-bi-lFY" secondAttribute="leading" id="g9z-YV-VIE"/>
+                        <constraint firstAttribute="trailing" secondItem="sph-7a-bQX" secondAttribute="trailing" id="qXp-hY-MS2"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="white300"/>
             <constraints>
+                <constraint firstItem="ojF-im-nfj" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.3" id="Cyh-8G-kPV"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="WFK-gg-Reu" secondAttribute="bottom" id="HIJ-yn-uBa"/>
+                <constraint firstItem="xZY-bi-lFY" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="VDM-bq-Ys8"/>
                 <constraint firstItem="WFK-gg-Reu" firstAttribute="top" secondItem="iQZ-Yh-WZa" secondAttribute="bottom" id="WCR-7f-cg0"/>
                 <constraint firstItem="iQZ-Yh-WZa" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="gUS-i1-ENa"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="WFK-gg-Reu" secondAttribute="trailing" id="qb1-1i-JvP"/>
                 <constraint firstItem="WFK-gg-Reu" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="wDL-aA-GRJ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="iQZ-Yh-WZa" secondAttribute="trailing" id="wNB-DH-kzH"/>
                 <constraint firstItem="iQZ-Yh-WZa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="xoy-Ah-5uu"/>
+                <constraint firstItem="xZY-bi-lFY" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="zQT-ZZ-7pU"/>
             </constraints>
             <point key="canvasLocation" x="139" y="91"/>
         </view>
     </objects>
     <resources>
+        <image name="empty_box" width="519" height="481"/>
         <namedColor name="black1000">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

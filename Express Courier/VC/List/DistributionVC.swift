@@ -24,6 +24,8 @@ class DistributionVC: UIViewController {
             tableView.separatorStyle = .none
         }
     }
+    @IBOutlet weak var emptyView: UIView!
+    
     
     var itemId: Int = 0
     var selectIndexCVC: Int = 0
@@ -47,6 +49,7 @@ class DistributionVC: UIViewController {
                 Loader.stop()
                 guard let data = content.data else {return}
                 self.districtDtaes.append(contentsOf: data)
+                self.emptyView(view: self.emptyView, count: self.districtDtaes.count, tableView: self.tableView)
                 self.uploadData(page: self.currentPage, id: self.districtDtaes[0].id ?? 0)
                 self.collectionView.reloadData()
             case.failure(let error):
@@ -66,6 +69,7 @@ class DistributionVC: UIViewController {
                 guard let data = content.data else {return}
                 self.dates.append(contentsOf: data)
                 self.currentPage = content.meta?.total ?? 0
+                self.emptyView(view: self.emptyView, count: self.dates.count, tableView: self.tableView)
                 self.tableView.reloadData()
             case.failure(let error):
                 Loader.stop()
@@ -129,13 +133,12 @@ extension DistributionVC: UICollectionViewDelegate, UICollectionViewDataSource, 
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
             self.selectIndexCVC = indexPath.row
-        self.dates.removeAll()
         self.currentPage = 1
+        self.dates.removeAll()
+        self.emptyView.isHidden = true
         self.tableView.reloadData()
         self.uploadData(page: self.currentPage, id: self.districtDtaes[indexPath.row].id ?? 0)
         self.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         self.collectionView.reloadData()
     }
-    
-    
 }

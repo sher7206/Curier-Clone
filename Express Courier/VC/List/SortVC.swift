@@ -27,6 +27,7 @@ class SortVC: UIViewController {
             collectionView.contentInset = UIEdgeInsets(top: 0, left: 11, bottom: 0, right: 0)
         }
     }
+    @IBOutlet weak var emptyView: UIView!
     
     
     @IBOutlet weak var segmentControlOutlet: UISegmentedControl!
@@ -56,6 +57,7 @@ class SortVC: UIViewController {
                 Loader.stop()
                 guard let data = content.data else {return}
                 self.dates.append(contentsOf: data)
+                self.emptyView(view: self.emptyView, count: self.dates.count, tableView: self.tableView)
                 self.tableView.reloadData()
             case.failure(let error):
                 Loader.stop()
@@ -68,11 +70,13 @@ class SortVC: UIViewController {
         switch segmentControlOutlet.selectedSegmentIndex {
         case 0:
             self.dates.removeAll()
+            self.emptyView.isHidden = true
             self.tableView.reloadData()
             self.groupBy = "matter"
             self.uploadData(status: status, groupBy: self.groupBy)
         default:
             self.dates.removeAll()
+            self.emptyView.isHidden = true
             self.tableView.reloadData()
             self.groupBy = "to_district_id"
             self.uploadData(status: status, groupBy: self.groupBy)
@@ -122,22 +126,25 @@ extension SortVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         if indexPath.row == 0 {
             self.status = nil
             self.dates.removeAll()
+            self.emptyView.isHidden = true
             self.tableView.reloadData()
             self.uploadData(status: status, groupBy: groupBy)
-            
         } else if indexPath.row == 1 {
             self.status = "active"
             self.dates.removeAll()
+            self.emptyView.isHidden = true
             self.tableView.reloadData()
             self.uploadData(status: status, groupBy: groupBy)
         } else if indexPath.row == 2 {
             self.status = "completed"
             self.dates.removeAll()
+            self.emptyView.isHidden = true
             self.tableView.reloadData()
             self.uploadData(status: status, groupBy: groupBy)
         } else {
             self.status = "canceled"
             self.dates.removeAll()
+            self.emptyView.isHidden = true
             self.tableView.reloadData()
             self.uploadData(status: status, groupBy: groupBy)
         }

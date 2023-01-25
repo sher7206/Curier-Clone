@@ -126,6 +126,7 @@ class PostVC: UIViewController {
     
     func getApiResponse(page: Int, fromRegionId: Int?, fromDistrictId: Int?, toRegionId: Int?,toDistrictId: Int?,status: String, available: String){
         getAllDates.removeAll()
+        self.emptyStack.isHidden = true
         let service = PostService()
         Loader.start()
         service.getPostResponse(model: PostRequest(page: page, fromRegionId: fromRegionId, fromDistrictId: fromDistrictId, toRegionId: toRegionId, toDistrictId: toDistrictId, status: status, available: available)) { [self] result in
