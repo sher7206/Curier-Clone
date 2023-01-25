@@ -15,6 +15,7 @@ protocol ScannerVCDelegate{
 class ScannerVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, AVCapturePhotoCaptureDelegate, AVCaptureMetadataOutputObjectsDelegate  {
 
     @IBOutlet weak var previewView: UIView!
+    @IBOutlet weak var animationView: LottieAnimationView!
     
     
     var imageOrientation: AVCaptureVideoOrientation?
@@ -28,6 +29,15 @@ class ScannerVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
 
 
         title = "Scanner Item"
+        
+        // 1. Set animation content mode
+        animationView.contentMode = .scaleAspectFill
+          // 2. Set animation loop mode
+          animationView.loopMode = .loop
+          // 3. Adjust animation speed
+        animationView.animationSpeed = 1
+          // 4. Play animation
+          animationView.play()
         
         // Get an instance of the AVCaptureDevice class to initialize a
         // device object and provide the video as the media type parameter

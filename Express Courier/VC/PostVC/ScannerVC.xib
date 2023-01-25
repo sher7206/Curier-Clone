@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ScannerVC" customModule="Express_Courier" customModuleProvider="target">
             <connections>
+                <outlet property="animationView" destination="RWR-bb-GjF" id="Wju-JI-58d"/>
                 <outlet property="previewView" destination="dgJ-cm-kvf" id="pat-5y-nLI"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -21,8 +22,18 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dgJ-cm-kvf">
-                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <rect key="frame" x="0.0" y="48" width="414" height="814"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RWR-bb-GjF" customClass="LottieAnimationView" customModule="Lottie">
+                    <rect key="frame" x="-43" y="198" width="500" height="500"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="RWR-bb-GjF" secondAttribute="height" id="2DI-4a-IYb"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="qrScan"/>
+                    </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
@@ -32,6 +43,9 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="dgJ-cm-kvf" secondAttribute="trailing" id="Gdo-AB-nkj"/>
                 <constraint firstItem="dgJ-cm-kvf" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="bSh-hr-Y4s"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="dgJ-cm-kvf" secondAttribute="bottom" id="oOZ-rt-vyb"/>
+                <constraint firstItem="RWR-bb-GjF" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="pkV-qe-smO"/>
+                <constraint firstItem="RWR-bb-GjF" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="500/896" id="tg6-JI-wyg"/>
+                <constraint firstItem="RWR-bb-GjF" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="vev-hC-WYj"/>
             </constraints>
             <point key="canvasLocation" x="139" y="110"/>
         </view>

@@ -123,6 +123,7 @@
 		27347F17297038E400D871EC /* TaxiOldUserModalVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27347F15297038E400D871EC /* TaxiOldUserModalVC.xib */; };
 		27347F1F2970525B00D871EC /* TeamVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27347F1D2970525B00D871EC /* TeamVC.swift */; };
 		27347F202970525B00D871EC /* TeamVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27347F1E2970525B00D871EC /* TeamVC.xib */; };
+		273E2FC1298121FC00E638A4 /* qrScan.json in Resources */ = {isa = PBXBuildFile; fileRef = 273E2FC0298121FC00E638A4 /* qrScan.json */; };
 		27692924297568AF009BF0A5 /* NewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27692923297568AF009BF0A5 /* NewsVC.swift */; };
 		27692926297568B8009BF0A5 /* NewsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27692925297568B8009BF0A5 /* NewsVC.xib */; };
 		27692928297568DA009BF0A5 /* NewTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27692927297568DA009BF0A5 /* NewTVC.swift */; };
@@ -315,6 +316,7 @@
 		27347F15297038E400D871EC /* TaxiOldUserModalVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaxiOldUserModalVC.xib; sourceTree = "<group>"; };
 		27347F1D2970525B00D871EC /* TeamVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamVC.swift; sourceTree = "<group>"; };
 		27347F1E2970525B00D871EC /* TeamVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamVC.xib; sourceTree = "<group>"; };
+		273E2FC0298121FC00E638A4 /* qrScan.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = qrScan.json; sourceTree = "<group>"; };
 		27692923297568AF009BF0A5 /* NewsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsVC.swift; sourceTree = "<group>"; };
 		27692925297568B8009BF0A5 /* NewsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsVC.xib; sourceTree = "<group>"; };
 		27692927297568DA009BF0A5 /* NewTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTVC.swift; sourceTree = "<group>"; };
@@ -422,6 +424,7 @@
 		188F45D42972B18C0029FCEC /* Lotties */ = {
 			isa = PBXGroup;
 			children = (
+				273E2FC0298121FC00E638A4 /* qrScan.json */,
 				1868BC89297C2DB300B4CCA9 /* scanning.json */,
 				27EC95112979731000B567D5 /* noInternet.json */,
 				188F45D72972B3E00029FCEC /* loader.json */,
@@ -1166,6 +1169,7 @@
 				18DA32D1296BFCC00066FF9C /* PinkodVC.xib in Resources */,
 				2718BF79297183B700DC0A8A /* ArrivedPostVC.xib in Resources */,
 				2777854D296EBA7100FC0141 /* KuryerModalVC.xib in Resources */,
+				273E2FC1298121FC00E638A4 /* qrScan.json in Resources */,
 				27692926297568B8009BF0A5 /* NewsVC.xib in Resources */,
 				270273D1296C0B6900687A2A /* NotificationViewController.xib in Resources */,
 				18DA32CF296BFCC00066FF9C /* PaymentHistoryVC.xib in Resources */,
