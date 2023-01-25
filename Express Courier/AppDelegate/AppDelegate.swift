@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     let gcmMEssageIdKey = "gcm.Message_ID.express"
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         IQKeyboardManager.shared.enable = true
         NetworkMonitor.shared.startMonitoring()
@@ -25,13 +25,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         UNUserNotificationCenter.current().delegate = self
         Messaging.messaging().delegate = self
-        XNLogger.shared.startLogging()
         registerForPushNotifications()
         UINavigationBar.appearance().tintColor = .black
         window?.makeKeyAndVisible()
         return true
     }
-
+    
     func applicationDidBecomeActive(_ application: UIApplication) {
         UIApplication.shared.applicationIconBadgeNumber = 0
     }
@@ -43,12 +42,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 // MARK: - Delegates
 extension AppDelegate: UNUserNotificationCenterDelegate {
     
- 
+    
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         Messaging.messaging().apnsToken = deviceToken
     }
-
+    
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         if #available(iOS 14.0, *) {
             completionHandler([[.banner, .sound, .badge]])
@@ -56,7 +55,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
             completionHandler([[.alert, .sound, .badge]])
         }
     }
-
+    
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         process(response.notification)
         completionHandler()
@@ -96,7 +95,7 @@ extension AppDelegate {
         UNUserNotificationCenter.current().getNotificationSettings { settings in
             guard settings.authorizationStatus == .authorized else { return }
             DispatchQueue.main.async {
-              UIApplication.shared.registerForRemoteNotifications()
+                UIApplication.shared.registerForRemoteNotifications()
             }
         }
     }

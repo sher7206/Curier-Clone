@@ -14,7 +14,6 @@ target 'Express Courier' do
   pod 'SDWebImage'
   pod 'lottie-ios', '~> 3.0'
   pod 'BarcodeScanner'
-  pod 'XNLogger', :configurations => ['Debug']
   pod 'Firebase/Messaging'
   pod 'Firebase', '~> 7.0' # last version is 8.0.0
 
