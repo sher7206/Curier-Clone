@@ -8,14 +8,14 @@
 import UIKit
 
 extension UIView {
-
+    
     func addShadow(offset: CGSize = CGSize(width: 3, height: 3), color: UIColor = .black, radius: CGFloat = 5, opacity: Float = 1) {
         layer.masksToBounds = false
         layer.shadowOffset = offset
         layer.shadowColor = color.cgColor
         layer.shadowRadius = radius
         layer.shadowOpacity = opacity
-
+        
         let backgroundCGColor = backgroundColor?.cgColor
         backgroundColor = nil
         layer.backgroundColor = backgroundCGColor
@@ -27,22 +27,20 @@ extension UIView {
         layer.shadowRadius = radius
         layer.shadowOpacity = opacity
     }
-
+    
     
     func addDashedBorder(_ color: UIColor = UIColor.black, withWidth width: CGFloat = 1, cornerRadius: CGFloat = 4, dashPattern: [NSNumber] = [2, 2]) {
-
-      let shapeLayer = CAShapeLayer()
-
-      shapeLayer.bounds = bounds
-      shapeLayer.position = CGPoint(x: bounds.width/2, y: bounds.height/2)
-      shapeLayer.fillColor = nil
-      shapeLayer.strokeColor = color.cgColor
-      shapeLayer.lineWidth = width
-      shapeLayer.lineJoin = CAShapeLayerLineJoin.round
-      shapeLayer.lineDashPattern = dashPattern
-      shapeLayer.path = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius).cgPath
-
-      self.layer.addSublayer(shapeLayer)
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.bounds = bounds
+        shapeLayer.position = CGPoint(x: bounds.width/2, y: bounds.height/2)
+        shapeLayer.fillColor = nil
+        shapeLayer.strokeColor = color.cgColor
+        shapeLayer.lineWidth = width
+        shapeLayer.lineJoin = CAShapeLayerLineJoin.round
+        shapeLayer.lineDashPattern = dashPattern
+        shapeLayer.path = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius).cgPath
+        
+        self.layer.addSublayer(shapeLayer)
     }
     
     @IBInspectable
@@ -54,7 +52,7 @@ extension UIView {
             layer.borderWidth = newValue
         }
     }
-
+    
     @IBInspectable
     var borderColor: UIColor? {
         get {
@@ -71,7 +69,7 @@ extension UIView {
             }
         }
     }
-
+    
     @IBInspectable
     var cornerRadius: CGFloat {
         get {
@@ -85,10 +83,10 @@ extension UIView {
 
 extension UIView {
     
-   func roundCorners(corners: UIRectCorner, radius: CGFloat) {
+    func roundCorners(corners: UIRectCorner, radius: CGFloat) {
         let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
         let mask = CAShapeLayer()
-         mask.path = path.cgPath
+        mask.path = path.cgPath
         layer.mask = mask
     }
     
@@ -103,28 +101,27 @@ extension UIView {
         pulse.damping = 1.0
         let generator = UIImpactFeedbackGenerator(style: .light)
         generator.impactOccurred()
-
+        
         layer.add(pulse, forKey: "pulse")
     }
-
+    
 }
 
 extension UIView {
     
     func applyGradient1(colours: [UIColor]) -> CAGradientLayer {
-          return self.applyGradient(colours: colours, locations: nil)
-      }
-
-      func applyGradient1(colours: [UIColor], locations: [NSNumber]?) -> CAGradientLayer {
-          let gradient: CAGradientLayer = CAGradientLayer()
-          gradient.frame = self.bounds
-        
-          gradient.colors = colours.map { $0.cgColor }
-          gradient.locations = locations
-          self.layer.insertSublayer(gradient, at: 0)
-          return gradient
-      }
+        return self.applyGradient(colours: colours, locations: nil)
+    }
     
+    func applyGradient1(colours: [UIColor], locations: [NSNumber]?) -> CAGradientLayer {
+        let gradient: CAGradientLayer = CAGradientLayer()
+        gradient.frame = self.bounds
+        
+        gradient.colors = colours.map { $0.cgColor }
+        gradient.locations = locations
+        self.layer.insertSublayer(gradient, at: 0)
+        return gradient
+    }
     
     func applyGradient(colours: [UIColor]) -> CAGradientLayer {
         return self.applyGradient(colours: colours, locations: nil)
@@ -153,15 +150,14 @@ extension UIView {
     }
     
     func fadeIn(duration: TimeInterval = 0.5, delay: TimeInterval = 0.0, completion: @escaping ((Bool) -> Void) = {(finished: Bool) -> Void in }) {
-            self.isHidden = false
-            self.alpha = 1.0
-    }
-
-    func fadeOut(duration: TimeInterval = 0.5, delay: TimeInterval = 0.0, completion: @escaping (Bool) -> Void = {(finished: Bool) -> Void in }) {
-            self.isHidden = true
-            self.alpha = 0.0
+        self.isHidden = false
+        self.alpha = 1.0
     }
     
+    func fadeOut(duration: TimeInterval = 0.5, delay: TimeInterval = 0.0, completion: @escaping (Bool) -> Void = {(finished: Bool) -> Void in }) {
+        self.isHidden = true
+        self.alpha = 0.0
+    }
 }
 
 extension UIView {
@@ -175,22 +171,6 @@ extension UIView {
     }
 }
 
-extension UIApplication {
-    
-    class func getTopViewController(base: UIViewController? = UIApplication.shared.key?.rootViewController) -> UIViewController? {
-        
-        if let nav = base as? UINavigationController {
-            return getTopViewController(base: nav.visibleViewController)
-            
-        } else if let tab = base as? UITabBarController, let selected = tab.selectedViewController {
-            return getTopViewController(base: selected)
-            
-        } else if let presented = base?.presentedViewController {
-            return getTopViewController(base: presented)
-        }
-        return base
-    }
-}
 
 extension UIApplication {
     var key: UIWindow? {
@@ -201,6 +181,22 @@ extension UIApplication {
             .windows
             .filter({$0.isKeyWindow})
             .first
+    }
+}
+
+
+extension UIImage {
+    public func resized(to target: CGSize) -> UIImage {
+        let ratio = min(
+            target.height / size.height, target.width / size.width
+        )
+        let new = CGSize(
+            width: size.width * ratio, height: size.height * ratio
+        )
+        let renderer = UIGraphicsImageRenderer(size: new)
+        return renderer.image { _ in
+            self.draw(in: CGRect(origin: .zero, size: new))
+        }
     }
 }
 
