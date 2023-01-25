@@ -34,6 +34,7 @@ class MyKabinetVC: UIViewController {
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         tableView.addSubview(refreshControl)
         setUpScretchView()
+        print("✅User =", user)
     }
     
     @objc func refresh(send: UIRefreshControl) {

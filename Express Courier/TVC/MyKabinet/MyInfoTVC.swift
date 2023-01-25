@@ -28,7 +28,6 @@ class MyInfoTVC: UITableViewCell {
     func updateCell(data: UserDM?) {
         self.personImage.sd_setImage(with: URL(string: data?.avatar ?? "")) { img, _, _, _ in
             if let _ = img {
-                print("Yuklandi!")
             } else {
                 self.personImage.image = UIImage(systemName: "person")?.withTintColor(.black, renderingMode: .alwaysOriginal)
             }
@@ -36,9 +35,9 @@ class MyInfoTVC: UITableViewCell {
         personName.text = (data?.name ?? "") + " " + (data?.surname ?? "")
         personPhoneNumber.text = data?.phone ?? ""
         personId.text = "#" + "\(data?.id ?? 0)"
-        levelLbl.text = "\(data?.rating ?? 0)"
-        walletLbl.text = "\(data?.balance ?? 0)"
-        shotLbl.text = "\(data?.balance ?? 0)"
+        levelLbl.text = "+\(data?.rating ?? 0)"
+        walletLbl.text = "\(data?.balance ?? 0) uzs"
+        shotLbl.text = "\(data?.balance ?? 0) uzs"
     }
     
     

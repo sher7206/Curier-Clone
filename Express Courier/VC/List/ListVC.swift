@@ -300,16 +300,16 @@ extension ListVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             
             cell.bottomView.backgroundColor = .clear
             cell.titleLbl.textColor = UIColor(named: "black600")
-            cell.titleLbl.font = .systemFont(ofSize: 14, weight: .regular)
+            cell.titleLbl.font = .systemFont(ofSize: 15, weight: .regular)
             
             if selectIndexCVC == indexPath.row {
                 cell.bottomView.backgroundColor = .black
                 cell.titleLbl.textColor = .black
-                cell.titleLbl.font = .systemFont(ofSize: 15, weight: .medium)
+                cell.titleLbl.font = .systemFont(ofSize: 17, weight: .medium)
             } else {
                 cell.bottomView.backgroundColor = .clear
                 cell.titleLbl.textColor = UIColor(named: "black600")
-                cell.titleLbl.font = .systemFont(ofSize: 15, weight: .regular)
+                cell.titleLbl.font = .systemFont(ofSize: 17, weight: .regular)
             }
             
             cell.updateCell(title: headerTexts[indexPath.row])
