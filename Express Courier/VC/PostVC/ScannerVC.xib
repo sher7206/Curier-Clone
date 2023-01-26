@@ -50,6 +50,9 @@
             <point key="canvasLocation" x="139" y="110"/>
         </view>
     </objects>
+    <designables>
+        <designable name="RWR-bb-GjF"/>
+    </designables>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

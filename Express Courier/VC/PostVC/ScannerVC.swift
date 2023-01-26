@@ -13,7 +13,7 @@ protocol ScannerVCDelegate{
 
 
 class ScannerVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, AVCapturePhotoCaptureDelegate, AVCaptureMetadataOutputObjectsDelegate  {
-
+    
     @IBOutlet weak var previewView: UIView!
     @IBOutlet weak var animationView: LottieAnimationView!
     
@@ -23,21 +23,21 @@ class ScannerVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     var capturePhotoOutput: AVCapturePhotoOutput?
     var delegate: ScannerVCDelegate?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
+        
+        
         title = "Scanner Item"
         
         // 1. Set animation content mode
         animationView.contentMode = .scaleAspectFill
-          // 2. Set animation loop mode
-          animationView.loopMode = .loop
-          // 3. Adjust animation speed
+        // 2. Set animation loop mode
+        animationView.loopMode = .loop
+        // 3. Adjust animation speed
         animationView.animationSpeed = 1
-          // 4. Play animation
-          animationView.play()
+        // 4. Play animation
+        animationView.play()
         
         // Get an instance of the AVCaptureDevice class to initialize a
         // device object and provide the video as the media type parameter
@@ -49,48 +49,48 @@ class ScannerVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
         do {
             // Get an instance of the AVCaptureDeviceInput class using the previous deivce object
             let input = try AVCaptureDeviceInput(device: captureDevice)
-                   
+            
             // Initialize the captureSession object
             captureSession = AVCaptureSession()
-                   
+            
             // Set the input device on the capture session
             captureSession?.addInput(input)
-                   
+            
             // Get an instance of ACCapturePhotoOutput class
             capturePhotoOutput = AVCapturePhotoOutput()
             capturePhotoOutput?.isHighResolutionCaptureEnabled = true
-                   
+            
             // Set the output on the capture session
             captureSession?.addOutput(capturePhotoOutput!)
             captureSession?.sessionPreset = .high
-                   
+            
             // Initialize a AVCaptureMetadataOutput object and set it as the input device
             let captureMetadataOutput = AVCaptureMetadataOutput()
             captureSession?.addOutput(captureMetadataOutput)
-                   
+            
             // Set delegate and use the default dispatch queue to execute the call back
             captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
             captureMetadataOutput.metadataObjectTypes = [AVMetadataObject.ObjectType.qr]
-                   
+            
             //Initialise the video preview layer and add it as a sublayer to the viewPreview view's layer
             videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession!)
             videoPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
             videoPreviewLayer?.frame = view.layer.bounds
             previewView.layer.addSublayer(videoPreviewLayer!)
-
+            
             //start video capture
             captureSession?.startRunning()
-                   
+            
         } catch {
             //If any error occurs, simply print it out
             print(error)
             return
         }
-
+        
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
-   //     navigationController?.setNavigationBarHidden(true, animated: false)
+        //     navigationController?.setNavigationBarHidden(true, animated: false)
         
         self.captureSession?.startRunning()
     }
@@ -136,8 +136,12 @@ class ScannerVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
                 Alert.showAlert(forState: .success, message: "", vibrationType: .success)
                 navigationController?.popViewController(animated: true)
                 delegate?.isScannered(id: id)
-            case.failure(let error):
-                Alert.showAlert(forState: .error, message: error.localizedDescription, vibrationType: .error)
+            case.failure:
+                Alert.showAlert(forState: .error, message: "QR kod mos kelmadi", vibrationType: .error)
+                self.captureSession?.stopRunning()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                    self.captureSession?.startRunning()
+                })
             }
         }
     }
