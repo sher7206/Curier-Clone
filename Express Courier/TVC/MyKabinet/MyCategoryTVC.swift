@@ -13,7 +13,7 @@ struct MyKabinetCategoryDM{
 }
 
 class MyCategoryTVC: UITableViewCell {
-
+    
     
     @IBOutlet weak var nameImage: UIImageView!
     @IBOutlet weak var nameLbl: UILabel!
@@ -35,6 +35,7 @@ class MyCategoryTVC: UITableViewCell {
             chevronImage.image = UIImage(systemName: "chevron.right")
         }
         if index == 10 {
+            self.nameLbl.textColor = UIColor(named: "danger300")
             self.bottomView.isHidden = true
         } else {
             self.bottomView.isHidden = false

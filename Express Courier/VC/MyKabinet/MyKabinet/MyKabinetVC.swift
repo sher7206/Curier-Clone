@@ -23,7 +23,7 @@ class MyKabinetVC: UIViewController {
         MyKabinetCategoryDM(name: "Dastur xaqida", imgName: "infoKabinet"),
         MyKabinetCategoryDM(name: "Murojat qilish", imgName: "24-support"),
         MyKabinetCategoryDM(name: "Profildan chiqish", imgName: "logout-my"),
-        MyKabinetCategoryDM(name: "Profilni o'chirish", imgName: "deleteAccount")
+        MyKabinetCategoryDM(name: "Profilni o'chirish", imgName: "removeAccount")
     ]
     
     let user = Cache.getUser()
@@ -34,7 +34,6 @@ class MyKabinetVC: UIViewController {
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         tableView.addSubview(refreshControl)
         setUpScretchView()
-        print("✅User =", user)
     }
     
     @objc func refresh(send: UIRefreshControl) {
