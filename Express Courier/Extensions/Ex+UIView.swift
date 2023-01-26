@@ -200,3 +200,13 @@ extension UIImage {
     }
 }
 
+extension UITextField {
+    
+    func set(bgColor: UIColor, placeholderTxt: String, placeholderColor: UIColor, txtColor: UIColor) {
+        self.backgroundColor = bgColor
+        self.attributedPlaceholder = NSAttributedString(string: placeholderTxt, attributes: [NSAttributedString.Key.foregroundColor: placeholderColor])
+        self.textColor = txtColor
+    }
+}
+
+

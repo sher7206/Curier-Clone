@@ -48,7 +48,7 @@ class SettingsVC: UIViewController {
         }
         nameTf.text! = user?.name ?? ""
         lastNameTf.text! = user?.surname ?? ""
-        regionTf.text! = (user?.region_name ?? "") + ", " + (user?.district_name ?? "")
+        regionTf.text! = (user?.region_name ?? "Viloyat") + ", " + (user?.district_name ?? "tuman")
         districtTf.text! = user?.detail_address ?? ""
         regionId = user?.region_id ?? 0
         districtId = user?.district_id ?? 0
