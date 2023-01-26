@@ -38,6 +38,7 @@ class MyCategoryTVC: UITableViewCell {
             self.nameLbl.textColor = UIColor(named: "danger300")
             self.bottomView.isHidden = true
         } else {
+            self.nameLbl.textColor = .black
             self.bottomView.isHidden = false
         }
     }

@@ -10,6 +10,7 @@ import UIKit
 class BranchesVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    var refreshControl = UIRefreshControl()
     var dates: [BranchData] = []
     var currentPage: Int = 1
     var totalItems: Int = 0
@@ -19,6 +20,15 @@ class BranchesVC: UIViewController {
         
         setupNavigation()
         uploadData(page: currentPage)
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        tableView.addSubview(refreshControl)
+    }
+    
+    @objc func refresh(send: UIRefreshControl) {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+            self.refreshControl.endRefreshing()
+        }
     }
     
     func setupNavigation() {

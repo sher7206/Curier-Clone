@@ -65,7 +65,7 @@ class PostVC: UIViewController {
     var toDistrictId: Int?
     var fromRegionText: String = "Viloyat, tuman"
     var toRegionText: String = "Viloyat, tuman"
-    var isReplacement: Bool = false
+    var isReplacement: Bool = true
     var isLeftRegion: Bool = true
     var downScroll: Bool = false
 
@@ -399,6 +399,11 @@ extension PostVC: TaxiFilterTVCDelegate{
     }
     
     func fromCloseTapped() {
+        
+        if fromRegionId == nil || toDistrictId == nil {
+            self.toRegionId = nil
+            self.toDistrictId = nil
+        }
         self.fromRegionId = nil
         self.toDistrictId = nil
         self.fromRegionText = "Viloyat, tuman"
@@ -406,6 +411,11 @@ extension PostVC: TaxiFilterTVCDelegate{
     }
     
     func toCloseTapped() {
+        
+        if toRegionId == nil || toDistrictId == nil {
+            self.fromRegionId = nil
+            self.fromDistrictId = nil
+        }
         self.toRegionId = nil
         self.toDistrictId = nil
         self.toRegionText = "Viloyat, tuman"
