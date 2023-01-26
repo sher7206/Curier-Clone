@@ -10,8 +10,6 @@ import SDWebImage
 
 class SettingsVC: UIViewController {
     
-    
-    
     @IBOutlet weak var persinImgV: UIImageView!
     @IBOutlet var langImage: [UIImageView]!
     @IBOutlet weak var nameTf: UITextField!
@@ -20,7 +18,6 @@ class SettingsVC: UIViewController {
     @IBOutlet weak var districtTf: UITextField!
     var regionId: Int = 0
     var districtId: Int = 0
-    
     let user = Cache.getUser()
     
     override func viewDidLoad() {
@@ -30,7 +27,6 @@ class SettingsVC: UIViewController {
     }
     
     func setupNavigation() {
-        
         title = "Ma’lumotlarni o‘zgaritirish"
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
@@ -43,7 +39,13 @@ class SettingsVC: UIViewController {
     }
     
     func uploadUpdate() {
-        persinImgV.sd_setImage(with: URL(string: user?.avatar ?? ""))
+        persinImgV.sd_setImage(with: URL(string: user?.avatar ?? "")) { img,_,_,_ in
+            if let _ = img {
+                print("yuklandi")
+            } else {
+                self.persinImgV.image = UIImage(systemName: "person")?.withTintColor(UIColor(named: "black700")!, renderingMode: .alwaysOriginal)
+            }
+        }
         nameTf.text! = user?.name ?? ""
         lastNameTf.text! = user?.surname ?? ""
         regionTf.text! = (user?.region_name ?? "") + ", " + (user?.district_name ?? "")
@@ -51,7 +53,6 @@ class SettingsVC: UIViewController {
         regionId = user?.region_id ?? 0
         districtId = user?.district_id ?? 0
     }
-    
     
     @IBAction func changeAvatarTapped(_ sender: UIButton) {
         openPicker()
@@ -64,13 +65,11 @@ class SettingsVC: UIViewController {
         self.present(vc, animated: true)
     }
     
-    
     @IBAction func languageBtnTapped(_ sender: UIButton) {
         for i in langImage {
             i.image = UIImage(named: "radiobutton-unchecked-my")
         }
         langImage[sender.tag].image = UIImage(named: "radiobutton-checked-my")
-        
     }
     
     @IBAction func saveBtnTapped(_ sender: UIButton) {
@@ -110,7 +109,6 @@ class SettingsVC: UIViewController {
             }
         }
     }
-    
 }
 
 extension SettingsVC: RegionSelectedVCDelegate {
@@ -152,7 +150,7 @@ extension SettingsVC {
     }
     
     func openPicker() {
-        let alert = UIAlertController(title: "Choose Image", message: nil, preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "Rasm tanlang", message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in
             self.openCamera()
         }))
@@ -161,7 +159,7 @@ extension SettingsVC {
             self.openGallery()
         }))
         
-        alert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction.init(title: "Orqaga", style: .cancel, handler: nil))
         
         self.present(alert, animated: true, completion: nil)
     }
