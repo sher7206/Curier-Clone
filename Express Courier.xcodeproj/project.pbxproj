@@ -124,8 +124,6 @@
 		27347F1F2970525B00D871EC /* TeamVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27347F1D2970525B00D871EC /* TeamVC.swift */; };
 		27347F202970525B00D871EC /* TeamVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27347F1E2970525B00D871EC /* TeamVC.xib */; };
 		273E2FC1298121FC00E638A4 /* qrScan.json in Resources */ = {isa = PBXBuildFile; fileRef = 273E2FC0298121FC00E638A4 /* qrScan.json */; };
-		275F2928298284C00094B959 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275F2926298284BF0094B959 /* ScannerViewController.swift */; };
-		275F2929298284C00094B959 /* ScannerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 275F2927298284C00094B959 /* ScannerViewController.xib */; };
 		27692924297568AF009BF0A5 /* NewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27692923297568AF009BF0A5 /* NewsVC.swift */; };
 		27692926297568B8009BF0A5 /* NewsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27692925297568B8009BF0A5 /* NewsVC.xib */; };
 		27692928297568DA009BF0A5 /* NewTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27692927297568DA009BF0A5 /* NewTVC.swift */; };
@@ -319,8 +317,6 @@
 		27347F1D2970525B00D871EC /* TeamVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamVC.swift; sourceTree = "<group>"; };
 		27347F1E2970525B00D871EC /* TeamVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamVC.xib; sourceTree = "<group>"; };
 		273E2FC0298121FC00E638A4 /* qrScan.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = qrScan.json; sourceTree = "<group>"; };
-		275F2926298284BF0094B959 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
-		275F2927298284C00094B959 /* ScannerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScannerViewController.xib; sourceTree = "<group>"; };
 		27692923297568AF009BF0A5 /* NewsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsVC.swift; sourceTree = "<group>"; };
 		27692925297568B8009BF0A5 /* NewsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsVC.xib; sourceTree = "<group>"; };
 		27692927297568DA009BF0A5 /* NewTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTVC.swift; sourceTree = "<group>"; };
@@ -537,8 +533,6 @@
 				2718BF66297183B700DC0A8A /* FinishOrderVC.xib */,
 				2718BF6B297183B700DC0A8A /* PostAgreemantVC.swift */,
 				2718BF6C297183B700DC0A8A /* PostAgreemantVC.xib */,
-				275F2926298284BF0094B959 /* ScannerViewController.swift */,
-				275F2927298284C00094B959 /* ScannerViewController.xib */,
 			);
 			path = PostVC;
 			sourceTree = "<group>";
@@ -1161,7 +1155,6 @@
 				277388E42978106A00054CC4 /* OtpVC.xib in Resources */,
 				1858EFCD29758059005A3492 /* ReportTVC.xib in Resources */,
 				27A267142971571B00294BE7 /* DeleteTeamVC.xib in Resources */,
-				275F2929298284C00094B959 /* ScannerViewController.xib in Resources */,
 				188F45F02972D1C50029FCEC /* RegionTVC.xib in Resources */,
 				27A26710297148D700294BE7 /* AddTeamVC.xib in Resources */,
 				278AB68A297A9FB500B4577D /* LockScreenVC.xib in Resources */,
@@ -1287,7 +1280,6 @@
 				188F45D32972B1730029FCEC /* Loader.swift in Sources */,
 				27D9E0AD29757FC0002F57A2 /* TaxiRequest.swift in Sources */,
 				27D9E0AF29758030002F57A2 /* TaxiService.swift in Sources */,
-				275F2928298284C00094B959 /* ScannerViewController.swift in Sources */,
 				277388CF2977DD4500054CC4 /* TeamRequest.swift in Sources */,
 				2718BFDA297186C700DC0A8A /* BaseService.swift in Sources */,
 				278AB691297ABD5D00B4577D /* ListService.swift in Sources */,

@@ -28,8 +28,8 @@ class MainTabBarController: UITabBarController, UINavigationControllerDelegate, 
             tabBar.standardAppearance = tabBarAppearance
             tabBar.scrollEdgeAppearance = tabBarAppearance
             
-
-
+            
+            
         }
     }
     
@@ -38,13 +38,13 @@ class MainTabBarController: UITabBarController, UINavigationControllerDelegate, 
         super.viewWillAppear(animated)
         canScrollToTop = true
     }
-
+    
     // Called when the view becomes unavailable
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         canScrollToTop = false
     }
-
+    
     // Scrolls to top nicely
     
     
@@ -55,28 +55,27 @@ class MainTabBarController: UITabBarController, UINavigationControllerDelegate, 
         tabBar.backgroundColor = .white
         tabBar.layer.shadowOffset = CGSize(width: 0, height: 0)
         tabBar.layer.shadowRadius = 0.7
-//        tabBar.layer.shadowColor = UIColor(red: 13, green: 14, blue: 43, alpha: 1).cgColor
+        //        tabBar.layer.shadowColor = UIColor(red: 13, green: 14, blue: 43, alpha: 1).cgColor
         tabBar.layer.shadowOpacity = 0.1
         
         
         //Setting Bar Items for ViewControllers
-        vc1.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "box-menu")?.resized(to: CGSize(width: 25, height: 25)).withTintColor(.black, renderingMode: .alwaysOriginal), selectedImage: UIImage(named: "box-menu")?.resized(to: CGSize(width: 25, height: 25)).withTintColor(UIColor(named: "primary900")!, renderingMode: .alwaysOriginal))
+        vc1.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "box-menu")?.resized(to: CGSize(width: 25, height: 25)).withTintColor(UIColor(named: "black700")!, renderingMode: .alwaysOriginal), selectedImage: UIImage(named: "box-menu")?.resized(to: CGSize(width: 25, height: 25)).withTintColor(UIColor(named: "primary900")!, renderingMode: .alwaysOriginal))
         vc1.tabBarItem.title = "Pochta"
         
-        vc2.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "car-menu")?.resized(to: CGSize(width: 25, height: 25)).withTintColor(.black, renderingMode: .alwaysOriginal), selectedImage: UIImage(named: "car-menu")?.resized(to: CGSize(width: 25, height: 25)).withTintColor(UIColor(named: "primary900")!, renderingMode: .alwaysOriginal))
+        vc2.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "car-menu")?.resized(to: CGSize(width: 25, height: 25)).withTintColor(UIColor(named: "black700")!, renderingMode: .alwaysOriginal), selectedImage: UIImage(named: "car-menu")?.resized(to: CGSize(width: 25, height: 25)).withTintColor(UIColor(named: "primary900")!, renderingMode: .alwaysOriginal))
         vc2.tabBarItem.title = "Taksi"
         
-        vc3.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "people-menu")?.resized(to: CGSize(width: 25, height: 25)).withTintColor(.black, renderingMode: .alwaysOriginal), selectedImage: UIImage(named: "people-menu")?.resized(to: CGSize(width: 25, height: 25)).withTintColor(UIColor(named: "primary900")!, renderingMode: .alwaysOriginal))
+        vc3.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "people-menu")?.resized(to: CGSize(width: 25, height: 25)).withTintColor(UIColor(named: "black700")!, renderingMode: .alwaysOriginal), selectedImage: UIImage(named: "people-menu")?.resized(to: CGSize(width: 25, height: 25)).withTintColor(UIColor(named: "primary900")!, renderingMode: .alwaysOriginal))
         vc3.tabBarItem.title = "Jamoa"
-     
-        vc4.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "building-menu")?.resized(to: CGSize(width: 25, height: 25)).withTintColor(.black, renderingMode: .alwaysOriginal), selectedImage: UIImage(named: "building-menu")?.resized(to: CGSize(width: 25, height: 25)).withTintColor(UIColor(named: "primary900")!, renderingMode: .alwaysOriginal))
+        
+        vc4.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "building-menu")?.resized(to: CGSize(width: 25, height: 25)).withTintColor(UIColor(named: "black700")!, renderingMode: .alwaysOriginal), selectedImage: UIImage(named: "building-menu")?.resized(to: CGSize(width: 25, height: 25)).withTintColor(UIColor(named: "primary900")!, renderingMode: .alwaysOriginal))
         vc4.tabBarItem.title = "Filliallar"
         
-        vc5.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "person")?.resized(to: CGSize(width: 25, height: 25)).withTintColor(.black, renderingMode: .alwaysOriginal), selectedImage: UIImage(systemName: "person")?.resized(to: CGSize(width: 25, height: 25)).withTintColor(UIColor(named: "primary900")!, renderingMode: .alwaysOriginal))
+        vc5.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "person")?.resized(to: CGSize(width: 25, height: 25)).withTintColor(UIColor(named: "black700")!, renderingMode: .alwaysOriginal), selectedImage: UIImage(systemName: "person")?.resized(to: CGSize(width: 25, height: 25)).withTintColor(UIColor(named: "primary900")!, renderingMode: .alwaysOriginal))
         vc5.tabBarItem.title = "Kabinet"
         
         viewControllers = [vc1,vc2,vc3,vc4,vc5]
-        
     }
 }
 
