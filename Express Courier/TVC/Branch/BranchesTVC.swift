@@ -24,7 +24,7 @@ class BranchesTVC: UITableViewCell {
         self.imgV.sd_setImage(with: URL(string: data.logo ?? "")) { img, _, _, _ in
             if let _ = img {
                 print("Yuklandi!")
-            } else { self.imgV.image = UIImage(systemName: "person")?.withTintColor(.black, renderingMode: .alwaysOriginal)}}
+            } else { self.imgV.image = UIImage(named: "person")?.withTintColor(.black, renderingMode: .alwaysOriginal)}}
         self.nameLbl.text = data.name ?? ""
         self.regionLbl.text = (data.region?.name ?? "") + ", " + (data.district?.name ?? "")
         self.phoneLbl.text = data.call_center ?? ""

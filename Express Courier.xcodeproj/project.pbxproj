@@ -1488,11 +1488,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Express Courier/Express Courier.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = YM5H6L638F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Express Courier/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "100K Express - Kuryer";
+				INFOPLIST_KEY_CFBundleDisplayName = "Express - Kuryer";
 				INFOPLIST_KEY_NSCameraUsageDescription = "camera use";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "This application wants to access your FaceID scanner";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1524,11 +1524,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Express Courier/Express Courier.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = YM5H6L638F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Express Courier/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "100K Express - Kuryer";
+				INFOPLIST_KEY_CFBundleDisplayName = "Express - Kuryer";
 				INFOPLIST_KEY_NSCameraUsageDescription = "camera use";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "This application wants to access your FaceID scanner";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
