@@ -380,6 +380,8 @@ extension TaxiVC: RegionSelectedVCDelegate {
                 self.fromRegionText = name + ", " + state.name
                 self.fromRegionId = id
                 self.fromDistrictId = state.id
+                print("✅ fromDistrictId =", state.id)
+                print("✅ fromRegionId =", id)
                 self.newsAllDates()
             } else {
                 self.toRegionText = name + ", " + state.name

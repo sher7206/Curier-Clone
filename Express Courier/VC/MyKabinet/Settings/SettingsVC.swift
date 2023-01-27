@@ -115,7 +115,7 @@ extension SettingsVC: RegionSelectedVCDelegate {
     func setLocatoin(region id: Int, regoin name: String, state: States, isToRegion: Bool) {
         regionTf.text! = name + ", " + state.name
         self.regionId = id
-        self.districtId = state.id
+        self.districtId = state.id ?? 0
     }
 }
 

@@ -27,7 +27,7 @@ struct RegionDM {
 }
 
 struct States {
-    let id: Int
+    let id: Int?
     var name: String
     var region_id: Int
 }
@@ -77,8 +77,9 @@ class RegionsVC: UIViewController {
             switch result {
             case.success(let content):
                 guard let data = content.data else {return}
+                
                 for i in data {
-                    var region = RegionDM(id: i.id ?? 0, name: i.name ?? "", states: [])
+                    var region = RegionDM(id: i.id ?? 0, name: i.name ?? "", states: [States(id: nil, name: "Barcha viloyatlar", region_id: i.id ?? 0)])
                     guard let dis = i.districts else {return}
                     for j in dis {
                         region.states.append(States(id: j.id ?? 0, name: j.name ?? "", region_id: j.region_id ?? 0))
@@ -92,21 +93,6 @@ class RegionsVC: UIViewController {
             }
         }
     }
-    
-    //    func getStore(page: Int){
-    //        let getStore = ExpressService()
-    //        getStore.getStores(model: GetStoreRequest(page: page)) { result in
-    //            switch result{
-    //            case.success(let content):
-    //                self.totalItems = content.meta?.to ?? 0
-    //                guard let datas = content.data else{return}
-    //                self.getAllDates?.append(contentsOf: datas)
-    //                self.tableView.reloadData()
-    //            case.failure(let error):
-    //                Alert.showAlert(forState: .error, message: error.localizedDescription, vibrationType: .error)
-    //            }
-    //        }
-    //    }
     
     @objc func closeTapped() {
         self.dismiss(animated: true)
