@@ -22,6 +22,7 @@ class ReportTVC: UITableViewCell {
     }
     
     func updateCell(data: StatsPackagesData) {
+        self.imgV.sd_imageIndicator = SDWebImageActivityIndicator.gray
         self.imgV.sd_setImage(with: URL(string: data.icon ?? "")) { img, _, _, _ in
             if let _ = img {
             } else { self.imgV.image = UIImage(systemName: "person")?.withTintColor(.black, renderingMode: .alwaysOriginal)}}

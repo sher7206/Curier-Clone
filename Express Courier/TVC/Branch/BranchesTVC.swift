@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class BranchesTVC: UITableViewCell {
     
@@ -21,6 +22,7 @@ class BranchesTVC: UITableViewCell {
     }
     
     func updateCell(data: BranchData) {
+        self.imgV.sd_imageIndicator = SDWebImageActivityIndicator.gray
         self.imgV.sd_setImage(with: URL(string: data.logo ?? "")) { img, _, _, _ in
             if let _ = img {
                 print("Yuklandi!")

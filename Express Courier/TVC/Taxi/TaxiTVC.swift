@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class TaxiTVC: UITableViewCell {
     
@@ -48,6 +49,7 @@ class TaxiTVC: UITableViewCell {
         guard let date = data?.created_at else {return}
 
         priceLbl.text = "\(data?.cost?.priceFormetter() ?? "")"
+        self.userName.sd_imageIndicator = SDWebImageActivityIndicator.gray
         userImage.sd_setImage(with: URL(string: data?.creator_avatar ?? ""))
         fromRegionLbl.text = (data?.from_region_name ?? "") + ", " + (data?.from_district_name ?? "")
         fromDistrictLbl.text = data?.from_address ?? ""

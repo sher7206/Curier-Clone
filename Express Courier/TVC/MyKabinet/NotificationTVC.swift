@@ -24,6 +24,7 @@ class NotificationTVC: UITableViewCell {
     
     func updateCell(data: GetNotificationsData) {
         guard let date = data.created_at else {return}
+        self.imgV.sd_imageIndicator = SDWebImageActivityIndicator.gray
         if let url = data.image?.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed){
             imgV.sd_setImage(with: URL(string: url), placeholderImage: UIImage(named: "placeholder"), options: [.continueInBackground, .progressiveLoad]) {img,_,_,_ in
                 if let _ = img {

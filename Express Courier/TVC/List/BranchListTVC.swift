@@ -24,6 +24,7 @@ class BranchListTVC: UITableViewCell {
     }
     
     func updateCell(data: GetAllPackagesData) {
+        self.storeImg.sd_imageIndicator = SDWebImageActivityIndicator.gray
         self.storeImg.sd_setImage(with: URL(string: data.storage_logo ?? "")) { img, _, _, _ in
             if let _ = img {
             } else { self.storeImg.image = UIImage(systemName: "person")?.withTintColor(.black, renderingMode: .alwaysOriginal)}}

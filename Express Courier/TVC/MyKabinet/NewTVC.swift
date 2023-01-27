@@ -26,6 +26,7 @@ class NewTVC: UITableViewCell {
     
     func updateCell(date: String, imgV: String, title: String, desc: String) {
         self.dateLbl.text = String(date.prefix(10))
+        self.newImg.sd_imageIndicator = SDWebImageActivityIndicator.gray
         if let url = imgV.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed){
             newImg.sd_setImage(with: URL(string: url), placeholderImage: UIImage(named: "placeholder"), options: [.continueInBackground, .progressiveLoad])
             
