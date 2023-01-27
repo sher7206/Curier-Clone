@@ -125,7 +125,6 @@ class PostVC: UIViewController {
     }
     
     func getApiResponse(page: Int, fromRegionId: Int?, fromDistrictId: Int?, toRegionId: Int?,toDistrictId: Int?,status: String, available: String){
-        getAllDates.removeAll()
         self.emptyStack.isHidden = true
         let service = PostService()
         Loader.start()
@@ -250,7 +249,7 @@ extension PostVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelega
                 switch pageType{
                 case .new:
                     newOrderPage += 1
-                    takePageAnation(page: newOrderPage, fromRegionId: fromRegionId, fromDistrictId: fromDistrictId, toRegionId: toRegionId, toDistrictId: toDistrictId, status: "&status=new", available: "")
+                    takePageAnation(page: newOrderPage, fromRegionId: fromRegionId, fromDistrictId: fromDistrictId, toRegionId: toRegionId, toDistrictId: toDistrictId, status: newStatus, available: "")
                 case .accepted:
                     acceptedPage += 1
                     takePageAnation(page: acceptedPage, fromRegionId: fromRegionId, fromDistrictId: fromDistrictId, toRegionId: toRegionId, toDistrictId: toDistrictId, status: acceptedStatus, available: "")
@@ -342,7 +341,7 @@ extension PostVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         self.selectIndexCVC = indexPath.row
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         collectionView.reloadData()
-
+        getAllDates.removeAll()
         switch indexPath.row{
         case 0:
             pageType = .available
@@ -407,6 +406,7 @@ extension PostVC: TaxiFilterTVCDelegate{
         self.fromRegionId = nil
         self.toDistrictId = nil
         self.fromRegionText = "Viloyat, tuman"
+        
         pageTypeReloadData(fromR: fromRegionId, fromD: fromDistrictId, toR: toRegionId, toD: toDistrictId)
     }
     
