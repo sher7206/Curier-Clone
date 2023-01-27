@@ -79,7 +79,7 @@ class RegionsVC: UIViewController {
                 guard let data = content.data else {return}
                 
                 for i in data {
-                    var region = RegionDM(id: i.id ?? 0, name: i.name ?? "", states: [States(id: nil, name: "Barcha viloyatlar", region_id: i.id ?? 0)])
+                    var region = RegionDM(id: i.id ?? 0, name: i.name ?? "", states: [States(id: nil, name: "Barcha tumanlar", region_id: i.id ?? 0)])
                     guard let dis = i.districts else {return}
                     for j in dis {
                         region.states.append(States(id: j.id ?? 0, name: j.name ?? "", region_id: j.region_id ?? 0))
