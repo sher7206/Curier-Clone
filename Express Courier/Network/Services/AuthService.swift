@@ -18,9 +18,9 @@ struct AuthService: BaseService {
         request(.login(model: model), completion: completion)
     }
     
-        func sendFcmToken(model: FcmTokenRequest, completion: @escaping Completion<FcmTokenResponse>){
-            request(.sendFcmToken(model: model), completion: completion)
-        }
+    func sendFcmToken(model: FcmTokenRequest, completion: @escaping Completion<FcmTokenResponse>){
+        request(.sendFcmToken(model: model), completion: completion)
+    }
     
     func resetPassword(model: ResetPasswordRequest, completion: @escaping Completion<ResetPasswordResponse>) {
         request(.resetPassword(model: model), completion: completion)
