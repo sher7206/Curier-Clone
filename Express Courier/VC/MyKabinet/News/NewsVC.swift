@@ -31,7 +31,7 @@ class NewsVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        title = "Yangiliklar"
+        navigationItem.title = "kabinet_main7".localized
         tabBarController?.tabBar.isHidden = true
         
         

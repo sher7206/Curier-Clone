@@ -66,3 +66,48 @@ region1 = "Viloyatni tanglang";
 region2 = "Tumanni tanlang";
 region3 = "Barcha tumanlar";
 
+// <-- Kabinet -->
+kabinet_main1 = "To'lovlar tarixi";
+kabinet_main2 = "Hisobni to'ldirish";
+kabinet_main3 = "Bildirishnomalar";
+kabinet_main4 = "Kuryer bo‘lish";
+kabinet_main5 = "Sozlamalar";
+kabinet_main6 = "Pin kod qo'yish";
+kabinet_main7 = "Yangiliklar";
+kabinet_main8 = "Dastur haqida";
+kabinet_main9 = "Murojat qilish";
+kabinet_main10 = "Profildan chiqish";
+kabinet_main11 = "Profilni o'chirish";
+kabinet_progress = "Ushbu funksiya ishlab chiqish jarayonida. Tez orada foydalanishga topshiriladi";
+sozlama1 = "Rasm yuklang";
+sozlama2 = "Ismingizni kiriting*";
+sozlama3 = "Familyangizni kiriting*";
+sozlama4 = "Viloyat/Tumanni tanlang*";
+sozlama5 = "Ko'cha/Uy manzilini kiriting*";
+sozlama6 = "Dastur tili";
+sozlama7 = "Saqlash";
+
+pin1_1 = "Siz ilovaga kirish uchun PIN - kod o'rnatmagansiz";
+pin2_1 = "PIN - kodni o'rnatish";
+pin1_2 = "Sizning havfsizligingiz uchun";
+pin2_2 = "PIN - kodni o'zgartirish";
+pin3_2 = "PIN - kodni o'chirish";
+setup_pin1 = "Pin kod o'rnatish";
+setup_pin2 = "Yangi PIN - kodni kiriting";
+setup_pin3 = "PIN kod o'rnatildi";
+setup_pin4 = "PIN kod noto'g'ri kiritildi";
+
+lock1 = "PIN kodni kiriting";
+lock2 = "PIN kodni qayta kiriting";
+lock3 = "PIN kod noto'g'ri";
+
+exit_pr1 = "Profildan chiqish";
+exit_pr2 = "Profildan chiqishni hohlaysizmi?";
+exit_pr3 = "Ha, chiqish";
+exit_pr4 = "Yo'q, ortga";
+
+delete_p1 = "Profilni o'chirish";
+delete_p2 = "O'chirgandan keyin profilni qayta tiklab bo'lmaydi";
+delete_p3 = "Ha, o'chirish";
+delete_p4 = "Yo'q, ortga";
+

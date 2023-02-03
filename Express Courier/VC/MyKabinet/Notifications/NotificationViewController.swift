@@ -44,7 +44,7 @@ class NotificationViewController: UIViewController {
     }
     
     func setupNavigation() {
-        title = "Bildirishnomalar"
+        navigationItem.title = "kabinet_main3".localized
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = UIColor(named: "primary900")

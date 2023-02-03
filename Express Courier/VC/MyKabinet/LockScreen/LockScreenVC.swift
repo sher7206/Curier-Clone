@@ -28,7 +28,6 @@ class LockScreenVC: UIViewController {
     
     
     func setupFaceID() {
-        
         let contex = LAContext()
         var error: NSError? = nil
         if contex.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
@@ -78,8 +77,8 @@ class LockScreenVC: UIViewController {
                     }, completion:{completed in})
                 } else {
                     kodView.shake()
-                    self.titleLbl.text = "PIN kodni qayta kiriting"
-                    Alert.showAlert(forState: .error, message: "PIN kod xato", vibrationType: .error)
+                    self.titleLbl.text = "lock2".localized
+                    Alert.showAlert(forState: .error, message: "lock3".localized, vibrationType: .error)
                     self.numberCount = 0
                     self.code = ""
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1, execute: {

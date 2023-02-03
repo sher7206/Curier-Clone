@@ -24,7 +24,7 @@ class PaymentHistoryVC: UIViewController {
     }
     
     func setupNavigation() {
-        title = "To'lovlar tarixi"
+        navigationItem.title = "kabinet_main1".localized
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = UIColor(named: "primary900")

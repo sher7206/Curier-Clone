@@ -13,17 +13,17 @@ class MyKabinetVC: UIViewController {
     var refreshControl = UIRefreshControl()
     var categoryDates: [MyKabinetCategoryDM] = [
         
-        MyKabinetCategoryDM(name: "To‘lo‘vlar tarixi", imgName: "money-time-my"),
-        MyKabinetCategoryDM(name: "Hisobni to‘ldirish", imgName: "wallet-add-my"),
-        MyKabinetCategoryDM(name: "Bildirishnomalar", imgName: "notification-bing-my"),
-        MyKabinetCategoryDM(name: "Kuryer bo‘lish", imgName: "courier-my"),
-        MyKabinetCategoryDM(name: "Sozlamalar", imgName: "user-edit-my"),
-        MyKabinetCategoryDM(name: "Pin kod qo‘yish", imgName: "lock-my"),
-        MyKabinetCategoryDM(name: "Yangiliklar", imgName: "newsKabinet"),
-        MyKabinetCategoryDM(name: "Dastur xaqida", imgName: "infoKabinet"),
-        MyKabinetCategoryDM(name: "Murojat qilish", imgName: "24-support"),
-        MyKabinetCategoryDM(name: "Profildan chiqish", imgName: "logout-my"),
-        MyKabinetCategoryDM(name: "Profilni o'chirish", imgName: "removeAccount")
+        MyKabinetCategoryDM(name: "kabinet_main1".localized, imgName: "money-time-my"),
+        MyKabinetCategoryDM(name: "kabinet_main2".localized, imgName: "wallet-add-my"),
+        MyKabinetCategoryDM(name: "kabinet_main3".localized, imgName: "notification-bing-my"),
+        MyKabinetCategoryDM(name: "kabinet_main4".localized, imgName: "courier-my"),
+        MyKabinetCategoryDM(name: "kabinet_main5".localized, imgName: "user-edit-my"),
+        MyKabinetCategoryDM(name: "kabinet_main6".localized, imgName: "lock-my"),
+        MyKabinetCategoryDM(name: "kabinet_main7".localized, imgName: "newsKabinet"),
+        MyKabinetCategoryDM(name: "kabinet_main8".localized, imgName: "infoKabinet"),
+        MyKabinetCategoryDM(name: "kabinet_main9".localized, imgName: "24-support"),
+        MyKabinetCategoryDM(name: "kabinet_main10".localized, imgName: "logout-my"),
+        MyKabinetCategoryDM(name: "kabinet_main11".localized, imgName: "removeAccount")
     ]
     
     let user = Cache.getUser()
@@ -143,7 +143,7 @@ extension MyKabinetVC: UITableViewDelegate, UITableViewDataSource {
                 vc.hidesBottomBarWhenPushed = true
                 navigationController?.pushViewController(vc, animated: true)
             } else if indexPath.row == 1 {
-                Alert.showAlert(forState: .progress, message: "Ushbu funksiya ishlab chiqish jarayonida. Tez orada foydalanishga topshiriladi", vibrationType: .error)
+                Alert.showAlert(forState: .progress, message: "kabinet_progress".localized, vibrationType: .error)
             } else if indexPath.row == 2 {
                 let vc = NotificationViewController()
                 vc.hidesBottomBarWhenPushed = true
@@ -169,11 +169,11 @@ extension MyKabinetVC: UITableViewDelegate, UITableViewDataSource {
                 vc.hidesBottomBarWhenPushed = true
                 navigationController?.pushViewController(vc, animated: true)
             } else if indexPath.row == 8 {
-                Alert.showAlert(forState: .progress, message: "Ushbu funksiya ishlab chiqish jarayonida. Tez orada foydalanishga topshiriladi", vibrationType: .error)
+                Alert.showAlert(forState: .progress, message: "kabinet_progress".localized, vibrationType: .error)
             } else if indexPath.row == 9 {
-                showAlertLogout(withTitle: "Profildan chiqish", withMessage: "Hisobdan chiqishni hohlaysizmi?")
+                showAlertLogout(withTitle: "exit_pr1".localized, withMessage: "exit_pr2".localized)
             } else if indexPath.row == 10 {
-                showAlertDeleteAcoount(withTitle: "Profilni o'chirish", withMessage: "O'chirgandan keyin profilni qayta tiklab bo'lmaydi!")
+                showAlertDeleteAcoount(withTitle: "delete_p1".localized, withMessage: "delete_p2".localized)
             }
         }
     }
@@ -183,7 +183,7 @@ extension MyKabinetVC {
     
     func showAlertLogout(withTitle title: String, withMessage message:String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let ok = UIAlertAction(title: "Ha, chiqish", style: .default, handler: { action in
+        let ok = UIAlertAction(title: "exit_pr3".localized, style: .destructive, handler: { action in
             Loader.start()
             let logOut = UserService()
             logOut.logOut { resut in
@@ -207,7 +207,7 @@ extension MyKabinetVC {
                 }
             }
         })
-        let cancel = UIAlertAction(title: "Yo'q, ortga", style: .destructive, handler: nil)
+        let cancel = UIAlertAction(title: "exit_pr4".localized, style: .default, handler: nil)
         alert.addAction(ok)
         alert.addAction(cancel)
         DispatchQueue.main.async(execute: {
@@ -217,7 +217,7 @@ extension MyKabinetVC {
     
     func showAlertDeleteAcoount(withTitle title: String, withMessage message:String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let ok = UIAlertAction(title: "Ha, o'chirish", style: .default, handler: { action in
+        let ok = UIAlertAction(title: "delete_p3".localized, style: .destructive, handler: { action in
             Loader.start()
             let delete = UserService()
             delete.deleteAccount { result in
@@ -241,7 +241,7 @@ extension MyKabinetVC {
                 }
             }
         })
-        let cancel = UIAlertAction(title: "Yo'q, ortga", style: .destructive, handler: nil)
+        let cancel = UIAlertAction(title: "delete_p4".localized, style: .default, handler: nil)
         alert.addAction(ok)
         alert.addAction(cancel)
         DispatchQueue.main.async(execute: {

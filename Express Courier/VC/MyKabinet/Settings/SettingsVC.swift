@@ -28,7 +28,7 @@ class SettingsVC: UIViewController {
     }
     
     func setupNavigation() {
-        title = "Ma’lumotlarni o‘zgaritirish"
+        navigationItem.title = "kabinet_main5".localized
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = UIColor(named: "primary900")

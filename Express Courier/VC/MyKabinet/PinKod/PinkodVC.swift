@@ -22,7 +22,7 @@ class PinkodVC: UIViewController {
     
     func setupNavigation() {
         let password = Cache.share.getUserPassword()
-        title = "Pin kod"
+        navigationItem.title = "kabinet_main6".localized
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = UIColor(named: "primary900")
@@ -31,11 +31,12 @@ class PinkodVC: UIViewController {
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         navigationItem.backButtonTitle = ""
         self.deleteView.isHidden = true
-        self.titleLbl.text = "Siz ilovaga kirish uchun PIN - kod o‘rnatmagansiz "
+        self.titleLbl.text = "pin1_1".localized
+        self.submitBtnTitle.text = "pin2_1".localized
         if password != nil {
             self.deleteView.isHidden = false
-            self.titleLbl.text = "Sizning havfsizligingiz uchun"
-            self.submitBtnTitle.text = "PIN - kodni o'zgartirish"
+            self.titleLbl.text = "pin2_1".localized
+            self.submitBtnTitle.text = "pin2_2".localized
         }
     }
     
@@ -43,11 +44,11 @@ class PinkodVC: UIViewController {
         super.viewWillAppear(animated)
         let password = Cache.share.getUserPassword()
         self.deleteView.isHidden = true
-        self.titleLbl.text = "Siz ilovaga kirish uchun PIN - kod o‘rnatmagansiz "
+        self.titleLbl.text = "pin1_1".localized
         if password != nil {
             self.deleteView.isHidden = false
-            self.titleLbl.text = "Sizning havfsizligingiz uchun"
-            self.submitBtnTitle.text = "PIN - kodni o'zgartirish"
+            self.titleLbl.text = "pin2_1".localized
+            self.submitBtnTitle.text = "pin2_2".localized
         }
     }
     

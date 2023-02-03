@@ -29,7 +29,7 @@ class SetupPinKodVC: UIViewController {
     }
     
     func setupNavigation() {
-        title = "Pin kod o‘rnatish"
+        navigationItem.title = "setup_pin1".localized
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = UIColor(named: "primary900")
@@ -62,12 +62,12 @@ class SetupPinKodVC: UIViewController {
                 if second {
                     if confirmCode == code {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
-                            Alert.showAlert(forState: .success, message: "PIN kod o'rnatildi", vibrationType: .success)
+                            Alert.showAlert(forState: .success, message: "setup_pin3".localized, vibrationType: .success)
                             self.navigationController?.popViewController(animated: true)
                             UserDefaults.standard.set(self.code, forKey: Keys.userPassword)
                         })
                     } else {
-                        Alert.showAlert(forState: .error, message: "Xato kiritildi", vibrationType: .error)
+                        Alert.showAlert(forState: .error, message: "setup_pin4".localized, vibrationType: .error)
                         kodView.shake()
                         self.numberCount = 0
                         self.code = ""
