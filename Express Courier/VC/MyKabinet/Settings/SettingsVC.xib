@@ -324,7 +324,7 @@
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="JiC-Sz-dNu">
                                                                     <rect key="frame" x="5" y="5" width="372" height="20"/>
                                                                     <subviews>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="radiobutton-checked-my" translatesAutoresizingMaskIntoConstraints="NO" id="yLr-Z4-MRw">
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="radiobutton-unchecked-my" translatesAutoresizingMaskIntoConstraints="NO" id="yLr-Z4-MRw">
                                                                             <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="20" id="6zo-qH-IS7"/>
@@ -551,7 +551,6 @@
     </objects>
     <resources>
         <image name="person" catalog="system" width="128" height="121"/>
-        <image name="radiobutton-checked-my" width="18" height="18"/>
         <image name="radiobutton-unchecked-my" width="18" height="18"/>
         <image name="tick-circle-my" width="20" height="20"/>
         <namedColor name="black1000">

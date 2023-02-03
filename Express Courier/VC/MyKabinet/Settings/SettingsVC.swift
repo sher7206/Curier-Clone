@@ -19,6 +19,7 @@ class SettingsVC: UIViewController {
     var regionId: Int = 0
     var districtId: Int = 0
     let user = Cache.getUser()
+    var languageKey: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,8 +35,9 @@ class SettingsVC: UIViewController {
         appearance.shadowColor = .clear
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        langImage[0].image = UIImage(named: "radiobutton-checked-my")
+        langImage[UserDefaults.standard.integer(forKey: Keys.languageKey)].image = UIImage(named: "radiobutton-checked-my")
         uploadUpdate()
+        print("✅ key =", "\(UserDefaults.standard.integer(forKey: Keys.languageKey))")
     }
     
     func uploadUpdate() {
@@ -70,12 +72,22 @@ class SettingsVC: UIViewController {
             i.image = UIImage(named: "radiobutton-unchecked-my")
         }
         langImage[sender.tag].image = UIImage(named: "radiobutton-checked-my")
+        if sender.tag == 0 {
+            languageKey = 0
+            LocalizationManager.shared.setLocale("uz")
+        } else if sender.tag == 1 {
+            languageKey = 1
+            LocalizationManager.shared.setLocale("uz-Cyrl")
+        } else {
+            languageKey = 2
+            LocalizationManager.shared.setLocale("ru")
+        }
     }
     
     @IBAction func saveBtnTapped(_ sender: UIButton) {
         Loader.start()
         let updateUser = UserService()
-        
+        UserDefaults.standard.set(languageKey, forKey: Keys.languageKey)
         guard let dataImg = self.persinImgV.image?.sd_resizedImage(with: CGSize(width: 400, height: 400), scaleMode: .aspectFill)?.pngData() else { return  }
         
         updateUser.updateUser(imgData: dataImg, avatar: "avatar", name: nameTf.text!, surname: lastNameTf.text!, region_id: regionId, district_id: districtId, detail_address: districtTf.text!) { result in

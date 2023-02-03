@@ -13,4 +13,5 @@ class Keys {
     static let fcmToken: String = "fcmToken"
     static let userPassword: String = "userPassword"
     static let notificationName = "NOTIFICATION_NAME"
+    static let languageKey = "languageKey"
 }

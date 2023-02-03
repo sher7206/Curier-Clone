@@ -17,8 +17,8 @@ class OnboardingVC: UIViewController {
     
     
     var images: [String] = ["Illustration1-through", "Illustration2-through", "Illustration3"]
-    var titles: [String] = ["Nima uchun biz ?", "Nima uchun biz ?", "Nima uchun biz ?"]
-    var descriptionText: [String] = ["Kuryerlar uchun yuklarni ketkazishdagi muammolar yo‘q", "Kuryerlar uchun eng qulay va samarali usullardan foydalanamiz", "Kuryerlar uchun sifatli xizmatlar va doimiy yordam xizmati"]
+    var titles: [String] = ["on_title".localized, "on_title".localized, "on_title".localized]
+    var descriptionText: [String] = ["on_text1".localized, "on_text2".localized, "on_text3".localized]
     
     var currentPage: Int = 0
     

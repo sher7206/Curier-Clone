@@ -1,0 +1,34 @@
+/* 
+  Localizable.strings
+  Express Courier
+
+  Created by Sherzod Abdulxamidov on 03/02/23.
+  
+*/
+// <-- On Boarding -->
+on_title = "Nima uchun biz?";
+on_text1 = "Kuryerlar uchun yuklarni yetkazishdagi muammolar yo'q";
+on_text2 = "Kuryerlar uchun eng qulay va samarali usullardan foydalanamiz";
+on_text3 = "Kuryerlar uchun sifatli xizmatlar va doimiy yordam xizmati";
+
+// <-- Login -->
+login1 = "Kabinetga kirish";
+login2 = "Telefon raqam yoki E-mail";
+login3 = "Misol: 100K@mail.com";
+login4 = "Shaxsiy parol";
+login5 = "Parolingizni kiriting";
+login6 = "Parol yodimda yo'q";
+login7 = "Kabinetga kirish";
+login8 = "Menda akkaunt mavjud emas";
+login9 = "Ro'yhatdan o'tish";
+
+// <-- Register -->
+register1 = "Ro'yhatdan o'tish";
+register2 = "Telefon raqam";
+register3 = "Ismingizni kiriting";
+register4 = "To'liq ism";
+register5 = "Shaxsiy parol";
+register6 = "Parolingizni kiriting";
+register7 = "Ro'yhatdan o'tish";
+register8 = "Mening akkauntim mavjud";
+register9 = "Kabinetga kirish";
