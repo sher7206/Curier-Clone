@@ -11,6 +11,7 @@ class Alert {
         case success
         case error
         case unknown
+        case progress
     }
     
     static var timer : Timer? = nil
@@ -18,7 +19,7 @@ class Alert {
     class func showAlert(forState: AlertType, message: String, vibrationType: Vibration, duration: TimeInterval = 4, userInteration: Bool = true) {
                 
         let view = UIView(frame: CGRect(x: 10, y: -90, width: screenSize.width-20, height: 65))
-        view.layer.cornerRadius = 20
+        view.layer.cornerRadius = 15
         view.clipsToBounds = true
         view.layer.masksToBounds = false
         view.addShadow(offset: CGSize(width: 0, height: 0), color: #colorLiteral(red: Float(0), green: Float(0), blue: Float(0), alpha: Float(1)), radius: 3, opacity: 0.4)
@@ -28,12 +29,12 @@ class Alert {
         let titleLbl = UILabel()
         titleLbl.frame = view.frame
         titleLbl.textColor = .white
-        titleLbl.minimumScaleFactor = 8
+        titleLbl.minimumScaleFactor = 1
         titleLbl.adjustsFontSizeToFitWidth = true
         titleLbl.textAlignment = .center
         
         titleLbl.numberOfLines = 3
-        titleLbl.font = UIFont(name: "Inter-Medium", size: 15)
+        titleLbl.font = UIFont.systemFont(ofSize: 15)
 
         view.addSubview(titleLbl)
         titleLbl.translatesAutoresizingMaskIntoConstraints = false
@@ -45,8 +46,8 @@ class Alert {
 
         view.tag = 9981
         
-        if let window = UIApplication.shared.keyWindow {
-            if let vi = UIApplication.shared.keyWindow?.viewWithTag(9981) {
+        if let window = UIApplication.shared.windows.filter({$0.isKeyWindow}).first {
+            if let vi = UIApplication.shared.windows.filter ({$0.isKeyWindow}).first?.viewWithTag(9981) {
                 timer?.invalidate()
                 vi.removeFromSuperview()
             }
@@ -56,7 +57,7 @@ class Alert {
         }
         
         UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.6, options: .curveEaseIn, animations: {
-            view.transform = CGAffineTransform(translationX: 0, y: 90+UIApplication.shared.statusBarFrame.size.height)
+            view.transform = CGAffineTransform(translationX: 0, y: 90 + UIApplication.shared.statusBarFrame.size.height)
         })
         
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(closeBtnPressed))
@@ -70,11 +71,12 @@ class Alert {
             view.backgroundColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
         case .error:
             view.backgroundColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
-
         case .success:
             view.backgroundColor = #colorLiteral(red: 0, green: 0.7906584144, blue: 0, alpha: 1)
         case .unknown:
             view.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+        case .progress:
+            view.backgroundColor = #colorLiteral(red: 0, green: 0.4592123032, blue: 1, alpha: 1)
         }
         timer = Timer.scheduledTimer(timeInterval: duration, target: self, selector: #selector(Alert.closeBtnPressed), userInfo: nil, repeats: false)        
     }

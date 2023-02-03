@@ -592,6 +592,7 @@
 		18DE66A62965A067003324A5 /* Express Courier */ = {
 			isa = PBXGroup;
 			children = (
+				37756893298D0DA600FD313A /* Language */,
 				1868BC8B297C38E800B4CCA9 /* Express Courier.entitlements */,
 				279BAAAA29681F8B0028B2EC /* AppDelegate */,
 				1890E438298004CF00C6A8E0 /* CheckUpdateView */,
@@ -913,8 +914,8 @@
 		2786450F29684624000FD251 /* MyKabinet */ = {
 			isa = PBXGroup;
 			children = (
-				278AB68B297A9FC200B4577D /* LockScreen */,
 				2769293429756E21009BF0A5 /* MyKabinet */,
+				278AB68B297A9FC200B4577D /* LockScreen */,
 				2760344A29756F2800E3F28C /* Payment */,
 				2760344D29756F8000E3F28C /* AboutApp */,
 				2760344C29756F7400E3F28C /* Settings */,
@@ -1039,6 +1040,13 @@
 				27EC951E29797BFD00B567D5 /* BranchesTVC.xib */,
 			);
 			path = Branch;
+			sourceTree = "<group>";
+		};
+		37756893298D0DA600FD313A /* Language */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Language;
 			sourceTree = "<group>";
 		};
 		6B739F688FC3BEC377E3BA6A /* Frameworks */ = {

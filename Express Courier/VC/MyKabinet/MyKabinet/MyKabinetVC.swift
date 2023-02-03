@@ -120,7 +120,7 @@ extension MyKabinetVC: UITableViewDelegate, UITableViewDataSource {
             if indexPath.row == 3 {
                 guard let roles = user?.roles else {return 0}
                 if roles.contains("driver") {
-                   return 0
+                    return 0
                 }
                 return UITableView.automaticDimension
             } else {
@@ -143,9 +143,7 @@ extension MyKabinetVC: UITableViewDelegate, UITableViewDataSource {
                 vc.hidesBottomBarWhenPushed = true
                 navigationController?.pushViewController(vc, animated: true)
             } else if indexPath.row == 1 {
-                let vc = PayAccountVC()
-                vc.hidesBottomBarWhenPushed = true
-                navigationController?.pushViewController(vc, animated: true)
+                Alert.showAlert(forState: .progress, message: "Ushbu funksiya ishlab chiqish jarayonida. Tez orada foydalanishga topshiriladi", vibrationType: .error)
             } else if indexPath.row == 2 {
                 let vc = NotificationViewController()
                 vc.hidesBottomBarWhenPushed = true
@@ -170,6 +168,8 @@ extension MyKabinetVC: UITableViewDelegate, UITableViewDataSource {
                 let vc = AboutAppVC()
                 vc.hidesBottomBarWhenPushed = true
                 navigationController?.pushViewController(vc, animated: true)
+            } else if indexPath.row == 8 {
+                Alert.showAlert(forState: .progress, message: "Ushbu funksiya ishlab chiqish jarayonida. Tez orada foydalanishga topshiriladi", vibrationType: .error)
             } else if indexPath.row == 9 {
                 showAlertLogout(withTitle: "Profildan chiqish", withMessage: "Hisobdan chiqishni hohlaysizmi?")
             } else if indexPath.row == 10 {
