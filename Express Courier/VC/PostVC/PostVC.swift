@@ -77,7 +77,7 @@ class PostVC: UIViewController {
         setupNavigation()
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         tableView.addSubview(refreshControl)
-        title = "Pochta"
+        navigationItem.title = "tab1".localized
         setUpScretchView()
         getApiResponse(page: 1, fromRegionId: nil, fromDistrictId: nil, toRegionId: nil, toDistrictId: nil, status: "", available: "/available")
         makeCollectionView()

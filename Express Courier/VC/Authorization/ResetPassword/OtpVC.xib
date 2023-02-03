@@ -26,7 +26,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="16I-Ng-ud5">
-                    <rect key="frame" x="16" y="123" width="382" height="323.5"/>
+                    <rect key="frame" x="16" y="123" width="382" height="333.5"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="sOv-9p-vPn">
                             <rect key="frame" x="0.0" y="0.0" width="382" height="89.5"/>
@@ -36,6 +36,9 @@
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="otp1"/>
+                                    </userDefinedRuntimeAttributes>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+998 90 009 33 23 Telefon raqamiga parolni tiklash SMS kod yuborildi" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SeS-Hl-QHv">
                                     <rect key="frame" x="0.0" y="41.5" width="382" height="48"/>
@@ -59,6 +62,9 @@
                                     <rect key="frame" x="0.0" y="70" width="382" height="17"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="otp3"/>
+                                    </userDefinedRuntimeAttributes>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01:59" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B05-0d-lP8">
                                     <rect key="frame" x="0.0" y="97" width="382" height="17"/>
@@ -68,7 +74,7 @@
                             </subviews>
                         </stackView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VHR-E5-gCQ">
-                            <rect key="frame" x="0.0" y="273.5" width="382" height="50"/>
+                            <rect key="frame" x="0.0" y="273.5" width="382" height="60"/>
                             <color key="backgroundColor" name="primary900"/>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                             <state key="normal" title="Tasdiqlash">
@@ -78,6 +84,7 @@
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                     <real key="value" value="10"/>
                                 </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="otp4"/>
                             </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="sendBtnPressed:" destination="-1" eventType="touchUpInside" id="jaC-Ff-3xa"/>
@@ -106,7 +113,7 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="VHR-E5-gCQ" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="50/896" id="BxE-Lx-MrO"/>
+                <constraint firstItem="VHR-E5-gCQ" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="60/896" id="BxE-Lx-MrO"/>
                 <constraint firstItem="Ezc-pX-wbk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="OPg-9n-D0P"/>
                 <constraint firstAttribute="trailing" secondItem="16I-Ng-ud5" secondAttribute="trailing" constant="16" id="cI6-Cq-8Lv"/>
                 <constraint firstItem="16I-Ng-ud5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="dGK-Rh-Y17"/>

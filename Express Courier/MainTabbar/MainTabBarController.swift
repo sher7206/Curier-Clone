@@ -49,19 +49,19 @@ class MainTabBarController: UITabBarController, UINavigationControllerDelegate, 
         
         //Setting Bar Items for ViewControllers
         vc1.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "box-menu")?.resized(to: CGSize(width: 25, height: 25)).withTintColor(UIColor(named: "black700")!, renderingMode: .alwaysOriginal), selectedImage: UIImage(named: "box-menu")?.resized(to: CGSize(width: 25, height: 25)).withTintColor(UIColor(named: "primary900")!, renderingMode: .alwaysOriginal))
-        vc1.tabBarItem.title = "Pochta"
+        vc1.tabBarItem.title = "tab1".localized
         
         vc2.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "car-menu")?.resized(to: CGSize(width: 25, height: 25)).withTintColor(UIColor(named: "black700")!, renderingMode: .alwaysOriginal), selectedImage: UIImage(named: "car-menu")?.resized(to: CGSize(width: 25, height: 25)).withTintColor(UIColor(named: "primary900")!, renderingMode: .alwaysOriginal))
-        vc2.tabBarItem.title = "Taksi"
+        vc2.tabBarItem.title = "tab2".localized
         
         vc3.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "people-menu")?.resized(to: CGSize(width: 25, height: 25)).withTintColor(UIColor(named: "black700")!, renderingMode: .alwaysOriginal), selectedImage: UIImage(named: "people-menu")?.resized(to: CGSize(width: 25, height: 25)).withTintColor(UIColor(named: "primary900")!, renderingMode: .alwaysOriginal))
-        vc3.tabBarItem.title = "Jamoa"
+        vc3.tabBarItem.title = "tab3".localized
         
         vc4.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "building-menu")?.resized(to: CGSize(width: 25, height: 25)).withTintColor(UIColor(named: "black700")!, renderingMode: .alwaysOriginal), selectedImage: UIImage(named: "building-menu")?.resized(to: CGSize(width: 25, height: 25)).withTintColor(UIColor(named: "primary900")!, renderingMode: .alwaysOriginal))
-        vc4.tabBarItem.title = "Filliallar"
+        vc4.tabBarItem.title = "tab4".localized
         
         vc5.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "person")?.resized(to: CGSize(width: 25, height: 25)).withTintColor(UIColor(named: "black700")!, renderingMode: .alwaysOriginal), selectedImage: UIImage(systemName: "person")?.resized(to: CGSize(width: 25, height: 25)).withTintColor(UIColor(named: "primary900")!, renderingMode: .alwaysOriginal))
-        vc5.tabBarItem.title = "Kabinet"
+        vc5.tabBarItem.title = "tab5".localized
         
         viewControllers = [vc1,vc2,vc3,vc4,vc5]
     }

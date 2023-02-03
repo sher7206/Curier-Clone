@@ -108,7 +108,7 @@ class TaxiVC: UIViewController {
     }
     
     func setupNavigation() {
-        title = "Taksi"
+        navigationItem.title = "tab2".localized
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = UIColor(named: "primary900")

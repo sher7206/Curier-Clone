@@ -31,16 +31,8 @@ class OtpVC: UIViewController {
     }
     
     @IBOutlet weak var timerLbl: UILabel!
-    @IBOutlet weak var sentBtn: UIButton!{
-        didSet{
-            //            sentBtn.setTitle(SetLanguage.setLang(type: .sentBtn), for: .normal)
-        }
-    }
-    @IBOutlet weak var smsKodLbl: UILabel!{
-        didSet{
-            //            smsKodLbl.text = SetLanguage.setLang(type: .dateSMS)
-        }
-    }
+    @IBOutlet weak var sentBtn: UIButton!
+    @IBOutlet weak var smsKodLbl: UILabel!
     
     var numberForLbl = ""
     var number = ""
@@ -51,14 +43,13 @@ class OtpVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         timerSetUp()
-        //        textLbl.attributedText = "\(SetLanguage.setLang(type: .youLbl)) \(numberForLbl) \(SetLanguage.setLang(type: .confirmKodText))".withYellowText(text: numberForLbl)
-        textLbl.text = " \(number) Telefon raqamiga parolni tiklash SMS kod yuborildi"
+        textLbl.text = number + " " + "otp2".localized
     }
     
     func timerSetUp() {
         _ = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [self] t in
             duration = duration - 1
-            if duration == 0 {
+            if duration <= 0 {
                 timerLbl.text = "00 : 00"
             } else {
                 timerLbl.text = "0\(duration/60) : \(duration%60)"

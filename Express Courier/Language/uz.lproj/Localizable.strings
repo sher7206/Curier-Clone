@@ -5,6 +5,13 @@
  Created by Sherzod Abdulxamidov on 03/02/23.
  
  */
+// <-- Main Tabbar -->
+tab1 = "Pochta";
+tab2 = "Taksi";
+tab3 = "Jamoa";
+tab4 = "Filiallar";
+tab5 = "Kabinet";
+
 // <-- On Boarding -->
 on_title = "Nima uchun biz?";
 on_text1 = "Kuryerlar uchun yuklarni yetkazishdagi muammolar yo'q";
@@ -32,4 +39,30 @@ register6 = "Parolingizni kiriting";
 register7 = "Ro'yhatdan o'tish";
 register8 = "Mening akkauntim mavjud";
 register9 = "Kabinetga kirish";
+
+// <-- Otp phone -->
+otpphone1 = "Parolni tiklash";
+otpphone2 = "Quyidagi manzilga kabinetingizga kirish uchun parol yuboriladi";
+otpphone3 = "Telefon raqam";
+otpphone4 = "Parolni tiklash";
+otpphone5 = "Kabinet";
+
+// <-- Otp -->
+otp1 = "SMS KOD";
+otp2 = "Telefon raqamiga parolni tiklash uchun SMS kod yuborildi";
+otp3 = "SMS kodning kelish muddati";
+otp4 = "Tasdiqlash";
+
+// <-- Reset password -->
+reset_password1 = "Parolni tiklash";
+reset_password2 = "Yangi parolni kiriting";
+reset_password3 = "Parolingizni kiriting";
+reset_password4 = "Yangi parolni qayta kiriting";
+reset_password5 = "Parolingizni qayta kiriting";
+reset_password6 = "Kirish";
+
+// <-- Regions -->
+region1 = "Viloyatni tanglang";
+region2 = "Tumanni tanlang";
+region3 = "Barcha tumanlar";
 

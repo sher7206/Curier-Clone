@@ -49,7 +49,7 @@ class MyKabinetVC: UIViewController {
     }
     
     func setupNavigation() {
-        navigationItem.title = "Mening kabinetim"
+        navigationItem.title = "tab5".localized
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = UIColor(named: "primary900")

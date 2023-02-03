@@ -46,12 +46,18 @@
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="otpphone1"/>
+                                    </userDefinedRuntimeAttributes>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quyidagi manzilga kabinetingizga kirish uchun parol yuboriladi" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dre-MV-8Fs" userLabel="Parolni tiklash">
                                     <rect key="frame" x="13.5" y="39" width="355" height="41"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" name="black700"/>
                                     <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="otpphone2"/>
+                                    </userDefinedRuntimeAttributes>
                                 </label>
                             </subviews>
                         </stackView>
@@ -66,6 +72,9 @@
                                             <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="17"/>
                                             <color key="textColor" name="black1000"/>
                                             <nil key="highlightedColor"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="otpphone3"/>
+                                            </userDefinedRuntimeAttributes>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xU3-mp-LAF">
                                             <rect key="frame" x="0.0" y="26" width="382" height="60"/>
@@ -119,6 +128,7 @@
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                     <integer key="value" value="10"/>
                                 </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="otpphone4"/>
                             </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="confirmBtnTapped:" destination="-1" eventType="touchUpInside" id="MTT-fr-NRk"/>
@@ -145,6 +155,9 @@
                                             <state key="normal" title="Kabinet">
                                                 <color key="titleColor" name="black1000"/>
                                             </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="otpphone5"/>
+                                            </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="backBtnTapped:" destination="-1" eventType="touchUpInside" id="whA-pl-AU9"/>
                                             </connections>

@@ -37,13 +37,11 @@ class SettingsVC: UIViewController {
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         langImage[UserDefaults.standard.integer(forKey: Keys.languageKey)].image = UIImage(named: "radiobutton-checked-my")
         uploadUpdate()
-        print("✅ key =", "\(UserDefaults.standard.integer(forKey: Keys.languageKey))")
     }
     
     func uploadUpdate() {
         persinImgV.sd_setImage(with: URL(string: user?.avatar ?? "")) { img,_,_,_ in
             if let _ = img {
-                print("yuklandi")
             } else {
                 self.persinImgV.image = UIImage(systemName: "person")?.withTintColor(UIColor(named: "black700")!, renderingMode: .alwaysOriginal)
             }
@@ -113,7 +111,7 @@ class SettingsVC: UIViewController {
                 user.phone = data.phone
                 Cache.saveUser(user: user)
                 Loader.stop()
-                self.navigationController?.popViewController(animated: true)
+                self.resetTabBar()
             case.failure(let error):
                 print(error.localizedDescription)
                 Loader.stop()

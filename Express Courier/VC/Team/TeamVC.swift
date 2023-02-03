@@ -9,22 +9,15 @@ import UIKit
 
 class TeamVC: UIViewController {
     
-    
     @IBOutlet weak var emptyStack: UIStackView!
     @IBOutlet weak var collectionView: UICollectionView!
-    
-    
     
     var dates: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-    
         setupNavigation()
     }
-    
-    
     
     @IBAction func addTeamTapped(_ sender: UIButton) {
         let vc = AddTeamVC()
@@ -32,9 +25,7 @@ class TeamVC: UIViewController {
         vc.modalPresentationStyle = .overFullScreen
         self.present(vc, animated: true)
     }
-    
 }
-
 
 //MARK: - Collection View Delegate
 extension TeamVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -62,7 +53,7 @@ extension TeamVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
 //MARK: - Funs
 extension TeamVC {
     func setupNavigation() {
-        title = "Jamoa"
+        navigationItem.title = "tab3".localized
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = UIColor(named: "primary900")

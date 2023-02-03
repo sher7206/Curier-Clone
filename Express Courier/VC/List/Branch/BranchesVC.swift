@@ -32,7 +32,7 @@ class BranchesVC: UIViewController {
     }
     
     func setupNavigation() {
-        title = "Filiallar"
+        navigationItem.title = "tab4".localized
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = UIColor(named: "primary900")

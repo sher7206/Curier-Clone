@@ -209,4 +209,18 @@ extension UITextField {
     }
 }
 
+extension UIViewController {
+    func resetTabBar() {
+        let vc = MainTabBarController()
+        guard let window = UIApplication.shared.windows.filter({$0.isKeyWindow}).first else { return }
+        vc.selectedIndex = 4
+        window.rootViewController = vc
+        window.makeKeyAndVisible()
+        let options: UIView.AnimationOptions = .transitionCrossDissolve
+        let duration: TimeInterval = 0
+        UIView.transition(with: window, duration: duration, options: options, animations: {
+        }, completion:{completed in})
+    }
+}
+
 
