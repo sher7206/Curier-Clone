@@ -45,6 +45,7 @@ class EnterTimerVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        textView.delegate = self
         openAnimetion()
         showDatePicker()
         orderTypeReader()
@@ -235,8 +236,13 @@ extension EnterTimerVC {
             self.datetf.text! = "\(year)-\(month)-\(day)"
         }
     }
-    
-    
+}
+
+
+extension EnterTimerVC: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        self.textView.text.removeAll()
+    }
 }
 
 

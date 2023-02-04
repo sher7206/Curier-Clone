@@ -65,6 +65,7 @@ reset_password6 = "Кириш";
 region1 = "Вилоятни тангланг";
 region2 = "Туманни танланг";
 region3 = "Барча туманлар";
+region4 = "Вилоят, туман";
 
 // <-- Kabinet -->
 kabinet_main1 = "Тўловлар тарихи";
@@ -110,3 +111,43 @@ delete_p1 = "Профилни ўчириш";
 delete_p2 = "Ўчиргандан кейин профилни қайта тиклаб бўлмайди";
 delete_p3 = "Ҳа, ўчириш";
 delete_p4 = "Йўқ, ортга";
+
+// <-- Pochta -->
+pochta1 = "Буюртмалар";
+pochta2 = "Янги";
+pochta3 = "Қабул қилинган";
+pochta4 = "Йўлда";
+pochta5 = "Етказилган";
+pochta6 = "Бекор қилинган";
+pochta7 = "ИД";
+pochta8 = "Етказиш санаси";
+pochta9 = "Юборувчи";
+som = "сўм";
+
+pochta_buyurtma1 = "Тизим етказиб бериш миқдоридан 20% комиссияси олади";
+pochta_buyurtma2 = "Бунгга розимисз?";
+pochta_buyurtma3 = "Орқага";
+pochta_buyurtma4 = "Розиман";
+
+pochta_desc1 = "Ушбу юборувчи 100k Express дан олдин ҳам жўнатма юборган у доимий мижоз";
+pochta_desc2 = "Манзил";
+pochta_desc3 = "Жўнатувчи";
+pochta_desc4 = "Қабул қиливчи";
+pochta_desc5 = "Почта номи";
+pochta_desc6 = "Тасдиқланди";
+pochta_desc7 = "Йўлда";
+pochta_desc8 = "Етказилди";
+pochta_desc9 = "Жўнатма бўйича изоҳлар";
+pochta_desc10 = "Қўшимча маълумот";
+pochta_desc11 = "Олинадиган пул";
+pochta_desc12 = "Етказиш пули";
+pochta_desc13 = "Суғурта пули";
+pochta_desc14 = "Етказиш вақти";
+pochta_desc15 = "Бекор қилиш";
+pochta_desc16 = "Етказилди";
+pochta_desc17 = "Хабарлар";
+pochta_desc18 = "Таймер киритиш";
+pochta_desc19 = "Буюртма олиш";
+pochta_desc20 = "Активлаштириш";
+pochta_desc21 = "Қўнғироқ";
+pochta_desc22 = "Сиз бу буюртмани активлаштирмоқчимисиз?";

@@ -65,6 +65,7 @@ reset_password6 = "Kirish";
 region1 = "Viloyatni tanglang";
 region2 = "Tumanni tanlang";
 region3 = "Barcha tumanlar";
+region4 = "Viloyat, tuman";
 
 // <-- Kabinet -->
 kabinet_main1 = "To'lovlar tarixi";
@@ -110,3 +111,43 @@ delete_p1 = "Profilni o'chirish";
 delete_p2 = "O'chirgandan keyin profilni qayta tiklab bo'lmaydi";
 delete_p3 = "Ha, o'chirish";
 delete_p4 = "Yo'q, ortga";
+
+// <-- Pochta -->
+pochta1 = "Buyurtmalar";
+pochta2 = "Yangi";
+pochta3 = "Qabul qilingan";
+pochta4 = "Yo'lda";
+pochta5 = "Yetkazilgan";
+pochta6 = "Bekor qilingan";
+pochta7 = "ID";
+pochta8 = "Yetkazish sanasi";
+pochta9 = "Yuboruvchi";
+som = "so'm";
+
+pochta_buyurtma1 = "Tizim yetkazib berish miqdoridan 20% komissiyasi oladi";
+pochta_buyurtma2 = "Bungga rozimisz?";
+pochta_buyurtma3 = "Orqaga";
+pochta_buyurtma4 = "Roziman";
+
+pochta_desc1 = "Ushbu yuboruvchi 100k Expressdan oldin ham jo'natma yuborgan u doimiy mijoz";
+pochta_desc2 = "Manzil";
+pochta_desc3 = "Jo'natuvchi";
+pochta_desc4 = "Qabul qilivchi";
+pochta_desc5 = "Pochta nomi";
+pochta_desc6 = "Tasdiqlandi";
+pochta_desc7 = "Yo'lda";
+pochta_desc8 = "Yetkazildi";
+pochta_desc9 = "Jo'natma bo'yicha izohlar";
+pochta_desc10 = "Qo'shimcha ma'lumot";
+pochta_desc11 = "Olinadigan pul";
+pochta_desc12 = "Yetkazish puli";
+pochta_desc13 = "Sug'urta puli";
+pochta_desc14 = "Yetkazish vaqti";
+pochta_desc15 = "Bekor qilish";
+pochta_desc16 = "Yetkazildi";
+pochta_desc17 = "Xabarlar";
+pochta_desc18 = "Taymer kiritish";
+pochta_desc19 = "Buyurtma olish";
+pochta_desc20 = "Aktivlashtirish";
+pochta_desc21 = "Qo'ng'iroq";
+pochta_desc22 = "Siz bu buyurtmani aktivlashtirmoqchimisiz?";

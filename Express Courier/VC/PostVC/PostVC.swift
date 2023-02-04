@@ -39,7 +39,7 @@ class PostVC: UIViewController {
     var getAllDates: [GetPostRespnseData] = []
     var refreshControl = UIRefreshControl()
 
-    let headerTexts = ["Buyurtmalar", "Yangi", "Qabul qilingan", "Yo'lda", "Yetkazilgan", "Bekor qilingan"]
+    let headerTexts = ["pochta1".localized, "pochta2".localized, "pochta3".localized, "pochta4".localized, "pochta5".localized, "pochta6".localized]
     
     var selectIndexCVC: Int = 0
     var isNew: Bool = true
@@ -63,8 +63,8 @@ class PostVC: UIViewController {
     var fromDistrictId: Int?
     var toRegionId: Int?
     var toDistrictId: Int?
-    var fromRegionText: String = "Viloyat, tuman"
-    var toRegionText: String = "Viloyat, tuman"
+    var fromRegionText: String = "region4".localized
+    var toRegionText: String = "region4".localized
     var isReplacement: Bool = true
     var isLeftRegion: Bool = true
     var downScroll: Bool = false

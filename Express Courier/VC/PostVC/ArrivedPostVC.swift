@@ -52,13 +52,13 @@ class ArrivedPostVC: UIViewController {
 
     var menuItems: [UIAction] {
         return [
-            UIAction(title: "Xabarlar", image: UIImage(named: "notification-bing-post"), handler: { [self] (_) in
+            UIAction(title: "pochta_desc17".localized, image: UIImage(named: "notification-bing-post"), handler: { [self] (_) in
                 let vc = ChatVC()
                 vc.id = id
                 
                 self.navigationController?.pushViewController(vc, animated: true)
             }),
-            UIAction(title: "Taymer kiritish", image: UIImage(named: "clock-post"), handler: { [self] (_) in
+            UIAction(title: "pochta_desc18".localized, image: UIImage(named: "clock-post"), handler: { [self] (_) in
                 let vc = EnterTimerVC()
                 vc.modalPresentationStyle = .overFullScreen
                 vc.id = id
@@ -66,7 +66,7 @@ class ArrivedPostVC: UIViewController {
                 vc.delegate = self
                 self.present(vc, animated: true, completion: nil)
             }),
-            UIAction(title: "Buyurtma olish", image: UIImage(named: "repeat-post"), handler: { [self] (_) in
+            UIAction(title: "pochta_desc19".localized, image: UIImage(named: "repeat-post"), handler: { [self] (_) in
                 let vc = EnterTimerVC()
                 vc.modalPresentationStyle = .overFullScreen
                 vc.id = id

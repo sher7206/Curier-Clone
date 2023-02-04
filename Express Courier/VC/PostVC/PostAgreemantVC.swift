@@ -10,7 +10,7 @@ protocol PostAgreemantVCDelegate{
 }
 
 class PostAgreemantVC: UIViewController {
-
+    
     @IBOutlet weak var backView: UIView!
     
     @IBOutlet weak var orderTxtLbl: UILabel!
@@ -23,35 +23,37 @@ class PostAgreemantVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         openAnimetion()
-        if isCancelled{
-            orderTxtLbl.text = "Siz bu buyurtmani aktivlashtirmoqchisiz"
-        }else{
-            orderTxtLbl.text = "Tizim yetkazib berish miqdoridan 20% komissiyasi oladi"
+        if isCancelled {
+            orderTxtLbl.text = "pochta_desc22".localized
+        } else {
+            orderTxtLbl.text = "pochta_buyurtma1".localized
         }
     }
-
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         backView.roundCorners(corners: [.topLeft, .topRight], radius: 25)
         backView.clipsToBounds = true
     }
-
+    
     func apiResponse(id: Int){
+        Loader.start()
         let service = PostService()
         service.acceptPostResponse(model: PostAcceptRequest(id: id)) { [self] result in
-            switch result{
-            case.success(let content):
-                Alert.showAlert(forState: .success, message: content.message ?? "Ok", vibrationType: .success)
+            switch result {
+            case.success:
+                Loader.stop()
                 delegate?.dataUpdater()
                 dismissFunc()
             case.failure(let error):
-                Alert.showAlert(forState: .error, message: error.message ?? "Error", vibrationType: .error)
+                Loader.stop()
+                Alert.showAlert(forState: .error, message: error.localizedDescription, vibrationType: .error)
                 dismissFunc()
             }
         }
     }
     
-    func getReturnOrderCancelled(id: Int){
+    func getReturnOrderCancelled(id: Int) {
         let service = PostService()
         Loader.start()
         service.returnOrderData(model: ReturnPostRequest(id: id)) { [self] result in
@@ -75,12 +77,12 @@ class PostAgreemantVC: UIViewController {
             }
         }
     }
-
+    
     func dismissFunc() {
         self.view.backgroundColor = .clear
         self.dismiss(animated: true)
     }
-
+    
     
     @IBAction func dissmissBtnPressed(_ sender: Any) {
         dismissFunc()
@@ -99,6 +101,4 @@ class PostAgreemantVC: UIViewController {
     @IBAction func backBtnPressed(_ sender: Any) {
         dismissFunc()
     }
-    
-    
 }

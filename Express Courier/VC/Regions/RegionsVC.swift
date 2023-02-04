@@ -79,7 +79,7 @@ class RegionsVC: UIViewController {
                 guard let data = content.data else {return}
                 
                 for i in data {
-                    var region = RegionDM(id: i.id ?? 0, name: i.name ?? "", states: [States(id: nil, name: "Barcha tumanlar", region_id: i.id ?? 0)])
+                    var region = RegionDM(id: i.id ?? 0, name: i.name ?? "", states: [States(id: nil, name: "region3".localized, region_id: i.id ?? 0)])
                     guard let dis = i.districts else {return}
                     for j in dis {
                         region.states.append(States(id: j.id ?? 0, name: j.name ?? "", region_id: j.region_id ?? 0))
@@ -139,9 +139,9 @@ extension RegionsVC: UITableViewDelegate, UITableViewDataSource {
         } else {
             switch pageType {
             case.region:
-                lbl.text = "Viloyatni tanlang"
+                lbl.text = "region1".localized
             case.states:
-                lbl.text = "Tumanni tanlang"
+                lbl.text = "region2".localized
             }
             
         }
