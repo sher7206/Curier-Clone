@@ -24,7 +24,7 @@ class ReportVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Statistika"
+        navigationItem.title = "list_toolbar1".localized
         uploadData()
         
     }

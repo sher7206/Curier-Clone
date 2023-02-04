@@ -93,6 +93,7 @@
                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                             <real key="value" value="8"/>
                                         </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="list_child4"/>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
                                         <action selector="filterClearTapped:" destination="-1" eventType="touchUpInside" id="PM7-XC-wv9"/>

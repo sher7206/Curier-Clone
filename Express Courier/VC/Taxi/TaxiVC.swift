@@ -15,7 +15,7 @@ class TaxiVC: UIViewController {
     
     var selectIndexCVC: Int = 0
     var isNew: Bool = true
-    var headerTexts = ["Yangilar", "Ko'rilganlar"]
+    var headerTexts = ["taxi1".localized, "taxi2".localized]
     var refreshControl = UIRefreshControl()
     
     var newsTaxiDates: [GetNewsTaxiData]? = []
@@ -26,8 +26,8 @@ class TaxiVC: UIViewController {
     var newsDataTotal: Int = 0
     var historyDataTotal: Int = 0
     
-    var fromRegionText: String = "Viloyat, tuman"
-    var toRegionText: String = "Viloyat, tuman"
+    var fromRegionText: String = "region4".localized
+    var toRegionText: String = "region4".localized
     
     var fromRegionId: Int?
     var fromDistrictId: Int?
@@ -317,7 +317,7 @@ extension TaxiVC: TaxiFilterTVCDelegate {
         }
         self.fromRegionId = nil
         self.fromDistrictId = nil
-        self.fromRegionText = "Viloyat, tuman"
+        self.fromRegionText = "region4".localized
         if isNew {
             self.newsAllDates()
         } else {
@@ -332,7 +332,7 @@ extension TaxiVC: TaxiFilterTVCDelegate {
         }
         self.toRegionId = nil
         self.toDistrictId = nil
-        self.toRegionText = "Viloyat, tuman"
+        self.toRegionText = "region4".localized
         if isNew {
             self.newsAllDates()
         } else {

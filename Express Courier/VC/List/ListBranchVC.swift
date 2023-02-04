@@ -38,7 +38,7 @@ class ListBranchVC: UIViewController {
     }
     
     func setupNavigation() {
-        title = "Ro'yhatlar"
+        navigationItem.title = "list_title".localized
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = UIColor(named: "primary900")

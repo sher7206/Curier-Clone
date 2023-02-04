@@ -36,7 +36,7 @@ class DistributionVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Taqsimlash"
+        navigationItem.title = "list_toolbar3".localized
         uploadDistrict()
     }
     

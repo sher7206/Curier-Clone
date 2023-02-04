@@ -33,7 +33,7 @@ class SortVC: UIViewController {
     @IBOutlet weak var segmentControlOutlet: UISegmentedControl!
     
     var selectIndexCVC: Int = 0
-    var headerTexts = ["Barchasi", "Yo‘lda", "Yetkazilgan", "Bekor qilingan"]
+    var headerTexts = ["sort3".localized, "sort4".localized, "sort5".localized, "sort6".localized]
     
     var itemId: Int = 0
     var groupBy: String = "matter"
@@ -44,7 +44,9 @@ class SortVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Saralash"
+        navigationItem.title = "list_toolbar2".localized
+        segmentControlOutlet.setTitle("sort1".localized, forSegmentAt: 0)
+        segmentControlOutlet.setTitle("sort2".localized, forSegmentAt: 1)
         uploadData(status: status, groupBy: groupBy)
     }
     

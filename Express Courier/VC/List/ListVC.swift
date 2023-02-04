@@ -17,7 +17,7 @@ class ListVC: UIViewController {
     
     var itemId: Int = 0
     let search = UISearchController(searchResultsController: nil)
-    let headerTexts = ["Yo'lda", "Yetkazilgan", "Bekor qilingan"]
+    let headerTexts = ["list_child1".localized, "list_child2".localized, "list_child3".localized]
     var selectIndexCVC: Int = 0
     var backColor: UIColor =  UIColor(named: "primary900")!
     var backWhiteColor: UIColor = UIColor(named: "white300")!
@@ -34,22 +34,22 @@ class ListVC: UIViewController {
     
     var menuItems: [UIAction] {
         return [
-            UIAction(title: "Statistika", image: UIImage(named: "diagram-list"), handler: { (_) in
+            UIAction(title: "list_toolbar1".localized, image: UIImage(named: "diagram-list"), handler: { (_) in
                 let vc = ReportVC()
                 vc.itemId = self.itemId
                 self.navigationController?.pushViewController(vc, animated: true)
             }),
-            UIAction(title: "Hisoblash", image: UIImage(named: "math-list"), handler: { (_) in
+            UIAction(title: "list_toolbar2".localized, image: UIImage(named: "math-list"), handler: { (_) in
                 let vc = SortVC()
                 vc.itemId = self.itemId
                 self.navigationController?.pushViewController(vc, animated: true)
             }),
-            UIAction(title: "Taqsimlash", image: UIImage(named: "discount-circle-list"), handler: { (_) in
+            UIAction(title: "list_toolbar3".localized, image: UIImage(named: "discount-circle-list"), handler: { (_) in
                 let vc = DistributionVC()
                 vc.itemId = self.itemId
                 self.navigationController?.pushViewController(vc, animated: true)
             }),
-            UIAction(title: "Jurnal", image: UIImage(named: "note-list"), handler: { (_) in
+            UIAction(title: "list_toolbar4".localized, image: UIImage(named: "note-list"), handler: { (_) in
             })
         ]
     }
@@ -62,7 +62,7 @@ class ListVC: UIViewController {
         navigationItem.searchController = search
         search.searchResultsUpdater = self
         search.searchBar.delegate = self
-        search.searchBar.placeholder = "Id bo'yicha qidiring"
+        search.searchBar.placeholder = "list_child_search".localized
         search.hidesNavigationBarDuringPresentation = false
         search.searchBar.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50)
         self.extendedLayoutIncludesOpaqueBars = true

@@ -173,3 +173,45 @@ pochta_taymer8 = "Bekor qilish";
 pochta_buyurtma_olish1 = "Buyurtmani olib qolish";
 pochta_buyurtma_olish2 = "Buyurtmani olib qolishdan maqsad qanaqa edi?";
 pochta_buyurtma_olish3 = "Tasdiqlash";
+
+// <-- Taxi -->
+taxi1 = "Yangilar";
+taxi2 = "Ko'rilganlar";
+taxi3 = "Buyurtmani qabul qilish uchun mijozga qo'ng'iroq qilish";
+taxi4 = "Qo'ng'rioq qilish";
+taxi5 = "Old o'rindiq";
+
+// <-- Jamoa -->
+jamoa1 = "Afsus hozirda sizda hech qanday jamoadosh yo'q";
+jamoa2 = "Kuryer qo'shish";
+
+add_jamoa1 = "Ism familyasi";
+add_jamoa2 = "Ism va Familyasini to'liq yozing";
+add_jamoa3 = "Telefon raqam";
+add_jamoa4 = "Viloyatni tanlang";
+add_jamoa5 = "Manzilni tanlang";
+add_jamoa6 = "Tasdiqlash";
+
+delete_jamoa1 = "delete_jamoa1";
+delete_jamoa2 = "delete_jamoa2";
+delete_jamoa3 = "delete_jamoa3";
+
+// <-- List -->
+list_title = "Ro'yhatlar";
+list_child_search = "Id bo'yicha qidiring";
+list_child1 = "Yo'lda";
+list_child2 = "Yetkazilgan";
+list_child3 = "Bekor qilingan";
+list_child4 = "Tozalash";
+list_toolbar1 = "Statistika";
+list_toolbar2 = "Hisoblash";
+list_toolbar3 = "Taqsimlash";
+list_toolbar4 = "Jurnal";
+
+sort1 = "Jo'natma bo'yicha";
+sort2 = "Tuman bo'yicha";
+sort3 = "Barchasi";
+sort4 = "Yo'lda";
+sort5 = "Yetkazilgan";
+sort6 = "Bekor qilingan";
+sort7 = "Natija";

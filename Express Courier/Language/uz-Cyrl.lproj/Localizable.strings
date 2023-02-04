@@ -173,3 +173,45 @@ pochta_taymer8 = "Бекор қилиш";
 pochta_buyurtma_olish1 = "Буюртмани олиб қолиш";
 pochta_buyurtma_olish2 = "Буюртмани олиб қолишдан мақсад қанақа эди?";
 pochta_buyurtma_olish3 = "Тасдиқлаш";
+
+// <-- Taxi -->
+taxi1 = "Янгилар";
+taxi2 = "Кўрилганлар";
+taxi3 = "Буюртмани қабул қилиш учун мижозга қўнғироқ қилиш";
+taxi4 = "Қўнғриоқ қилиш";
+taxi5 = "Олд ўриндиқ";
+
+// <-- Jamoa -->
+jamoa1 = "Афсус ҳозирда сизда ҳеч қандай жамоадош йўқ";
+jamoa2 = "Курер қўшиш";
+
+add_jamoa1 = "Исм фамиляси";
+add_jamoa2 = "Исм ва Фамилясини тўлиқ ёзинг";
+add_jamoa3 = "Телефон рақам";
+add_jamoa4 = "Вилоятни танланг";
+add_jamoa5 = "Манзилни танланг";
+add_jamoa6 = "Тасдиқлаш";
+
+delete_jamoa1 = "delete_jamoa1";
+delete_jamoa2 = "delete_jamoa2";
+delete_jamoa3 = "delete_jamoa3";
+
+// <-- List -->
+list_title = "Рўйҳатлар";
+list_child_search = "Ид бўйича қидиринг";
+list_child1 = "Йўлда";
+list_child2 = "Етказилган";
+list_child3 = "Бекор қилинган";
+list_child4 = "Тозалаш";
+list_toolbar1 = "Статистика";
+list_toolbar2 = "Ҳисоблаш";
+list_toolbar3 = "Тақсимлаш";
+list_toolbar4 = "Журнал";
+
+sort1 = "Жўнатма бўйича";
+sort2 = "Туман бўйича";
+sort3 = "Барчаси";
+sort4 = "Йўлда";
+sort5 = "Етказилган";
+sort6 = "Бекор қилинган";
+sort7 = "Натижа";
