@@ -215,3 +215,9 @@ sort4 = "Yo'lda";
 sort5 = "Yetkazilgan";
 sort6 = "Bekor qilingan";
 sort7 = "Natija";
+
+// <<-- All Strings -->
+emptyLbl = "Hech narsa topilmadi!";
+tolovLbl = "Sizda to'lovlar tarixi mavjuda emas!";
+bildirishnomlarLbl = "Sizda bildirishnomalar mavjud emas!";
+newsLbl = "Sizda yangiliklar mavjud emas!";

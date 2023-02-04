@@ -61,7 +61,6 @@ reset_password4 = "Yangi parolni qayta kiriting";
 reset_password5 = "Parolingizni qayta kiriting";
 reset_password6 = "Kirish";
 
-
 // <-- Kabinet -->
 kabinet_main1 = "To'lovlar tarixi";
 kabinet_main2 = "Hisobni to'ldirish";
@@ -217,3 +216,8 @@ sort5 = "Yetkazilgan";
 sort6 = "Bekor qilingan";
 sort7 = "Natija";
 
+// <<-- All Strings -->
+emptyLbl = "Hech narsa topilmadi!";
+tolovLbl = "Sizda to'lovlar tarixi mavjuda emas!";
+bildirishnomlarLbl = "Sizda bildirishnomalar mavjud emas!";
+newsLbl = "Sizda yangiliklar mavjud emas!";
