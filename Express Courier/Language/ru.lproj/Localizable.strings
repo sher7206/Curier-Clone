@@ -151,3 +151,25 @@ pochta_desc19 = "Buyurtma olish";
 pochta_desc20 = "Aktivlashtirish";
 pochta_desc21 = "Qo'ng'iroq";
 pochta_desc22 = "Siz bu buyurtmani aktivlashtirmoqchimisiz?";
+
+pochta_bekor_qilish1 = "Buyurtmani bekor qilish";
+pochta_bekor_qilish2 = "Buyurtmani bekor qilishga sabab nma edi";
+pochta_bekor_qilish3 = "Izoh qoldiring";
+pochta_bekor_qilish4 = "Tasdiqlash";
+
+pochta_yetkazish1 = "Buyurtmani yakunlash";
+pochta_yetkazish2 = "Jo'natmani mijozga topshirilgan bo'lsa yetkazildi tugmasini bosing";
+pochta_yetkazish3 = "Yetkazildi";
+
+pochta_taymer1 = "Timer kiritish";
+pochta_taymer2 = "Sanasini kiriting";
+pochta_taymer3 = "Buyurtmaga taymer kiritishingizni sababi nima edi?";
+pochta_taymer4 = "Tasdiqlash";
+pochta_taymer5 = "Iltimos sanani kiriting";
+pochta_taymer6 = "Iltimos sababini kiriting";
+pochta_taymer7 = "Bajarildi";
+pochta_taymer8 = "Bekor qilish";
+
+pochta_buyurtma_olish1 = "Buyurtmani olib qolish";
+pochta_buyurtma_olish2 = "Buyurtmani olib qolishdan maqsad qanaqa edi?";
+pochta_buyurtma_olish3 = "Tasdiqlash";

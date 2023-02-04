@@ -46,6 +46,7 @@ class EnterTimerVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         textView.delegate = self
+        textView.text! = "pochta_bekor_qilish3".localized
         openAnimetion()
         showDatePicker()
         orderTypeReader()
@@ -61,24 +62,24 @@ class EnterTimerVC: UIViewController {
         switch orderType {
         case .taymer:
             hiddenStack.isHidden = false
-            reasonLbl.text = "Buyurtmaga taymer kiritishingizning sababi nima edi?"
-            viewNameLbl.text = "Timer kiritish"
-            confirmationLbl.text = "Tasdiqlash"
+            reasonLbl.text = "pochta_taymer3".localized
+            viewNameLbl.text = "pochta_taymer1".localized
+            confirmationLbl.text = "pochta_taymer4".localized
         case .takeOrder:
             hiddenStack.isHidden = true
-            reasonLbl.text = "Buyurtmani olib qolishdan maqsad qanaqa edi ?"
-            viewNameLbl.text = "Buyurtmani olib qolish"
-            confirmationLbl.text = "Tasdiqlash"
+            reasonLbl.text = "pochta_buyurtma_olish2".localized
+            viewNameLbl.text = "pochta_buyurtma_olish1".localized
+            confirmationLbl.text = "pochta_buyurtma_olish3".localized
         case .cancelOrder:
             hiddenStack.isHidden = true
-            reasonLbl.text = "Buyurtmani bekor qilishga sabab nima edi ?"
-            viewNameLbl.text = "Buyurtmani bekor qilish"
-            confirmationLbl.text = "Tasdiqlash"
+            reasonLbl.text = "pochta_bekor_qilish2".localized
+            viewNameLbl.text = "pochta_bekor_qilish1".localized
+            confirmationLbl.text = "pochta_bekor_qilish4".localized
         case .overOrder:
             hiddenStack.isHidden = true
-            reasonLbl.text = "Jo‘natma mijozga topshirilgan bo‘lsa  yetkazildi tugmasini bosing."
-            viewNameLbl.text = "Buyurtmani yakunlash"
-            confirmationLbl.text = "Yetkazildi"
+            reasonLbl.text = "pochta_yetkazish2".localized
+            viewNameLbl.text = "pochta_yetkazish1".localized
+            confirmationLbl.text = "pochta_yetkazish3".localized
         }
     }
     
@@ -170,12 +171,12 @@ class EnterTimerVC: UIViewController {
     
     @IBAction func confirmBtnPressed(_ sender: Any) {
         if textView.text.isEmpty{
-            Alert.showAlert(forState: .error, message: "Iltimos sababini kiriting", vibrationType: .error)
+            Alert.showAlert(forState: .error, message: "pochta_taymer6".localized, vibrationType: .error)
         }else{
             switch orderType {
             case .taymer:
                 if datetf.text!.isEmpty{
-                    Alert.showAlert(forState: .error, message: "Iltimos sanani kiriting", vibrationType: .error)
+                    Alert.showAlert(forState: .error, message: "pochta_taymer5".localized, vibrationType: .error)
                 }else{
                     enterTimerOrderPatch(reason: textView.text, date: datetf.text!)
                 }
@@ -207,9 +208,9 @@ extension EnterTimerVC {
         //ToolBar
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
-        let doneButton = UIBarButtonItem(title: "bajarildi", style: .plain, target: self, action: #selector(donedatePicker));
+        let doneButton = UIBarButtonItem(title: "pochta_taymer7".localized, style: .plain, target: self, action: #selector(donedatePicker));
         let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
-        let cancelButton = UIBarButtonItem(title: "Bekor qilish", style: .plain, target: self, action: #selector(cancelDatePicker));
+        let cancelButton = UIBarButtonItem(title: "pochta_taymer8".localized, style: .plain, target: self, action: #selector(cancelDatePicker));
         datePicker.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
         toolbar.setItems([doneButton,spaceButton,cancelButton], animated: false)
         

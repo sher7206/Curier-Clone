@@ -151,3 +151,25 @@ pochta_desc19 = "Буюртма олиш";
 pochta_desc20 = "Активлаштириш";
 pochta_desc21 = "Қўнғироқ";
 pochta_desc22 = "Сиз бу буюртмани активлаштирмоқчимисиз?";
+
+pochta_bekor_qilish1 = "Буюртмани бекор қилиш";
+pochta_bekor_qilish2 = "Буюртмани бекор қилишга сабаб нма эди";
+pochta_bekor_qilish3 = "Изоҳ қолдиринг";
+pochta_bekor_qilish4 = "Тасдиқлаш";
+
+pochta_yetkazish1 = "Буюртмани якунлаш";
+pochta_yetkazish2 = "Жўнатмани мижозга топширилган бўлса етказилди тугмасини босинг";
+pochta_yetkazish3 = "Етказилди";
+
+pochta_taymer1 = "Тимер киритиш";
+pochta_taymer2 = "Санасини киритинг";
+pochta_taymer3 = "Буюртмага таймер киритишингизни сабаби нима эди?";
+pochta_taymer4 = "Тасдиқлаш";
+pochta_taymer5 = "Илтимос санани киритинг";
+pochta_taymer6 = "Илтимос сабабини киритинг";
+pochta_taymer7 = "Бажарилди";
+pochta_taymer8 = "Бекор қилиш";
+
+pochta_buyurtma_olish1 = "Буюртмани олиб қолиш";
+pochta_buyurtma_olish2 = "Буюртмани олиб қолишдан мақсад қанақа эди?";
+pochta_buyurtma_olish3 = "Тасдиқлаш";

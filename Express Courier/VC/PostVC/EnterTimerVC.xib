@@ -86,6 +86,9 @@
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="pochta_taymer2"/>
+                                                    </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wQ1-A4-S85">
                                                     <rect key="frame" x="0.0" y="29.5" width="382" height="56"/>
@@ -93,11 +96,14 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="QDi-fJ-vWr">
                                                             <rect key="frame" x="16" y="8" width="350" height="40"/>
                                                             <subviews>
-                                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Sanani kiriting" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LZu-CQ-WaT">
+                                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LZu-CQ-WaT">
                                                                     <rect key="frame" x="0.0" y="9.5" width="310" height="21"/>
                                                                     <color key="backgroundColor" name="white500"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                     <textInputTraits key="textInputTraits"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="pochta_taymer2"/>
+                                                                    </userDefinedRuntimeAttributes>
                                                                 </textField>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar-post" translatesAutoresizingMaskIntoConstraints="NO" id="FKO-eE-xAb">
                                                                     <rect key="frame" x="326" y="8" width="24" height="24"/>
