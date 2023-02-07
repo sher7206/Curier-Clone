@@ -26,3 +26,7 @@ struct BecomeCourierRequest {
 struct NewRequest{
     var id: Int
 }
+
+struct RefreshTokenRequest {
+    var token: String
+}

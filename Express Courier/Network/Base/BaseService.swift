@@ -23,7 +23,7 @@ extension BaseService {
         // Send request and handle response.
         request.responseDecodable(queue: .global(qos: .background)) { response in
             // Monitor response.
-            AnalysisResponseMonitor<T>(response: response).monitor(completion: completion)
+            ResponseMonitor<T>(response: response).monitor(completion: completion)
         }
     }
 }

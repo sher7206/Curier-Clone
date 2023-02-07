@@ -5,7 +5,7 @@ import SwiftyJSON
 
 
 
-struct AnalysisResponseMonitor<T> where T: Codable {
+struct ResponseMonitor<T> where T: Codable {
     
     private let response: DataResponse<T, AFError>
     

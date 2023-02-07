@@ -102,7 +102,7 @@
 		2718BF87297183D100DC0A8A /* PostInsideTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2718BF81297183D100DC0A8A /* PostInsideTVC.xib */; };
 		2718BF8B297185C900DC0A8A /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2718BF89297185C900DC0A8A /* Cache.swift */; };
 		2718BF8C297185C900DC0A8A /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2718BF8A297185C900DC0A8A /* Keys.swift */; };
-		2718BFC5297186C700DC0A8A /* AnalysisResponseMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2718BF9B297186C700DC0A8A /* AnalysisResponseMonitor.swift */; };
+		2718BFC5297186C700DC0A8A /* ResponseMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2718BF9B297186C700DC0A8A /* ResponseMonitor.swift */; };
 		2718BFCC297186C700DC0A8A /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2718BFA3297186C700DC0A8A /* AuthResponse.swift */; };
 		2718BFCD297186C700DC0A8A /* NetworkDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2718BFA5297186C700DC0A8A /* NetworkDecoder.swift */; };
 		2718BFCE297186C700DC0A8A /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2718BFA6297186C700DC0A8A /* Header.swift */; };
@@ -298,7 +298,7 @@
 		2718BF81297183D100DC0A8A /* PostInsideTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostInsideTVC.xib; sourceTree = "<group>"; };
 		2718BF89297185C900DC0A8A /* Cache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		2718BF8A297185C900DC0A8A /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
-		2718BF9B297186C700DC0A8A /* AnalysisResponseMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalysisResponseMonitor.swift; sourceTree = "<group>"; };
+		2718BF9B297186C700DC0A8A /* ResponseMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseMonitor.swift; sourceTree = "<group>"; };
 		2718BFA3297186C700DC0A8A /* AuthResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
 		2718BFA5297186C700DC0A8A /* NetworkDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkDecoder.swift; sourceTree = "<group>"; };
 		2718BFA6297186C700DC0A8A /* Header.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
@@ -665,7 +665,7 @@
 		2718BF9A297186C700DC0A8A /* Monitor */ = {
 			isa = PBXGroup;
 			children = (
-				2718BF9B297186C700DC0A8A /* AnalysisResponseMonitor.swift */,
+				2718BF9B297186C700DC0A8A /* ResponseMonitor.swift */,
 			);
 			path = Monitor;
 			sourceTree = "<group>";
@@ -1338,7 +1338,7 @@
 				277388D52977DFA200054CC4 /* TeamService.swift in Sources */,
 				2718BF75297183B700DC0A8A /* ArrivedPostVC.swift in Sources */,
 				2718BFD0297186C700DC0A8A /* NetworkLogger.swift in Sources */,
-				2718BFC5297186C700DC0A8A /* AnalysisResponseMonitor.swift in Sources */,
+				2718BFC5297186C700DC0A8A /* ResponseMonitor.swift in Sources */,
 				27EC951F29797BFD00B567D5 /* BranchesTVC.swift in Sources */,
 				2718BFE0297186C700DC0A8A /* AuthService.swift in Sources */,
 				1858EFEA2976BF6C005A3492 /* PostRequest.swift in Sources */,
@@ -1531,7 +1531,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Express Courier/Express Courier.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = YM5H6L638F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Express Courier/Info.plist";
@@ -1567,7 +1567,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Express Courier/Express Courier.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = YM5H6L638F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Express Courier/Info.plist";

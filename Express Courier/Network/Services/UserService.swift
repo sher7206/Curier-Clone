@@ -58,7 +58,7 @@ struct UserService: BaseService {
         // Track progress and handle response.
         request.responseDecodable { response in
             //            print("Data")
-            AnalysisResponseMonitor<UpdateUserResponse>(response: response).monitor(completion: completion)
+            ResponseMonitor<UpdateUserResponse>(response: response).monitor(completion: completion)
         }
     }
     
@@ -83,7 +83,7 @@ struct UserService: BaseService {
         // Track progress and handle response.
         request.responseDecodable { response in
             //            print("Data")
-            AnalysisResponseMonitor<BecomeCourierResponse>(response: response).monitor(completion: completion)
+            ResponseMonitor<BecomeCourierResponse>(response: response).monitor(completion: completion)
         }
     }
     
