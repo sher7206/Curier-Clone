@@ -17,9 +17,6 @@ extension BaseService {
     func request<T: Codable>(_ convertible: Convertible,  completion: @escaping Completion<T>) {
         // Create a reqeust.
         let request = AF.request(convertible)
-//        if mode == .other {
-//            Utils.shared.showLoading()
-//        }
         // Send request and handle response.
         request.responseDecodable(queue: .global(qos: .background)) { response in
             // Monitor response.

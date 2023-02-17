@@ -30,10 +30,10 @@ struct ResponseMonitor<T> where T: Codable {
             // Check status code.
             if statusCode >= 200 && statusCode < 300 {
                 try inspectResult(completion: completion)
-               
+                
             } else {
-                guard let resposeData = response.data else {return}
-                let json = JSON(try JSONSerialization.jsonObject(with: resposeData, options: []))
+                guard let responseData = response.data else {return}
+                let json = JSON(try JSONSerialization.jsonObject(with: responseData, options: []))
                 throw NetworkError.unexpected(description: json["message"].stringValue)
             }
         } catch {
