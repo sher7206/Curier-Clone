@@ -60,7 +60,7 @@ typedef NSMapTable<NSString *, id<SDWebImageOperation>> SDOperationsDictionary;
             operation = [operationDictionary objectForKey:key];
         }
         if (operation) {
-            if ([operation respondsToSelector:@selector(cancel)]) {
+            if ([operation conformsToProtocol:@protocol(SDWebImageOperation)]) {
                 [operation cancel];
             }
             @synchronized (self) {

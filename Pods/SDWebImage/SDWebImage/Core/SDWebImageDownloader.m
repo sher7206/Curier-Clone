@@ -10,8 +10,6 @@
 #import "SDWebImageDownloaderConfig.h"
 #import "SDWebImageDownloaderOperation.h"
 #import "SDWebImageError.h"
-#import "SDWebImageCacheKeyFilter.h"
-#import "SDImageCacheDefine.h"
 #import "SDInternalMacros.h"
 
 NSNotificationName const SDWebImageDownloadStartNotification = @"SDWebImageDownloadStartNotification";
@@ -208,15 +206,6 @@ static void * SDWebImageDownloaderContext = &SDWebImageDownloaderContext;
     
     SD_LOCK(_operationsLock);
     id downloadOperationCancelToken;
-    // When different thumbnail size download with same url, we need to make sure each callback called with desired size
-    id<SDWebImageCacheKeyFilter> cacheKeyFilter = context[SDWebImageContextCacheKeyFilter];
-    NSString *cacheKey;
-    if (cacheKeyFilter) {
-        cacheKey = [cacheKeyFilter cacheKeyForURL:url];
-    } else {
-        cacheKey = url.absoluteString;
-    }
-    SDImageCoderOptions *decodeOptions = SDGetDecodeOptionsFromContext(context, [self.class imageOptionsFromDownloaderOptions:options], cacheKey);
     NSOperation<SDWebImageDownloaderOperation> *operation = [self.URLOperations objectForKey:url];
     // There is a case that the operation may be marked as finished or cancelled, but not been removed from `self.URLOperations`.
     if (!operation || operation.isFinished || operation.isCancelled) {
@@ -239,9 +228,9 @@ static void * SDWebImageDownloaderContext = &SDWebImageDownloaderContext;
             [self.URLOperations removeObjectForKey:url];
             SD_UNLOCK(self->_operationsLock);
         };
-        [self.URLOperations setObject:operation forKey:url];
+        self.URLOperations[url] = operation;
         // Add the handlers before submitting to operation queue, avoid the race condition that operation finished before setting handlers.
-        downloadOperationCancelToken = [operation addHandlersForProgress:progressBlock completed:completedBlock decodeOptions:decodeOptions];
+        downloadOperationCancelToken = [operation addHandlersForProgress:progressBlock completed:completedBlock];
         // Add operation to operation queue only after all configuration done according to Apple's doc.
         // `addOperation:` does not synchronously execute the `operation.completionBlock` so this will not cause deadlock.
         [self.downloadQueue addOperation:operation];
@@ -249,7 +238,7 @@ static void * SDWebImageDownloaderContext = &SDWebImageDownloaderContext;
         // When we reuse the download operation to attach more callbacks, there may be thread safe issue because the getter of callbacks may in another queue (decoding queue or delegate queue)
         // So we lock the operation here, and in `SDWebImageDownloaderOperation`, we use `@synchonzied (self)`, to ensure the thread safe between these two classes.
         @synchronized (operation) {
-            downloadOperationCancelToken = [operation addHandlersForProgress:progressBlock completed:completedBlock decodeOptions:decodeOptions];
+            downloadOperationCancelToken = [operation addHandlersForProgress:progressBlock completed:completedBlock];
         }
         if (!operation.isExecuting) {
             if (options & SDWebImageDownloaderHighPriority) {
@@ -269,18 +258,6 @@ static void * SDWebImageDownloaderContext = &SDWebImageDownloaderContext;
     token.downloadOperationCancelToken = downloadOperationCancelToken;
     
     return token;
-}
-
-#pragma mark Helper methods
-+ (SDWebImageOptions)imageOptionsFromDownloaderOptions:(SDWebImageDownloaderOptions)downloadOptions {
-    SDWebImageOptions options = 0;
-    if (downloadOptions & SDWebImageDownloaderScaleDownLargeImages) options |= SDWebImageScaleDownLargeImages;
-    if (downloadOptions & SDWebImageDownloaderDecodeFirstFrameOnly) options |= SDWebImageDecodeFirstFrameOnly;
-    if (downloadOptions & SDWebImageDownloaderPreloadAllFrames) options |= SDWebImagePreloadAllFrames;
-    if (downloadOptions & SDWebImageDownloaderAvoidDecodeImage) options |= SDWebImageAvoidDecodeImage;
-    if (downloadOptions & SDWebImageDownloaderMatchAnimatedImageClass) options |= SDWebImageMatchAnimatedImageClass;
-    
-    return options;
 }
 
 - (nullable NSOperation<SDWebImageDownloaderOperation> *)createDownloaderOperationWithUrl:(nonnull NSURL *)url
@@ -353,7 +330,9 @@ static void * SDWebImageDownloaderContext = &SDWebImageDownloaderContext;
     
     // Operation Class
     Class operationClass = self.config.operationClass;
-    if (!operationClass) {
+    if (operationClass && [operationClass isSubclassOfClass:[NSOperation class]] && [operationClass conformsToProtocol:@protocol(SDWebImageDownloaderOperation)]) {
+        // Custom operation class
+    } else {
         operationClass = [SDWebImageDownloaderOperation class];
     }
     NSOperation<SDWebImageDownloaderOperation> *operation = [[operationClass alloc] initWithRequest:request inSession:self.session options:options context:context];

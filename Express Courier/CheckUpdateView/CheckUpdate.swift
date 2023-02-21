@@ -1,8 +1,8 @@
 //
 //  CheckUpdate.swift
-//  Paywork-SwiftUI
+//  e-auksion.uz
 //
-//  Created by Asliddin Rasulov on 04/01/23.
+//  Created by Asliddin Rasulov on 13/09/22.
 //
 
 import UIKit
@@ -21,19 +21,21 @@ class AppInfo: Decodable {
 }
 
 class CheckUpdate: NSObject {
-
+    
     static let shared = CheckUpdate()
     
     
-    func showUpdate(withConfirmation: Bool) {
+    func showUpdate(withConfirmation: Bool, viewController: UIViewController) {
         DispatchQueue.global().async {
-            self.checkVersion(force : !withConfirmation)
+            self.checkVersion(force : !withConfirmation, viewController: viewController)
         }
     }
-  
-    private  func checkVersion(force: Bool) {
+    
+    private  func checkVersion(force: Bool, viewController: UIViewController) {
+        
         if let currentVersion = self.getBundle(key: "CFBundleShortVersionString") {
             _ = getAppInfo { (info, error) in
+                
                 if let appStoreAppVersion = info?.version {
                     if let error = error {
                         print("error getting app store version: ", error)
@@ -42,79 +44,77 @@ class CheckUpdate: NSObject {
                     } else {
                         print("Needs update: AppStore Version: \(appStoreAppVersion) > Current version: ",currentVersion)
                         DispatchQueue.main.async {
-                            let topController: UIViewController = (UIApplication.shared.key?.rootViewController)!
-                            topController.showAppUpdateAlert(Version: (info?.version)!, Force: force, AppURL: (info?.trackViewUrl)!)
+                            viewController.showAppUpdateAlert(Version: (info?.version)!, Force: force, AppURL: (info?.trackViewUrl)!)
                         }
                     }
                 }
             }
         }
     }
-
-    private func getAppInfo(completion: @escaping (AppInfo?, Error?) -> Void) -> URLSessionDataTask? {
     
-      // You should pay attention on the country that your app is located, in my case I put Brazil */br/*
-      // Você deve prestar atenção em que país o app está disponível, no meu caso eu coloquei Brasil */br/*
-      
+    private func getAppInfo(completion: @escaping (AppInfo?, Error?) -> Void) -> URLSessionDataTask? {
+        
+        // You should pay attention on the country that your app is located, in my case I put Brazil */br/*
+        // Você deve prestar atenção em que país o app está disponível, no meu caso eu coloquei Brasil */br/*
+        
         guard let identifier = self.getBundle(key: "CFBundleIdentifier"),
               let url = URL(string: "http://itunes.apple.com/br/lookup?bundleId=\(identifier)") else {
-                DispatchQueue.main.async {
-                    completion(nil, VersionError.invalidBundleInfo)
-                }
-                return nil
+            DispatchQueue.main.async {
+                completion(nil, VersionError.invalidBundleInfo)
+            }
+            return nil
         }
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-          
             
-                do {
-                    if let error = error { throw error }
-                    guard let data = data else { throw VersionError.invalidResponse }
-                    
-                    let result = try JSONDecoder().decode(LookupResult.self, from: data)
-                    print(result.results)
-                    guard let info = result.results.first else {
-                        throw VersionError.invalidResponse
-                    }
-
-                    completion(info, nil)
-                } catch {
-                    completion(nil, error)
+            do {
+                if let error = error { throw error }
+                guard let data = data else { throw VersionError.invalidResponse }
+                
+                let result = try JSONDecoder().decode(LookupResult.self, from: data)
+                print(result.results)
+                guard let info = result.results.first else {
+                    throw VersionError.invalidResponse
                 }
+
+                completion(info, nil)
+            } catch {
+                completion(nil, error)
             }
+        }
         
         task.resume()
         return task
-
+        
     }
-
+    
     func getBundle(key: String) -> String? {
-
+        
         guard let filePath = Bundle.main.path(forResource: "Info", ofType: "plist") else {
-          fatalError("Couldn't find file 'Info.plist'.")
+            fatalError("Couldn't find file 'Info.plist'.")
         }
         // 2 - Add the file to a dictionary
         let plist = NSDictionary(contentsOfFile: filePath)
         // Check if the variable on plist exists
         guard let value = plist?.object(forKey: key) as? String else {
-          fatalError("Couldn't find key '\(key)' in 'Info.plist'.")
+            fatalError("Couldn't find key '\(key)' in 'Info.plist'.")
         }
         return value
     }
 }
 
 extension UIViewController {
-    @objc fileprivate func showAppUpdateAlert( Version : String, Force: Bool, AppURL: String) {
-        guard let appName = CheckUpdate.shared.getBundle(key: "CFBundleDisplayName") else { return }
+    func showAppUpdateAlert( Version : String, Force: Bool, AppURL: String) {
+        guard let appName = CheckUpdate.shared.getBundle(key: "CFBundleDisplayName") else { return } //Bundle.appName()
         let alertTitle = "New version"
         let alertMessage = "A new version of \(appName) is available on AppStore. Update now!"
-
+        
         let alertController = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
-
-        if !Force {
+        
+        if Force {
             let notNowButton = UIAlertAction(title: "Not now", style: .default)
             alertController.addAction(notNowButton)
         }
-
+        
         let updateButton = UIAlertAction(title: "Update", style: .default) { (action:UIAlertAction) in
             guard let url = URL(string: AppURL) else {
                 return
@@ -125,8 +125,13 @@ extension UIViewController {
                 UIApplication.shared.openURL(url)
             }
         }
-
+        
         alertController.addAction(updateButton)
         self.present(alertController, animated: true, completion: nil)
     }
 }
+
+
+
+
+

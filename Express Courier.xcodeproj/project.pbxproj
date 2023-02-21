@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1839E626299FC62C0044F602 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1839E625299FC62C0044F602 /* UserDefaults.swift */; };
+		1839E628299FC6370044F602 /* LocalizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1839E627299FC6370044F602 /* LocalizationManager.swift */; };
 		1858EFC829757FED005A3492 /* ReportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1858EFC629757FED005A3492 /* ReportVC.swift */; };
 		1858EFC929757FED005A3492 /* ReportVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1858EFC729757FED005A3492 /* ReportVC.xib */; };
 		1858EFCC29758059005A3492 /* ReportTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1858EFCA29758059005A3492 /* ReportTVC.swift */; };
@@ -195,11 +197,11 @@
 		27EC9528297981FA00B567D5 /* BranchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC9527297981FA00B567D5 /* BranchService.swift */; };
 		305AA461FD9762D2FB4069B3 /* Pods_Express_Courier.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7515E66C971F51E4D1D05754 /* Pods_Express_Courier.framework */; };
 		376F1B26298D0F2A00177DF6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 376F1B28298D0F2A00177DF6 /* Localizable.strings */; };
-		376F1B2E298D0F5B00177DF6 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376F1B2C298D0F5B00177DF6 /* UserDefaults.swift */; };
-		376F1B2F298D0F5B00177DF6 /* LocalizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376F1B2D298D0F5B00177DF6 /* LocalizationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1839E625299FC62C0044F602 /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		1839E627299FC6370044F602 /* LocalizationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizationManager.swift; sourceTree = "<group>"; };
 		1858EFC629757FED005A3492 /* ReportVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportVC.swift; sourceTree = "<group>"; };
 		1858EFC729757FED005A3492 /* ReportVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReportVC.xib; sourceTree = "<group>"; };
 		1858EFCA29758059005A3492 /* ReportTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTVC.swift; sourceTree = "<group>"; };
@@ -395,8 +397,6 @@
 		376F1B29298D0F2D00177DF6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		376F1B2A298D0F2E00177DF6 /* uz */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uz; path = uz.lproj/Localizable.strings; sourceTree = "<group>"; };
 		376F1B2B298D0F2F00177DF6 /* uz-Cyrl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "uz-Cyrl"; path = "uz-Cyrl.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		376F1B2C298D0F5B00177DF6 /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserDefaults.swift; path = ../../../../Downloads/UserDefaults.swift; sourceTree = "<group>"; };
-		376F1B2D298D0F5B00177DF6 /* LocalizationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocalizationManager.swift; path = ../../../../Downloads/LocalizationManager.swift; sourceTree = "<group>"; };
 		7515E66C971F51E4D1D05754 /* Pods_Express_Courier.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Express_Courier.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AECA3B6FA7DD6CDF1FF69094 /* Pods-Express Courier.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Express Courier.release.xcconfig"; path = "Target Support Files/Pods-Express Courier/Pods-Express Courier.release.xcconfig"; sourceTree = "<group>"; };
 		AFA739C01BEB9A5F6B80A6C5 /* Pods-Express Courier.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Express Courier.debug.xcconfig"; path = "Target Support Files/Pods-Express Courier/Pods-Express Courier.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1056,8 +1056,8 @@
 		37756893298D0DA600FD313A /* Language */ = {
 			isa = PBXGroup;
 			children = (
-				376F1B2D298D0F5B00177DF6 /* LocalizationManager.swift */,
-				376F1B2C298D0F5B00177DF6 /* UserDefaults.swift */,
+				1839E625299FC62C0044F602 /* UserDefaults.swift */,
+				1839E627299FC6370044F602 /* LocalizationManager.swift */,
 				376F1B28298D0F2A00177DF6 /* Localizable.strings */,
 			);
 			path = Language;
@@ -1352,8 +1352,8 @@
 				1858EFD429758C9B005A3492 /* SortTVC.swift in Sources */,
 				277388D12977DD9D00054CC4 /* TeamResponse.swift in Sources */,
 				18DA32E7296C0D430066FF9C /* MainTabBarController.swift in Sources */,
-				376F1B2E298D0F5B00177DF6 /* UserDefaults.swift in Sources */,
-				376F1B2F298D0F5B00177DF6 /* LocalizationManager.swift in Sources */,
+				1839E626299FC62C0044F602 /* UserDefaults.swift in Sources */,
+				1839E628299FC6370044F602 /* LocalizationManager.swift in Sources */,
 				277388E32978106A00054CC4 /* OtpVC.swift in Sources */,
 				18DE66C62966C940003324A5 /* Ex+UIView.swift in Sources */,
 				18AF68DA296836DE00B35B64 /* HeaderCVC.swift in Sources */,
@@ -1531,12 +1531,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Express Courier/Express Courier.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = YM5H6L638F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Express Courier/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Express - Kuryer";
-				INFOPLIST_KEY_NSCameraUsageDescription = "camera use";
+				INFOPLIST_KEY_NSCameraUsageDescription = "If you want to show barcode or change your profile photo you should access to use camera";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "This application wants to access your FaceID scanner";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -1567,12 +1567,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Express Courier/Express Courier.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = YM5H6L638F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Express Courier/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Express - Kuryer";
-				INFOPLIST_KEY_NSCameraUsageDescription = "camera use";
+				INFOPLIST_KEY_NSCameraUsageDescription = "If you want to show barcode or change your profile photo you should access to use camera";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "This application wants to access your FaceID scanner";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
