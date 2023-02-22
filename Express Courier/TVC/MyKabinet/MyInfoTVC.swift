@@ -27,8 +27,11 @@ class MyInfoTVC: UITableViewCell {
     
     func updateCell(data: UserDM?) {
         self.personImage.sd_imageIndicator = SDWebImageActivityIndicator.gray
+        
+        
         self.personImage.sd_setImage(with: URL(string: data?.avatar ?? "")) { img, _, _, _ in
             if let _ = img {
+                
             } else {
                 self.personImage.image = UIImage(systemName: "person")?.withTintColor(.black, renderingMode: .alwaysOriginal)
             }

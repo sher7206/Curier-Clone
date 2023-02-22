@@ -112,6 +112,7 @@ class SettingsVC: UIViewController {
                 Cache.saveUser(user: user)
                 Loader.stop()
                 self.resetTabBar()
+                print(Cache.getUser(),"😅😅😅😅😅😅")
             case.failure(let error):
                 print(error.localizedDescription)
                 Loader.stop()
