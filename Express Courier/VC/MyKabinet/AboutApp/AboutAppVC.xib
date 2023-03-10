@@ -12,7 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AboutAppVC" customModule="Express_Courier" customModuleProvider="target">
             <connections>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
-                <outlet property="webView" destination="x5U-cj-EXV" id="nEh-yS-5LK"/>
+                <outlet property="webView" destination="DK8-jT-KoL" id="BK0-JZ-Ma1"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -20,18 +20,18 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x5U-cj-EXV" customClass="UIWebView">
+                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DK8-jT-KoL">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                </view>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </webView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="x5U-cj-EXV" secondAttribute="trailing" id="0Yb-5i-7Ak"/>
-                <constraint firstAttribute="bottom" secondItem="x5U-cj-EXV" secondAttribute="bottom" id="KBr-bN-vaC"/>
-                <constraint firstItem="x5U-cj-EXV" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="aQY-3D-ntq"/>
-                <constraint firstItem="x5U-cj-EXV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="vr5-TS-HX0"/>
+                <constraint firstItem="DK8-jT-KoL" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="1NA-ZG-nZv"/>
+                <constraint firstItem="DK8-jT-KoL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="P8e-ZO-0Mi"/>
+                <constraint firstAttribute="bottom" secondItem="DK8-jT-KoL" secondAttribute="bottom" id="WB9-Vz-vfr"/>
+                <constraint firstAttribute="trailing" secondItem="DK8-jT-KoL" secondAttribute="trailing" id="eE6-hM-2bp"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="19.419642857142858"/>
         </view>

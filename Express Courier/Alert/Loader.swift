@@ -8,13 +8,13 @@ public class Loader {
     
     ///Shows custom Alert for a while
     class func start() {
-
+        
         let loadV = LoaderView()
         loadV.tag = 19995
         loadV.frame = UIScreen.main.bounds
         let customView = LottieAnimationView()
         customView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-                
+        
         loadV.animationView.addSubview(customView)
         customView.translatesAutoresizingMaskIntoConstraints = false
         customView.centerXAnchor.constraint(equalTo: loadV.animationView.centerXAnchor).isActive = true
@@ -23,7 +23,7 @@ public class Loader {
         customView.widthAnchor.constraint(equalToConstant: 160).isActive = true
         
         customView.backgroundColor = .clear
-        if let view = UIApplication.shared.keyWindow {
+        if let view = UIApplication.shared.windows.filter({$0.isKeyWindow}).first {
             view.addSubview(loadV)
             customView.animation = LottieAnimation.named("loader")
             customView.animationSpeed = 1.5
@@ -33,7 +33,7 @@ public class Loader {
     }
     class func stop() {
         DispatchQueue.main.async {
-            for i in UIApplication.shared.keyWindow!.subviews {
+            for i in UIApplication.shared.windows.filter ({$0.isKeyWindow}).first!.subviews {
                 if i.tag == 19995 {
                     if let view = i as? LoaderView {
                         view.removeFromSuperview()

@@ -6,18 +6,24 @@
 //
 
 import UIKit
-
+import WebKit
 
 class AboutAppVC: UIViewController {
     
-    
-    @IBOutlet weak var webView: UIWebView!
+    /// Outlets
+    @IBOutlet weak var webView: WKWebView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setupData()
+    }
+    
+    func setupData() {
         navigationItem.title = "100k.uz"
         guard let url = URL (string: "https://yuzka.uz/") else {return}
         let requestObj = URLRequest(url: url)
-        webView.loadRequest(requestObj)
+        DispatchQueue.main.async {
+            self.webView.load(requestObj)
+        }
     }
 }

@@ -79,8 +79,10 @@ class ScannerVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
             previewView.layer.addSublayer(videoPreviewLayer!)
             
             //start video capture
-            captureSession?.startRunning()
             
+            DispatchQueue.global(qos: .background).async {
+                self.captureSession?.startRunning()
+            }
         } catch {
             //If any error occurs, simply print it out
             print(error)
@@ -92,7 +94,9 @@ class ScannerVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     override func viewWillAppear(_ animated: Bool) {
         //     navigationController?.setNavigationBarHidden(true, animated: false)
         
-        self.captureSession?.startRunning()
+        DispatchQueue.global(qos: .background).async {
+            self.captureSession?.startRunning()
+        }
     }
     
     // Find a camera with the specified AVCaptureDevicePosition, returning nil if one is not found
